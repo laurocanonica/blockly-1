@@ -449,10 +449,14 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 
 		//window.alert(value_matlist);
 		  if (value_matlist!=""){
-			  matString = value_matlist.replace(/\(/gm,"\n\t[").replace(/,\)/gm,"]")+',[\n'; // fix parenthesis
+			 // matString = value_matlist.replace(/\(/gm,"\n\t[").replace(/,\)/gm,"]")+',[\n'; // fix parenthesis
+				matString= value_matlist.replace(/\[/,"[[");
+				matString= matString.replace(/,, /gm,"],\n[");
+				matString= matString.replace(/,]/,"]],\n[");
 		  } else {
 		  	matString="[], [";
 		  }
+		//window.alert(matString);
 		  
 		  var code = 'CMD.createDrawing(nextLocation, ';
 		  code += matString;
