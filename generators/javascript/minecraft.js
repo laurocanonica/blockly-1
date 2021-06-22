@@ -456,6 +456,7 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 		  } else {
 		  	matString="[], [";
 		  }
+
 		//window.alert(matString);
 		  
 		  var code = 'CMD.createDrawing(nextLocation, ';
