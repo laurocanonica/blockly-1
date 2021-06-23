@@ -42,7 +42,8 @@ var Code = {};
 Code.LANGUAGE_NAME = {
 		  'en': 'English',
 		  'de': 'Deutsch',
-		  'it': 'Italiano'
+		  'it': 'Italiano',
+ 		  'nb': 'Norsk'
 };
 
 Code.LANGUAGE_NAME_originalList = {
