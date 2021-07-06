@@ -326,7 +326,10 @@ Code.renderContent = function() {
     xmlTextarea.focus();
   } else if (content.id == 'content_javascript') {
     Code.attemptCodeGeneration(Blockly.JavaScript);
+  } else if (content.id == 'content_log') {
+    Code.loadLog();
   } 
+
   if (typeof PR == 'object') {
     PR.prettyPrint();
   }
@@ -688,12 +691,11 @@ Code.loadLog = function() {
 	var hpath=host+'/LOG';
 	var formData = new FormData(); 
 	formData.append('Playername', playerName);
-   
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", hpath, true); 
 	xhr.timeout = 2000; 
 	xhr.onload=function(event){
-	   logTextarea.value =xhr.responseText;  			   
+	   logTextarea.value =xhr.responseText;		   
 	}; 
 	xhr.onerror=function(event){ 
 	   logTextarea.value ='ERROR Connecting server\n'+xhr.responseText; 

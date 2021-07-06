@@ -20,5 +20,19 @@ var MSG = {
   linkAlert: "Del dine blokker med denne lenken:\n\n%1",
   hashError: "Beklager, '%1' samsvarer ikke med noe lagret program.",
   xmlError: "Kunne ikke laste inn filen. Kanskje den ble laget med en annen versjon av Blockly?",
-  badXml: "Feil ved parsering av XML:\n%1\n\nVelg 'OK' for å avbryte endringene eller 'Cancel' for å fortsette å redigere XML-koden."
+  badXml: "Feil ved parsering av XML:\n%1\n\nVelg 'OK' for å avbryte endringene eller 'Cancel' for å fortsette å redigere XML-koden.",
+
+c_Objects : "Objekter",
+c_Time : "Tid",
+c_Movement : "Bevegelse",
+c_Actions : "Handlinger",
+c_Drawing : "Tegning",
+c_Events : "arrangementer",
+c_Operators : "Bare op",
+c_Examples : "Eksempler",
+t_saveTooltip : "Lagre programmet på datamaskinen",
+t_readTooltip : "Laste inn et program fra datamaskinen",
+warn_entername :  "MINECRAFT SPILLER NAVN mangler øverst til høyre",
+info_deploySuccess :  "Programmet er klart i Minecraft for %2",
+info_deploySuccessWithWarning :  "Programmet er klart i Minecraft, men %2 er ikke online"
 };
