@@ -729,7 +729,7 @@ Code.loadExamplesList = function() {
 
 Code.loadExampleXML = function(xmlFile) {
 	var host='http://'+window.location.host; 
-	var hpath=host+'/EXAMPLENAME?ExampleImage='+xmlFile;
+	var hpath=host+'/EXAMPLENAME?ExampleFile='+xmlFile;
 	var formData = new FormData(); 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", hpath, true); 
@@ -819,7 +819,7 @@ function addExamplesToModal(exampleNames){
 		  var td = document.createElement('td');
 		  var img = document.createElement('img');
 	      img.id = exampleName+".xml";
-	      img.src = '/EXAMPLENAME?ExampleImage='+exampleName+".png";
+	      img.src = '/EXAMPLENAME?ExampleFile='+exampleName+".png";
 	      img.width=200;
 	      img.height=130;
 	      img.addEventListener('click', function (e) {
