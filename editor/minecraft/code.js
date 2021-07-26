@@ -504,7 +504,7 @@ Code.init = function() {
   		});
   		
   // drag and drop files  ---------------------
-  		let dropArea = document.getElementById('modalDeployResultMessage');
+ let dropArea = document.getElementById('modalDeployResultMessage');
 
       dropArea.addEventListener('dragstart', Code.preventDefaults, false)
   	  dropArea.addEventListener('dragenter', Code.preventDefaults, false)
@@ -534,7 +534,7 @@ Code.init = function() {
   setTimeout(callGoogleAnalytics, 3000);  // if we are offline we don't want to wait
   setTimeout(setUpModalForLoadingExamples, 2000);  // speed up loading of main page
 
-  setUpModalForLoadingExamples();
+  //setUpModalForLoadingExamples();
 
   Code.serverNeedsUpdate=true;
   Code.workspace.addChangeListener(setServerNeedsUpdate);
@@ -699,9 +699,52 @@ Code.loadLog = function() {
 	}; 
 	xhr.onerror=function(event){ 
 	   logTextarea.value ='ERROR Connecting server\n'+xhr.responseText; 
+       console.log('ERROR Connecting server\n'+xhr.responseText)
 	}; 
 	xhr.ontimeout = function (e) {
 	   logTextarea.value ="TIMEOUT Connecting server\n  "+xhr.responseText; 
+       console.log('TIMEOUT Connecting server\n'+xhr.responseText)
+	};
+	xhr.send(formData);	   
+};
+
+Code.loadExamplesList = function() {
+	var host='http://'+window.location.host; 	   
+	var hpath=host+'/EXAMPLELIST';
+	var formData = new FormData(); 
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", hpath, true); 
+	xhr.timeout = 2000; 
+	xhr.onload=function(event){
+	   addExamplesToModal(xhr.responseText);		   
+	}; 
+	xhr.onerror=function(event){ 
+       console.log('ERROR Connecting server for loading list of examples\n'+xhr.responseText)
+	}; 
+	xhr.ontimeout = function (e) {
+       console.log('TIMEOUT Connecting server for loading list of examples\n'+xhr.responseText)
+	};
+	xhr.send(formData);	   
+};
+
+Code.loadExampleXML = function(xmlFile) {
+	var host='http://'+window.location.host; 
+	var hpath=host+'/EXAMPLENAME?ExampleImage='+xmlFile;
+	var formData = new FormData(); 
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", hpath, true); 
+	xhr.timeout = 2000; 
+	xhr.onload=function(event){
+		var outxml = Blockly.Xml.textToDom(xhr.responseText);
+		Blockly.Xml.domToWorkspace(outxml, Code.workspace);
+		var modal = document.getElementById('myModal');
+		modal.style.display = "none";
+	}; 
+	xhr.onerror=function(event){ 
+       console.log('ERROR Connecting server for loading list of examples\n'+xhr.responseText)
+	}; 
+	xhr.ontimeout = function (e) {
+       console.log('TIMEOUT Connecting server for loading list of examples\n'+xhr.responseText)
 	};
 	xhr.send(formData);	   
 };
@@ -758,8 +801,42 @@ function setExample(id, title, xmlfile, pngfile){
 	
 }
 
+function addExamplesToModal(exampleNames){
+	const exampleArr = exampleNames.split(",");
+	const nrExamples=exampleArr.length;
+	const nrCols=4;
+	var table = document.createElement('table');
+	for (var i = 0; i < 30; i++) {
+		if(i*nrCols>nrExamples){
+			break
+		}
+	  var tr = document.createElement('tr');
+		for (var j = 0; j < nrCols; j++) {
+		if(i*nrCols+j>=nrExamples){
+			break
+		}
+		  var exampleName=exampleArr[i*nrCols+j];
+		  var td = document.createElement('td');
+		  var img = document.createElement('img');
+	      img.id = exampleName+".xml";
+	      img.src = '/EXAMPLENAME?ExampleImage='+exampleName+".png";
+	      img.width=200;
+	      img.height=130;
+	      img.addEventListener('click', function (e) {
+		  alert(e.target.id);
+          Code.loadExampleXML(e.target.id);
+
+});
+		  tr.appendChild(td);
+		  td.appendChild(img);
+	    }
+	  table.appendChild(tr);
+    }
+	document.getElementById('myModalContent').appendChild(table);
+}
+
 function setUpModalForLoadingExamples(){
-	
+	Code.loadExamplesList();
 	document.getElementById('openModalButton').textContent = MSG['c_Examples'];
 	document.getElementById('openModalTitle').textContent = MSG['c_Examples'];
 	
