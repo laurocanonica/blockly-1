@@ -34,10 +34,7 @@
     cursor: pointer;
 }
 
-.tg  {border-collapse:collapse;border-spacing:0;width:600px;background-color: #516a32;margin:auto;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:0px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px}
-.tg .tg-cell{font-size:18px;text-align:center;vertical-align:top}
-.tg .tg-cell-lab{font-size:18px;text-align:center;vertical-align:top;border-top-width: 0px;text-align: center;background-color: #94aebb}
+.tg  {background-color: #e5e5e5;margin:auto;border-collapse: separate;}
 
 .modalDeployResultMessageStyle  {
 	margin:auto;

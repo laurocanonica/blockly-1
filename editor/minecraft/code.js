@@ -792,20 +792,13 @@ Code.discard = function() {
   }
 };
 
-function setExample(id, title, xmlfile, pngfile){
-	document.getElementById(id+'Text').textContent = MSG[title];
-	document.getElementById(id+'Button').title = xmlfile;
-	document.getElementById(id+'Image').src = pngfile;
-	document.getElementById(id+'Image').alt = MSG[title];
-	Code.bindClick(id+'Button', Code.loadExampleCode);
-	
-}
+
 
 function addExamplesToModal(exampleNames){
 	const exampleArr = exampleNames.split(",");
 	const nrExamples=exampleArr.length;
 	const nrCols=4;
-	var table = document.createElement('table');
+	var table = document.getElementById('myModalContentTable');
 	for (var i = 0; i < 30; i++) {
 		if(i*nrCols>nrExamples){
 			break
@@ -823,8 +816,11 @@ function addExamplesToModal(exampleNames){
 	      img.width=200;
 	      img.height=130;
 	      img.addEventListener('click', function (e) {
-		  alert(e.target.id);
-          Code.loadExampleXML(e.target.id);
+		  if(confirm(MSG['t_readTooltip']+' ?')){
+ 	         Code.loadExampleXML(e.target.id);	
+			 var modal=document.getElementById('myModal');		
+	         modal.style.display = "none";
+		}
 
 });
 		  tr.appendChild(td);
@@ -832,47 +828,12 @@ function addExamplesToModal(exampleNames){
 	    }
 	  table.appendChild(tr);
     }
-	document.getElementById('myModalContent').appendChild(table);
 }
 
 function setUpModalForLoadingExamples(){
 	Code.loadExamplesList();
 	document.getElementById('openModalButton').textContent = MSG['c_Examples'];
-	document.getElementById('openModalTitle').textContent = MSG['c_Examples'];
 	
-	setExample('ex1', 'c_Sphere', 'examples/Sphere.xml', 'examples/Sphere.png')
-	setExample('ex2', 'c_Tower', 'examples/Tower.xml', 'examples/Tower.png')
-	setExample('ex3', 'c_Slide', 'examples/Slide.xml', 'examples/Slide.png')
-	setExample('ex4', 'c_Eiffel', 'examples/Eiffel_Tower.xml', 'examples/Eiffel_Tower.png')
-	setExample('ex5', 'c_Medusa', 'examples/Medusa.xml', 'examples/Medusa.png')
-	setExample('ex6', 'c_Train', 'examples/Train.xml', 'examples/Train.png')
-	setExample('ex7', 'c_SpaceShip', 'examples/SpaceShip.xml', 'examples/SpaceShip.png')
-	setExample('ex8', 'c_Pumpkin', 'examples/Pumpkin.xml', 'examples/Pumpkin.png')
-	setExample('ex9', 'c_Labirinth', 'examples/Labirinth.xml', 'examples/Labirinth.png')
-	setExample('ex10', 'c_Door', 'examples/Door.xml', 'examples/Door.png')
-	setExample('ex11', 'c_Bridge', 'examples/Bridge.xml', 'examples/Bridge.png')
-	setExample('ex12', 'c_Orientation', 'examples/Orientation.xml', 'examples/Orientation.png')
-	setExample('ex13', 'c_Stadium', 'examples/Stadium.xml', 'examples/Stadium.png')
-	setExample('ex14', 'c_Boat', 'examples/Boat.xml', 'examples/Boat.png')
-	setExample('ex15', 'c_Disco', 'examples/Disco.xml', 'examples/Disco.png')
-	setExample('ex16', 'c_Sail', 'examples/Vessel.xml', 'examples/Vessel.png')
-	setExample('ex17', 'c_Skull', 'examples/Skull.xml', 'examples/Skull.png')
-	setExample('ex18', 'c_Pool', 'examples/Pool.xml', 'examples/Pool.png')
-	setExample('ex19', 'c_Tennis', 'examples/Tennis.xml', 'examples/Tennis.png')
-	setExample('ex20', 'c_Coca', 'examples/Coca.xml', 'examples/Coca.png')
-	setExample('ex21', 'c_Bell', 'examples/Bell.xml', 'examples/Bell.png')
-	setExample('ex22', 'c_Renna', 'examples/Renna.xml', 'examples/Renna.png')
-	setExample('ex23', 'c_Regalo', 'examples/Regalo.xml', 'examples/Regalo.png')
-	setExample('ex24', 'c_Pino', 'examples/Pino.xml', 'examples/Pino.png')
-	setExample('ex25', 'c_Calendar', 'examples/Calendar.xml', 'examples/Calendar.png')
-	setExample('ex26', 'c_MountPolar', 'examples/MountPolar.xml', 'examples/MountPolar.png')
-	setExample('ex27', 'c_StairSpiral', 'examples/StairSpiral.xml', 'examples/StairSpiral.png')
-	setExample('ex28', 'c_Temple', 'examples/Temple.xml', 'examples/Temple.png')
-	setExample('ex29', 'c_Parkour', 'examples/Parkour.xml', 'examples/Parkour.png')
-	setExample('ex30', 'c_Millennium', 'examples/Millennium.xml', 'examples/Millennium.png')
-	setExample('ex31', 'c_Piano', 'examples/Piano.xml', 'examples/Piano.png')
-	setExample('ex32', 'c_Empty', 'examples/Empty.xml', 'examples/Empty.png')
-
 	
 	//Get the modal
 	var modal = document.getElementById('myModal');
@@ -900,25 +861,6 @@ function setUpModalForLoadingExamples(){
 	    }
 	}
 }
-
-Code.loadExampleCode = function() {
-	loadExampleFiles(this.title);
-}
-
-function loadExampleFiles(filename) {   
-    var xobj = new XMLHttpRequest();
-    xobj.open('GET', filename, true); 
-    xobj.onload=function(event){ 
-		 //alert("hsuccess call "+xobj.responseText);
-		 var outxml = Blockly.Xml.textToDom(xobj.responseText);
-		 Blockly.Xml.domToWorkspace(outxml, Code.workspace);
-	   }; 
-	xobj.onerror=function(event){ alert("ERROR status="+xobj.statusText+"  msg="+xobj.responseText); }; 
-	xobj.send(null);
-	var modal = document.getElementById('myModal');
-	modal.style.display = "none";
- }
-
 
 
 
