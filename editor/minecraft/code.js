@@ -503,21 +503,6 @@ Code.init = function() {
   			Code.loadFile(fileInput.files);
   		});
   		
-  // drag and drop files  ---------------------
- let dropArea = document.getElementById('modalDeployResultMessage');
-
-      dropArea.addEventListener('dragstart', Code.preventDefaults, false)
-  	  dropArea.addEventListener('dragenter', Code.preventDefaults, false)
-  	  dropArea.addEventListener('dragleave', Code.preventDefaults, false)
-  	  dropArea.addEventListener('dragover', Code.preventDefaults, false)
-  		document.documentElement.addEventListener('drop', function(e){
-  			//window.alert("dropped");
-  			Code.preventDefaults(e)
-  			e.dataTransfer.dropEffect = 'copy';
-  		  let dt = e.dataTransfer;
-  		  let files = dt.files
-			Code.loadFile(files);		
-  		}, false)
 
 
   // Lazy-load the syntax-highlighting.
@@ -754,21 +739,19 @@ function displayResultMessage(message, color){
 	if (color=="green") {
 		subcolor="#c6f1bc"
 	} else 	if (color=="yellow") {
-		subcolor="##f1d967"
+		subcolor="#f1d967"
 	} else 	if (color=="red") {
 		subcolor="#ffb6b6"
 	}
 
-
-	var modalDeployResultMessage=document.getElementById('modalDeployResultMessage');
 	var modalDeployResultMessageText=document.getElementById('modalDeployResultMessageText');
-	modalDeployResultMessage.style.display = "block";
 	modalDeployResultMessageText.innerHTML = message;
 	modalDeployResultMessageText.style.borderColor = color;
 	modalDeployResultMessageText.style.backgroundColor = subcolor;
+	modalDeployResultMessageText.style.display = "inline";
 
-	modalDeployResultMessage.onclick = function() {
-		modalDeployResultMessage.style.display = "none";
+	window.onfocus = function() {
+		modalDeployResultMessageText.style.display = "none";
 	}
 
 }

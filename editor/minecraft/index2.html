@@ -67,6 +67,7 @@
             <td class="tabmin"> </td>
             <td id="tab_log" class="taboff">Log</td>
             <td class="tabmax">
+<p id='modalDeployResultMessageText' class="modalDeployResultMessageStyle"></p>
             	<button id="openModalButton" class="primary">...</button>
 
                <button class="notext" title="..." id="readButton">
@@ -107,158 +108,18 @@
   <textarea id="content_xml" class="content" wrap="off"></textarea>
   <textarea id="content_log" class="content" wrap="off"></textarea>
   
-  
-
-   <div id="modalDeployResultMessage" class="modal">	
-	  <!-- Modal content -->
-	  <div class="modal-content">
-		    <td ><p id='modalDeployResultMessageText' class="modalDeployResultMessageStyle"></p></td>
-	  </div>	
-	</div>
-
+ 
   
   <div id="myModal" class="modal">	
 	  <!-- Modal content -->
-	  <div class="modal-content">
-
-		<table class="tg">
+	  <div id="myModalContent" class="modal-content">
+		
+		<table id="myModalContentTable" class="tg">
 		  <tr> 
-		    <td class="tg-cell" id="openModalTitle" colspan="7"></td>
-		    <td class="tg-cell" id="closeModal"><span class="close">&times;</span></td>
+		    <td colspan=4 class="tg-cell" id="closeModal">
+				<span id="closeModal" class="close">&times;</span>
+			</td>
 		  </tr>
-		
-		  <tr>
-		    <td class="tg-cell" colspan="2"><img id="ex1Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex2Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex3Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex4Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-cell-lab" id="ex1Text"></td>
-		    <td class="tg-cell-lab" ><button id="ex1Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex2Text"></td>
-		    <td class="tg-cell-lab"><button id="ex2Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex3Text"></td>
-		    <td class="tg-cell-lab"><button id="ex3Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex4Text"></td>
-		    <td class="tg-cell-lab"><button id="ex4Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		  </tr>
-		  
-		  <tr>
-		    <td class="tg-cell" colspan="2"><img id="ex5Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex6Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex7Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex8Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-cell-lab" id="ex5Text"></td>
-		    <td class="tg-cell-lab"><button id="ex5Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex6Text"></td>
-		    <td class="tg-cell-lab"><button id="ex6Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex7Text"></td>
-		    <td class="tg-cell-lab"><button id="ex7Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex8Text"></td>
-		    <td class="tg-cell-lab"><button id="ex8Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-cell" colspan="2"><img id="ex9Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex10Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex11Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex12Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-cell-lab" id="ex9Text"></td>
-		    <td class="tg-cell-lab"><button id="ex9Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex10Text"></td>
-		    <td class="tg-cell-lab"><button id="ex10Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex11Text"></td>
-		    <td class="tg-cell-lab"><button id="ex11Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex12Text"></td>
-		    <td class="tg-cell-lab"><button id="ex12Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		   </tr>
-		  <tr>
-		    <td class="tg-cell" colspan="2"><img id="ex13Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex14Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex15Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex16Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-cell-lab" id="ex13Text"></td>
-		    <td class="tg-cell-lab"><button id="ex13Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex14Text"></td>
-		    <td class="tg-cell-lab"><button id="ex14Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex15Text"></td>
-		    <td class="tg-cell-lab"><button id="ex15Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex16Text"></td>
-		    <td class="tg-cell-lab"><button id="ex16Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		  </tr>
-		  
-		  <tr>
-		    <td class="tg-cell" colspan="2"><img id="ex17Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex18Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex19Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex20Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-cell-lab" id="ex17Text"></td>
-		    <td class="tg-cell-lab"><button id="ex17Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex18Text"></td>
-		    <td class="tg-cell-lab"><button id="ex18Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex19Text"></td>
-		    <td class="tg-cell-lab"><button id="ex19Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex20Text"></td>
-		    <td class="tg-cell-lab"><button id="ex20Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-cell" colspan="2"><img id="ex21Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex22Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex23Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex24Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-cell-lab" id="ex21Text"></td>
-		    <td class="tg-cell-lab"><button id="ex21Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex22Text"></td>
-		    <td class="tg-cell-lab"><button id="ex22Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex23Text"></td>
-		    <td class="tg-cell-lab"><button id="ex23Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex24Text"></td>
-		    <td class="tg-cell-lab"><button id="ex24Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-cell" colspan="2"><img id="ex25Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex26Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex27Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex28Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-cell-lab" id="ex25Text"></td>
-		    <td class="tg-cell-lab"><button id="ex25Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex26Text"></td>
-		    <td class="tg-cell-lab"><button id="ex26Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex27Text"></td>
-		    <td class="tg-cell-lab"><button id="ex27Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex28Text"></td>
-		    <td class="tg-cell-lab"><button id="ex28Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-cell" colspan="2"><img id="ex29Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex30Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex31Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		    <td class="tg-cell" colspan="2"><img id="ex32Image" src='../../media/1x1.gif' width="200" height="130" alt="" border="0"></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-cell-lab" id="ex29Text"></td>
-		    <td class="tg-cell-lab"><button id="ex29Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex30Text"></td>
-		    <td class="tg-cell-lab"><button id="ex30Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex31Text"></td>
-		    <td class="tg-cell-lab"><button id="ex31Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		    <td class="tg-cell-lab" id="ex32Text"></td>
-		    <td class="tg-cell-lab"><button id="ex32Button" class="notext " title="-"> <img src='../../media/1x1.gif' class="loadexample"/></button></td>
-		  </tr>
-		
-		
 		</table>
 	  </div>	
 	</div>

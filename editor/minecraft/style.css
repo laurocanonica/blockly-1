@@ -104,9 +104,17 @@ td.tabmax {
   padding-right: 10px;
   text-align: right;
 }
-html[dir=rtl] td.tabmax {
+td.tabwarning {
+  border-top-style: none !important;
+  border-left-style: none !important;
+  border-right-style: none !important;
+  padding-top: 1px;
+  padding-left: 7px;
+  padding-right: 10px;
   text-align: left;
+  white-space:nowrap
 }
+
 
 table {
   border-collapse: collapse;
