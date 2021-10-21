@@ -3618,7 +3618,7 @@ Blockly.Blocks['minecraft_getPlayerCoord'] = {
 		        }
 		      ],
 		      "output": "Number",
-		      "colour": Blockly.Blocks.math.HUE,
+		      "colour": 230,
 		      "tooltip": "",
 		      "helpUrl": ""
 		    });
