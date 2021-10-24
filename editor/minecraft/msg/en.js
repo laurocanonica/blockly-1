@@ -34,6 +34,7 @@ var MSG = {
 	  t_readTooltip : "Load a program from the computer",
 	  warn_entername :  "The MINECRAFT PLAYER NAME is missing in the top right field",
 	  info_deploySuccess :  "The program is ready in Minecraft for %2",
-	  info_deploySuccessWithWarning :  "The program is ready in Minecraft but %2 is not online"
+	  info_deploySuccessWithWarning :  "The program is ready in Minecraft but %2 is not online",
+	  info_deployUnknownPlayer :  "Mojang doesn't have a player called %2"
 
 };

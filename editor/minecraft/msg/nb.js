@@ -34,5 +34,5 @@ t_saveTooltip : "Lagre programmet på datamaskinen",
 t_readTooltip : "Laste inn et program fra datamaskinen",
 warn_entername :  "MINECRAFT SPILLER NAVN mangler øverst til høyre",
 info_deploySuccess :  "Programmet er klart i Minecraft for %2",
-info_deploySuccessWithWarning :  "Programmet er klart i Minecraft, men %2 er ikke online"
+info_deploySuccessWithWarning :  "Mojang har ikke en spiller som heter %2"
 };

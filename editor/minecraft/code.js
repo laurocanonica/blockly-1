@@ -648,6 +648,9 @@ Code.runJS = function() {
 			   } else if(event.target.response.substr(0, 2)=='WA'){ //Warning
 				   Code.serverNeedsUpdate=false;
 				   displayResultMessage(MSG['info_deploySuccessWithWarning'].replace('%2', playerName), "yellow"); 
+			   } else if(event.target.response.substr(0, 7)=='UNKNOWN'){ //Warning
+				   Code.serverNeedsUpdate=false;
+				   displayResultMessage(MSG['info_deployUnknownPlayer'].replace('%2', playerName), "red"); 
 			   } else {
 				   displayResultMessage(xhr.responseText, "red"); 			   
 			   }

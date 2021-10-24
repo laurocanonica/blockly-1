@@ -36,7 +36,8 @@ var MSG = {
 	  t_readTooltip : "Carica un programma dal computer",
 	  warn_entername :  "Manca il NOME DEL GIOCATORE in Minecraft nel campo in alto a destra",
 	  info_deploySuccess :  "Il programma è pronto in Minecraft per %2",
-	  info_deploySuccessWithWarning :  "Il programma è pronto in Minecraft ma il giocatore %2 non è online"
+	  info_deploySuccessWithWarning :  "Il programma è pronto in Minecraft ma il giocatore %2 non è online",
+	  info_deployUnknownPlayer :  "Mojang non ha un giocatore chiamato %2"
 
 
 
