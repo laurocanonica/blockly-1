@@ -657,7 +657,7 @@ Code.runJS = function() {
 			   displayResultMessage(xhr.responseText, "red"); 
 		   }; 
 		   xhr.ontimeout = function (e) {
-			   displayResultMessage("TIMEOUT  "+xhr.responseText, "red"); 
+			   displayResultMessage("Connection failed  "+xhr.responseText, "red"); 
 			 };
 		   xhr.send(formData);	   
 		   
