@@ -198,6 +198,19 @@ Code.changeLanguage = function() {
     search = search.replace(/\?/, '?lang=' + newLang + '&');
   }
 
+  var playernamefield = document.getElementById('playernamefield');
+  var newPlayer = encodeURIComponent(
+      playernamefield.value);
+  if (search.length <= 1) {
+    search = '?lang=' + newLang;
+  } else if (search.match(/[?&]player=[^&]*/)) {
+    search = search.replace(/([?&]player=)[^&]*/, '$1' + newPlayer);
+  } else {
+    search = search.replace(/\?/, '?player=' + newPlayer + '&');
+  }
+
+  
+
   window.location = window.location.protocol + '//' +
       window.location.host + window.location.pathname + search;
 };
@@ -510,7 +523,9 @@ Code.init = function() {
   
   
   // CUSTOM initializations
-  document.getElementById('playernamefield').value= 'Minecraft_player_name';
+  var player = Code.getStringParamFromUrl('player', 'Minecraft_player_name');
+
+  document.getElementById('playernamefield').value= player;
   document.getElementById('ftpLinkfield').value= 'ftp://user:password@server';
   document.getElementById('ftpLinkCheckbox').onchange = function() {
 	    document.getElementById('ftpLinkfield').disabled = !this.checked;
@@ -525,6 +540,8 @@ Code.init = function() {
   Code.workspace.addChangeListener(setServerNeedsUpdate);
   window.onkeypress =handleKeyboardShortcuts;
     Code.workspace.addChangeListener(blockClickedEventHandler) 
+document.getElementById('playernamefield').addEventListener('change', Code.changeLanguage);
+
   
 };
 
@@ -882,6 +899,8 @@ window.onblur = function() {
 document.getElementById('playernamefield').onblur = function() {
 		Code.serverNeedsUpdate=true;
 	}
+	
+
 
 }
 
