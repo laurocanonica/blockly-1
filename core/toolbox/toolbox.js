@@ -948,13 +948,11 @@ Blockly.Toolbox.prototype.dispose = function() {
 Blockly.Css.register([
   /* eslint-disable indent */
   '.blocklyToolboxDelete {',
-    'cursor: url("<<<PATH>>>/handdelete.cur"), auto;',
+    'cursor: pointer, auto;',
   '}',
 
   '.blocklyToolboxGrab {',
-    'cursor: url("<<<PATH>>>/handclosed.cur"), auto;',
-    'cursor: grabbing;',
-    'cursor: -webkit-grabbing;',
+    'cursor: pointer, auto;',
   '}',
 
   /* Category tree in Toolbox. */

@@ -240,38 +240,26 @@ Blockly.Css.CONTENT = [
   '}',
 
   '.blocklyDraggable {',
-    /* backup for browsers (e.g. IE11) that don't support grab */
-    'cursor: url("<<<PATH>>>/handopen.cur"), auto;',
-    'cursor: grab;',
-    'cursor: -webkit-grab;',
+    'cursor: pointer;',
   '}',
 
   '.blocklyDragging {',
-    /* backup for browsers (e.g. IE11) that don't support grabbing */
-    'cursor: url("<<<PATH>>>/handclosed.cur"), auto;',
-    'cursor: grabbing;',
-    'cursor: -webkit-grabbing;',
+    'cursor: pointer;',
   '}',
   /* Changes cursor on mouse down. Not effective in Firefox because of
     https://bugzilla.mozilla.org/show_bug.cgi?id=771241 */
   '.blocklyDraggable:active {',
-    /* backup for browsers (e.g. IE11) that don't support grabbing */
-    'cursor: url("<<<PATH>>>/handclosed.cur"), auto;',
-    'cursor: grabbing;',
-    'cursor: -webkit-grabbing;',
-  '}',
+     'cursor: pointer;',
+   '}',
   /* Change the cursor on the whole drag surface in case the mouse gets
      ahead of block during a drag. This way the cursor is still a closed hand.
    */
   '.blocklyBlockDragSurface .blocklyDraggable {',
-    /* backup for browsers (e.g. IE11) that don't support grabbing */
-    'cursor: url("<<<PATH>>>/handclosed.cur"), auto;',
-    'cursor: grabbing;',
-    'cursor: -webkit-grabbing;',
-  '}',
+    'cursor: pointer;',
+   '}',
 
   '.blocklyDragging.blocklyDraggingDelete {',
-    'cursor: url("<<<PATH>>>/handdelete.cur"), auto;',
+    'cursor: pointer;',
   '}',
 
   '.blocklyDragging>.blocklyPath,',
