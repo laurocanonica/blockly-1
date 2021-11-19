@@ -2652,7 +2652,7 @@ Blockly.Blocks['minecraft_text'] = {
 						    {
 						      "type": "input_value",
 						      "name": "inputText",
-						      "check": "String"
+							  "check" : [ "String", "Number" ]
 						    },
 						    {
 						      "type": "input_dummy"
