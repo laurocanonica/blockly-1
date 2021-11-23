@@ -905,16 +905,17 @@ document.getElementById('playernamefield').onblur = function() {
 }
 
 function handleKeyboardShortcuts(event) { // add a key 'r' that repeats the last used colour in the drawings
+	var pressedKey=event.key.toLowerCase(); 
 	var selected=Blockly.selected;
 	if(selected!=null && selected.type.startsWith('m_draw_')) {
-		if((event.key>='0' && event.key<='9')||(event.key>='q' && event.key<='z')) { // colour a block
+		if((pressedKey>='0' && pressedKey<='9')||(pressedKey>='q' && pressedKey<='z')) { // colour a block
 			//getDrawingBlockCoordinate(Blockly.selected);
-			//setDrawingBlockByCoordinate(getContainingList(Blockly.selected), 19, 19, event.key)
-			//alert(event.key)
-			setDrawingBlock(selected, event.key);
+			//setDrawingBlockByCoordinate(getContainingList(Blockly.selected), 19, 19, pressedKey)
+			//alert(pressedKey)
+			setDrawingBlock(selected, pressedKey);
 			//Blockly.Events.fire(new Blockly.Events.BlockChange(selected, 'field', 'tooltip', 'm_draw_0', 'm_draw_1'));
 		}
-		else if(event.key=='i' || event.key=='d' ) { // insert or delete a column
+		else if(pressedKey=='i' || pressedKey=='d' ) { // insert or delete a column
 			var coord=getDrawingBlockCoordinate(selected)
 			if(coord!=null){
 				var mainList=getContainingList(selected);
@@ -926,7 +927,7 @@ function handleKeyboardShortcuts(event) { // add a key 'r' that repeats the last
 					var inBlock=getDrawingBlockByCoordinate(mainList, coord.x, yPos);
 					if(inBlock!=null){
 						y++; //increment only when there is a subelement
-						if(event.key=='d'){
+						if(pressedKey=='d'){
 							deleteDrawingBlock(inBlock);
 						}else{
 							insertDrawingBlock(inBlock);
@@ -943,14 +944,14 @@ function handleKeyboardShortcuts(event) { // add a key 'r' that repeats the last
 			var mainList=getContainingList(selected)
 			var id=lastSelectedDrawColBlock.type.substring('m_draw_'.length);
 			if(coordStart!=null && coordEnd!=null){
-				if(event.key=='l' ) { // draw line
+				if(pressedKey=='l' ) { // draw line
 						bresenham_draw_line (coordStart.x, coordStart.y, coordEnd.x, coordEnd.y, mainList, id);
-				} else if(event.key=='b' ) { // draw rectangle
+				} else if(pressedKey=='b' ) { // draw rectangle
 					bresenham_draw_line (coordStart.x, coordStart.y, coordEnd.x, coordStart.y, mainList, id);
 					bresenham_draw_line (coordStart.x, coordStart.y, coordStart.x, coordEnd.y, mainList, id);
 					bresenham_draw_line (coordStart.x, coordEnd.y, coordEnd.x, coordEnd.y, mainList, id);
 					bresenham_draw_line (coordEnd.x, coordStart.y, coordEnd.x, coordEnd.y, mainList, id);
-				} else if(event.key=='c' ) { // draw rectangle
+				} else if(pressedKey=='c' ) { // draw rectangle
 					var dx=Math.abs(coordEnd.x - coordStart.x);
 					var dy=Math.abs(coordEnd.y - coordStart.y);
 					var radiusExp2=dx*dx+dy*dy;
@@ -966,7 +967,7 @@ function handleKeyboardShortcuts(event) { // add a key 'r' that repeats the last
 				    	//window.alert(x +","+ y+",rad="+ radius +", start= "+coordStart.x +","+coordStart.y+'--->'+(radiusExp2-(x-coordStart.x)^2)+'-a->'+(x-coordStart.x)+'-b->'+Math.pow(x-coordStart.x,2)+'-xx>'+radiusExp2);	
 					}
 					
-				} else if(event.key=='f' ) { // draw full block
+				} else if(pressedKey=='f' ) { // draw full block
 					if(coordStart.y<coordEnd.y){
 						for (var i = coordStart.y; i <= coordEnd.y; i++) {
 							bresenham_draw_line (coordStart.x, i, coordEnd.x, i, mainList, id);						
