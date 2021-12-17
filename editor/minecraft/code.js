@@ -540,6 +540,7 @@ Code.init = function() {
   Code.workspace.addChangeListener(setServerNeedsUpdate);
   window.onkeypress =handleKeyboardShortcuts;
     Code.workspace.addChangeListener(blockClickedEventHandler) 
+    Code.workspace.addChangeListener(fieldDropDownResetListEventHandler) 
 document.getElementById('playernamefield').addEventListener('change', Code.changeLanguage);
 
   
@@ -904,9 +905,94 @@ document.getElementById('playernamefield').onblur = function() {
 
 }
 
+// event handler that resets the content of the filter for dropdowns on any event
+var fieldDropDownTypedLetters='';
+function fieldDropDownResetListEventHandler(event){
+	fieldDropDownTypedLetters='';
+}
+
+function getSingleDropDownField(block){
+	//console.log(block.inputList[0].fieldRow[1].name);
+	// only dropDownFields have a getOptions() function
+	if(block.inputList!=null && 
+	block.inputList[0].fieldRow!=null 
+	){
+		var row=block.inputList[0].fieldRow;
+		for (var i = 0; i < row.length; i++) {		
+			if(row [i]!=null && row[i].name=='NAME'){
+				return row [i];
+			}
+		}
+	} else{
+		return null;
+	}
+}
+
+function getDropDownField(block){
+	var fieldToUse=getSingleDropDownField(block);		
+	if(fieldToUse==null){ // if this is a dropdown
+        // one of the children could be the dropdown
+		var children=block.getChildren();
+		for (var i = 0; i < children.length; i++) {
+		    //console.log("type is "+children[i].type);
+			fieldToUse=getSingleDropDownField(children[i]) ;
+				//console.log("found "+children[i].inputList[0].fieldRow[0].name)
+			if(fieldToUse!=null){
+				break;					
+			}
+		}
+	}
+	return fieldToUse;
+}
+
+function refreshDynamicDropdownField(block, pressedKey) {
+	if(block!=null){
+		var field0 = getDropDownField(block);
+	
+		if(field0!=null){
+			fieldDropDownTypedLetters+=pressedKey.replace(' ', '\u00A0'); // block prefix/postfix matching of blockly dropdowns
+			//console.log("--->"+fieldDropDownTypedLetters);
+			
+			// store the data of the original dropdown 
+			var input=field0.getParentInput();
+			var options0=field0.getOptions(false);
+			var name=field0.name;
+			console.log("name is"+name)
+			options0.sort(); // eset the order
+			// remove and recreate the original dropdown to hide it
+			input.removeField(name);
+			field0.dispose();
+		
+			
+			// select the options matching our string	
+			var optionsFirst=[];
+			var optionsSecond=[];
+			for (var i = 0; i < options0.length; i++) {
+				var text=options0[i][0];
+					var label=options0[i][0];
+					label = label.replaceAll(' ', '\u00A0'); // block prefix/postfix matching of blockly dropdowns
+					var newSingleOption=[label, options0[i][1]];
+				if(text.toLowerCase().indexOf(fieldDropDownTypedLetters)>-1){			
+					optionsFirst.push(newSingleOption);
+				} else {
+					optionsSecond.push(newSingleOption);			
+				}
+			}
+			for (var i = 0; i < optionsSecond.length; i++) {
+					optionsFirst.push(optionsSecond[i]);
+				}
+		 	// craete a new dropdown called NAME
+			var field2=new Blockly.FieldDropdown(optionsFirst);
+			input.appendField(field2, name);
+	
+		}
+	}
+}
+
 function handleKeyboardShortcuts(event) { // add a key 'r' that repeats the last used colour in the drawings
 	var pressedKey=event.key.toLowerCase(); 
 	var selected=Blockly.selected;
+	refreshDynamicDropdownField(selected, pressedKey);
 	if(selected!=null && selected.type.startsWith('m_draw_')) {
 		if((pressedKey>='0' && pressedKey<='9')||(pressedKey>='q' && pressedKey<='z')) { // colour a block
 			//getDrawingBlockCoordinate(Blockly.selected);
@@ -1258,3 +1344,5 @@ function blockClickedEventHandler(event){
 		  }
 	  }
 }
+
+
