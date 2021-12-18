@@ -946,18 +946,18 @@ function getDropDownField(block){
 }
 
 function refreshDynamicDropdownField(block, pressedKey) {
+	const NON_BREAKING_SPACE='\u00A0';
 	if(block!=null){
 		var field0 = getDropDownField(block);
 	
 		if(field0!=null){
-			fieldDropDownTypedLetters+=pressedKey.replace(' ', '\u00A0'); // block prefix/postfix matching of blockly dropdowns
+			fieldDropDownTypedLetters+=pressedKey.replace(' ', NON_BREAKING_SPACE); // block prefix/postfix matching of blockly dropdowns
 			//console.log("--->"+fieldDropDownTypedLetters);
 			
 			// store the data of the original dropdown 
 			var input=field0.getParentInput();
 			var options0=field0.getOptions(false);
 			var name=field0.name;
-			console.log("name is"+name)
 			options0.sort(); // eset the order
 			// remove and recreate the original dropdown to hide it
 			input.removeField(name);
@@ -968,11 +968,13 @@ function refreshDynamicDropdownField(block, pressedKey) {
 			var optionsFirst=[];
 			var optionsSecond=[];
 			for (var i = 0; i < options0.length; i++) {
-				var text=options0[i][0];
-					var label=options0[i][0];
-					label = label.replaceAll(' ', '\u00A0'); // block prefix/postfix matching of blockly dropdowns
-					var newSingleOption=[label, options0[i][1]];
-				if(text.toLowerCase().indexOf(fieldDropDownTypedLetters)>-1){			
+				var label=options0[i][0];
+				label = label.replaceAll(' ', NON_BREAKING_SPACE); // block prefix/postfix matching of blockly dropdowns
+				var newSingleOption=[label, options0[i][1]];
+				var lowerLabel=label.toLowerCase();
+				var labelPos=lowerLabel.indexOf(fieldDropDownTypedLetters);
+				// the with the typedletters at the beginning of a word come first
+				if(labelPos==0 || (labelPos>0 && lowerLabel[labelPos-1]==NON_BREAKING_SPACE)){			
 					optionsFirst.push(newSingleOption);
 				} else {
 					optionsSecond.push(newSingleOption);			
