@@ -967,22 +967,27 @@ function refreshDynamicDropdownField(block, pressedKey) {
 			// select the options matching our string	
 			var optionsFirst=[];
 			var optionsSecond=[];
+			var optionsThird=[];
 			for (var i = 0; i < options0.length; i++) {
 				var label=options0[i][0];
 				label = label.replaceAll(' ', NON_BREAKING_SPACE); // block prefix/postfix matching of blockly dropdowns
 				var newSingleOption=[label, options0[i][1]];
 				var lowerLabel=label.toLowerCase();
 				var labelPos=lowerLabel.indexOf(fieldDropDownTypedLetters);
-				// the with the typedletters at the beginning of a word come first
-				if(labelPos==0 || (labelPos>0 && lowerLabel[labelPos-1]==NON_BREAKING_SPACE)){			
+				if(labelPos==0){ // starting with the typedletters	
 					optionsFirst.push(newSingleOption);
-				} else {
+				} else if (labelPos>0 && lowerLabel[labelPos-1]==NON_BREAKING_SPACE){ // has a word starting with typedletters
 					optionsSecond.push(newSingleOption);			
+				} else {
+					optionsThird.push(newSingleOption);								
 				}
 			}
 			for (var i = 0; i < optionsSecond.length; i++) {
 					optionsFirst.push(optionsSecond[i]);
-				}
+			}
+			for (var i = 0; i < optionsThird.length; i++) {
+					optionsFirst.push(optionsThird[i]);
+			}
 		 	// craete a new dropdown called NAME
 			var field2=new Blockly.FieldDropdown(optionsFirst);
 			input.appendField(field2, name);
