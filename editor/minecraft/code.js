@@ -530,8 +530,6 @@ Code.init = function() {
   document.getElementById('ftpLinkCheckbox').onchange = function() {
 	    document.getElementById('ftpLinkfield').disabled = !this.checked;
 	};
-  //callGoogleAnalytics();
-  setTimeout(callGoogleAnalytics, 3000);  // if we are offline we don't want to wait
   setTimeout(setUpModalForLoadingExamples, 2000);  // speed up loading of main page
 
   //setUpModalForLoadingExamples();
@@ -868,16 +866,6 @@ function setUpModalForLoadingExamples(){
 
 
 
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-function callGoogleAnalytics(){
-	  ga('create', 'UA-114678111-4', 'auto');
-	  ga('set', 'dimension1', 'V2.0');
-	  ga('send', 'pageview');
-	  }
 
 function setServerNeedsUpdate(event) {
 	  if (event.type != Blockly.Events.UI) {
@@ -944,7 +932,6 @@ function getDropDownField(block){
 	}
 	return fieldToUse;
 }
-
 function refreshDynamicDropdownField(block, pressedKey) {
 	const NON_BREAKING_SPACE='\u00A0';
 	if(block!=null){
