@@ -361,7 +361,7 @@ Blockly.JavaScript['minecraft_givetoplayer'] = function(block) {
 	
 Blockly.JavaScript['minecraft_createchest'] = function(block) {
 	  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_NONE);
-	  var code = "CMD.createChest(nextLocation, player, " + cleanMaterialList(value_name) + ");\n";
+	  var code = "CMD.createChest(nextLocation, player, " + cleanMaterialList(value_name) + ", startCmdTime);\n";
 	  return code;
 	};
 		
