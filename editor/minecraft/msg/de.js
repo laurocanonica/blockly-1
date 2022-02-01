@@ -68,6 +68,6 @@ var MSG = {
 	  warn_entername :  "Es fehlt die Name des Spielers in Minecraft im Feld oben rechts",
 	  info_deploySuccess :  "Das Programm ist bereit in Minecraft für %2",
 	  info_deploySuccessWithWarning :  "Das Programm ist bereit in Minecraft aber %2 ist nicht online",
-	  info_deployUnknownPlayer :  "Mojang hat keinen Player namens %2"
-	  
+	  info_deployUnknownPlayer :  "Mojang hat keinen Player namens %2",
+	  infiniteLoopMessage : "Programm wurde angehalten, weil eine Endlosschleife entdeckt wurde" 
 };

@@ -356,6 +356,7 @@ Code.attemptCodeGeneration = function(generator) {
   var content = document.getElementById('content_' + Code.selected);
   content.textContent = '';
   if (Code.checkAllGeneratorFunctionsDefined(generator)) {
+
     var code = generator.workspaceToCode(Code.workspace);
     content.textContent = code;
     // Remove the 'prettyprinted' class, so that Prettify will recalculate.
@@ -637,6 +638,11 @@ Code.runJS = function() {
 		   if(!ftpCheck.checked){
 			   ftpLink="";
 		   }
+		   // protect from infinite loops
+		   var MAX_LOOP_CYCLES=100000;	
+		   var infiniteLoopMessage=MSG['infiniteLoopMessage'];
+		   Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if(infiniteLoopCounter>'+MAX_LOOP_CYCLES+') {return("'+infiniteLoopMessage+'")}else{(infiniteLoopCounter++)}\n';
+
 		   var code = Blockly.JavaScript.workspaceToCode(Code.workspace);
 		   var xmlCodeDom = Blockly.Xml.workspaceToDom(Code.workspace);
 		   var xmlCode = Blockly.Xml.domToText(xmlCodeDom);

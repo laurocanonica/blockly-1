@@ -37,7 +37,9 @@ var MSG = {
 	  warn_entername :  "Manca il NOME DEL GIOCATORE in Minecraft nel campo in alto a destra",
 	  info_deploySuccess :  "Il programma è pronto in Minecraft per %2",
 	  info_deploySuccessWithWarning :  "Il programma è pronto in Minecraft ma il giocatore %2 non è online",
-	  info_deployUnknownPlayer :  "Mojang non ha un giocatore chiamato %2"
+	  info_deployUnknownPlayer :  "Mojang non ha un giocatore chiamato %2",
+	  infiniteLoopMessage : "Il programma si è fermato perché è stato rilevato un ciclo infinito"
+	  
 
 
 
