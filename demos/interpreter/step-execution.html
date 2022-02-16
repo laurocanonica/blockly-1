@@ -13,37 +13,23 @@
       background-color: #fff;
       font-family: sans-serif;
     }
-    h1 {
+    textarea {
       font-weight: normal;
-      font-size: 140%;
+      font-size: 180%;
     }
   </style>
 </head>
 <body>
-  <h1><a href="https://developers.google.com/blockly/">Blockly</a> &gt;
-    <a href="../index.html">Demos</a> &gt; Step Execution with JS Interpreter</h1>
-
-  <p>This is a demo of executing code step-by-step with a sandboxed JavaScript interpreter.</p>
-
-  <p>The generator's <code>Blockly.JavaScript.STATEMENT_PREFIX</code> is assigned <code>'highlightBlock(%1);\n'</code>,
-  where <code>%1</code> is the block id. The call to <code>highlightBlock()</code> will highlight the identified block
-  and set the variable <code>highlightPause</code> to <code>true</code>.</p>
-
-  <p>"Parse JavaScript" will generate the code and load it into the interpreter. Then, each press of the
-  "Step JavaScript" button will run the interpreter one step until the <code>highlightPause</code> is true.
-  That is, until <code>highlightBlock()</code> has highlighted the block that will be executed on the next step.</p>
-
-  <p>&rarr; <a href="https://developers.google.com/blockly/guides/configure-blockly/web/running-javascript#js_interpreter">More info on running code with JS Interpreter</a></p>
 
   <p>
-    <button onclick="stepCode()" id="stepButton">Step JavaScript</button>
+    <button onclick="stepCode()" id="stepButton">Step</button>
   </p>
 
   <div style="width: 100%">
     <div id="blocklyDiv"
-        style="display: inline-block; height: 480px; width: 58%"></div>
+        style="display: inline-block; height: 600px; width: 58%"></div>
     <textarea id="output" disabled="disabled"
-        style="display: inline-block; height: 480px; width: 38%;">
+        style="display: inline-block; height: 594px; width: 38%;">
     </textarea>
   </div>
 
@@ -56,13 +42,20 @@
       <block type="logic_boolean"></block>
     </category>
     <category name="Loops" colour="%{BKY_LOOPS_HUE}">
-      <block type="controls_repeat_ext">
         <value name="TIMES">
           <block type="math_number">
             <field name="NUM">10</field>
           </block>
         </value>
       </block>
+      <block type="controls_repeat_ext">
+        <value name="TIMES">
+          <shadow type="math_number">
+            <field name="NUM">10</field>
+          </shadow>
+        </value>
+      </block>
+
       <block type="controls_whileUntil"></block>
     </category>
     <category name="Math" colour="%{BKY_MATH_HUE}">
@@ -208,8 +201,7 @@
         // And then show generated code in an alert.
         // In a timeout to allow the outputArea.value to reset first.
         setTimeout(function() {
-          alert('Ready to execute the following code\n' +
-            '===================================\n' + latestCode);
+          //alert('Ready to execute the following code\n' + '===================================\n' + latestCode);
           highlightPause = true;
           stepCode();
         }, 1);
@@ -222,7 +214,8 @@
         } finally {
           if (!hasMoreCode) {
             // Program complete, no more code to execute.
-            outputArea.value += '\n\n<< Program complete >>';
+       		 outputArea.value += '\n\n=================\nProgram complete';
+
 
             myInterpreter = null;
             resetStepUi(false);
