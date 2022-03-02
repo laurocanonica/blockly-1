@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2022-02-04 13:48:56.383221",
+		"lastupdated": "2022-03-02 14:16:11.152299",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -1804,6 +1804,11 @@
 	"MC_cmd_minecraft_sign_with_text": "with text",
 	"MC_cmd_minecraft_execute_command": "call function %1 of player %2 with parameter %3 %4 %5 %6 %7",
 	"MC_cmd_minecraft_nothing": "nothing %1",
+	"MC_cmd_leashed_to": "leashed to %1 %2",
+	"MC_cmd_player": "the player",
+	"MC_cmd_mob": "the last created mob",
+	"MC_cmd_mob_owner": "the holder",
+	"MC_cmd_nobody": "nobody",
 	"PROCEDURES_DEFNORETURN_TITLE": "/vm",
 	"PROCEDURES_DEFNORETURN_PROCEDURE": "mycommand"
 }

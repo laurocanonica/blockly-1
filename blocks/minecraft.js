@@ -2212,6 +2212,48 @@ Blockly.Blocks['minecraft_team'] = {
 			});
 		}
 	};
+	
+		
+	
+	Blockly.Blocks['minecraft_leash'] = {
+		init : function() {
+			this.jsonInit({
+				"type" : "minecraft_leash",
+				"message0" : Blockly.Msg.MC_cmd_leashed_to,
+				"args0" : [ {
+					"type" : "field_dropdown",
+					"name" : "NAME",
+					 "options": [
+					        [
+					        	Blockly.Msg.MC_cmd_player,
+					          "P"
+					        ],
+					        [
+					        	Blockly.Msg.MC_cmd_mob,
+					          "M"
+					        ],
+					        [
+					        	Blockly.Msg.MC_cmd_mob_owner,
+					          "O"
+					        ],
+					        [
+					        	Blockly.Msg.MC_cmd_nobody,
+					          "N"
+					        ]
+					   ]
+				}, {
+					"type" : "input_value",
+					"name" : "singleblock",
+					"check" : [ "Material" ]
+				} ],
+				"output" : "Material",
+				"colour" : 330,
+				"tooltip" : "",
+				"helpUrl" : ""
+			});
+		}
+	};
+	
 
 Blockly.Blocks['minecraft_direction'] = {
 		init : function() {

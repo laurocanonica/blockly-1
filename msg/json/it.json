@@ -1765,7 +1765,11 @@
 "MC_cmd_minecraft_delay" : "dopo %1 sec. %2",
 "MC_cmd_minecraft_delay_random" : "dopo un tempo tra %1 e %2 sec. %3",
 "MC_cmd_minecraft_delay_random_reset" : "resetta il generatore di attesa a %1",
-
+"MC_cmd_leashed_to": "al guinzaglio %1 %2",
+"MC_cmd_player": "del giocatore",
+"MC_cmd_mob": "dell'ultimo mob creato",
+"MC_cmd_mob_owner": "del titolare",
+"MC_cmd_nobody": "di nessuno",
 
 "PROCEDURES_DEFNORETURN_TITLE": "/vm",
 "PROCEDURES_DEFNORETURN_POCEDURE": "miocomando"

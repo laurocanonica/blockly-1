@@ -1798,6 +1798,11 @@
 	"MC_cmd_minecraft_sign_with_text": "",
 	"MC_cmd_minecraft_execute_command": "",
 	"MC_cmd_minecraft_nothing": "",
+	"MC_cmd_leashed_to": "",
+	"MC_cmd_player": "",
+	"MC_cmd_mob": "",
+	"MC_cmd_mob_owner": "",
+	"MC_cmd_nobody": "",
 	"PROCEDURES_DEFNORETURN_TITLE": "",
 	"PROCEDURES_DEFNORETURN_PROCEDURE": ""
 }

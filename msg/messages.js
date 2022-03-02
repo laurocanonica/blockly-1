@@ -3047,6 +3047,12 @@ Blockly.Msg.MC_cmd_minecraft_splash_potion_function = 'with function';
 Blockly.Msg.MC_cmd_minecraft_sign_with_text = 'with text';
 Blockly.Msg.MC_cmd_minecraft_execute_command = 'call function %1 of player %2 with parameter %3 %4 %5 %6 %7';
 Blockly.Msg.MC_cmd_minecraft_nothing = 'nothing %1';
+Blockly.Msg.MC_cmd_leashed_to = 'leashed to %1 %2';
+Blockly.Msg.MC_cmd_player = 'the player';
+Blockly.Msg.MC_cmd_mob = 'the last created mob';
+Blockly.Msg.MC_cmd_mob_owner = 'the holder';
+Blockly.Msg.MC_cmd_nobody = 'nobody';
+
 Blockly.Msg.PROCEDURES_DEFNORETURN_TITLE = '/vm';
 Blockly.Msg.PROCEDURES_DEFNORETURN_PROCEDURE = 'mycommand';
 

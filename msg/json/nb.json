@@ -1774,6 +1774,13 @@
 	"MC_cmd_minecraft_sign_with_text": "med tekst",
 	"MC_cmd_minecraft_execute_command": "kommando funksjon %1 av spiller %2 med parameter %3 %4 %5 %6 %7",
 	"MC_cmd_minecraft_nothing": "ingenting %1",
+	
+	"MC_cmd_leashed_to": "koblet til %1 %2",
+	"MC_cmd_player": "spilleren",
+	"MC_cmd_mob": "den sist opprettede mobben",
+	"MC_cmd_mob_owner": "holderen",
+	"MC_cmd_nobody": "ingen",
+	
 	"PROCEDURES_DEFNORETURN_TITLE": "/vm",
 	"PROCEDURES_DEFNORETURN_PROCEDURE": "på min kommando"
 }
