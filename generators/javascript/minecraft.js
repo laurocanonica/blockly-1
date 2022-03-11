@@ -455,14 +455,8 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 		  var matString ="";
 
 		//window.alert(value_matlist);
-		  if (value_matlist!=""){
-			 // matString = value_matlist.replace(/\(/gm,"\n\t[").replace(/,\)/gm,"]")+',[\n'; // fix parenthesis
-				matString= value_matlist.replace(/\[/,"[[");
-				matString= matString.replace(/,, /gm,"],\n[");
-				matString= matString.replace(/,]/,"]],\n[");
-		  } else {
-		  	matString="[], [";
-		  }
+		matString= value_matlist.replace(/]/,"],[");
+		  
 		//window.alert(matString);
 		  
 		  var code = 'CMD.createDrawing(nextLocation, ';
@@ -497,7 +491,14 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 	
 	function getColor(block, id) {
 		  var value_child = Blockly.JavaScript.valueToCode(block, 'child', Blockly.JavaScript.ORDER_NONE);
-		  var code = id+","+value_child;
+		  var code = "";
+		  if(value_child!=''){
+		    	code +='"'+id+';"'
+				code += '+'+value_child;
+		  } else {
+		    	code +='"'+id+'"\n'
+
+		  }
 		  return [code, Blockly.JavaScript.ORDER_NONE];
 	}
 
