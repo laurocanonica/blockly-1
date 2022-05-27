@@ -48,7 +48,6 @@ function getEntities() {
 [ Blockly.Msg.e_eye_of_ender, 'e.eye_of_ender' ],
 [ Blockly.Msg.e_fireball, 'e.fireball' ],
 [ Blockly.Msg.e_firework_rocket, 'e.firework_rocket' ],
-[ Blockly.Msg.e_fishing_bobber, 'e.fishing_bobber' ],
 [ Blockly.Msg.e_fox, 'e.fox' ],
 [ Blockly.Msg.e_furnace_minecart, 'e.furnace_minecart' ],
 [ Blockly.Msg.e_ghast, 'e.ghast' ],
@@ -63,8 +62,6 @@ function getEntities() {
 [ Blockly.Msg.e_illusioner, 'e.illusioner' ],
 [ Blockly.Msg.e_iron_golem, 'e.iron_golem' ],
 [ Blockly.Msg.e_item_frame, 'e.item_frame' ],
-[ Blockly.Msg.e_killer_bunny, 'e.killer_bunny' ],
-[ Blockly.Msg.e_leash_knot, 'e.leash_knot' ],
 [ Blockly.Msg.e_llama, 'e.llama' ],
 [ Blockly.Msg.e_magma_cube, 'e.magma_cube' ],
 [ Blockly.Msg.e_marker, 'e.marker' ],
@@ -80,7 +77,6 @@ function getEntities() {
 [ Blockly.Msg.e_piglin, 'e.piglin' ],
 [ Blockly.Msg.e_piglin_brute, 'e.piglin_brute' ],
 [ Blockly.Msg.e_pillager, 'e.pillager' ],
-[ Blockly.Msg.e_player, 'e.player' ],
 [ Blockly.Msg.e_polar_bear, 'e.polar_bear' ],
 [ Blockly.Msg.e_pufferfish, 'e.pufferfish' ],
 [ Blockly.Msg.e_rabbit, 'e.rabbit' ],
@@ -144,6 +140,10 @@ function getEntities_hide() {
 [ Blockly.Msg.e_potion, 'e.potion' ],
 [ Blockly.Msg.e_small_fireball, 'e.small_fireball' ],
 [ Blockly.Msg.e_snowball, 'e.snowball' ],
+[ Blockly.Msg.e_fishing_bobber, 'e.fishing_bobber' ],
+[ Blockly.Msg.e_killer_bunny, 'e.killer_bunny' ],
+[ Blockly.Msg.e_leash_knot, 'e.leash_knot' ],
+[ Blockly.Msg.e_player, 'e.player' ],
 [ Blockly.Msg.e_spectral_arrow, 'e.spectral_arrow' ]
 
 		].sort(compareMCobjects)
