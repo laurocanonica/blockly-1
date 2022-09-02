@@ -3044,6 +3044,7 @@ Blockly.Msg.MC_cmd_minecraft_delay_random_reset = 'reset the random generator fo
 Blockly.Msg.MC_cmd_minecraft_multiciplity = '%1 of %2';
 Blockly.Msg.MC_cmd_minecraft_gotopos = 'set the position at %1 %2 %3 %4 %5 %6 from the start position';
 Blockly.Msg.MC_cmd_minecraft_polygon = 'create a %1 %2 %3 polygon with %4 %5 sides and radius %6 %7 made of %8 %9';
+Blockly.Msg.MC_cmd_minecraft_star = 'create a %1 %2 %3 star with %4 %5 sides and radius1 %6 %7 and radius1 %8 %9 made of %10 %11';
 Blockly.Msg.MC_cmd_minecraft_rectangle = 'create a %1 %2 %3 rectangle of width %4 %5 and length %6 %7 made of %8 %9';
 Blockly.Msg.MC_cmd_minecraft_ellipse = 'create a %1 %2 %3 ellipse with radiusX %4 %5 and radiusY %6 %7 made of %8 %9';
 Blockly.Msg.MC_cmd_minecraft_block = 'create a block made of %1';

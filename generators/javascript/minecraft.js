@@ -93,6 +93,23 @@ Blockly.JavaScript['minecraft_polygon'] = function(block) {
 	code += ", player, startCmdTime);\n";
 	return code;
 };
+
+Blockly.JavaScript['minecraft_star'] = function(block) {
+	var dropdown_fill = block.getFieldValue('fill');
+	var value_nr_sides = Blockly.JavaScript.valueToCode(block, 'nr_sides', Blockly.JavaScript.ORDER_NONE);
+	var value_innerRadius = Blockly.JavaScript.valueToCode(block, 'innerRadius', Blockly.JavaScript.ORDER_NONE);
+	var value_outerRadius = Blockly.JavaScript.valueToCode(block, 'outerRadius', Blockly.JavaScript.ORDER_NONE);
+	var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_NONE);
+	var code = 'CMD.createStar(nextLocation, ';
+	code += value_nr_sides + ", ";
+	code += value_innerRadius + ", ";
+	code += value_outerRadius + ", ";
+	code += dropdown_fill + ", ";
+	code += cleanMaterialList(value_name);
+	code += ", player, startCmdTime);\n";
+	return code;
+};
+
 	Blockly.JavaScript['minecraft_rectangle'] = function(block) {
 		  var dropdown_fill = block.getFieldValue('fill');
 		  var value_width = Blockly.JavaScript.valueToCode(block, 'width', Blockly.JavaScript.ORDER_NONE);

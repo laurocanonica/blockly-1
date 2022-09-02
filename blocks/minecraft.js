@@ -1882,6 +1882,75 @@ Blockly.Blocks['minecraft_polygon'] = {
 		}
 	};
 
+Blockly.Blocks['minecraft_star'] = {
+		init : function() {
+			this.jsonInit({
+				  "type": "minecraft_star",
+				  "message0": Blockly.Msg.MC_cmd_minecraft_star,
+				  "args0": [
+				    {
+				      "type": "input_dummy"
+				    },
+				    {
+				      "type": "field_dropdown",
+				      "name": "fill",
+				      "options": [
+				        [
+				        	Blockly.Msg.MC_cmd_empty,
+				          "false"
+				        ],
+				        [
+				        	Blockly.Msg.MC_cmd_full,
+				          "true"
+				        ]
+				      ]
+				    },
+				    {
+				      "type": "input_dummy"
+				    },
+				    {
+				      "type": "input_dummy"
+				    },
+				    {
+				      "type": "input_value",
+				      "name": "nr_sides",
+				      "check": "Number"
+				    },
+				    {
+				      "type": "input_dummy"
+				    },
+				    {
+				      "type": "input_value",
+				      "name": "innerRadius",
+				      "check": "Number"
+				    },
+				    {
+				      "type": "input_dummy"
+				    },
+				    {
+				      "type": "input_value",
+				      "name": "outerRadius",
+				      "check": "Number"
+				    },
+				    {
+				      "type": "input_dummy"
+				    },
+				    {
+				      "type": "input_value",
+				      "name": "NAME",
+						"check" : [ "Material" ]
+				    }
+				  ],
+				  "inputsInline": true,
+				  "previousStatement": null,
+				  "nextStatement": null,
+				  "colour": 120,
+				  "tooltip": "",
+				  "helpUrl": ""
+				});
+		}
+	};
+
 
 
 
