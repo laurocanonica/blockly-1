@@ -531,7 +531,7 @@ Code.init = function() {
   document.getElementById('ftpLinkCheckbox').onchange = function() {
 	    document.getElementById('ftpLinkfield').disabled = !this.checked;
 	};
-  setTimeout(setUpModalForLoadingExamples, 2000);  // speed up loading of main page
+  setTimeout(setUpModalForLoadingExamples, 5000);  // speed up loading of main page. Wait loading the examples
 
   //setUpModalForLoadingExamples();
 
