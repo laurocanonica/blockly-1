@@ -107,7 +107,6 @@ function getEntities() {
     [ Blockly.Msg.e_villager, 'e.villager' ],
     [ Blockly.Msg.e_vindicator, 'e.vindicator' ],
     [ Blockly.Msg.e_wandering_trader, 'e.wandering_trader' ],
-    [ Blockly.Msg.e_warden, 'e.warden' ],
     [ Blockly.Msg.e_witch, 'e.witch' ],
     [ Blockly.Msg.e_wolf, 'e.wolf' ],
     [ Blockly.Msg.e_zoglin, 'e.zoglin' ],
@@ -124,6 +123,7 @@ function getEntities_opOnly() {
 [ Blockly.Msg.e_tnt, 'e.tnt' ],
 [ Blockly.Msg.e_tnt_minecart, 'e.tnt_minecart' ],
 [ Blockly.Msg.e_ender_dragon, 'e.ender_dragon' ],
+[ Blockly.Msg.e_warden, 'e.warden' ],
 [ Blockly.Msg.e_wither, 'e.wither' ],
 [ Blockly.Msg.e_wither_skeleton, 'e.wither_skeleton' ],
 [ Blockly.Msg.e_wither_skull, 'e.wither_skull' ]
