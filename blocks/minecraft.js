@@ -93,7 +93,6 @@ function getEntities() {
     [ Blockly.Msg.e_skeleton_horse, 'e.skeleton_horse' ],
     [ Blockly.Msg.e_slime, 'e.slime' ],
     [ Blockly.Msg.e_snow_golem, 'e.snow_golem' ],
-    [ Blockly.Msg.e_spawner_minecart, 'e.spawner_minecart' ],
     [ Blockly.Msg.e_spider, 'e.spider' ],
     [ Blockly.Msg.e_squid, 'e.squid' ],
     [ Blockly.Msg.e_stray, 'e.stray' ],
@@ -925,7 +924,6 @@ function getMaterials() {
     [ Blockly.Msg.b_soul_soil, 'b.soul_soil' ],
     [ Blockly.Msg.b_soul_torch, 'b.soul_torch' ],
     [ Blockly.Msg.b_soul_wall_torch, 'b.soul_wall_torch' ],
-    [ Blockly.Msg.b_spawner, 'b.spawner' ],
     [ Blockly.Msg.b_sponge, 'b.sponge' ],
     [ Blockly.Msg.b_spore_blossom, 'b.spore_blossom' ],
     [ Blockly.Msg.b_spruce_button, 'b.spruce_button' ],
@@ -1078,9 +1076,12 @@ function getMaterials() {
 
 function getMaterials_opOnly() {
 	return [		
-[ Blockly.Msg.b_tnt, 'b.tnt' ],
-[ Blockly.Msg.b_lava, 'b.lava' ],
-[ Blockly.Msg.b_lava_cauldron, 'b.lava_cauldron' ]
+	[ Blockly.Msg.b_tnt, 'b.tnt' ],
+	[ Blockly.Msg.b_lava, 'b.lava' ],
+    [ Blockly.Msg.b_spawner, 'b.spawner' ],
+    [ Blockly.Msg.e_spawner_minecart, 'e.spawner_minecart' ],
+
+	[ Blockly.Msg.b_lava_cauldron, 'b.lava_cauldron' ]
 		
 ].sort(compareMCobjects)
 }
