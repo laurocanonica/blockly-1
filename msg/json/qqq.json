@@ -1850,6 +1850,8 @@
 	"MC_cmd_minecraft_cancel_events": "",
 	"MC_cmd_minecraft_draw": "",
 	"MC_cmd_minecraft_draw_extended": "",
+	"MC_cmd_minecraft_draw_from_center": "",
+	"MC_cmd_minecraft_draw_from_bottomleft": "",
 	"MC_cmd_minecraft_playerCoord": "",
 	"MC_cmd_minecraft_importObj": "",
 	"MC_cmd_minecraft_splash_potion_function": "",

@@ -3119,7 +3119,23 @@ Blockly.Blocks['minecraft_drawing'] = {
 											      "type": "input_value",
 											      "name": "index_material",
 											      "check": "Number"
-											    }
+											    },
+											    						    
+						    {
+						      "type": "field_dropdown",
+						      "name": "origin",
+						      "options": [
+						        [
+						        	Blockly.Msg.MC_cmd_minecraft_draw_from_center,
+						          "C"
+						        ],
+						        [
+						        	Blockly.Msg.MC_cmd_minecraft_draw_from_bottomleft,
+						          "S"
+						        ]
+						      ]
+						    }
+											    
 						  ],
 						  "inputsInline": false,
 						  "previousStatement": null,
@@ -3424,7 +3440,22 @@ Blockly.Blocks['minecraft_drawing_extended'] = {
 										      "type": "input_value",
 										      "name": "index_material",
 										      "check": "Number"
-										    }
+										    },
+											    						    
+						    {
+						      "type": "field_dropdown",
+						      "name": "origin",
+						      "options": [
+						        [
+						        	Blockly.Msg.MC_cmd_minecraft_draw_from_center,
+						          "C"
+						        ],
+						        [
+						        	Blockly.Msg.MC_cmd_minecraft_draw_from_bottomleft,
+						          "S"
+						        ]
+						      ]
+						    }
 						  ],
 						  "inputsInline": false,
 						  "previousStatement": null,

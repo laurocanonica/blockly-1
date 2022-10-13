@@ -464,6 +464,7 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 	function prepareDrawingBlocks(block){
 		var value_matlist = Blockly.JavaScript.valueToCode(block, 'matlist', Blockly.JavaScript.ORDER_NONE);
 		var index_material = Blockly.JavaScript.valueToCode(block, 'index_material', Blockly.JavaScript.ORDER_NONE);
+		var drawOrigin = block.getFieldValue('origin');
 		if(index_material=="" || index_material==undefined){
 			index_material=1; 
 		}
@@ -501,7 +502,9 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 		  code=code.substring(code, code.length-2); // remove last comma
 		  code +="],";
 		  code +=index_material;
-		  code += "  , player, startCmdTime);\n";
+		  code +=", '";
+		  code +=drawOrigin;
+		  code += "' , player, startCmdTime);\n";
 		  return code; 
 		
 	}
