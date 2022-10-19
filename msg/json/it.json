@@ -1761,6 +1761,7 @@
 "MC_cmd_minecraft_multiciplity" : "%1 di %2",
 "MC_cmd_minecraft_gotopos" : "metti la posizione a %1 %2 %3 %4 %5 %6 dalla posizione di inizio",
 "MC_cmd_minecraft_polygon" : "crea un poligono %1 %2 %3 con %4 %5 lati e raggio %6 %7 fatto di %8 %9",
+"MC_cmd_minecraft_star" : "crea una stella %1 %2 %3 con %4 %5 sides e raggio interno %6 %7 e raggio esterno %8 %9 fatto di %10 %11",
 "MC_cmd_minecraft_rectangle" : "crea un rettangolo %1 %2 %3 di larghezza %4 %5 e lunghezza %6 %7 fatto di %8 %9",
 "MC_cmd_minecraft_ellipse" : "crea un'ellisse %1 %2 %3 di raggioX %4 %5 e raggioY %6 %7 fatto di %8 %9",
 "MC_cmd_minecraft_block" : "crea un blocco fatto di %1",

@@ -1783,6 +1783,7 @@
 "MC_cmd_minecraft_multiciplity" : "%1 von %2",
 "MC_cmd_minecraft_gotopos" : "Setze die Position %1 %2 %3 %4 %5 %6 von der Anfangsposition entfernt",
 "MC_cmd_minecraft_polygon" : "Erzeuge ein %1 %2 %3 Polygon mit %4 %5 Seiten und Radius %6 %7 aus %8 %9",
+"MC_cmd_minecraft_star" : "Erzeuge ein %1 %2 %3 Stern mit %4 %5 Seiten und inner Radius %6 %7 und ausser Radius %8 %9 bestehend aus %10 %11",
 "MC_cmd_minecraft_rectangle" : "Erzeuge ein %1 %2 %3 Rechtech mit Breite %4 %5 und Länge %6 %7 aus %8 %9",
 "MC_cmd_minecraft_ellipse" : "Erzeuge eine %1 %2 %3 Ellipse mit RadiusX %4 %5 und RadiusY %6 %7 aus %8 %9",
 "MC_cmd_minecraft_block" : "Erzeuge ein Block aus %1",
