@@ -3967,4 +3967,24 @@ Blockly.Blocks['minecraft_materialNothing'] = {
 		}
 	};
 	
+Blockly.Blocks['minecraft_group'] = {
+		init : function() {
+			this.jsonInit({
+			  "type": "minecraft_group",
+			  "message0": "%1",
+			  "args0": [
+			    {
+			      "type": "input_statement",
+			      "name": "CodeBlocks"
+			    }
+			  ],
+			  "previousStatement": null,
+			  "nextStatement": null,
+			  "colour": 120,
+			  "tooltip": "",
+			  "helpUrl": ""
+			});
+		}
+	};
+	
 	

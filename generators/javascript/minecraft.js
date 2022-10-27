@@ -667,4 +667,8 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 			return [ code, Blockly.JavaScript.ORDER_NONE ];
 		}
 
+		Blockly.JavaScript['minecraft_group'] = function(block) {
+		  var statements_codeblocks = Blockly.JavaScript.statementToCode(block, 'CodeBlocks');
+		  return statements_codeblocks;
+		};
 	
