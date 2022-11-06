@@ -41,9 +41,7 @@ var Code = {};
  */
 Code.LANGUAGE_NAME = {
 		  'en': 'English',
-		  'de': 'Deutsch',
-		  'it': 'Italiano',
- 		  'nb': 'Norsk'
+		  'it': 'Italiano'
 };
 
 Code.LANGUAGE_NAME_originalList = {
