@@ -671,4 +671,21 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 		  var statements_codeblocks = Blockly.JavaScript.statementToCode(block, 'CodeBlocks');
 		  return statements_codeblocks;
 		};
+
+		Blockly.JavaScript['minecraft_voronoi'] = function(block) {
+		  var dropdown_fill = block.getFieldValue('fill');
+		  var value_width = Blockly.JavaScript.valueToCode(block, 'width', Blockly.JavaScript.ORDER_ATOMIC);
+		  var value_length = Blockly.JavaScript.valueToCode(block, 'length', Blockly.JavaScript.ORDER_ATOMIC);
+		  var value_points = Blockly.JavaScript.valueToCode(block, 'points', Blockly.JavaScript.ORDER_ATOMIC);
+		  var value_materials = Blockly.JavaScript.valueToCode(block, 'materials', Blockly.JavaScript.ORDER_ATOMIC);
+			var code = 'CMD.createVoronoi(nextLocation, ';
+			code += dropdown_fill + ", ";
+			code += value_width + ", ";
+			code += value_length + ", ";
+			code += value_points + ", ";
+			code += cleanMaterialList(value_materials);
+			code += ", player, startCmdTime);\n";
+		  return code;
+		};		
+		
 	

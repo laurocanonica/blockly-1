@@ -3987,4 +3987,55 @@ Blockly.Blocks['minecraft_group'] = {
 		}
 	};
 	
+Blockly.Blocks['minecraft_voronoi'] = {
+		init : function() {
+			this.jsonInit({
+			  "type": "minecraft_voronoi",
+			  "message0": "create a Voronoi %1 diagram of width %2 and length %3 for the points %4 made of %5",
+			  "args0": [
+				    {
+				      "type": "field_dropdown",
+				      "name": "fill",
+				      "options": [
+				        [
+				        	Blockly.Msg.MC_cmd_empty,
+				          "false"
+				        ],
+				        [
+				        	Blockly.Msg.MC_cmd_full,
+				          "true"
+				        ]
+				      ]
+				    },
+			    {
+			      "type": "input_value",
+			      "name": "width",
+			      "check": "Number"
+			    },
+			    {
+			      "type": "input_value",
+			      "name": "length",
+			      "check": "Number"
+			    },
+			    {
+			      "type": "input_value",
+			      "name": "points",
+			      "check": "Array"
+			    },
+			    {
+			      "type": "input_value",
+			      "name": "materials",
+			      "check": "Material"
+			    }
+			  ],
+			  "inputsInline": true,
+			  "previousStatement": null,
+			  "nextStatement": null,
+			  "colour": 230,
+			  "tooltip": "",
+			  "helpUrl": ""
+			});
+		}
+	};
+	
 	
