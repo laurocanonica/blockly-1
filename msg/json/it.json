@@ -1833,6 +1833,7 @@
 "MC_cmd_mob": "dell'ultimo mob creato",
 "MC_cmd_mob_owner": "del titolare",
 "MC_cmd_nobody": "di nessuno",
+"MC_cmd_voronoi": "crea un diagramma di Voronoi %1 largo %2 e lungo %3 per i punti %4 fatto di %5",
 
 "PROCEDURES_DEFNORETURN_TITLE": "/vm",
 "PROCEDURES_DEFNORETURN_POCEDURE": "miocomando"

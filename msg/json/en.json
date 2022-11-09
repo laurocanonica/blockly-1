@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2022-11-05 22:33:39.774626",
+		"lastupdated": "2022-11-08 16:57:27.545949",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -1869,6 +1869,7 @@
 	"MC_cmd_mob": "the last created mob",
 	"MC_cmd_mob_owner": "the holder",
 	"MC_cmd_nobody": "nobody",
+	"MC_cmd_voronoi": "create a %1 Voronoi diagram of width %2 and length %3 for the points %4 made of %5",
 	"PROCEDURES_DEFNORETURN_TITLE": "/vm",
 	"PROCEDURES_DEFNORETURN_PROCEDURE": "mycommand"
 }

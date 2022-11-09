@@ -7,6 +7,7 @@
 	<title>Minecraft programming</title>
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="modal.css">
+	<link rel="stylesheet" href="examplesmenu.css">
 	<script src="storage.js"></script>
 	<script src="../../blockly_compressed.js"></script>
 	<script src="../../blocks_compressed.js"></script>
@@ -35,8 +36,6 @@
 					</tr>
 					<tr>
 						<td>
-							<input class="topright_no_margin" type="checkbox" id="ftpLinkCheckbox">
-							<input class="topright" type="text" id="ftpLinkfield" disabled>
 							<input class="topright" type="text" id="playernamefield">
 						</td>
 					</tr>
@@ -58,7 +57,14 @@
 							<button id='modalDeployResultMessageText' class="modalDeployResultMessageStyle"></button>
 						</td>
 						<td class="tabmax">
-							<button id="openModalButton" class="primary">...</button>
+
+							<div class="exdropdown">
+							  <button id="openModalButton" class="primary">...</button>
+							  <div class="exdropdown-content">
+								<div id="openModalButtonExamples">..</div>
+								<div id="openModalButtonAlgorithms">..</div>
+							  </div>
+							</div>
 
 							<button class="notext" title="..." id="readButton">
 								<img src='../../media/1x1.gif' class="loadexample" />
@@ -102,13 +108,20 @@
 
 	<div id="myModal" class="modal">
 		<!-- Modal content -->
-		<div id="myModalContent" class="modal-content">
-
-			<table id="myModalContentTable" class="tg">
-				<tr>
-					<td colspan=4 class="tg-cell" id="closeModal">
-						<span id="closeModal" class="close">&times;</span>
-					</td>
+		<div>
+			<table id="defaultModalTable" class="tg">
+				<tr >
+					<td colspan=3 "><span id='defaultTitle' class="modal-title" >Default</span></td>
+					<td id='closeDefaultModalTable'><span class="modal-title closebutton" >&times;</span></td>
+				</tr>
+			</table>
+			</table>
+		</div>
+		<div>
+			<table id="algorithmsModalTable" class="tg">
+				<tr >
+					<td colspan=3 "><span id='algorithmsTitle' class="modal-title" >Algorithms</span></td>
+					<td id='closeAlgorithmsModalTable'><span class="modal-title closebutton" >&times;</span></td>
 				</tr>
 			</table>
 		</div>

@@ -3991,7 +3991,7 @@ Blockly.Blocks['minecraft_voronoi'] = {
 		init : function() {
 			this.jsonInit({
 			  "type": "minecraft_voronoi",
-			  "message0": "create a Voronoi %1 diagram of width %2 and length %3 for the points %4 made of %5",
+			  "message0": Blockly.Msg.MC_cmd_voronoi,
 			  "args0": [
 				    {
 				      "type": "field_dropdown",

@@ -28,7 +28,9 @@ var MSG = {
 	  c_Actions : "Azioni",
 	  c_Drawing : "Disegno",
 	  c_Events : "Eventi",
+	  c_ExamplesMenu : "Esempi ...",
 	  c_Examples : "Esempi",
+	  c_Algorithms : "Algoritmi",
 
 
 	  c_Operators : "Solo Op",

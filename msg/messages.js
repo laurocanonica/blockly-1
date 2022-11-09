@@ -3112,6 +3112,8 @@ Blockly.Msg.MC_cmd_player = 'the player';
 Blockly.Msg.MC_cmd_mob = 'the last created mob';
 Blockly.Msg.MC_cmd_mob_owner = 'the holder';
 Blockly.Msg.MC_cmd_nobody = 'nobody';
+Blockly.Msg.MC_cmd_voronoi = 'create a %1 Voronoi diagram of width %2 and length %3 for the points %4 made of %5';
+
 
 Blockly.Msg.PROCEDURES_DEFNORETURN_TITLE = '/vm';
 Blockly.Msg.PROCEDURES_DEFNORETURN_PROCEDURE = 'mycommand';

@@ -1,0 +1,28 @@
+.exdropdown {
+  display: inline-block;
+  position: relative;
+}
+.exdropdown-content {
+  display: none;
+  position: absolute;
+  width: 100%;
+  overflow: auto;
+  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+  z-index: 9999;
+}
+.exdropdown:hover .exdropdown-content {
+  display: block;
+}
+
+
+.exdropdown-content div {
+  display: block;
+  color: #000000;
+  padding: 5px;
+  text-decoration: none;
+}
+.exdropdown-content div:hover {
+  color: #FFFFFF;
+  background-color: #00A4BD;
+}
+

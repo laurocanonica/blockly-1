@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_right"] = "right";
 Blockly.Msg["MC_cmd_south"] = "south";
 Blockly.Msg["MC_cmd_up"] = "up";
 Blockly.Msg["MC_cmd_upper_lower"] = "side %1 %2";
+Blockly.Msg["MC_cmd_voronoi"] = "create a %1 Voronoi diagram of width %2 and length %3 for the points %4 made of %5";
 Blockly.Msg["MC_cmd_west"] = "west";
 Blockly.Msg["MC_cmd_whereLook"] = "where I'm looking";
 Blockly.Msg["MC_particles"] = "particles";

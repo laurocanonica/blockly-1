@@ -37,6 +37,12 @@
 var Code = {};
 
 /**
+ * Set the remote host for the http calls.  /can be hardcoded for debugging purposes
+ */
+ //Code.remoteHost=window.location.host;
+ Code.remoteHost='localhost:10273'; 	// for debugging with localhost
+
+/**
  * Lookup for names of supported languages.  Keys should be in ISO 639 format.
  */
 Code.LANGUAGE_NAME = {
@@ -210,7 +216,7 @@ Code.changeLanguage = function() {
   
 
   window.location = window.location.protocol + '//' +
-      window.location.host + window.location.pathname + search;
+       window.location.host + window.location.pathname + search;
 };
 
 /**
@@ -525,13 +531,9 @@ Code.init = function() {
   var player = Code.getStringParamFromUrl('player', 'Minecraft_player_name');
 
   document.getElementById('playernamefield').value= player;
-  document.getElementById('ftpLinkfield').value= 'ftp://user:password@server';
-  document.getElementById('ftpLinkCheckbox').onchange = function() {
-	    document.getElementById('ftpLinkfield').disabled = !this.checked;
-	};
-  setTimeout(setUpModalForLoadingExamples, 5000);  // speed up loading of main page. Wait loading the examples
+  setTimeout(Code.loadExamplesList, 2000);  // speed up loading of main page. Wait loading the examples
 
-  //setUpModalForLoadingExamples();
+  //setUpModalForShowingExamples();
 
   Code.serverNeedsUpdate=true;
   Code.workspace.addChangeListener(setServerNeedsUpdate);
@@ -626,16 +628,6 @@ Code.runJS = function() {
 	   nameField.style.backgroundColor = "red";
 	   displayResultMessage(MSG['warn_entername'], "red");
    } else {
-		var ftpLink=document.getElementById('ftpLinkfield').value.trim();
-		var ftpCheck=document.getElementById('ftpLinkCheckbox');
-		ftpLinkfield.style.backgroundColor = "#FFFFFF";
-	   if(ftpCheck.checked &&(ftpLink=='ftp://user:password@server' || ftpLink.indexOf("@")==-1 || ftpLink.indexOf("ftp:")==-1)) {
-		   ftpLinkfield.style.backgroundColor = "red";
-		   displayResultMessage('FTP server ?', "red");
-	   } else {
-		   if(!ftpCheck.checked){
-			   ftpLink="";
-		   }
 		   // protect from infinite loops
 		   var MAX_LOOP_CYCLES=100000;	
 		   var infiniteLoopMessage=MSG['infiniteLoopMessage'];
@@ -644,7 +636,7 @@ Code.runJS = function() {
 		   var code = Blockly.JavaScript.workspaceToCode(Code.workspace);
 		   var xmlCodeDom = Blockly.Xml.workspaceToDom(Code.workspace);
 		   var xmlCode = Blockly.Xml.domToText(xmlCodeDom);
-		   var host='http://'+window.location.host; 	   
+		   var host='http://'+ Code.remoteHost; 	   
 		   var hpath=host+'/EXE';
 		   
 		   //postToServer('/EXE', {'EXECODE': code});
@@ -653,7 +645,6 @@ Code.runJS = function() {
 		   formData.append('EXECODE', code);
 		   formData.append('XMLCODE', xmlCode);
 		   formData.append('Playername', playerName);
-		   formData.append('FtpLink', ftpLink);
 		   formData.append('langsel', Code.getLanguage());
 
 
@@ -686,7 +677,7 @@ Code.runJS = function() {
 		   
 		   //window.alert(MSG['info_deploySuccess'].replace('%1', host).replace('%2', playerName)+" ("+port+")");
 		   //location.reload(); // force reload of page
-	   } 
+	    
    }
 };
 
@@ -695,7 +686,7 @@ Code.loadLog = function() {
 	var nameField=document.getElementById('playernamefield');
 	var playerName=nameField.value.trim();
 	var logTextarea = document.getElementById('content_log');
-	var host='http://'+window.location.host; 	   
+	var host='http://'+ Code.remoteHost; 	   
 	var hpath=host+'/LOG';
 	var formData = new FormData(); 
 	formData.append('Playername', playerName);
@@ -717,26 +708,27 @@ Code.loadLog = function() {
 };
 
 Code.loadExamplesList = function() {
-	var host='http://'+window.location.host; 	   
+	var host='http://'+ Code.remoteHost; 	      
 	var hpath=host+'/EXAMPLELIST';
 	var formData = new FormData(); 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", hpath, true); 
 	xhr.timeout = 2000; 
 	xhr.onload=function(event){
-	   addExamplesToModal(xhr.responseText);		   
+	   addExamplesToModal(xhr.responseText);	
+	   setUpModalForShowingExamples();	   
 	}; 
 	xhr.onerror=function(event){ 
        console.log('ERROR Connecting server for loading list of examples\n'+xhr.responseText)
 	}; 
 	xhr.ontimeout = function (e) {
-       console.log('TIMEOUT Connecting server for loading list of examples\n'+xhr.responseText)
+       console.log('TIMEOUT Connecting server for loading list of examples\n'+xhr.responseText)   
 	};
 	xhr.send(formData);	   
 };
 
 Code.loadExampleXML = function(xmlFile) {
-	var host='http://'+window.location.host; 
+	var host='http://'+ Code.remoteHost; 
 	var hpath=host+'/EXAMPLENAME?ExampleFile='+xmlFile;
 	var formData = new FormData(); 
 	var xhr = new XMLHttpRequest();
@@ -749,10 +741,10 @@ Code.loadExampleXML = function(xmlFile) {
 		modal.style.display = "none";
 	}; 
 	xhr.onerror=function(event){ 
-       console.log('ERROR Connecting server for loading list of examples\n'+xhr.responseText)
+       console.log('ERROR Connecting server for loading example XML\n'+xhr.responseText)
 	}; 
 	xhr.ontimeout = function (e) {
-       console.log('TIMEOUT Connecting server for loading list of examples\n'+xhr.responseText)
+       console.log('TIMEOUT Connecting server for loading example XML\n'+xhr.responseText)
 	};
 	xhr.send(formData);	   
 };
@@ -801,11 +793,11 @@ Code.discard = function() {
 
 
 function addExamplesToModal(exampleNames){
-	const exampleArr = exampleNames.split(",");
+	const exampleArr = exampleNames.split(",").sort();
 	const nrExamples=exampleArr.length;
 	const nrCols=4;
-	var table = document.getElementById('myModalContentTable');
-	for (var i = 0; i < 30; i++) {
+	const MAXROWS=30;
+	for (var i = 0; i < MAXROWS; i++) {
 		if(i*nrCols>nrExamples){
 			break
 		}
@@ -818,7 +810,7 @@ function addExamplesToModal(exampleNames){
 		  var td = document.createElement('td');
 		  var img = document.createElement('img');
 	      img.id = exampleName+".xml";
-	      img.src = '/EXAMPLENAME?ExampleFile='+exampleName+".png";
+	      img.src = 'http://'+ Code.remoteHost +'/EXAMPLENAME?ExampleFile='+exampleName+".png";
 	      img.width=200;
 	      img.height=130;
 	      img.addEventListener('click', function (e) {
@@ -832,38 +824,78 @@ function addExamplesToModal(exampleNames){
 		  tr.appendChild(td);
 		  td.appendChild(img);
 	    }
-	  table.appendChild(tr);
-    }
+	    var exampleFolder=exampleName.substring(0, exampleName.indexOf('/'));
+		var table=null;
+	    if(exampleFolder=='algorithms'){
+          table = document.getElementById('algorithmsModalTable');
+		} else {
+          table = document.getElementById('defaultModalTable');
+		}
+	    table.appendChild(tr);
+    } //for
 }
 
-function setUpModalForLoadingExamples(){
-	Code.loadExamplesList();
-	document.getElementById('openModalButton').textContent = MSG['c_Examples'];
+function hideAllModalTables(){
+	var mainModalDiv = document.getElementById('myModal');
+	var defaultTable = document.getElementById('defaultModalTable');
+	var algorithmsTable = document.getElementById('algorithmsModalTable');
+		mainModalDiv.style.display = "none";
+	    defaultTable.style.display = "none";
+	    algorithmsTable.style.display = "none";
+}
+
+function setUpModalForShowingExamples(){
+	document.getElementById('openModalButton').textContent = MSG['c_ExamplesMenu'];
+	document.getElementById('openModalButtonExamples').textContent = MSG['c_Examples'];
+	document.getElementById('defaultTitle').textContent = MSG['c_Examples'];
+	document.getElementById('openModalButtonAlgorithms').textContent = MSG['c_Algorithms'];
+	document.getElementById('algorithmsTitle').textContent = MSG['c_Algorithms'];
 	
 	
 	//Get the modal
-	var modal = document.getElementById('myModal');
+	var mainModalDiv = document.getElementById('myModal');
+	var defaultTable = document.getElementById('defaultModalTable');
+	var algorithmsTable = document.getElementById('algorithmsModalTable');
+	
 	
 	// Get the button that opens the modal
-	var btn = document.getElementById("openModalButton");
-	
-	// Get the <span> element that closes the modal
-	var span = document.getElementById("closeModal");
+	var examples_sel = document.getElementById("openModalButtonExamples");
 	
 	// When the user clicks on the button, open the modal 
-	btn.onclick = function() {
-	    modal.style.display = "block";
+	examples_sel.onclick = function() {
+	    mainModalDiv.style.display = "block";
+	    defaultTable.style.display = "table";
 	}
 	
+	// Get the button that opens the modal
+	var examples_algorithms = document.getElementById("openModalButtonAlgorithms");
+	
+	// When the user clicks on the button, open the modal 
+	examples_algorithms.onclick = function() {
+	    mainModalDiv.style.display = "block";
+	    algorithmsTable.style.display = "table";
+	}
+	
+	// Get the <span> element that closes the modal
+	var closeDefault = document.getElementById("closeDefaultModalTable");
+	
 	// When the user clicks on <span> (x), close the modal
-	span.onclick = function() {
-	    modal.style.display = "none";
+	closeDefault.onclick = function() {
+		hideAllModalTables();
+	}
+	
+	// Get the <span> element that closes the modal
+	var closeAlgorithms = document.getElementById("closeAlgorithmsModalTable");
+	
+	// When the user clicks on <span> (x), close the modal
+	closeAlgorithms.onclick = function() {
+		hideAllModalTables();
 	}
 	
 	// When the user clicks anywhere outside of the modal, close it
 	window.onclick = function(event) {
-	    if (event.target == modal) {
-	        modal.style.display = "none";
+	    if (event.target == mainModalDiv || event.target.parentNode == mainModalDiv) {
+	        hideAllModalTables();
 	    }
 	}
 }

@@ -1863,6 +1863,7 @@
 	"MC_cmd_mob": "",
 	"MC_cmd_mob_owner": "",
 	"MC_cmd_nobody": "",
+	"MC_cmd_voronoi": "",
 	"PROCEDURES_DEFNORETURN_TITLE": "",
 	"PROCEDURES_DEFNORETURN_PROCEDURE": ""
 }
