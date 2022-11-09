@@ -811,6 +811,7 @@ function addExamplesToModal(exampleNames){
 		  var img = document.createElement('img');
 	      img.id = exampleName+".xml";
 	      img.src = 'http://'+ Code.remoteHost +'/EXAMPLENAME?ExampleFile='+exampleName+".png";
+	      img.title=exampleName.substring(exampleName.indexOf('/')+1);;
 	      img.width=200;
 	      img.height=130;
 	      img.addEventListener('click', function (e) {
