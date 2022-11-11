@@ -39,8 +39,8 @@ var Code = {};
 /**
  * Set the remote host for the http calls.  /can be hardcoded for debugging purposes
  */
- //Code.remoteHost=window.location.host;
- Code.remoteHost='localhost:10273'; 	// for debugging with localhost
+ Code.remoteHost=window.location.host;
+ //Code.remoteHost='localhost:10273'; 	// for debugging with localhost
 
 /**
  * Lookup for names of supported languages.  Keys should be in ISO 639 format.
@@ -791,8 +791,29 @@ Code.discard = function() {
 };
 
 
+function addExamplesToModal(exampleNamesGroups){
+		const exampleGroupsArr = exampleNamesGroups.split(";").sort();
+		const nrExampleGroups=exampleGroupsArr.length;
+		for (var i = 0; i < nrExampleGroups; i++) {
+			var firstExampleName=exampleGroupsArr[i];
+				//console.log("file>"+firstExampleName+"<");
+			if(firstExampleName!=null && firstExampleName.length>0){
+				var exampleFolder=firstExampleName.substring(0, firstExampleName.indexOf('/'));
+				//console.log("folder>"+exampleFolder+"<");
+				var table=null;
+			    if(exampleFolder=='algorithms'){
+		          table = document.getElementById('algorithmsModalTable');
+				} else {
+		          table = document.getElementById('defaultModalTable');
+				}
+				addExamplesToTable(exampleGroupsArr[i] , table);
+			}
+		}
 
-function addExamplesToModal(exampleNames){
+
+}
+
+function addExamplesToTable(exampleNames, table){
 	const exampleArr = exampleNames.split(",").sort();
 	const nrExamples=exampleArr.length;
 	const nrCols=4;
@@ -825,13 +846,6 @@ function addExamplesToModal(exampleNames){
 		  tr.appendChild(td);
 		  td.appendChild(img);
 	    }
-	    var exampleFolder=exampleName.substring(0, exampleName.indexOf('/'));
-		var table=null;
-	    if(exampleFolder=='algorithms'){
-          table = document.getElementById('algorithmsModalTable');
-		} else {
-          table = document.getElementById('defaultModalTable');
-		}
 	    table.appendChild(tr);
     } //for
 }
