@@ -829,10 +829,12 @@ function addExamplesToTable(exampleNames, table){
 		}
 		  var exampleName=exampleArr[i*nrCols+j];
 		  var td = document.createElement('td');
+		  var p = document.createElement('p');
 		  var img = document.createElement('img');
 	      img.id = exampleName+".xml";
 	      img.src = 'http://'+ Code.remoteHost +'/EXAMPLENAME?ExampleFile='+exampleName+".png";
-	      img.title=exampleName.substring(exampleName.indexOf('/')+1);;
+		  var title=exampleName.substring(exampleName.indexOf('/')+1);
+	      img.title=title;
 	      img.width=200;
 	      img.height=130;
 	      img.addEventListener('click', function (e) {
@@ -844,6 +846,10 @@ function addExamplesToTable(exampleNames, table){
 
 });
 		  tr.appendChild(td);
+		  p.innerText=title;
+		  p.classList.add('examplep');
+		  td.classList.add('exampletd');
+		  td.appendChild(p);
 		  td.appendChild(img);
 	    }
 	    table.appendChild(tr);
