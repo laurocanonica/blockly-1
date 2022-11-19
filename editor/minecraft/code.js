@@ -39,8 +39,8 @@ var Code = {};
 /**
  * Set the remote host for the http calls.  /can be hardcoded for debugging purposes
  */
- //Code.remoteHost=window.location.host;
- Code.remoteHost='localhost:10273'; 	// for debugging with localhost
+ Code.remoteHost=window.location.host;
+ //Code.remoteHost='localhost:10273'; 	// for debugging with localhost
 
 /**
  * Lookup for names of supported languages.  Keys should be in ISO 639 format.
