@@ -39,8 +39,8 @@ var Code = {};
 /**
  * Set the remote host for the http calls.  /can be hardcoded for debugging purposes
  */
- Code.remoteHost=window.location.host;
- //Code.remoteHost='localhost:10273'; 	// for debugging with localhost
+ //Code.remoteHost=window.location.host;
+ Code.remoteHost='localhost:10273'; 	// for debugging with localhost
 
 /**
  * Lookup for names of supported languages.  Keys should be in ISO 639 format.
@@ -831,30 +831,32 @@ function addExamplesToTable(exampleNames, table){
 		  var td = document.createElement('td');
 		  var p = document.createElement('p');
 		  var img = document.createElement('img');
-	      img.id = exampleName+".xml";
+	      img.name = exampleName+".xml";
 	      img.src = 'http://'+ Code.remoteHost +'/EXAMPLENAME?ExampleFile='+exampleName+".png";
 		  var title=exampleName.substring(exampleName.indexOf('/')+1);
 	      img.title=title;
 	      img.width=200;
 	      img.height=130;
-	      img.addEventListener('click', function (e) {
-		  if(confirm(MSG['t_readTooltip']+' ?')){
- 	         Code.loadExampleXML(e.target.id);	
-			 var modal=document.getElementById('myModal');		
-	         modal.style.display = "none";
-		}
-
-});
+	      img.addEventListener('click', loadChosenExample);
 		  tr.appendChild(td);
 		  p.innerText=title;
 		  p.classList.add('examplep');
+	      p.addEventListener('click', loadChosenExample);
+	      p.name = exampleName+".xml";
 		  td.classList.add('exampletd');
-		  td.appendChild(p);
 		  td.appendChild(img);
+		  td.appendChild(p);
 	    }
 	    table.appendChild(tr);
     } //for
 }
+
+function loadChosenExample(e) {
+		  if(confirm(MSG['t_readTooltip']+' ?')){
+ 	         Code.loadExampleXML(e.target.name);	
+			 hideAllModalTables();
+		}
+	}
 
 function hideAllModalTables(){
 	var mainModalDiv = document.getElementById('myModal');
