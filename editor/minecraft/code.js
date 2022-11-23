@@ -39,8 +39,8 @@ var Code = {};
 /**
  * Set the remote host for the http calls.  /can be hardcoded for debugging purposes
  */
- Code.remoteHost=window.location.host;
- //Code.remoteHost='localhost:10273'; 	// for debugging with localhost
+  Code.remoteHost=window.location.host;
+  //Code.remoteHost='localhost:10273'; 	// for debugging with localhost
 
 /**
  * Lookup for names of supported languages.  Keys should be in ISO 639 format.
@@ -833,7 +833,8 @@ function addExamplesToTable(exampleNames, table){
 		  var img = document.createElement('img');
 	      img.name = exampleName+".xml";
 	      img.src = 'http://'+ Code.remoteHost +'/EXAMPLENAME?ExampleFile='+exampleName+".png";
-		  var title=exampleName.substring(exampleName.indexOf('/')+1);
+		  var basicName=exampleName.substring(exampleName.indexOf('/')+1);
+		  var title=basicName.replace(/^[0-9]*/, "");
 	      img.title=title;
 	      img.width=200;
 	      img.height=130;
