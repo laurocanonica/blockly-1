@@ -478,7 +478,7 @@ Code.init = function() {
   Code.tabClick(Code.selected);
 
   Code.bindClick('trashButton',
-      function() {Code.discard(); Code.renderContent();});
+      function() {Code.discard(); Code.renderContent(); location.reload()});
   Code.bindClick('runButton', Code.runJS);
   
   
