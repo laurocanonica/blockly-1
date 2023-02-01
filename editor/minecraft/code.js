@@ -709,7 +709,7 @@ Code.loadLog = function() {
 
 Code.loadExamplesList = function() {
 	var host='http://'+ Code.remoteHost; 	      
-	var hpath=host+'/EXAMPLELIST';
+	var hpath=host+'/EXL';
 	var formData = new FormData(); 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", hpath, true); 
@@ -729,7 +729,7 @@ Code.loadExamplesList = function() {
 
 Code.loadExampleXML = function(xmlFile) {
 	var host='http://'+ Code.remoteHost; 
-	var hpath=host+'/EXAMPLENAME?ExampleFile='+xmlFile;
+	var hpath=host+'/EXF?EF='+xmlFile;
 	var formData = new FormData(); 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", hpath, true); 
@@ -794,6 +794,7 @@ Code.discard = function() {
 function addExamplesToModal(exampleNamesGroups){
 		const exampleGroupsArr = exampleNamesGroups.split(";").sort();
 		const nrExampleGroups=exampleGroupsArr.length;
+		const ALGORITHMS_FOLDER='algorithms';
 		for (var i = 0; i < nrExampleGroups; i++) {
 			var firstExampleName=exampleGroupsArr[i];
 				//console.log("file>"+firstExampleName+"<");
@@ -801,7 +802,7 @@ function addExamplesToModal(exampleNamesGroups){
 				var exampleFolder=firstExampleName.substring(0, firstExampleName.indexOf('/'));
 				//console.log("folder>"+exampleFolder+"<");
 				var table=null;
-			    if(exampleFolder=='algorithms'){
+			    if(exampleFolder==ALGORITHMS_FOLDER){
 		          table = document.getElementById('algorithmsModalTable');
 				} else {
 		          table = document.getElementById('defaultModalTable');
@@ -832,9 +833,10 @@ function addExamplesToTable(exampleNames, table){
 		  var p = document.createElement('p');
 		  var img = document.createElement('img');
 	      img.name = exampleName+".xml";
-	      img.src = 'http://'+ Code.remoteHost +'/EXAMPLENAME?ExampleFile='+exampleName+".png";
+	      img.src = 'http://'+ Code.remoteHost +'/EXF?EF='+exampleName+".png";
 		  var basicName=exampleName.substring(exampleName.indexOf('/')+1);
-		  var title=basicName.replace(/^[0-9]*/, "");
+		  var title=basicName.replace(/^[0-9]*/, ""); //remove digits at the beginning used for ordering the files
+		  title=title.replace(/-.*/, ""); //remove anything after a dash. Typically the creation date 
 	      img.title=title;
 	      img.width=200;
 	      img.height=130;
