@@ -531,7 +531,7 @@ Code.init = function() {
   var player = Code.getStringParamFromUrl('player', 'Minecraft_player_name');
 
   document.getElementById('playernamefield').value= player;
-  setTimeout(Code.loadExamplesList, 2000);  // speed up loading of main page. Wait loading the examples
+  setTimeout(Code.loadExamplesList, 500);  // speed up loading of main page. Wait loading the examples
 
   //setUpModalForShowingExamples();
 
