@@ -1097,7 +1097,6 @@ function getParticles() {
 		[ Blockly.Msg.MC_particles+ ' ' + Blockly.Msg.b_torch, 'p.SMOKE_NORMAL' ],
 		[ Blockly.Msg.MC_particles+ ' ' + Blockly.Msg.b_water, 'p.DRIP_WATER' ],
 		[ Blockly.Msg.MC_particles+ ' ' + Blockly.Msg.i_firework_star, 'p.FIREWORKS_SPARK' ],
-		[ Blockly.Msg.MC_particles+ ' ' + Blockly.Msg.i_redstone, 'p.REDSTONE' ],
 		[ Blockly.Msg.MC_particles+ ' ' + Blockly.Msg.e_slime, 'p.SLIME' ],
 		[ Blockly.Msg.MC_particles+ ' ' + Blockly.Msg.b_furnace, 'p.FLAME' ],
 		[ Blockly.Msg.MC_particles+ ' ' + Blockly.Msg.b_lava, 'p.LAVA' ]
