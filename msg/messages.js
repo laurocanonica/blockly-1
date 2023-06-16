@@ -3139,22 +3139,23 @@ Blockly.Msg.i_zombie_horse_spawn_egg='Zombie Horse Spawn Egg';
 Blockly.Msg.i_zombie_spawn_egg='Zombie Spawn Egg';
 Blockly.Msg.i_zombie_villager_spawn_egg='Zombie Villager Spawn Egg';
 Blockly.Msg.i_zombified_piglin_spawn_egg='Zombified Piglin Spawn Egg';
-Blockly.Msg.b_coast_ARMOR_TRIM_SMITHING_TEMPLATE='Coast Armour Trim';
-Blockly.Msg.b_dune_ARMOR_TRIM_SMITHING_TEMPLATE='Dune Armour Trim';
-Blockly.Msg.b_eye_ARMOR_TRIM_SMITHING_TEMPLATE='Eye Armour Trim';
-Blockly.Msg.b_host_ARMOR_TRIM_SMITHING_TEMPLATE='Host Armour Trim';
-Blockly.Msg.b_raiser_ARMOR_TRIM_SMITHING_TEMPLATE='Raiser Armour Trim';
-Blockly.Msg.b_rib_ARMOR_TRIM_SMITHING_TEMPLATE='Rib Armour Trim';
-Blockly.Msg.b_sentry_ARMOR_TRIM_SMITHING_TEMPLATE='Sentry Armour Trim';
-Blockly.Msg.b_shaper_ARMOR_TRIM_SMITHING_TEMPLATE='Shaper Armour Trim';
-Blockly.Msg.b_silence_ARMOR_TRIM_SMITHING_TEMPLATE='Silence Armour Trim';
-Blockly.Msg.b_snout_ARMOR_TRIM_SMITHING_TEMPLATE='Snout Armour Trim';
-Blockly.Msg.b_spire_ARMOR_TRIM_SMITHING_TEMPLATE='Spire Armour Trim';
-Blockly.Msg.b_tide_ARMOR_TRIM_SMITHING_TEMPLATE='Tide Armour Trim';
-Blockly.Msg.b_vex_ARMOR_TRIM_SMITHING_TEMPLATE='Vex Armour Trim';
-Blockly.Msg.b_ward_ARMOR_TRIM_SMITHING_TEMPLATE='Ward Armour Trim';
-Blockly.Msg.b_wayfinder_ARMOR_TRIM_SMITHING_TEMPLATE='Wayfinder Armour Trim';
-Blockly.Msg.b_wild_ARMOR_TRIM_SMITHING_TEMPLATE='Wild Armour Trim';
+Blockly.Msg.i_coast_ARMOR_TRIM_SMITHING_TEMPLATE='Coast Armour Trim';
+Blockly.Msg.i_dune_ARMOR_TRIM_SMITHING_TEMPLATE='Dune Armour Trim';
+Blockly.Msg.i_eye_ARMOR_TRIM_SMITHING_TEMPLATE='Eye Armour Trim';
+Blockly.Msg.i_host_ARMOR_TRIM_SMITHING_TEMPLATE='Host Armour Trim';
+Blockly.Msg.i_raiser_ARMOR_TRIM_SMITHING_TEMPLATE='Raiser Armour Trim';
+Blockly.Msg.i_rib_ARMOR_TRIM_SMITHING_TEMPLATE='Rib Armour Trim';
+Blockly.Msg.i_sentry_ARMOR_TRIM_SMITHING_TEMPLATE='Sentry Armour Trim';
+Blockly.Msg.i_shaper_ARMOR_TRIM_SMITHING_TEMPLATE='Shaper Armour Trim';
+Blockly.Msg.i_silence_ARMOR_TRIM_SMITHING_TEMPLATE='Silence Armour Trim';
+Blockly.Msg.i_snout_ARMOR_TRIM_SMITHING_TEMPLATE='Snout Armour Trim';
+Blockly.Msg.i_spire_ARMOR_TRIM_SMITHING_TEMPLATE='Spire Armour Trim';
+Blockly.Msg.i_tide_ARMOR_TRIM_SMITHING_TEMPLATE='Tide Armour Trim';
+Blockly.Msg.i_vex_ARMOR_TRIM_SMITHING_TEMPLATE='Vex Armour Trim';
+Blockly.Msg.i_ward_ARMOR_TRIM_SMITHING_TEMPLATE='Ward Armour Trim';
+Blockly.Msg.i_wayfinder_ARMOR_TRIM_SMITHING_TEMPLATE='Wayfinder Armour Trim';
+Blockly.Msg.i_wild_ARMOR_TRIM_SMITHING_TEMPLATE='Wild Armour Trim';
+
 
 
 

@@ -1151,22 +1151,6 @@ function getMaterials() {
     [ Blockly.Msg.b_yellow_wool, 'b.yellow_wool' ],
     [ Blockly.Msg.b_zombie_head, 'b.zombie_head' ],
     [ Blockly.Msg.b_zombie_wall_head, 'b.zombie_wall_head' ],
-    [ Blockly.Msg.b_coast_ARMOR_TRIM_SMITHING_TEMPLATE, 'b.coast_ARMOR_TRIM_SMITHING_TEMPLATE' ],
-    [ Blockly.Msg.b_dune_ARMOR_TRIM_SMITHING_TEMPLATE, 'b.dune_ARMOR_TRIM_SMITHING_TEMPLATE' ],
-    [ Blockly.Msg.b_eye_ARMOR_TRIM_SMITHING_TEMPLATE, 'b.eye_ARMOR_TRIM_SMITHING_TEMPLATE' ],
-    [ Blockly.Msg.b_host_ARMOR_TRIM_SMITHING_TEMPLATE, 'b.host_ARMOR_TRIM_SMITHING_TEMPLATE' ],
-    [ Blockly.Msg.b_raiser_ARMOR_TRIM_SMITHING_TEMPLATE, 'b.raiser_ARMOR_TRIM_SMITHING_TEMPLATE' ],
-    [ Blockly.Msg.b_rib_ARMOR_TRIM_SMITHING_TEMPLATE, 'b.rib_ARMOR_TRIM_SMITHING_TEMPLATE' ],
-    [ Blockly.Msg.b_sentry_ARMOR_TRIM_SMITHING_TEMPLATE, 'b.sentry_ARMOR_TRIM_SMITHING_TEMPLATE' ],
-    [ Blockly.Msg.b_shaper_ARMOR_TRIM_SMITHING_TEMPLATE, 'b.shaper_ARMOR_TRIM_SMITHING_TEMPLATE' ],
-    [ Blockly.Msg.b_silence_ARMOR_TRIM_SMITHING_TEMPLATE, 'b.silence_ARMOR_TRIM_SMITHING_TEMPLATE' ],
-    [ Blockly.Msg.b_snout_ARMOR_TRIM_SMITHING_TEMPLATE, 'b.snout_ARMOR_TRIM_SMITHING_TEMPLATE' ],
-    [ Blockly.Msg.b_spire_ARMOR_TRIM_SMITHING_TEMPLATE, 'b.spire_ARMOR_TRIM_SMITHING_TEMPLATE' ],
-    [ Blockly.Msg.b_tide_ARMOR_TRIM_SMITHING_TEMPLATE, 'b.tide_ARMOR_TRIM_SMITHING_TEMPLATE' ],
-    [ Blockly.Msg.b_vex_ARMOR_TRIM_SMITHING_TEMPLATE, 'b.vex_ARMOR_TRIM_SMITHING_TEMPLATE' ],
-    [ Blockly.Msg.b_ward_ARMOR_TRIM_SMITHING_TEMPLATE, 'b.ward_ARMOR_TRIM_SMITHING_TEMPLATE' ],
-    [ Blockly.Msg.b_wayfinder_ARMOR_TRIM_SMITHING_TEMPLATE, 'b.wayfinder_ARMOR_TRIM_SMITHING_TEMPLATE' ],
-    [ Blockly.Msg.b_wild_ARMOR_TRIM_SMITHING_TEMPLATE, 'b.wild_ARMOR_TRIM_SMITHING_TEMPLATE' ]
     
     
     		].sort(compareMCobjects);
@@ -1588,7 +1572,24 @@ function getItems() {
     [ Blockly.Msg.i_zombie_horse_spawn_egg, 'i.zombie_horse_spawn_egg' ],
     [ Blockly.Msg.i_zombie_spawn_egg, 'i.zombie_spawn_egg' ],
     [ Blockly.Msg.i_zombie_villager_spawn_egg, 'i.zombie_villager_spawn_egg' ],
-    [ Blockly.Msg.i_zombified_piglin_spawn_egg, 'i.zombified_piglin_spawn_egg' ]
+    [ Blockly.Msg.i_zombified_piglin_spawn_egg, 'i.zombified_piglin_spawn_egg' ],
+    [ Blockly.Msg.i_coast_ARMOR_TRIM_SMITHING_TEMPLATE, 'i.coast_ARMOR_TRIM_SMITHING_TEMPLATE' ],
+    [ Blockly.Msg.i_dune_ARMOR_TRIM_SMITHING_TEMPLATE, 'i.dune_ARMOR_TRIM_SMITHING_TEMPLATE' ],
+    [ Blockly.Msg.i_eye_ARMOR_TRIM_SMITHING_TEMPLATE, 'i.eye_ARMOR_TRIM_SMITHING_TEMPLATE' ],
+    [ Blockly.Msg.i_host_ARMOR_TRIM_SMITHING_TEMPLATE, 'i.host_ARMOR_TRIM_SMITHING_TEMPLATE' ],
+    [ Blockly.Msg.i_raiser_ARMOR_TRIM_SMITHING_TEMPLATE, 'i.raiser_ARMOR_TRIM_SMITHING_TEMPLATE' ],
+    [ Blockly.Msg.i_rib_ARMOR_TRIM_SMITHING_TEMPLATE, 'i.rib_ARMOR_TRIM_SMITHING_TEMPLATE' ],
+    [ Blockly.Msg.i_sentry_ARMOR_TRIM_SMITHING_TEMPLATE, 'i.sentry_ARMOR_TRIM_SMITHING_TEMPLATE' ],
+    [ Blockly.Msg.i_shaper_ARMOR_TRIM_SMITHING_TEMPLATE, 'i.shaper_ARMOR_TRIM_SMITHING_TEMPLATE' ],
+    [ Blockly.Msg.i_silence_ARMOR_TRIM_SMITHING_TEMPLATE, 'i.silence_ARMOR_TRIM_SMITHING_TEMPLATE' ],
+    [ Blockly.Msg.i_snout_ARMOR_TRIM_SMITHING_TEMPLATE, 'i.snout_ARMOR_TRIM_SMITHING_TEMPLATE' ],
+    [ Blockly.Msg.i_spire_ARMOR_TRIM_SMITHING_TEMPLATE, 'i.spire_ARMOR_TRIM_SMITHING_TEMPLATE' ],
+    [ Blockly.Msg.i_tide_ARMOR_TRIM_SMITHING_TEMPLATE, 'i.tide_ARMOR_TRIM_SMITHING_TEMPLATE' ],
+    [ Blockly.Msg.i_vex_ARMOR_TRIM_SMITHING_TEMPLATE, 'i.vex_ARMOR_TRIM_SMITHING_TEMPLATE' ],
+    [ Blockly.Msg.i_ward_ARMOR_TRIM_SMITHING_TEMPLATE, 'i.ward_ARMOR_TRIM_SMITHING_TEMPLATE' ],
+    [ Blockly.Msg.i_wayfinder_ARMOR_TRIM_SMITHING_TEMPLATE, 'i.wayfinder_ARMOR_TRIM_SMITHING_TEMPLATE' ],
+    [ Blockly.Msg.i_wild_ARMOR_TRIM_SMITHING_TEMPLATE, 'i.wild_ARMOR_TRIM_SMITHING_TEMPLATE' ]
+    
  ].sort(compareMCobjects)
 }
 
