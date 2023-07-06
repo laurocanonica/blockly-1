@@ -70,6 +70,10 @@ Blockly.JavaScript['minecraft_item'] = function(block) {
 	return minecraft_materialbockOnlyOne_fn(block);
 };
 
+Blockly.JavaScript['minecraft_item_op'] = function(block) {
+	return minecraft_materialbockOnlyOne_fn(block);
+};
+
 function cleanMaterialList(materialList) {
 //	if(materialList!="[]" && // not an empty list
 //			materialList.indexOf(",")>0){ // not a simple variable name
