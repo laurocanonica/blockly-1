@@ -61,7 +61,6 @@ function getEntities() {
     [ Blockly.Msg.e_goat, 'e.goat' ],
     [ Blockly.Msg.e_guardian, 'e.guardian' ],
     [ Blockly.Msg.e_hoglin, 'e.hoglin' ],
-    [ Blockly.Msg.e_hopper_minecart, 'e.hopper_minecart' ],
     [ Blockly.Msg.e_horse, 'e.horse' ],
     [ Blockly.Msg.e_husk, 'e.husk' ],
     [ Blockly.Msg.e_illusioner, 'e.illusioner' ],
@@ -124,6 +123,7 @@ function getEntities() {
 }
 function getEntities_opOnly() {
 	return [ 
+[ Blockly.Msg.e_hopper_minecart, 'e.hopper_minecart' ],
 [ Blockly.Msg.e_giant, 'e.giant' ],
 [ Blockly.Msg.e_tnt, 'e.tnt' ],
 [ Blockly.Msg.e_ender_dragon, 'e.ender_dragon' ],
@@ -326,7 +326,6 @@ function getMaterials() {
     [ Blockly.Msg.b_cave_vines, 'b.cave_vines' ],
     [ Blockly.Msg.b_cave_vines_plant, 'b.cave_vines_plant' ],
     [ Blockly.Msg.b_chain, 'b.chain' ],
-    [ Blockly.Msg.b_chain_command_block, 'b.chain_command_block' ],
     [ Blockly.Msg.b_cherry_button, 'b.cherry_button' ],
     [ Blockly.Msg.b_cherry_door, 'b.cherry_door' ],
     [ Blockly.Msg.b_cherry_fence, 'b.cherry_fence' ],
@@ -370,7 +369,6 @@ function getMaterials() {
     [ Blockly.Msg.b_cobblestone_wall, 'b.cobblestone_wall' ],
     [ Blockly.Msg.b_cobweb, 'b.cobweb' ],
     [ Blockly.Msg.b_cocoa, 'b.cocoa' ],
-    [ Blockly.Msg.b_command_block, 'b.command_block' ],
     [ Blockly.Msg.b_comparator, 'b.comparator' ],
     [ Blockly.Msg.b_composter, 'b.composter' ],
     [ Blockly.Msg.b_conduit, 'b.conduit' ],
@@ -579,7 +577,6 @@ function getMaterials() {
     [ Blockly.Msg.b_heavy_weighted_pressure_plate, 'b.heavy_weighted_pressure_plate' ],
     [ Blockly.Msg.b_honey_block, 'b.honey_block' ],
     [ Blockly.Msg.b_honeycomb_block, 'b.honeycomb_block' ],
-    [ Blockly.Msg.b_hopper, 'b.hopper' ],
     [ Blockly.Msg.b_horn_coral, 'b.horn_coral' ],
     [ Blockly.Msg.b_horn_coral_block, 'b.horn_coral_block' ],
     [ Blockly.Msg.b_horn_coral_fan, 'b.horn_coral_fan' ],
@@ -943,7 +940,6 @@ function getMaterials() {
     [ Blockly.Msg.b_redstone_wire, 'b.redstone_wire' ],
     [ Blockly.Msg.b_reinforced_deepslate, 'b.reinforced_deepslate' ],
     [ Blockly.Msg.b_repeater, 'b.repeater' ],
-    [ Blockly.Msg.b_repeating_command_block, 'b.repeating_command_block' ],
     [ Blockly.Msg.b_respawn_anchor, 'b.respawn_anchor' ],
     [ Blockly.Msg.b_rooted_dirt, 'b.rooted_dirt' ],
     [ Blockly.Msg.b_rose_bush, 'b.rose_bush' ],
@@ -1156,6 +1152,7 @@ function getMaterials() {
 
 function getMaterials_opOnly() {
 	return [		
+    [ Blockly.Msg.b_hopper, 'b.hopper' ],
 	[ Blockly.Msg.b_tnt, 'b.tnt' ],
 	[ Blockly.Msg.b_lava, 'b.lava' ],
 	[ Blockly.Msg.b_lava_cauldron, 'b.lava_cauldron' ],
@@ -1164,6 +1161,10 @@ function getMaterials_opOnly() {
     [ Blockly.Msg.b_spawner, 'b.spawner' ],
     [ Blockly.Msg.b_wither_skeleton_skull, 'b.wither_skeleton_skull' ],
     [ Blockly.Msg.b_wither_skeleton_wall_skull, 'b.wither_skeleton_wall_skull' ],
+    [ Blockly.Msg.b_command_block, 'b.command_block' ],
+    [ Blockly.Msg.b_chain_command_block, 'b.chain_command_block' ],
+    [ Blockly.Msg.b_repeating_command_block, 'b.repeating_command_block' ],
+    
 
 
 		
@@ -1248,7 +1249,6 @@ function getItems() {
     [ Blockly.Msg.i_cocoa_beans, 'i.cocoa_beans' ],
     [ Blockly.Msg.i_cod, 'i.cod' ],
     [ Blockly.Msg.i_cod_bucket, 'i.cod_bucket' ],
-    [ Blockly.Msg.i_command_block_minecart, 'i.command_block_minecart' ],
     [ Blockly.Msg.i_compass, 'i.compass' ],
     [ Blockly.Msg.i_cooked_beef, 'i.cooked_beef' ],
     [ Blockly.Msg.i_cooked_chicken, 'i.cooked_chicken' ],
@@ -1334,7 +1334,6 @@ function getItems() {
     [ Blockly.Msg.i_heartbreak_pottery_sherd, 'i.heartbreak_pottery_sherd' ],
     [ Blockly.Msg.i_honey_bottle, 'i.honey_bottle' ],
     [ Blockly.Msg.i_honeycomb, 'i.honeycomb' ],
-    [ Blockly.Msg.i_hopper_minecart, 'i.hopper_minecart' ],
     [ Blockly.Msg.i_howl_pottery_sherd, 'i.howl_pottery_sherd' ],
     [ Blockly.Msg.i_ink_sac, 'i.ink_sac' ],
     [ Blockly.Msg.i_iron_axe, 'i.iron_axe' ],
@@ -1597,8 +1596,11 @@ function getItems_opOnly() {
     [ Blockly.Msg.i_zombie_spawn_egg, 'i.zombie_spawn_egg' ],
     [ Blockly.Msg.i_zombie_villager_spawn_egg, 'i.zombie_villager_spawn_egg' ],
     [ Blockly.Msg.i_zombified_piglin_spawn_egg, 'i.zombified_piglin_spawn_egg' ],
-[ Blockly.Msg.i_wither_skeleton_spawn_egg, 'i.wither_skeleton_spawn_egg' ],
-[ Blockly.Msg.i_wither_spawn_egg, 'i.wither_spawn_egg' ],
+	[ Blockly.Msg.i_wither_skeleton_spawn_egg, 'i.wither_skeleton_spawn_egg' ],
+	[ Blockly.Msg.i_wither_spawn_egg, 'i.wither_spawn_egg' ],
+    [ Blockly.Msg.i_command_block_minecart, 'i.command_block_minecart' ],
+    [ Blockly.Msg.i_hopper_minecart, 'i.hopper_minecart' ],
+
 		
 ].sort(compareMCobjects)
 }
