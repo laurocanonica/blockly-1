@@ -47,7 +47,8 @@ var Code = {};
  */
 Code.LANGUAGE_NAME = {
 		  'en': 'English',
-		  'it': 'Italiano'
+		  'it': 'Italiano',
+		  'he': '×¢×‘×¨×™×ª'
 };
 
 Code.LANGUAGE_NAME_originalList = {
@@ -559,7 +560,12 @@ Code.loadFile = function(files){
 
 		reader.onload = function(e) {
 			//window.alert(reader.result);
-			var outxml = Blockly.Xml.textToDom(reader.result);
+			var outxml ="";
+		    try {
+	 			outxml = Blockly.Xml.textToDom(reader.result);
+	 		} catch (e) {
+	 			window.alert("ERROR: "+e);
+		    }
 			Blockly.Xml.domToWorkspace(outxml, Code.workspace);
 			window.alert("loaded");
 		}
@@ -735,7 +741,13 @@ Code.loadExampleXML = function(xmlFile) {
 	xhr.open("POST", hpath, true); 
 	xhr.timeout = 2000; 
 	xhr.onload=function(event){
-		var outxml = Blockly.Xml.textToDom(xhr.responseText);
+		var outxml ="";
+	    try {
+ 			outxml = Blockly.Xml.textToDom(xhr.responseText);
+ 		} catch (e) {
+ 			window.alert("ERROR: "+e);
+	    }
+	
 		Blockly.Xml.domToWorkspace(outxml, Code.workspace);
 		var modal = document.getElementById('myModal');
 		modal.style.display = "none";
