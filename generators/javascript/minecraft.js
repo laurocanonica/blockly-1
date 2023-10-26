@@ -8,30 +8,38 @@ goog.provide('Blockly.JavaScript.minecraft');
 
 goog.require('Blockly.JavaScript');
 
+function addPlusIfNotEmpty(inText){
+	if (inText!=""){
+		return "+"+inText;		
+	} else {
+		return inText;
+	}
+}
+
 Blockly.JavaScript['minecraft_multiciplity'] = function(block) {
 	var number_mutiplicity = block.getFieldValue('mutiplicity');
 	var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
-	var code = value_singleblock.replace("_M_", number_mutiplicity);
+	var code = '"MU='+number_mutiplicity+',"'+addPlusIfNotEmpty(value_singleblock);
 	return [ code, Blockly.JavaScript.ORDER_NONE ];
 };
 Blockly.JavaScript['minecraft_multiciplity_var'] = function(block) {
 	var variable_mutiplicity = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('mutiplicity'), Blockly.Variables.NAME_TYPE);
 	var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
-	var code =value_singleblock.replace('_M_', '"+'+variable_mutiplicity+'+"'); // move the double quote after the variable name
+	var code = '"MU="+'+variable_mutiplicity+'+","'+addPlusIfNotEmpty(value_singleblock);
 	return [ code, Blockly.JavaScript.ORDER_NONE ];
 };
 
 Blockly.JavaScript['minecraft_delay'] = function(block) {
 	var number_delay = block.getFieldValue('delay');
 	var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
-	var code = value_singleblock.replace("_D_", number_delay);
+	var code = '"DE='+number_delay+',"'+addPlusIfNotEmpty(value_singleblock);
 	return [ code, Blockly.JavaScript.ORDER_NONE ];
 };
 
 Blockly.JavaScript['minecraft_delay_var'] = function(block) {
 	var variable_delay = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('delay'), Blockly.Variables.NAME_TYPE);
 	var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
-	var code =value_singleblock.replace('_D_', '"+'+variable_delay+'+"'); // move the double quote after the variable name
+	var code = '"DE="+'+variable_delay+'+","'+addPlusIfNotEmpty(value_singleblock);
 	return [ code, Blockly.JavaScript.ORDER_NONE ];
 };
 
@@ -40,16 +48,16 @@ Blockly.JavaScript['minecraft_delay_random'] = function(block) {
 	var max = block.getFieldValue('max');
 	var number_delay = min+'-x-'+max;
 	var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
-	var code = value_singleblock.replace("_D_", number_delay);
+	var code = '"DE='+number_delay+',"'+addPlusIfNotEmpty(value_singleblock);
 	return [ code, Blockly.JavaScript.ORDER_NONE ];
 };
 
 Blockly.JavaScript['minecraft_delay_random_var'] = function(block) {
 	var min = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('min'), Blockly.Variables.NAME_TYPE);
 	var max = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('max'), Blockly.Variables.NAME_TYPE);
-	var number_delay = '"+'+min+'+"-x-"+'+max+'+"';
+	var number_delay =min+'+"-x-"+'+max;
 	var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
-	var code = value_singleblock.replace("_D_", number_delay);
+	var code = '"DE="+'+number_delay+'+","'+addPlusIfNotEmpty(value_singleblock);
 	return [ code, Blockly.JavaScript.ORDER_NONE ];
 };
 
@@ -248,21 +256,15 @@ Blockly.JavaScript['minecraft_rotate'] = function(block) {
 		
 		Blockly.JavaScript['minecraft_splashpotion'] = function(block) {
 			  var text_functionname = block.getFieldValue('functionName');
-			  var value_name = Blockly.JavaScript.valueToCode(block, 'name', Blockly.JavaScript.ORDER_NONE);
-			  var code = '"_G_,,_P_,,_D_,,_M_,,\''+text_functionname+'\',,_L_,,i.splash_potion;"';
-				if(value_name!=''){
-					code += '+ '+value_name;
-				}
+			  var value_singleblock = Blockly.JavaScript.valueToCode(block, 'name', Blockly.JavaScript.ORDER_NONE);
+				var code = '"SP='+text_functionname+",TY=i.splash_potion;\""+addPlusIfNotEmpty(value_singleblock);
 				return [ code, Blockly.JavaScript.ORDER_NONE ];
 			};
 
 		Blockly.JavaScript['minecraft_sign'] = function(block) {
 			  var variable_varname = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('varName'), Blockly.Variables.NAME_TYPE);
-			  var value_name = Blockly.JavaScript.valueToCode(block, 'name', Blockly.JavaScript.ORDER_NONE);
-			  var code = '"_G_,,"+'+variable_varname+'+",,_D_,,_M_,,_T_,,_L_,,b.acacia_sign;"';
-				if(value_name!=''){
-					code += '+ '+value_name;
-				}
+			  var value_singleblock = Blockly.JavaScript.valueToCode(block, 'name', Blockly.JavaScript.ORDER_NONE);
+				var code = '"ST="+'+variable_varname+'+",TY=b.acacia_sign;\"'+addPlusIfNotEmpty(value_singleblock);
 				return [ code, Blockly.JavaScript.ORDER_NONE ];
 			};
 
@@ -270,10 +272,7 @@ Blockly.JavaScript['minecraft_rotate'] = function(block) {
 function minecraft_materialbockOnlyOne_fn(block){
 	var dropdown_name = block.getFieldValue('NAME');
 	var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
-	var code = '"_G_,,_P_,,_D_,,_M_,,_T_,,_L_,,' + dropdown_name + ';"';
-	if(value_singleblock!=''){
-		code += '+ '+value_singleblock;
-	}
+	var code = '"TY='+dropdown_name+';"'+addPlusIfNotEmpty(value_singleblock);
 	return [ code, Blockly.JavaScript.ORDER_NONE ];
 }
 
@@ -302,35 +301,35 @@ Blockly.JavaScript['minecraft_entity_op'] = function(block) {
 Blockly.JavaScript['minecraft_team'] = function(block) {
 	var dropdown_name = block.getFieldValue('NAME');
 	var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
-	var code = value_singleblock.replace("_T_", dropdown_name);
+	var code = '"TE='+dropdown_name+',"'+addPlusIfNotEmpty(value_singleblock);
 	return [ code, Blockly.JavaScript.ORDER_NONE ];
 };
 
 Blockly.JavaScript['minecraft_direction'] = function(block) {
 	var dropdown_name = block.getFieldValue('NAME');
 	var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
-	var code = value_singleblock.replace("_T_", dropdown_name);
+	var code = '"DI='+dropdown_name+',"'+addPlusIfNotEmpty(value_singleblock);
 	return [ code, Blockly.JavaScript.ORDER_NONE ];
 };
 
 Blockly.JavaScript['minecraft_leash'] = function(block) {
 	var dropdown_name = block.getFieldValue('NAME');
 	var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
-	var code = value_singleblock.replace("_L_", dropdown_name);
+	var code = '"LE='+dropdown_name+',"'+addPlusIfNotEmpty(value_singleblock);
 	return [ code, Blockly.JavaScript.ORDER_NONE ];
 };
 
 Blockly.JavaScript['minecraft_upper_lower_part'] = function(block) {
 	var dropdown_name = block.getFieldValue('NAME');
 	var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
-	var code = value_singleblock.replace("_P_", dropdown_name);
+	var code = '"UD='+dropdown_name+',"'+addPlusIfNotEmpty(value_singleblock);
 	return [ code, Blockly.JavaScript.ORDER_NONE ];
 };
 
 
 Blockly.JavaScript['minecraft_on_the_ground'] = function(block) {
 	var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
-	var code = value_singleblock.replace("_G_", "g");
+	var code = '"GR=g,"'+addPlusIfNotEmpty(value_singleblock);
 	return [ code, Blockly.JavaScript.ORDER_NONE ];
 };
 
@@ -657,17 +656,14 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 		Blockly.JavaScript['customimage_var'] = function(block) {
 			var variable_url = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('url'), Blockly.Variables.NAME_TYPE);
 			var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
-			var code = '"_G_,,"+'+variable_url+'+",,_D_,,_M_,,_T_,,_L_,,e.item_frame;"';
+			var code = '"IM="+'+variable_url+'+",TY=e.item_frame;"'+addPlusIfNotEmpty(value_singleblock);
 
 			return [ code, Blockly.JavaScript.ORDER_NONE ];
 		};
 		
 		Blockly.JavaScript['minecraft_materialNothing'] = function(block) {
 			var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
-			var code = '"_G_,,_P_,,_D_,,_M_,,_T_,,_L_,,_EMPTY_;"';
-			if(value_singleblock!=''){
-				code += '+ '+value_singleblock;
-			}
+			var code = '"EM=true,"'+addPlusIfNotEmpty(value_singleblock);
 			return [ code, Blockly.JavaScript.ORDER_NONE ];
 		}
 
