@@ -663,7 +663,7 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 		
 		Blockly.JavaScript['minecraft_materialNothing'] = function(block) {
 			var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
-			var code = '"EM=true,"'+addPlusIfNotEmpty(value_singleblock);
+			var code = '"TY=X.EMPTY,"'+addPlusIfNotEmpty(value_singleblock);
 			return [ code, Blockly.JavaScript.ORDER_NONE ];
 		}
 
