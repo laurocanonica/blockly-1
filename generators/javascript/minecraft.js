@@ -264,7 +264,7 @@ Blockly.JavaScript['minecraft_rotate'] = function(block) {
 		Blockly.JavaScript['minecraft_sign'] = function(block) {
 			  var variable_varname = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('varName'), Blockly.Variables.NAME_TYPE);
 			  var value_singleblock = Blockly.JavaScript.valueToCode(block, 'name', Blockly.JavaScript.ORDER_NONE);
-				var code = '"ST="+'+variable_varname+'+",TY=b.acacia_sign;\"'+addPlusIfNotEmpty(value_singleblock);
+				var code = '"ST="+'+variable_varname+'.replaceAll(",","&#44").replaceAll(";","&#59")+",TY=b.acacia_sign;\"'+addPlusIfNotEmpty(value_singleblock);
 				return [ code, Blockly.JavaScript.ORDER_NONE ];
 			};
 
