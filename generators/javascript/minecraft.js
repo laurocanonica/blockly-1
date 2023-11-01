@@ -439,12 +439,13 @@ function validateBlockchoice(block, blockChoice) {
 	//choice = choice.replace(/\).*\]/g, ""); // replace the ending nulls
 	
 	//choice = choice.replace(/\[\]/g, ""); // remove empty lists
+/*	
 	choice = choice.replace(/\[null\]/g, ""); // remove empty lists
 	choice = choice.replace(/[\[\]]/g, ""); // remove square parenthesis left overs
 	choice = choice.replace(/\(\"/g, "\""); // remove round parenthesis left overs
 	choice = choice.replace(/\"\)/g, "\""); // remove round parenthesis left overs
 	choice = choice.replace(/, /g, "+ "); // change commas with +
-
+*/
 
 	return("\t["+choice+"],\n");
 }
