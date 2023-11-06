@@ -333,6 +333,12 @@ Blockly.JavaScript['minecraft_on_the_ground'] = function(block) {
 	return [ code, Blockly.JavaScript.ORDER_NONE ];
 };
 
+Blockly.JavaScript['minecraft_baby'] = function(block) {
+	var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
+	var code = '"BA=b,"'+addPlusIfNotEmpty(value_singleblock);
+	return [ code, Blockly.JavaScript.ORDER_NONE ];
+};
+
 
 Blockly.JavaScript['minecraft_hitting'] = function(block) {
 	var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_NONE);

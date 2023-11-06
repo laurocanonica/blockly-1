@@ -2650,6 +2650,24 @@ Blockly.Blocks['minecraft_on_the_ground'] = {
 		}
 	};
 
+Blockly.Blocks['minecraft_baby'] = {
+		init : function() {
+			this.jsonInit({
+				"type" : "minecraft_baby",
+				"message0" : Blockly.Msg.MC_cmd_baby,
+				"args0" : [ {
+					"type" : "input_value",
+					"name" : "singleblock",
+					"check" : [ "Material" ]
+				} ],
+				"output" : "Material",
+				"colour" : 330,
+				"tooltip" : "",
+				"helpUrl" : ""
+			});
+		}
+	};
+
 Blockly.Blocks['minecraft_move_to_view_target'] = {
 		init : function() {
 			this.jsonInit( 	

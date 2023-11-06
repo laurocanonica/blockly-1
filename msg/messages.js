@@ -3225,6 +3225,7 @@ Blockly.Msg.MC_cmd_minecraft_option_lastmarked_position = 'the last marked posit
 Blockly.Msg.MC_cmd_facing = 'facing %1 %2';
 Blockly.Msg.MC_cmd_upper_lower = 'side %1 %2';
 Blockly.Msg.MC_cmd_ground = 'on the ground %1';
+Blockly.Msg.MC_cmd_baby = 'baby %1';
 Blockly.Msg.MC_cmd_minecraft_cancel_events = 'cancel all events';
 Blockly.Msg.MC_cmd_minecraft_draw = 'Draw %1 %2 0 %3 %4 1 %5 %6 2 %7 %8 3 %9 %10 4 %11 %12 5 %13 %14 6 %15 %16 7 %17 %18 8 %19 %20 9 %21 nr: %22 %23';
 Blockly.Msg.MC_cmd_minecraft_draw_extended = 'Draw %1 %2 0 %3 %4 1 %5 %6 2 %7 %8 3 %9 %10 4 %11 %12 5 %13 %14 6 %15 %16 7 %17 %18 8 %19 %20 9 %21 %22 z %23 %24 y %25 %26 x %27 %28 w %29 %30 v %31 %32 u %33 %34 t %35 %36 s %37 %38 r %39 %40 q %41 nr: %42 %43';
