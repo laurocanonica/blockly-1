@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2023-10-31 12:21:23.774222",
+		"lastupdated": "2023-11-07 12:18:22.062449",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -1998,6 +1998,8 @@
 	"MC_cmd_mob": "the last created mob",
 	"MC_cmd_mob_owner": "the holder",
 	"MC_cmd_nobody": "nobody",
+	"MC_cmd_baby": "baby %1",
+	"MC_cmd_minecraft_talking": "talking %1 %2",
 	"MC_cmd_voronoi": "create a %1 Voronoi diagram of width %2 and length %3 for the points %4 made of %5",
 	"PROCEDURES_DEFNORETURN_TITLE": "/vm",
 	"PROCEDURES_DEFNORETURN_PROCEDURE": "mycommand"

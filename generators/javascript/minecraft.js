@@ -15,6 +15,9 @@ function addPlusIfNotEmpty(inText){
 		return inText;
 	}
 }
+function addReplaceCommasAndSemicolons(){
+		return'.replaceAll(",","&#44").replaceAll(";","&#59")'; // replace commas and semicolumns
+	};
 
 Blockly.JavaScript['minecraft_multiciplity'] = function(block) {
 	var number_mutiplicity = block.getFieldValue('mutiplicity');
@@ -264,7 +267,7 @@ Blockly.JavaScript['minecraft_rotate'] = function(block) {
 		Blockly.JavaScript['minecraft_sign'] = function(block) {
 			  var variable_varname = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('varName'), Blockly.Variables.NAME_TYPE);
 			  var value_singleblock = Blockly.JavaScript.valueToCode(block, 'name', Blockly.JavaScript.ORDER_NONE);
-				var code = '"ST="+'+variable_varname+'.replaceAll(",","&#44").replaceAll(";","&#59")+",TY=b.acacia_sign;\"'+addPlusIfNotEmpty(value_singleblock);
+				var code = '"ST="+'+variable_varname+addReplaceCommasAndSemicolons()+'+",TY=b.acacia_sign;\"'+addPlusIfNotEmpty(value_singleblock);
 				return [ code, Blockly.JavaScript.ORDER_NONE ];
 			};
 
@@ -665,6 +668,13 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 			var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
 			var code = '"IM="+'+variable_url+'+",TY=e.item_frame;"'+addPlusIfNotEmpty(value_singleblock);
 
+			return [ code, Blockly.JavaScript.ORDER_NONE ];
+		};
+		
+		Blockly.JavaScript['minecraft_talking'] = function(block) {
+			var variable_text = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('text'), Blockly.Variables.NAME_TYPE);
+			var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
+			var code = '"TA="+'+variable_text+addReplaceCommasAndSemicolons()+'+","'+addPlusIfNotEmpty(value_singleblock);
 			return [ code, Blockly.JavaScript.ORDER_NONE ];
 		};
 		

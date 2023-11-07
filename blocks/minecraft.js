@@ -1813,7 +1813,7 @@ Blockly.Blocks['minecraft_materialbockOnlyOne'] = {
 				"check" : [ "Material" ]
 			} ],
 			"output" : "Material",
-			"colour" : 330,
+			"colour" : 0,
 			"tooltip" : "",
 			"helpUrl" : ""
 		});
@@ -2440,7 +2440,7 @@ Blockly.Blocks['minecraft_splashpotion'] = {
 				    }
 				  ],
 				  "output": "Item",
-				  "colour": 20,
+				  "colour": 30,
 				  "tooltip": "",
 				  "helpUrl": ""
 				});
@@ -2465,7 +2465,7 @@ Blockly.Blocks['minecraft_sign'] = {
 				    }
 				  ],
 				  "output": "Material",
-				  "colour": 330,
+				  "colour": 285,
 				  "tooltip": "",
 				  "helpUrl": ""
 				});
@@ -2506,7 +2506,7 @@ Blockly.Blocks['minecraft_team'] = {
 					"check" : [ "Material" ]
 				} ],
 				"output" : "Material",
-				"colour" : 330,
+				"colour" : 180,
 				"tooltip" : "",
 				"helpUrl" : ""
 			});
@@ -2547,7 +2547,7 @@ Blockly.Blocks['minecraft_team'] = {
 					"check" : [ "Material" ]
 				} ],
 				"output" : "Material",
-				"colour" : 330,
+				"colour" : 180,
 				"tooltip" : "",
 				"helpUrl" : ""
 			});
@@ -2661,7 +2661,7 @@ Blockly.Blocks['minecraft_baby'] = {
 					"check" : [ "Material" ]
 				} ],
 				"output" : "Material",
-				"colour" : 330,
+				"colour" : 180,
 				"tooltip" : "",
 				"helpUrl" : ""
 			});
@@ -4131,6 +4131,31 @@ Blockly.Blocks['customimage_var'] = {
 				  ],
 				  "output": "Material",
 				  "colour": 330,
+				  "tooltip": "",
+				  "helpUrl": ""
+				});
+		}
+	};
+
+Blockly.Blocks['minecraft_talking'] = {
+		init : function() {
+			this.jsonInit({
+				  "type": "minecraft_talking",
+				  "message0" : Blockly.Msg.MC_cmd_minecraft_talking,
+				  "args0": [
+				    {
+				      "type": "field_variable",
+				      "name": "text",
+				      "variable": "text"
+				    },
+				    {
+				      "type": "input_value",
+				      "name": "singleblock",
+						"check" : [ "Material" ]
+				    }
+				  ],
+				  "output": "Material",
+				  "colour": 180,
 				  "tooltip": "",
 				  "helpUrl": ""
 				});
