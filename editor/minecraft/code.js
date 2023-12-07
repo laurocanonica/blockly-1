@@ -48,6 +48,8 @@ var Code = {};
 Code.LANGUAGE_NAME = {
 		  'en': 'English',
 		  'it': 'Italiano',
+		  'de': 'Deutsch',
+		  'es': 'Español',
 		  'he': 'עברית'
 };
 

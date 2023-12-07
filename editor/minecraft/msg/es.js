@@ -20,5 +20,23 @@ var MSG = {
   linkAlert: "Comparte tus bloques con este enlace:\n\n%1",
   hashError: "«%1» no corresponde con ningún programa guardado.",
   xmlError: "No se pudo cargar el archivo guardado.  ¿Quizá fue creado con otra versión de Blockly?",
-  badXml: "Error de análisis XML:\n%1\n\nSelecciona OK para abandonar tus cambios o Cancelar para seguir editando el XML."
+  badXml: "Error de análisis XML:\n%1\n\nSelecciona OK para abandonar tus cambios o Cancelar para seguir editando el XML.",
+  
+c_Objects: "Objetos",
+c_Time: "Tiempo",
+c_Movement: "Movimiento",
+c_Actions: "Acciones",
+c_Drawing: "Dibujo",
+c_Events: "Eventos",
+c_Operators: "Operadores solo",
+c_ExamplesMenu: "Ejemplos ...",
+c_Examples: "Ejemplos",
+c_Algorithms: "Algoritmos",
+t_saveTooltip: "Guardar el programa en la computadora",
+t_readTooltip: "Cargar un programa desde la computadora",
+warn_entername: "Falta el NOMBRE DEL JUGADOR DE MINECRAFT en el campo superior derecho",
+info_deploySuccess: "El programa está listo en Minecraft para %2",
+info_deploySuccessWithWarning: "El programa está listo en Minecraft pero %2 no está en línea",
+info_deployUnknownPlayer: "Mojang no tiene un jugador llamado %2",
+infiniteLoopMessage: "Programa detenido porque se detectó un bucle infinito"
 };
