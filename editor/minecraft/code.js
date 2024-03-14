@@ -114,6 +114,11 @@ Code.LANGUAGE_RTL = ['ar', 'fa', 'he', 'lki'];
 Code.workspace = null;
 
 /**
+ * holder for data sent via httpRequests. Avoid potential issues with deallocationg the resource before sending
+ */
+Code.formData = null;
+
+/**
  * Extracts a parameter from the URL.
  * If the parameter is absent default_value is returned.
  * @param {string} name The name of the parameter.
@@ -652,11 +657,11 @@ Code.runJS = function() {
 		   
 		   //postToServer('/EXE', {'EXECODE': code});
 		   //postToServer(playerName, host+':'+port+'/EXE', {'EXECODE': code , 'Playername':playerName});
-		   var formData = new FormData(); 
-		   formData.append('EXECODE', code);
-		   formData.append('XMLCODE', xmlCode);
-		   formData.append('Playername', playerName);
-		   formData.append('langsel', Code.getLanguage());
+		   Code.formData = new FormData(); 
+		   Code.formData.append('EXECODE', code);
+		   Code.formData.append('XMLCODE', xmlCode);
+		   Code.formData.append('Playername', playerName);
+		   Code.formData.append('langsel', Code.getLanguage());
 
 
 		   
@@ -684,7 +689,7 @@ Code.runJS = function() {
 		   xhr.ontimeout = function (e) {
 			   displayResultMessage("Connection failed  "+xhr.responseText, "red"); 
 			 };
-		   xhr.send(formData);	   
+		   xhr.send(Code.formData);	   
 		   
 		   //window.alert(MSG['info_deploySuccess'].replace('%1', host).replace('%2', playerName)+" ("+port+")");
 		   //location.reload(); // force reload of page
@@ -699,8 +704,8 @@ Code.loadLog = function() {
 	var logTextarea = document.getElementById('content_log');
 	var host='http://'+ Code.remoteHost; 	   
 	var hpath=host+'/LOG';
-	var formData = new FormData(); 
-	formData.append('Playername', playerName);
+	Code.formData = new FormData(); 
+	Code.formData.append('Playername', playerName);
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", hpath, true); 
 	xhr.timeout = 2000; 
@@ -715,13 +720,26 @@ Code.loadLog = function() {
 	   logTextarea.value ="TIMEOUT Connecting server\n  "+xhr.responseText; 
        console.log('TIMEOUT Connecting server\n'+xhr.responseText)
 	};
-	xhr.send(formData);	   
+	 // track upload progress
+	  xhr.upload.onprogress = function(event) {
+	    console.log(`Uploaded ${event.loaded} of ${event.total}`);
+	 };
+	
+	 // track completion: both successful or not
+	 xhr.onloadend = function() {
+	   if (xhr.status == 200) {
+	      console.log("success uploading");
+	    } else {
+	      console.log("error uploading " + this.status);
+	    }
+	  };
+	xhr.send(Code.formData);	   
 };
 
 Code.loadExamplesList = function() {
 	var host='http://'+ Code.remoteHost; 	      
 	var hpath=host+'/EXL';
-	var formData = new FormData(); 
+	Code.formData = new FormData(); 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", hpath, true); 
 	xhr.timeout = 2000; 
@@ -735,13 +753,13 @@ Code.loadExamplesList = function() {
 	xhr.ontimeout = function (e) {
        console.log('TIMEOUT Connecting server for loading list of examples\n'+xhr.responseText)   
 	};
-	xhr.send(formData);	   
+	xhr.send(Code.formData);	   
 };
 
 Code.loadExampleXML = function(xmlFile) {
 	var host='http://'+ Code.remoteHost; 
 	var hpath=host+'/EXF?EF='+xmlFile;
-	var formData = new FormData(); 
+	Code.formData = new FormData(); 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", hpath, true); 
 	xhr.timeout = 2000; 
@@ -763,7 +781,7 @@ Code.loadExampleXML = function(xmlFile) {
 	xhr.ontimeout = function (e) {
        console.log('TIMEOUT Connecting server for loading example XML\n'+xhr.responseText)
 	};
-	xhr.send(formData);	   
+	xhr.send(Code.formData);	   
 };
 
 function displayResultMessage(message, color){
