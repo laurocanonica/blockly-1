@@ -123,7 +123,6 @@ function getEntities() {
 }
 function getEntities_opOnly() {
 	return [ 
-[ Blockly.Msg.e_hopper_minecart, 'e.hopper_minecart' ],
 [ Blockly.Msg.e_giant, 'e.giant' ],
 [ Blockly.Msg.e_tnt, 'e.tnt' ],
 [ Blockly.Msg.e_ender_dragon, 'e.ender_dragon' ],
@@ -1599,8 +1598,7 @@ function getItems_opOnly() {
 	[ Blockly.Msg.i_wither_skeleton_spawn_egg, 'i.wither_skeleton_spawn_egg' ],
 	[ Blockly.Msg.i_wither_spawn_egg, 'i.wither_spawn_egg' ],
     [ Blockly.Msg.i_command_block_minecart, 'i.command_block_minecart' ],
-    [ Blockly.Msg.i_hopper_minecart, 'i.hopper_minecart' ],
-
+ 
 		
 ].sort(compareMCobjects)
 }

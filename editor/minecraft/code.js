@@ -832,10 +832,11 @@ function addExamplesToModal(exampleNamesGroups){
 		const ALGORITHMS_FOLDER='algorithms';
 		for (var i = 0; i < nrExampleGroups; i++) {
 			var firstExampleName=exampleGroupsArr[i];
-				//console.log("file>"+firstExampleName+"<");
+				console.log("file>"+firstExampleName+"<");
 			if(firstExampleName!=null && firstExampleName.length>0){
-				var exampleFolder=firstExampleName.substring(0, firstExampleName.indexOf('/'));
-				//console.log("folder>"+exampleFolder+"<");
+				var parentExampleFolder=firstExampleName.substring(firstExampleName.indexOf('/')+1);
+				var exampleFolder=parentExampleFolder.substring(0, parentExampleFolder.indexOf('/'));
+				console.log("folder>"+exampleFolder+"<");
 				var table=null;
 			    if(exampleFolder==ALGORITHMS_FOLDER){
 		          table = document.getElementById('algorithmsModalTable');
@@ -869,7 +870,8 @@ function addExamplesToTable(exampleNames, table){
 		  var img = document.createElement('img');
 	      img.name = exampleName+".xml";
 	      img.src = 'http://'+ Code.remoteHost +'/EXF?EF='+exampleName+".png";
-		  var basicName=exampleName.substring(exampleName.indexOf('/')+1);
+		  var parentExampleFolder=exampleName.substring(exampleName.indexOf('/')+1);
+		  var basicName=parentExampleFolder.substring(parentExampleFolder.indexOf('/')+1);
 		  var title=basicName.replace(/^[0-9]*/, ""); //remove digits at the beginning used for ordering the files
 		  title=title.replace(/-.*/, ""); //remove anything after a dash. Typically the creation date 
 	      img.title=title;
