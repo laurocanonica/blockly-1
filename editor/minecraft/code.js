@@ -832,11 +832,11 @@ function addExamplesToModal(exampleNamesGroups){
 		const ALGORITHMS_FOLDER='algorithms';
 		for (var i = 0; i < nrExampleGroups; i++) {
 			var firstExampleName=exampleGroupsArr[i];
-				console.log("file>"+firstExampleName+"<");
+				//console.log("file>"+firstExampleName+"<");
 			if(firstExampleName!=null && firstExampleName.length>0){
 				var parentExampleFolder=firstExampleName.substring(firstExampleName.indexOf('/')+1);
 				var exampleFolder=parentExampleFolder.substring(0, parentExampleFolder.indexOf('/'));
-				console.log("folder>"+exampleFolder+"<");
+				//console.log("folder>"+exampleFolder+"<");
 				var table=null;
 			    if(exampleFolder==ALGORITHMS_FOLDER){
 		          table = document.getElementById('algorithmsModalTable');
@@ -1432,7 +1432,7 @@ function blockClickedEventHandler(event){
 			  lastSelectedDrawColBlock=currentlySelectedDrawColBlock;
 			  if(lastSelectedDrawColBlock!=null){
 				  lastSelectedDrawColBlockColour=lastSelectedDrawColBlock.getColour();
-		console.log(lastSelectedDrawColBlockColour);
+		//console.log(lastSelectedDrawColBlockColour);
 				  lastSelectedDrawColBlock.setColour(Blockly.utils.colour.blend(lastSelectedDrawColBlockColour, '#ffffff', .5));
 			  }
 			  currentlySelectedDrawColBlock=selected;
