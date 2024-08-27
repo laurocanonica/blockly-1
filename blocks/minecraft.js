@@ -481,7 +481,6 @@ function getMaterials() {
     [ Blockly.Msg.b_emerald_block, 'b.emerald_block' ],
     [ Blockly.Msg.b_emerald_ore, 'b.emerald_ore' ],
     [ Blockly.Msg.b_enchanting_table, 'b.enchanting_table' ],
-    [ Blockly.Msg.b_end_gateway, 'b.end_gateway' ],
     [ Blockly.Msg.b_end_rod, 'b.end_rod' ],
     [ Blockly.Msg.b_end_stone, 'b.end_stone' ],
     [ Blockly.Msg.b_end_stone_brick_slab, 'b.end_stone_brick_slab' ],
@@ -1175,6 +1174,7 @@ function getMaterials() {
 
 function getMaterials_opOnly() {
 	return [		
+    [ Blockly.Msg.b_end_gateway, 'b.end_gateway' ],
     [ Blockly.Msg.b_hopper, 'b.hopper' ],
     [ Blockly.Msg.b_end_portal, 'b.end_portal' ],
     [ Blockly.Msg.b_end_portal_frame, 'b.end_portal_frame' ],
