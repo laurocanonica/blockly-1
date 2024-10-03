@@ -154,6 +154,179 @@ Blockly.JavaScript['minecraft_star'] = function(block) {
 		}; 
 
 
+
+
+// Generator for Circle shape
+Blockly.JavaScript['minecraft_circle_shape'] = function(block) {
+  var dropdown_fill = block.getFieldValue('FILL');
+  var value_radius = Blockly.JavaScript.valueToCode(block, 'RADIUS', Blockly.JavaScript.ORDER_NONE);
+  var value_name = Blockly.JavaScript.valueToCode(block, 'MATERIAL', Blockly.JavaScript.ORDER_NONE);
+  var code = 'CMD.createCircle(nextLocation, ';
+  code += value_radius + ", ";
+  code += convertFillToBoolean(dropdown_fill) + ", ";
+  code += cleanMaterialList(value_name);
+  code += ", player, startCmdTime);\n";
+  return code;
+};
+
+// Generator for Square shape
+Blockly.JavaScript['minecraft_square_shape'] = function(block) {
+  var dropdown_fill = block.getFieldValue('FILL');
+  var value_sideLength = Blockly.JavaScript.valueToCode(block, 'WIDTH', Blockly.JavaScript.ORDER_NONE);
+  var value_name = Blockly.JavaScript.valueToCode(block, 'MATERIAL', Blockly.JavaScript.ORDER_NONE);
+  var code = 'CMD.createSquare(nextLocation, ';
+  code += value_sideLength + ", ";
+  code += convertFillToBoolean(dropdown_fill) + ", ";
+  code += cleanMaterialList(value_name);
+  code += ", player, startCmdTime);\n";
+  return code;
+};
+
+// Generator for Line shape
+Blockly.JavaScript['minecraft_line_shape'] = function(block) {
+  var value_length = Blockly.JavaScript.valueToCode(block, 'LENGTH', Blockly.JavaScript.ORDER_NONE);
+  var value_name = Blockly.JavaScript.valueToCode(block, 'MATERIAL', Blockly.JavaScript.ORDER_NONE);
+  var code = 'CMD.createLine(nextLocation, ';
+  code += value_length + ", ";
+  code += cleanMaterialList(value_name);
+  code += ", player, startCmdTime);\n";
+  return code;
+};
+
+// Generator for Rectangle shape
+Blockly.JavaScript['minecraft_rectangle_shape'] = function(block) {
+  var dropdown_fill = block.getFieldValue('FILL');
+  var value_width = Blockly.JavaScript.valueToCode(block, 'WIDTH', Blockly.JavaScript.ORDER_NONE);
+  var value_height = Blockly.JavaScript.valueToCode(block, 'HEIGHT', Blockly.JavaScript.ORDER_NONE);
+  var value_name = Blockly.JavaScript.valueToCode(block, 'MATERIAL', Blockly.JavaScript.ORDER_NONE);
+  var code = 'CMD.createRectangle(nextLocation, ';
+  code += value_width + ", ";
+  code += value_height + ", ";
+  code += convertFillToBoolean(dropdown_fill) + ", ";
+  code += cleanMaterialList(value_name);
+  code += ", player, startCmdTime);\n";
+  return code;
+};
+
+// Generator for Polygon shape
+Blockly.JavaScript['minecraft_polygon_shape'] = function(block) {
+  var dropdown_fill = block.getFieldValue('FILL');
+  var value_nr_sides = Blockly.JavaScript.valueToCode(block, 'SIDES', Blockly.JavaScript.ORDER_NONE);
+  var value_polygon_radius = Blockly.JavaScript.valueToCode(block, 'POLYGON_RADIUS', Blockly.JavaScript.ORDER_NONE);
+  var value_name = Blockly.JavaScript.valueToCode(block, 'MATERIAL', Blockly.JavaScript.ORDER_NONE);
+  var code = 'CMD.createPolygon(nextLocation, ';
+  code += value_nr_sides + ", ";
+  code += value_polygon_radius + ", ";
+  code += value_polygon_radius + ", "; // Assuming the side length is same as the radius for simplicity
+  code += convertFillToBoolean(dropdown_fill) + ", ";
+  code += cleanMaterialList(value_name);
+  code += ", player, startCmdTime);\n";
+  return code;
+};
+
+// Generator for Ellipse shape
+Blockly.JavaScript['minecraft_ellipse_shape'] = function(block) {
+  var dropdown_fill = block.getFieldValue('FILL');
+  var radiusX = Blockly.JavaScript.valueToCode(block, 'RADIUS1', Blockly.JavaScript.ORDER_NONE);
+  var radiusY = Blockly.JavaScript.valueToCode(block, 'RADIUS2', Blockly.JavaScript.ORDER_NONE);
+  var value_name = Blockly.JavaScript.valueToCode(block, 'MATERIAL', Blockly.JavaScript.ORDER_NONE);
+  var code = 'CMD.createPolygon(nextLocation, 100, ';
+  code += radiusX + ", ";
+  code += radiusY + ", ";
+  code += convertFillToBoolean(dropdown_fill) + ", ";
+  code += cleanMaterialList(value_name);
+  code += ", player, startCmdTime);\n";
+  return code;
+};
+
+// Generator for Star shape
+Blockly.JavaScript['minecraft_star_shape'] = function(block) {
+  var dropdown_fill = block.getFieldValue('FILL');
+  var value_nr_sides = Blockly.JavaScript.valueToCode(block, 'SIDES', Blockly.JavaScript.ORDER_NONE);
+  var value_innerRadius = Blockly.JavaScript.valueToCode(block, 'INNER_RADIUS', Blockly.JavaScript.ORDER_NONE);
+  var value_outerRadius = Blockly.JavaScript.valueToCode(block, 'OUTER_RADIUS', Blockly.JavaScript.ORDER_NONE);
+  var value_name = Blockly.JavaScript.valueToCode(block, 'MATERIAL', Blockly.JavaScript.ORDER_NONE);
+  var code = 'CMD.createStar(nextLocation, ';
+  code += value_nr_sides + ", ";
+  code += value_innerRadius + ", ";
+  code += value_outerRadius + ", ";
+  code += convertFillToBoolean(dropdown_fill) + ", ";
+  code += cleanMaterialList(value_name);
+  code += ", player, startCmdTime);\n";
+  return code;
+};
+
+Blockly.JavaScript['minecraft_block_shape'] = function(block) {
+	var value_name = Blockly.JavaScript.valueToCode(block, 'MATERIAL', Blockly.JavaScript.ORDER_NONE);
+	var code = 'CMD.createBlock(nextLocation,';
+	code += cleanMaterialList(value_name);
+	code += ", player, startCmdTime);\n";
+	return code;
+};
+
+
+// Shape Block JavaScript Generator
+Blockly.JavaScript['shape_block'] = function(block) {
+  var dropdown_shape = block.getFieldValue('SHAPE');
+  
+  // Initialize an empty code variable to store the generated code
+  var code = '';
+
+  // Determine which shape was selected and call the corresponding generator
+  switch (dropdown_shape) {
+    case 'BLOCK':
+      code = Blockly.JavaScript['minecraft_block_shape'](block);
+      break;
+    case 'CIRCLE':
+      code = Blockly.JavaScript['minecraft_circle_shape'](block);
+      break;
+    case 'SQUARE':
+      code = Blockly.JavaScript['minecraft_square_shape'](block);
+      break;
+    case 'LINE':
+      code = Blockly.JavaScript['minecraft_line_shape'](block);
+      break;
+    case 'RECTANGLE':
+      code = Blockly.JavaScript['minecraft_rectangle_shape'](block);
+      break;
+    case 'POLYGON':
+      code = Blockly.JavaScript['minecraft_polygon_shape'](block);
+      break;
+    case 'ELLIPSE':
+      code = Blockly.JavaScript['minecraft_ellipse_shape'](block);
+      break;
+    case 'STAR':
+      code = Blockly.JavaScript['minecraft_star_shape'](block);
+      break;
+    default:
+      throw new Error('Unknown shape: ' + dropdown_shape);
+  }
+  
+  // Return the generated code
+  return code;
+};
+
+
+// Helper to convert fill type to boolean
+function convertFillToBoolean(fill) {
+  return fill === 'FULL' ? true : false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Blockly.JavaScript['minecraft_sensing'] = function(block) {
 	var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_NONE);
 	var code = 'CMD.isCurrentBlockMadeOf(nextLocation,';
@@ -186,6 +359,8 @@ Blockly.JavaScript['minecraft_line'] = function(block) {
 	code += ", player, startCmdTime);\n";
 	return code;
 };
+
+
 
 Blockly.JavaScript['minecraft_connectPositions'] = function(block) {
 	var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_NONE);
@@ -705,8 +880,4 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 		  return code;
 		};		
 		
-		Blockly.JavaScript['shape_block'] = function(block) {
-		  var statements_codeblocks = "hh";
-		  return statements_codeblocks;
-		};
 	

@@ -4387,60 +4387,57 @@ Blockly.Blocks['minecraft_group'] = {
 	
 	
 	
+
 	
 	
 Blockly.Blocks['shape_block'] = {
   init: function() {
+    // Add a dropdown for "empty" or "full" first
+    this.appendDummyInput('START')
+        .appendField("Create a");
+
+    this.appendDummyInput('FILL_TYPE')
+        .appendField(new Blockly.FieldDropdown([["empty", "EMPTY"], ["full", "FULL"]]), "FILL");
+
     // Define the dropdown field for shape selection
     this.appendDummyInput()
-        .appendField("Shape")
         .appendField(new Blockly.FieldDropdown(
-          [["circle", "CIRCLE"], ["rectangle", "RECTANGLE"]],
+          [
+            ["square", "SQUARE"],
+            ["circle", "CIRCLE"],
+            ["block", "BLOCK"],
+            ["line", "LINE"],
+            ["rectangle", "RECTANGLE"],
+            ["polygon", "POLYGON"],
+            ["ellipse", "ELLIPSE"],
+            ["star", "STAR"]
+          ],
           function(newShape) {
-            // Get the block using getSourceBlock and call the update function
             var block = this.getSourceBlock();
             block.updateShape_(newShape);
           }), "SHAPE");
 
-    // Add a dropdown for "empty" or "full" before the other parameters
-    this.appendDummyInput('FILL_TYPE')
-        .appendField("Fill Type")
-        .appendField(new Blockly.FieldDropdown([["empty", "EMPTY"], ["full", "FULL"]]), "FILL");
-
-    // Add an initial numeric input for "circle" with radius input
-    this.appendValueInput('RADIUS')
-        .setCheck('Number')
-        .appendField("radius")
-        .setAlign(Blockly.ALIGN_RIGHT);
-
-    // Ensure inputs are inline
-    this.setInputsInline(true);
-
-    // Make block stackable (can connect to other code blocks)
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-
-    // Add an optional input for "material" at the end of the block
+    // Add an initial input for the material
     this.appendValueInput('MATERIAL')
-        .setCheck('String')
-        .appendField("material")
+        .setCheck('Material')
+        .appendField("made of")
         .setAlign(Blockly.ALIGN_RIGHT);
 
     // Set basic block properties
-    this.setColour(230);
-    this.setTooltip("Choose between a circle and a rectangle, and set dimensions.");
+    this.setColour(120);
+    this.setTooltip("Choose a shape and set dimensions.");
     this.setHelpUrl("");
 
-    // Initialize the shape to CIRCLE by default
-    this.updateShape_('CIRCLE');
+    // Enable connection handles
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+
+    // Initialize the shape to SQUARE by default
+    this.updateShape_('SQUARE');
   },
 
-  /**
-   * Update fields based on the selected shape (circle/rectangle).
-   * @param {string} newShape - The newly selected shape.
-   */
   updateShape_: function(newShape) {
-    // Safely remove the old numeric input (either for radius or width/height) if it exists
+    // Safely remove previous shape-related inputs
     if (this.getInput('RADIUS')) {
       this.removeInput('RADIUS');
     }
@@ -4450,59 +4447,138 @@ Blockly.Blocks['shape_block'] = {
     if (this.getInput('HEIGHT')) {
       this.removeInput('HEIGHT');
     }
-
-    // Clear any existing numeric fields
-    this.removeInput('FILL_TYPE');
-
-    // Re-add fill type input
-    this.appendDummyInput('FILL_TYPE')
-        .appendField("Fill Type")
-        .appendField(new Blockly.FieldDropdown([["empty", "EMPTY"], ["full", "FULL"]]), "FILL");
-
-    // Based on the selected shape, add the corresponding input fields
-    if (newShape === "CIRCLE") {
-      this.appendValueInput('RADIUS')
-          .setCheck('Number')
-          .appendField("radius")
-          .setAlign(Blockly.ALIGN_RIGHT);
-
-      // Create and connect a shadow Math Number block for radius
-      var radiusBlock = this.workspace.newBlock('math_number');
-      radiusBlock.setFieldValue(0, 'NUM'); // Set default value to 0
-      radiusBlock.setShadow(true); // Make it a shadow block
-      radiusBlock.initSvg(); // Initialize the block's SVG
-      radiusBlock.render(); // Render the block to ensure it's displayed
-      this.getInput('RADIUS').connection.connect(radiusBlock.outputConnection);
-
-    } else if (newShape === "RECTANGLE") {
-      this.appendValueInput('WIDTH')
-          .setCheck('Number')
-          .appendField("width")
-          .setAlign(Blockly.ALIGN_RIGHT);
-
-      // Create and connect a shadow Math Number block for width
-      var widthBlock = this.workspace.newBlock('math_number');
-      widthBlock.setFieldValue(0, 'NUM'); // Set default value to 0
-      widthBlock.setShadow(true); // Make it a shadow block
-      widthBlock.initSvg(); // Initialize the block's SVG
-      widthBlock.render(); // Render the block to ensure it's displayed
-      this.getInput('WIDTH').connection.connect(widthBlock.outputConnection);
-
-      this.appendValueInput('HEIGHT')
-          .setCheck('Number')
-          .appendField("height")
-          .setAlign(Blockly.ALIGN_RIGHT);
-
-      // Create and connect a shadow Math Number block for height
-      var heightBlock = this.workspace.newBlock('math_number');
-      heightBlock.setFieldValue(0, 'NUM'); // Set default value to 0
-      heightBlock.setShadow(true); // Make it a shadow block
-      heightBlock.initSvg(); // Initialize the block's SVG
-      heightBlock.render(); // Render the block to ensure it's displayed
-      this.getInput('HEIGHT').connection.connect(heightBlock.outputConnection);
+    if (this.getInput('SIDES')) {
+      this.removeInput('SIDES');
+    }
+    if (this.getInput('RADIUS1')) {
+      this.removeInput('RADIUS1');
+    }
+    if (this.getInput('RADIUS2')) {
+      this.removeInput('RADIUS2');
+    }
+    if (this.getInput('POINTS')) {
+      this.removeInput('POINTS');
+    }
+    if (this.getInput('LENGTH')) {
+      this.removeInput('LENGTH');
+    }
+    if (this.getInput('INNER_RADIUS')) {
+      this.removeInput('INNER_RADIUS');
+    }
+    if (this.getInput('OUTER_RADIUS')) {
+      this.removeInput('OUTER_RADIUS');
+    }
+    if (this.getInput('POLYGON_RADIUS')) {
+      this.removeInput('POLYGON_RADIUS');
     }
 
-    // Ensure inputs are inline and the material field remains at the end
+    // Add inputs based on the selected shape
+      this.getInput("FILL_TYPE").setVisible(true);   
+      switch (newShape) {
+      case "BLOCK":
+       this.getInput("FILL_TYPE").setVisible(false);
+       break;
+
+      case "CIRCLE":
+        this.appendValueInput('RADIUS')
+            .setCheck('Number')
+            .appendField("radius")
+            .setAlign(Blockly.ALIGN_RIGHT);
+        this.createShadowBlock('RADIUS', 0);
+        break;
+
+      case "SQUARE":
+        this.appendValueInput('WIDTH')
+            .setCheck('Number')
+            .appendField("side length")
+            .setAlign(Blockly.ALIGN_RIGHT);
+        this.createShadowBlock('WIDTH', 0);
+        break;
+
+      case "LINE":
+       this.getInput("FILL_TYPE").setVisible(false);
+       this.appendValueInput('LENGTH')
+            .setCheck('Number')
+            .appendField("length")
+            .setAlign(Blockly.ALIGN_RIGHT);
+        this.createShadowBlock('LENGTH', 1);
+        break;
+
+      case "RECTANGLE":
+        this.appendValueInput('WIDTH')
+            .setCheck('Number')
+            .appendField("width")
+            .setAlign(Blockly.ALIGN_RIGHT);
+        this.createShadowBlock('WIDTH', 4);
+        
+        this.appendValueInput('HEIGHT')
+            .setCheck('Number')
+            .appendField("height")
+            .setAlign(Blockly.ALIGN_RIGHT);
+        this.createShadowBlock('HEIGHT', 4);
+        break;
+
+      case "POLYGON":
+        this.appendValueInput('SIDES')
+            .setCheck('Number')
+            .appendField("number of sides")
+            .setAlign(Blockly.ALIGN_RIGHT);
+        this.createShadowBlock('SIDES', 4); 
+        
+        this.appendValueInput('POLYGON_RADIUS')
+            .setCheck('Number')
+            .appendField("radius")
+            .setAlign(Blockly.ALIGN_RIGHT);
+        this.createShadowBlock('POLYGON_RADIUS', 4);        
+        break;
+
+      case "ELLIPSE":
+        this.appendValueInput('RADIUS1')
+            .setCheck('Number')
+            .appendField("radius X")
+            .setAlign(Blockly.ALIGN_RIGHT);
+        this.createShadowBlock('RADIUS1', 4);
+        
+        this.appendValueInput('RADIUS2')
+            .setCheck('Number')
+            .appendField("radius Y")
+            .setAlign(Blockly.ALIGN_RIGHT);
+        this.createShadowBlock('RADIUS2', 4);
+        break;
+
+      case "STAR":
+        this.appendValueInput('SIDES')
+            .setCheck('Number')
+            .appendField("number of points")
+            .setAlign(Blockly.ALIGN_RIGHT);
+        this.createShadowBlock('SIDES', 5); // Default to 5 for a star
+ 
+        this.appendValueInput('INNER_RADIUS')
+            .setCheck('Number')
+            .appendField("inner radius")
+            .setAlign(Blockly.ALIGN_RIGHT);
+        this.createShadowBlock('INNER_RADIUS', 4);
+        
+        this.appendValueInput('OUTER_RADIUS')
+            .setCheck('Number')
+            .appendField("outer radius")
+            .setAlign(Blockly.ALIGN_RIGHT);
+        this.createShadowBlock('OUTER_RADIUS', 11);
+        break;
+    }
+
+    // Ensure inputs are inline
+    this.setInputsInline(true);
     this.moveInputBefore('MATERIAL', null);
+  },
+
+  createShadowBlock: function(inputName, defaultValue) {
+    var shadowBlock = this.workspace.newBlock('math_number');
+    shadowBlock.setFieldValue(defaultValue, 'NUM');
+    shadowBlock.setShadow(true);
+    shadowBlock.initSvg();
+    shadowBlock.render();
+    this.getInput(inputName).connection.connect(shadowBlock.outputConnection);
   }
 };
+	
