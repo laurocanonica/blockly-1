@@ -705,4 +705,8 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 		  return code;
 		};		
 		
+		Blockly.JavaScript['shape_block'] = function(block) {
+		  var statements_codeblocks = "hh";
+		  return statements_codeblocks;
+		};
 	

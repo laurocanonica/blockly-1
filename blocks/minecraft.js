@@ -4325,7 +4325,9 @@ Blockly.Blocks['minecraft_group'] = {
 		}
 	};
 	
-Blockly.Blocks['minecraft_voronoi'] = {
+	
+	
+	Blockly.Blocks['minecraft_voronoi'] = {
 		init : function() {
 			this.jsonInit({
 			  "type": "minecraft_voronoi",
@@ -4377,3 +4379,130 @@ Blockly.Blocks['minecraft_voronoi'] = {
 	};
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+Blockly.Blocks['shape_block'] = {
+  init: function() {
+    // Define the dropdown field for shape selection
+    this.appendDummyInput()
+        .appendField("Shape")
+        .appendField(new Blockly.FieldDropdown(
+          [["circle", "CIRCLE"], ["rectangle", "RECTANGLE"]],
+          function(newShape) {
+            // Get the block using getSourceBlock and call the update function
+            var block = this.getSourceBlock();
+            block.updateShape_(newShape);
+          }), "SHAPE");
+
+    // Add a dropdown for "empty" or "full" before the other parameters
+    this.appendDummyInput('FILL_TYPE')
+        .appendField("Fill Type")
+        .appendField(new Blockly.FieldDropdown([["empty", "EMPTY"], ["full", "FULL"]]), "FILL");
+
+    // Add an initial numeric input for "circle" with radius input
+    this.appendValueInput('RADIUS')
+        .setCheck('Number')
+        .appendField("radius")
+        .setAlign(Blockly.ALIGN_RIGHT);
+
+    // Ensure inputs are inline
+    this.setInputsInline(true);
+
+    // Make block stackable (can connect to other code blocks)
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+
+    // Add an optional input for "material" at the end of the block
+    this.appendValueInput('MATERIAL')
+        .setCheck('String')
+        .appendField("material")
+        .setAlign(Blockly.ALIGN_RIGHT);
+
+    // Set basic block properties
+    this.setColour(230);
+    this.setTooltip("Choose between a circle and a rectangle, and set dimensions.");
+    this.setHelpUrl("");
+
+    // Initialize the shape to CIRCLE by default
+    this.updateShape_('CIRCLE');
+  },
+
+  /**
+   * Update fields based on the selected shape (circle/rectangle).
+   * @param {string} newShape - The newly selected shape.
+   */
+  updateShape_: function(newShape) {
+    // Safely remove the old numeric input (either for radius or width/height) if it exists
+    if (this.getInput('RADIUS')) {
+      this.removeInput('RADIUS');
+    }
+    if (this.getInput('WIDTH')) {
+      this.removeInput('WIDTH');
+    }
+    if (this.getInput('HEIGHT')) {
+      this.removeInput('HEIGHT');
+    }
+
+    // Clear any existing numeric fields
+    this.removeInput('FILL_TYPE');
+
+    // Re-add fill type input
+    this.appendDummyInput('FILL_TYPE')
+        .appendField("Fill Type")
+        .appendField(new Blockly.FieldDropdown([["empty", "EMPTY"], ["full", "FULL"]]), "FILL");
+
+    // Based on the selected shape, add the corresponding input fields
+    if (newShape === "CIRCLE") {
+      this.appendValueInput('RADIUS')
+          .setCheck('Number')
+          .appendField("radius")
+          .setAlign(Blockly.ALIGN_RIGHT);
+
+      // Create and connect a shadow Math Number block for radius
+      var radiusBlock = this.workspace.newBlock('math_number');
+      radiusBlock.setFieldValue(0, 'NUM'); // Set default value to 0
+      radiusBlock.setShadow(true); // Make it a shadow block
+      radiusBlock.initSvg(); // Initialize the block's SVG
+      radiusBlock.render(); // Render the block to ensure it's displayed
+      this.getInput('RADIUS').connection.connect(radiusBlock.outputConnection);
+
+    } else if (newShape === "RECTANGLE") {
+      this.appendValueInput('WIDTH')
+          .setCheck('Number')
+          .appendField("width")
+          .setAlign(Blockly.ALIGN_RIGHT);
+
+      // Create and connect a shadow Math Number block for width
+      var widthBlock = this.workspace.newBlock('math_number');
+      widthBlock.setFieldValue(0, 'NUM'); // Set default value to 0
+      widthBlock.setShadow(true); // Make it a shadow block
+      widthBlock.initSvg(); // Initialize the block's SVG
+      widthBlock.render(); // Render the block to ensure it's displayed
+      this.getInput('WIDTH').connection.connect(widthBlock.outputConnection);
+
+      this.appendValueInput('HEIGHT')
+          .setCheck('Number')
+          .appendField("height")
+          .setAlign(Blockly.ALIGN_RIGHT);
+
+      // Create and connect a shadow Math Number block for height
+      var heightBlock = this.workspace.newBlock('math_number');
+      heightBlock.setFieldValue(0, 'NUM'); // Set default value to 0
+      heightBlock.setShadow(true); // Make it a shadow block
+      heightBlock.initSvg(); // Initialize the block's SVG
+      heightBlock.render(); // Render the block to ensure it's displayed
+      this.getInput('HEIGHT').connection.connect(heightBlock.outputConnection);
+    }
+
+    // Ensure inputs are inline and the material field remains at the end
+    this.moveInputBefore('MATERIAL', null);
+  }
+};
