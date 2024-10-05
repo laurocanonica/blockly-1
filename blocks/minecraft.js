@@ -4392,40 +4392,48 @@ Blockly.Blocks['minecraft_group'] = {
 	
 Blockly.Blocks['shape_block'] = {
   init: function() {
+    this.splitBlockLabel = Blockly.Msg.MC_cmd_minecraft_shape_start.split('%');
+    //console.log(this.splitBlockLabel);
+  
     // Add a dropdown for "empty" or "full" first
     this.appendDummyInput('START')
-        .appendField("Create a");
+        .appendField(this.splitBlockLabel[0]);
 
     this.appendDummyInput('FILL_TYPE')
-        .appendField(new Blockly.FieldDropdown([["empty", "EMPTY"], ["full", "FULL"]]), "FILL");
+        .appendField(new Blockly.FieldDropdown([[Blockly.Msg.MC_cmd_empty, "EMPTY"], [Blockly.Msg.MC_cmd_full, "FULL"]]), "FILL");
 
     // Define the dropdown field for shape selection
-    this.appendDummyInput()
+    this.appendDummyInput('SHAPE_INPUT')
         .appendField(new Blockly.FieldDropdown(
           [
-            ["square", "SQUARE"],
-            ["circle", "CIRCLE"],
-            ["block", "BLOCK"],
-            ["line", "LINE"],
-            ["rectangle", "RECTANGLE"],
-            ["polygon", "POLYGON"],
-            ["ellipse", "ELLIPSE"],
-            ["star", "STAR"]
+            [Blockly.Msg.MC_cmd_minecraft_shape_square, "SQUARE"],
+            [Blockly.Msg.MC_cmd_minecraft_shape_circle, "CIRCLE"],
+            [Blockly.Msg.MC_cmd_minecraft_shape_block, "BLOCK"],
+            [Blockly.Msg.MC_cmd_minecraft_shape_line, "LINE"],
+            [Blockly.Msg.MC_cmd_minecraft_shape_rectangle, "RECTANGLE"],
+            [Blockly.Msg.MC_cmd_minecraft_shape_polygon, "POLYGON"],
+            [Blockly.Msg.MC_cmd_minecraft_shape_ellipse, "ELLIPSE"],
+            [Blockly.Msg.MC_cmd_minecraft_shape_star, "STAR"]
           ],
+ 
+  
           function(newShape) {
             var block = this.getSourceBlock();
             block.updateShape_(newShape);
           }), "SHAPE");
+          if(this.splitBlockLabel[1]>this.splitBlockLabel[2]){ //allow inverting the fill_type and shape fields if the string contains "%2%1" instead of "%1%2"
+			this.moveInputBefore('SHAPE_INPUT', 'FILL_TYPE');
+		  }
+    
 
     // Add an initial input for the material
     this.appendValueInput('MATERIAL')
         .setCheck('Material')
-        .appendField("made of")
+        .appendField(this.splitBlockLabel[this.splitBlockLabel.length-1].slice(1))
         .setAlign(Blockly.ALIGN_RIGHT);
 
     // Set basic block properties
     this.setColour(120);
-    this.setTooltip("Choose a shape and set dimensions.");
     this.setHelpUrl("");
 
     // Enable connection handles
@@ -4480,88 +4488,89 @@ Blockly.Blocks['shape_block'] = {
        break;
 
       case "CIRCLE":
+        this.splitBlockLabel = Blockly.Msg.MC_cmd_minecraft_shape_circle_param.split('%');
         this.appendValueInput('RADIUS')
             .setCheck('Number')
-            .appendField("radius")
+            .appendField(this.splitBlockLabel[0].slice(1))
             .setAlign(Blockly.ALIGN_RIGHT);
-        this.createShadowBlock('RADIUS', 0);
+        this.createShadowBlock('RADIUS', 4);
         break;
-
       case "SQUARE":
+       this.splitBlockLabel = Blockly.Msg.MC_cmd_minecraft_shape_square_param.split('%');
         this.appendValueInput('WIDTH')
             .setCheck('Number')
-            .appendField("side length")
+            .appendField(this.splitBlockLabel[0].slice(1))
             .setAlign(Blockly.ALIGN_RIGHT);
-        this.createShadowBlock('WIDTH', 0);
+        this.createShadowBlock('WIDTH', 4);
         break;
-
       case "LINE":
+       this.splitBlockLabel = Blockly.Msg.MC_cmd_minecraft_shape_line_param.split('%');
        this.getInput("FILL_TYPE").setVisible(false);
        this.appendValueInput('LENGTH')
             .setCheck('Number')
-            .appendField("length")
+            .appendField(this.splitBlockLabel[0].slice(1))
             .setAlign(Blockly.ALIGN_RIGHT);
         this.createShadowBlock('LENGTH', 1);
         break;
-
       case "RECTANGLE":
+        this.splitBlockLabel = Blockly.Msg.MC_cmd_minecraft_shape_rectangle_param.split('%');
         this.appendValueInput('WIDTH')
             .setCheck('Number')
-            .appendField("width")
+            .appendField(this.splitBlockLabel[0].slice(1))
             .setAlign(Blockly.ALIGN_RIGHT);
         this.createShadowBlock('WIDTH', 4);
         
         this.appendValueInput('HEIGHT')
             .setCheck('Number')
-            .appendField("height")
+            .appendField(this.splitBlockLabel[1].slice(1))
             .setAlign(Blockly.ALIGN_RIGHT);
         this.createShadowBlock('HEIGHT', 4);
         break;
-
       case "POLYGON":
+        this.splitBlockLabel = Blockly.Msg.MC_cmd_minecraft_shape_polygon_param.split('%');
         this.appendValueInput('SIDES')
             .setCheck('Number')
-            .appendField("number of sides")
+            .appendField(this.splitBlockLabel[0].slice(1))
             .setAlign(Blockly.ALIGN_RIGHT);
         this.createShadowBlock('SIDES', 4); 
-        
-        this.appendValueInput('POLYGON_RADIUS')
+       this.appendValueInput('POLYGON_RADIUS')
             .setCheck('Number')
-            .appendField("radius")
+            .appendField(this.splitBlockLabel[1].slice(1))
             .setAlign(Blockly.ALIGN_RIGHT);
         this.createShadowBlock('POLYGON_RADIUS', 4);        
         break;
 
       case "ELLIPSE":
+        this.splitBlockLabel = Blockly.Msg.MC_cmd_minecraft_shape_ellipse_param.split('%');
         this.appendValueInput('RADIUS1')
             .setCheck('Number')
-            .appendField("radius X")
+            .appendField(this.splitBlockLabel[0].slice(1))
             .setAlign(Blockly.ALIGN_RIGHT);
         this.createShadowBlock('RADIUS1', 4);
         
         this.appendValueInput('RADIUS2')
             .setCheck('Number')
-            .appendField("radius Y")
+            .appendField(this.splitBlockLabel[1].slice(1))
             .setAlign(Blockly.ALIGN_RIGHT);
         this.createShadowBlock('RADIUS2', 4);
-        break;
+           break;
 
       case "STAR":
+        this.splitBlockLabel = Blockly.Msg.MC_cmd_minecraft_shape_star_param.split('%');
         this.appendValueInput('SIDES')
             .setCheck('Number')
-            .appendField("number of points")
+            .appendField(this.splitBlockLabel[0].slice(1))
             .setAlign(Blockly.ALIGN_RIGHT);
         this.createShadowBlock('SIDES', 5); // Default to 5 for a star
  
         this.appendValueInput('INNER_RADIUS')
             .setCheck('Number')
-            .appendField("inner radius")
+            .appendField(this.splitBlockLabel[1].slice(1))
             .setAlign(Blockly.ALIGN_RIGHT);
         this.createShadowBlock('INNER_RADIUS', 4);
-        
         this.appendValueInput('OUTER_RADIUS')
             .setCheck('Number')
-            .appendField("outer radius")
+            .appendField(this.splitBlockLabel[2].slice(1))
             .setAlign(Blockly.ALIGN_RIGHT);
         this.createShadowBlock('OUTER_RADIUS', 11);
         break;

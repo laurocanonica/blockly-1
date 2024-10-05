@@ -3351,6 +3351,26 @@ Blockly.Msg.MC_cmd_minecraft_talking = 'talking %1 %2';
 
 Blockly.Msg.MC_cmd_voronoi = 'create a %1 Voronoi diagram of width %2 and length %3 for the points %4 made of %5';
 
+Blockly.Msg.MC_cmd_minecraft_shape_square = 'square';
+Blockly.Msg.MC_cmd_minecraft_shape_circle = 'circle';
+Blockly.Msg.MC_cmd_minecraft_shape_block = 'block';
+Blockly.Msg.MC_cmd_minecraft_shape_line = 'row';
+Blockly.Msg.MC_cmd_minecraft_shape_rectangle = 'rectangle';
+Blockly.Msg.MC_cmd_minecraft_shape_polygon = 'polygon';
+Blockly.Msg.MC_cmd_minecraft_shape_ellipse = 'ellipse';
+Blockly.Msg.MC_cmd_minecraft_shape_star = 'star';
+
+Blockly.Msg.MC_cmd_minecraft_shape_start = 'create a %1%2%9made of';
+Blockly.Msg.MC_cmd_minecraft_shape_square_param = '3of width';
+Blockly.Msg.MC_cmd_minecraft_shape_circle_param = '3of radius';
+Blockly.Msg.MC_cmd_minecraft_shape_block_param = 'block';
+Blockly.Msg.MC_cmd_minecraft_shape_line_param = '3of length';
+Blockly.Msg.MC_cmd_minecraft_shape_rectangle_param = '3of width %4and length';
+Blockly.Msg.MC_cmd_minecraft_shape_polygon_param = '3with %4sides and and radius';
+Blockly.Msg.MC_cmd_minecraft_shape_ellipse_param = '3with radius X%4and radius Y';
+Blockly.Msg.MC_cmd_minecraft_shape_star_param = '3with%4sides and inner radius%5and outer radius';
+
+
 
 Blockly.Msg.PROCEDURES_DEFNORETURN_TITLE = '/vm';
 Blockly.Msg.PROCEDURES_DEFNORETURN_PROCEDURE = 'mycommand';
