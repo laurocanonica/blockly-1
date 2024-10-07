@@ -3266,7 +3266,7 @@ Blockly.Blocks['minecraft_gotomark'] = {
 						          "0"
 						        ],
 						        [
-						        	eval('Blockly.Msg.MC_cmd_minecraft_option_start_position'+'_'+GLOBAL_MESSAGE_VERSION),
+						        	eval('Blockly.Msg.MC_cmd_minecraft_option_lastmarked_position'+'_'+GLOBAL_MESSAGE_VERSION),
 						          "1"
 						        ]
 						      ]
