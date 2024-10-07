@@ -1804,7 +1804,7 @@ Blockly.Blocks['minecraft_delay'] = {
 					"check" : [ "Material" ]
 				} ],
 				"output" : "Material",
-				"colour" : 330,
+				"colour" : 90,
 				"tooltip" : "",
 				"helpUrl" : ""
 			});
@@ -1829,7 +1829,7 @@ Blockly.Blocks['minecraft_delay_var'] = {
 				    }
 				  ],
 				  "output": "Material",
-				  "colour": 330,
+				  "colour": 90,
 				  "tooltip": "",
 				  "helpUrl": ""
 				});
@@ -1860,7 +1860,7 @@ Blockly.Blocks['minecraft_delay_random'] = {
 					"check" : [ "Material" ]
 				} ],
 				"output" : "Material",
-				"colour" : 330,
+				"colour" : 90,
 				"tooltip" : "",
 				"helpUrl" : ""
 			});
@@ -1886,7 +1886,7 @@ Blockly.Blocks['minecraft_delay_random_var'] = {
 					"check" : [ "Material" ]
 				} ],
 				"output" : "Material",
-				"colour" : 330,
+				"colour" : 90,
 				"tooltip" : "",
 				"helpUrl" : ""
 			});
@@ -1935,7 +1935,7 @@ Blockly.Blocks['minecraft_materialbockOnlyOne'] = {
 				"check" : [ "Material" ]
 			} ],
 			"output" : "Material",
-			"colour" : 0,
+			"colour" : 285,
 			"tooltip" : "",
 			"helpUrl" : ""
 		});
@@ -1979,7 +1979,7 @@ Blockly.Blocks['minecraft_particleOnlyOne'] = {
 					"check" : [ "Material" ]
 				} ],
 				"output" : "Material",
-				"colour" : 330,
+				"colour" : 285,
 				"tooltip" : "",
 				"helpUrl" : ""
 			});
@@ -2036,7 +2036,8 @@ Blockly.Blocks['minecraft_gotopos'] = {
 		init : function() {
 			this.jsonInit({
 				  "type": "minecraft_gotopos",
-				  "message0": Blockly.Msg.MC_cmd_minecraft_gotopos,
+				  "message0": eval('Blockly.Msg.MC_cmd_minecraft_gotopos'+'_'+GLOBAL_MESSAGE_VERSION),
+				  
 				  "args0": [
 				    {
 				      "type": "input_dummy"
@@ -2548,7 +2549,7 @@ Blockly.Blocks['minecraft_splashpotion'] = {
 		init : function() {
 			this.jsonInit({
 				  "type": "minecraft_splashpotion",
-				  "message0": Blockly.Msg.i_splash_potion+" "+Blockly.Msg.MC_cmd_minecraft_splash_potion_function+" %1 %2",
+				  "message0": Blockly.Msg.i_splash_potion.toLowerCase()+" "+Blockly.Msg.MC_cmd_minecraft_splash_potion_function+" %1 %2",
 				  "args0": [
 				    {
 				      "type": "field_input",
@@ -2573,7 +2574,7 @@ Blockly.Blocks['minecraft_sign'] = {
 		init : function() {
 			this.jsonInit({
 				  "type": "minecraft_sign",
-				  "message0": Blockly.Msg.i_sign+" "+Blockly.Msg.MC_cmd_minecraft_sign_with_text+" %1 %2",
+				  "message0": Blockly.Msg.i_sign.toLowerCase()+" "+Blockly.Msg.MC_cmd_minecraft_sign_with_text+" %1 %2",
 				  "args0": [
 				    {
 				        "type": "field_variable",
@@ -2795,7 +2796,7 @@ Blockly.Blocks['minecraft_move_to_view_target'] = {
 			this.jsonInit( 	
 						{
 						  "type": "minecraft_move_to_view_target",
-						  "message0": Blockly.Msg.MC_cmd_minecraft_move_to_view,
+						  "message0": eval('Blockly.Msg.MC_cmd_minecraft_move_to_view'+'_'+GLOBAL_MESSAGE_VERSION),						  
 						  "args0": [
 							    {
 							      "type": "field_dropdown",
@@ -2828,7 +2829,7 @@ Blockly.Blocks['minecraft_move'] = {
 			this.jsonInit( 	
 					{
 					  "type": "minecraft_move",
-					  "message0": Blockly.Msg.MC_cmd_minecraft_move,
+					  "message0": eval('Blockly.Msg.MC_cmd_minecraft_move'+'_'+GLOBAL_MESSAGE_VERSION),
 					  "args0": [
 					    {
 					      "type": "input_value",
@@ -2882,7 +2883,7 @@ Blockly.Blocks['minecraft_rotate'] = {
 			this.jsonInit( 	
 					{
 						  "type": "minecraft_rotate",
-						  "message0": Blockly.Msg.MC_cmd_minecraft_rotate,
+						  "message0": eval('Blockly.Msg.MC_cmd_minecraft_rotate'+'_'+GLOBAL_MESSAGE_VERSION),
 						  "args0": [
 						    {
 						      "type": "input_value",
@@ -2904,14 +2905,14 @@ Blockly.Blocks['minecraft_setrotation'] = {
 			this.jsonInit( 	
 					{
 						  "type": "minecraft_setrotation",
-						  "message0": Blockly.Msg.MC_cmd_minecraft_setrotation,
+						  "message0": eval('Blockly.Msg.MC_cmd_minecraft_setrotation'+'_'+GLOBAL_MESSAGE_VERSION),
 						  "args0": [
 						    {
 						      "type": "field_dropdown",
 						      "name": "angle",
 						      "options": [
 						        [
-						        	Blockly.Msg.MC_cmd_whereLook,
+						        	eval('Blockly.Msg.MC_cmd_whereLook'+'_'+GLOBAL_MESSAGE_VERSION),
 						          "X"
 						        ],
 						        [
@@ -2947,7 +2948,7 @@ Blockly.Blocks['minecraft_set_elevation'] = {
 			this.jsonInit( 	
 					{
 						  "type": "minecraft_set_elevation",
-						  "message0": Blockly.Msg.MC_cmd_minecraft_set_elevation,
+						  "message0": eval('Blockly.Msg.MC_cmd_minecraft_set_elevation'+'_'+GLOBAL_MESSAGE_VERSION),
 						  "args0": [
 						    {
 						      "type": "input_value",
@@ -2969,7 +2970,7 @@ Blockly.Blocks['minecraft_set_elevation_relative'] = {
 			this.jsonInit( 	
 					{
 						  "type": "minecraft_set_elevation",
-						  "message0": Blockly.Msg.MC_cmd_minecraft_set_elevation_relative,
+						  "message0": eval('Blockly.Msg.MC_cmd_minecraft_set_elevation_relative'+'_'+GLOBAL_MESSAGE_VERSION),
 						  "args0": [
 						    {
 						      "type": "input_value",
@@ -3235,7 +3236,7 @@ Blockly.Blocks['minecraft_mark'] = {
 			this.jsonInit( 	
 					{
 						  "type": "minecraft_mark",
-						  "message0": Blockly.Msg.MC_cmd_minecraft_mark_position,
+						  "message0": eval('Blockly.Msg.MC_cmd_minecraft_mark_position'+'_'+GLOBAL_MESSAGE_VERSION),
 						  "inputsInline": true,
 						  "previousStatement": null,
 						  "nextStatement": null,
@@ -3246,13 +3247,12 @@ Blockly.Blocks['minecraft_mark'] = {
 		}
 	};
 
-
 Blockly.Blocks['minecraft_gotomark'] = {
 		init : function() {
 			this.jsonInit( 	
 					{
 						  "type": "minecraft_gotomark",
-						  "message0": Blockly.Msg.MC_cmd_minecraft_reset_position,
+						  "message0": eval('Blockly.Msg.MC_cmd_minecraft_reset_position'+'_'+GLOBAL_MESSAGE_VERSION),
 						  "args0": [
 						    {
 						      "type": "input_dummy"
@@ -3262,11 +3262,11 @@ Blockly.Blocks['minecraft_gotomark'] = {
 						      "name": "origin",
 						      "options": [
 						        [
-						        	Blockly.Msg.MC_cmd_minecraft_option_start_position,
+						        	eval('Blockly.Msg.MC_cmd_minecraft_option_start_position'+'_'+GLOBAL_MESSAGE_VERSION),
 						          "0"
 						        ],
 						        [
-						        	Blockly.Msg.MC_cmd_minecraft_option_lastmarked_position,
+						        	eval('Blockly.Msg.MC_cmd_minecraft_option_start_position'+'_'+GLOBAL_MESSAGE_VERSION),
 						          "1"
 						        ]
 						      ]
@@ -4097,7 +4097,7 @@ Blockly.Blocks['minecraft_movePos_To_Player'] = {
 			this.jsonInit( 	
 					{
 						  "type": "minecraft_movePos_To_Player",
-						  "message0": Blockly.Msg.MC_cmd_minecraft_movePos_To_Player, 
+						  "message0": eval('Blockly.Msg.MC_cmd_minecraft_movePos_To_Player'+'_'+GLOBAL_MESSAGE_VERSION),
 						  "args0": [
 						    {
 						      "type": "input_value",
@@ -4187,6 +4187,7 @@ Blockly.Blocks['minecraft_cancelEvents'] = {
 						});
 		}
 	};
+	
 
 Blockly.Blocks['minecraft_executecommand'] = {
 		init : function() {
@@ -4298,7 +4299,7 @@ Blockly.Blocks['minecraft_materialNothing'] = {
 				    }
 				  ],
 				  "output": null,
-				  "colour": 230,
+				  "colour": 330,
 				  "tooltip": "",
 				  "helpUrl": ""
 				});

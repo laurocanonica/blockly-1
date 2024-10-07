@@ -599,7 +599,6 @@ Blockly.JavaScript['minecraft_mark'] = function(block) {
 	  return code;
 };
 
-
 Blockly.JavaScript['minecraft_gotomark'] = function(block) {
   var dropdown_origin = block.getFieldValue('origin');
   var code;
