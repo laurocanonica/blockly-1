@@ -1762,6 +1762,37 @@ Blockly.Blocks['minecraft_multiciplity'] = {
 			});
 		}
 	};
+	
+Blockly.Blocks['minecraft_multiciplity_ver2'] = {
+		init : function() {
+			this.jsonInit({
+			  "type": "minecraft_multiciplity_ver2",
+			  "message0": "%1 of %2 %3",
+			  "args0": [
+			    {
+			      "type": "input_value",
+			      "name": "quantity",
+			      "check" : [ "Number" ]
+			    },
+			    {
+			      "type": "input_dummy"
+			    },
+			    {
+			      "type": "input_value",
+			      "name": "singleblock",
+				  "check" : [ "Material" ]
+			    }
+			  ],
+			  "inputsInline": true,
+			  "output": "Material",
+			  "colour": 330,
+			  "tooltip": "",
+			  "helpUrl": ""
+			});
+		}
+	};	
+	
+	
 Blockly.Blocks['minecraft_multiciplity_var'] = {
 		init : function() {
 			this.jsonInit({
@@ -1810,6 +1841,7 @@ Blockly.Blocks['minecraft_delay'] = {
 			});
 		}
 	};
+	
 
 Blockly.Blocks['minecraft_delay_var'] = {
 		init : function() {
@@ -1835,6 +1867,9 @@ Blockly.Blocks['minecraft_delay_var'] = {
 				});
 		}
 	};
+	
+	
+	
 Blockly.Blocks['minecraft_delay_random'] = {
 		init : function() {
 			this.jsonInit({
@@ -2614,16 +2649,13 @@ Blockly.Blocks['minecraft_hitting'] = {
 	}
 };
 
+
 Blockly.Blocks['minecraft_team'] = {
 		init : function() {
 			this.jsonInit({
-				"type" : "minecraft_team",
-				"message0" : "%1 %2",
+				"type" : "MC_cmd_friendly",
+				"message0" : eval('Blockly.Msg.MC_cmd_friendly'+'_'+GLOBAL_MESSAGE_VERSION),
 				"args0" : [ {
-					"type" : "field_dropdown",
-					"name" : "NAME",
-					"options" : [ [ Blockly.Msg.MC_cmd_friendly, "FRIENDLY" ], [ Blockly.Msg.MC_cmd_enemy, "ENEMY" ] ]
-				}, {
 					"type" : "input_value",
 					"name" : "singleblock",
 					"check" : [ "Material" ]
@@ -2635,7 +2667,11 @@ Blockly.Blocks['minecraft_team'] = {
 			});
 		}
 	};
-	
+
+
+
+
+
 		
 	
 	Blockly.Blocks['minecraft_leash'] = {
@@ -4082,7 +4118,7 @@ Blockly.Blocks['minecraft_wait'] = {
 						  ],
 						  "previousStatement": null,
 						  "nextStatement": null,
-						  "colour": 230,
+						  "colour": 90,
 						  "tooltip": "",
 						  "helpUrl": ""
 						});

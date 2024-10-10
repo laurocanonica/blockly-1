@@ -262,6 +262,25 @@
 			<block type="minecraft_sign"></block>
 			<block type="minecraft_particleOnlyOne"></block>
 			<block type="minecraft_multiciplity"></block>
+			<block type="minecraft_multiciplity_ver2">
+				<value name="quantity">
+					<block type="math_number">
+						<field name="NUM">1000</field>
+					</block>
+					<shadow type="math_number">
+						<field name="NUM">1000</field>
+					</shadow>
+				</value>
+				<value name="singleblock">
+					<block type="minecraft_materialbockOnlyOne">
+						<field name="NAME">b.grass_block</field>
+					</block>					
+					<shadow type="minecraft_materialbockOnlyOne">
+						<field name="NAME">b.grass_block</field>
+					</shadow>
+				</value>
+
+			</block>
 			<block type="minecraft_multiciplity_var"></block>
 			<block type="minecraft_direction"></block>
 			<block type="minecraft_upper_lower_part"></block>
@@ -289,6 +308,13 @@
 			<block type="minecraft_delay_random"></block>
 			<block type="minecraft_delay_random_var"></block>
 			<block type="minecraft_delay_reset_random"></block>
+			<block type="minecraft_wait">
+				<value name="time">
+					<shadow type="math_number">
+						<field name="NUM">1000</field>
+					</shadow>
+				</value>
+			</block>
 		</category>
 
 
@@ -651,13 +677,6 @@
 
 			<block type="minecraft_getPlayerCoord"></block>
 			<block type="minecraft_cancelEvents"></block>
-			<block type="minecraft_wait">
-				<value name="time">
-					<shadow type="math_number">
-						<field name="NUM">1000</field>
-					</shadow>
-				</value>
-			</block>
 		</category>
 
 
