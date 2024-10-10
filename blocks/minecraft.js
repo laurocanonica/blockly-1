@@ -2803,11 +2803,11 @@ Blockly.Blocks['minecraft_move_to_view_target'] = {
 							      "name": "viewer",
 							      "options": [
 							        [
-							        	Blockly.Msg.MC_cmd_minecraft_move_to_view_target,
+							        	eval('Blockly.Msg.MC_cmd_minecraft_move_to_view_target'+'_'+GLOBAL_MESSAGE_VERSION),	
 							          "ROBOT_EYES"
 							        ],
 							        [
-							        	Blockly.Msg.MC_cmd_minecraft_move_to_view_player,
+							        	eval('Blockly.Msg.MC_cmd_minecraft_move_to_view_player'+'_'+GLOBAL_MESSAGE_VERSION),	
 							          "PLAYER_EYES"
 							        ]
 							      ]
@@ -4489,27 +4489,24 @@ Blockly.Blocks['shape_block'] = {
        break;
 
       case "CIRCLE":
-        this.splitBlockLabel = Blockly.Msg.MC_cmd_minecraft_shape_circle_param.split('%');
         this.appendValueInput('RADIUS')
             .setCheck('Number')
-            .appendField(this.splitBlockLabel[0].slice(1))
+            .appendField(Blockly.Msg.MC_cmd_minecraft_shape_circle_param)
             .setAlign(Blockly.ALIGN_RIGHT);
         this.createShadowBlock('RADIUS', 4);
         break;
       case "SQUARE":
-       this.splitBlockLabel = Blockly.Msg.MC_cmd_minecraft_shape_square_param.split('%');
         this.appendValueInput('WIDTH')
             .setCheck('Number')
-            .appendField(this.splitBlockLabel[0].slice(1))
+            .appendField(Blockly.Msg.MC_cmd_minecraft_shape_square_param)
             .setAlign(Blockly.ALIGN_RIGHT);
         this.createShadowBlock('WIDTH', 4);
         break;
       case "LINE":
-       this.splitBlockLabel = Blockly.Msg.MC_cmd_minecraft_shape_line_param.split('%');
        this.getInput("FILL_TYPE").setVisible(false);
        this.appendValueInput('LENGTH')
             .setCheck('Number')
-            .appendField(this.splitBlockLabel[0].slice(1))
+            .appendField(Blockly.Msg.MC_cmd_minecraft_shape_line_param)
             .setAlign(Blockly.ALIGN_RIGHT);
         this.createShadowBlock('LENGTH', 1);
         break;
@@ -4517,7 +4514,7 @@ Blockly.Blocks['shape_block'] = {
         this.splitBlockLabel = Blockly.Msg.MC_cmd_minecraft_shape_rectangle_param.split('%');
         this.appendValueInput('WIDTH')
             .setCheck('Number')
-            .appendField(this.splitBlockLabel[0].slice(1))
+            .appendField(this.splitBlockLabel[0])
             .setAlign(Blockly.ALIGN_RIGHT);
         this.createShadowBlock('WIDTH', 4);
         
@@ -4531,7 +4528,7 @@ Blockly.Blocks['shape_block'] = {
         this.splitBlockLabel = Blockly.Msg.MC_cmd_minecraft_shape_polygon_param.split('%');
         this.appendValueInput('SIDES')
             .setCheck('Number')
-            .appendField(this.splitBlockLabel[0].slice(1))
+            .appendField(this.splitBlockLabel[0])
             .setAlign(Blockly.ALIGN_RIGHT);
         this.createShadowBlock('SIDES', 4); 
        this.appendValueInput('POLYGON_RADIUS')
@@ -4545,7 +4542,7 @@ Blockly.Blocks['shape_block'] = {
         this.splitBlockLabel = Blockly.Msg.MC_cmd_minecraft_shape_ellipse_param.split('%');
         this.appendValueInput('RADIUS1')
             .setCheck('Number')
-            .appendField(this.splitBlockLabel[0].slice(1))
+            .appendField(this.splitBlockLabel[0])
             .setAlign(Blockly.ALIGN_RIGHT);
         this.createShadowBlock('RADIUS1', 4);
         
@@ -4560,7 +4557,7 @@ Blockly.Blocks['shape_block'] = {
         this.splitBlockLabel = Blockly.Msg.MC_cmd_minecraft_shape_star_param.split('%');
         this.appendValueInput('SIDES')
             .setCheck('Number')
-            .appendField(this.splitBlockLabel[0].slice(1))
+            .appendField(this.splitBlockLabel[0])
             .setAlign(Blockly.ALIGN_RIGHT);
         this.createShadowBlock('SIDES', 5); // Default to 5 for a star
  

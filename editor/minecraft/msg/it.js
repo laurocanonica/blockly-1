@@ -23,6 +23,9 @@ var MSG = {
   badXml: "Errore durante l'analisi XML:\n%1\n\nSeleziona 'OK' per abbandonare le modifiche o 'Annulla' per continuare a modificare l'XML.",
 
 	  c_Objects : "Oggetti",
+	  c_Blocks : "Blocchi",
+	  c_Mobs : "Animali",
+	  c_Items : "Oggetti",
 	  c_Time : "Tempo",
 	  c_Movement : "Movimento",
 	  c_Actions : "Azioni",
