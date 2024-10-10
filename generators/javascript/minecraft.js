@@ -493,6 +493,12 @@ Blockly.JavaScript['minecraft_team'] = function(block) {
 	return [ code, Blockly.JavaScript.ORDER_NONE ];
 };
 
+Blockly.JavaScript['minecraft_team_ver2'] = function(block) {
+	var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
+	var code = '"TE=FRIENDLY,"'+addPlusIfNotEmpty(value_singleblock);
+	return [ code, Blockly.JavaScript.ORDER_NONE ];
+};
+
 
 Blockly.JavaScript['minecraft_direction'] = function(block) {
 	var dropdown_name = block.getFieldValue('NAME');

@@ -2653,7 +2653,30 @@ Blockly.Blocks['minecraft_hitting'] = {
 Blockly.Blocks['minecraft_team'] = {
 		init : function() {
 			this.jsonInit({
-				"type" : "MC_cmd_friendly",
+				"type" : "minecraft_team",
+				"message0" : "%1 %2",
+				"args0" : [ {
+					"type" : "field_dropdown",
+					"name" : "NAME",
+					"options" : [ [ eval('Blockly.Msg.MC_cmd_friendly'+'_'+GLOBAL_MESSAGE_VERSION), "FRIENDLY" ], [ Blockly.Msg.MC_cmd_enemy, "ENEMY" ] ]
+				}, {
+					"type" : "input_value",
+					"name" : "singleblock",
+					"check" : [ "Material" ]
+				} ],
+				"output" : "Material",
+				"colour" : 180,
+				"tooltip" : "",
+				"helpUrl" : ""
+			});
+		}
+	};
+
+
+Blockly.Blocks['minecraft_team_ver2'] = {
+		init : function() {
+			this.jsonInit({
+				"type" : "minecraft_team",
 				"message0" : eval('Blockly.Msg.MC_cmd_friendly'+'_'+GLOBAL_MESSAGE_VERSION),
 				"args0" : [ {
 					"type" : "input_value",
