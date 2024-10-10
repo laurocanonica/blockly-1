@@ -36,7 +36,7 @@ var MSG = {
 	  c_Algorithms : "Algoritmi",
 
 
-	  c_Operators : "Solo Op",
+	  c_Operators : "Solo per OP",
 	  t_saveTooltip : "Salva il programma sul computer",
 	  t_readTooltip : "Carica un programma dal computer",
 	  warn_entername :  "Manca il NOME DEL GIOCATORE in Minecraft nel campo in alto a destra",

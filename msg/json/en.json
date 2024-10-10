@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2024-10-10 12:42:30.104191",
+		"lastupdated": "2024-10-10 12:46:03.458814",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2052,7 +2052,7 @@
 	"MC_cmd_minecraft_move_ver1": "change the position %1 times %2",
 	"MC_cmd_minecraft_move_ver2": "go %1 block %2",
 	"MC_cmd_minecraft_rotate_ver1": "change direction by %1 degrees (0 - 360) to the right",
-	"MC_cmd_minecraft_rotate_ver2": "turn right by %1 degrees",
+	"MC_cmd_minecraft_rotate_ver2": "turn right by %1 degrees more",
 	"MC_cmd_minecraft_setrotation_ver1": "set the direction to %1",
 	"MC_cmd_minecraft_setrotation_ver2": "turn %1",
 	"MC_cmd_minecraft_set_elevation_ver1": "set the vertical axes to %1 degrees (0=vertical, 90=horizontal)",
