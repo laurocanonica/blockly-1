@@ -1767,7 +1767,7 @@ Blockly.Blocks['minecraft_multiciplity_ver2'] = {
 		init : function() {
 			this.jsonInit({
 			  "type": "minecraft_multiciplity_ver2",
-			  "message0": "%1 of %2 %3",
+			  "message0": eval('Blockly.Msg.MC_cmd_minecraft_multiciplity'+'_'+GLOBAL_MESSAGE_VERSION),
 			  "args0": [
 			    {
 			      "type": "input_value",
