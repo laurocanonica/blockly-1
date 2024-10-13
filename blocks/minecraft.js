@@ -1742,7 +1742,7 @@ Blockly.Blocks['minecraft_multiciplity'] = {
 		init : function() {
 			this.jsonInit({
 				"type" : "minecraft_multiciplity",
-				"message0" : Blockly.Msg.MC_cmd_minecraft_multiciplity,
+				"message0" : Blockly.Msg.MC_cmd_minecraft_multiciplity_ver1,
 				"args0" : [ {
 					"type" : "field_number",
 					"name" : "mutiplicity",
@@ -1767,7 +1767,7 @@ Blockly.Blocks['minecraft_multiciplity_ver2'] = {
 		init : function() {
 			this.jsonInit({
 			  "type": "minecraft_multiciplity_ver2",
-			  "message0": eval('Blockly.Msg.MC_cmd_minecraft_multiciplity'+'_'+GLOBAL_MESSAGE_VERSION),
+			  "message0" : Blockly.Msg.MC_cmd_minecraft_multiciplity_ver2,
 			  "args0": [
 			    {
 			      "type": "input_value",
@@ -1797,7 +1797,7 @@ Blockly.Blocks['minecraft_multiciplity_var'] = {
 		init : function() {
 			this.jsonInit({
 				  "type": "minecraft_multiciplity_var",
-				  "message0" : Blockly.Msg.MC_cmd_minecraft_multiciplity,
+				  "message0" : Blockly.Msg.MC_cmd_minecraft_multiciplity_ver1,
 				  "args0": [
 				    {
 				      "type": "field_variable",
