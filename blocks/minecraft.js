@@ -1742,7 +1742,7 @@ Blockly.Blocks['minecraft_multiciplity'] = {
 		init : function() {
 			this.jsonInit({
 				"type" : "minecraft_multiciplity",
-				"message0" : Blockly.Msg.MC_cmd_minecraft_multiciplity_ver1,
+				"message0" : Blockly.Msg.MC_cmd_minecraft_multiciplity,
 				"args0" : [ {
 					"type" : "field_number",
 					"name" : "mutiplicity",
@@ -1767,7 +1767,7 @@ Blockly.Blocks['minecraft_multiciplity_ver2'] = {
 		init : function() {
 			this.jsonInit({
 			  "type": "minecraft_multiciplity_ver2",
-			  "message0" : Blockly.Msg.MC_cmd_minecraft_multiciplity_ver2,
+			  "message0" : "%1 replace me %2 %3",
 			  "args0": [
 			    {
 			      "type": "input_value",
@@ -1797,7 +1797,7 @@ Blockly.Blocks['minecraft_multiciplity_var'] = {
 		init : function() {
 			this.jsonInit({
 				  "type": "minecraft_multiciplity_var",
-				  "message0" : Blockly.Msg.MC_cmd_minecraft_multiciplity_ver1,
+				  "message0" : Blockly.Msg.MC_cmd_minecraft_multiciplity,
 				  "args0": [
 				    {
 				      "type": "field_variable",
