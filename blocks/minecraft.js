@@ -1955,27 +1955,6 @@ Blockly.Blocks['minecraft_delay_reset_random'] = {
 
 
 
-Blockly.Blocks['minecraft_materialbockOnlyOne'] = {
-	init : function() {
-		this.jsonInit({
-			"type" : "minecraft_materialbockonlyone",
-			"message0" : "%1 %2",
-			"args0" : [ {
-				"type" : "field_dropdown",
-				"name" : "NAME",
-				"options" : getMaterials()
-			}, {
-				"type" : "input_value",
-				"name" : "singleblock",
-				"check" : [ "Material" ]
-			} ],
-			"output" : "Material",
-			"colour" : 285,
-			"tooltip" : "",
-			"helpUrl" : ""
-		});
-	}
-};
 
 Blockly.Blocks['minecraft_materialbockOnlyOne_op'] = {
 		init : function() {
@@ -4646,5 +4625,46 @@ Blockly.Blocks['shape_block'] = {
     shadowBlock.render();
     this.getInput(inputName).connection.connect(shadowBlock.outputConnection);
   }
+};
+	
+
+Blockly.Blocks['custom_dropdown_block2'] = {
+    init: function() {
+        // Block properties: output connection on the left and input/output on the right
+        this.appendValueInput('Choice')
+            .setCheck("Material")
+            .appendField(new FieldDropdownWithSearch(getMaterials()), 'NAME');
+             
+        
+        
+        // Color and styling
+        this.setColour(285);
+        this.setTooltip('');
+        this.setHelpUrl('');
+
+         // Set the output on the left side
+        this.setOutput(true, "Material");
+    }
+};
+Blockly.Blocks['minecraft_materialbockOnlyOne'] = {
+	init : function() {
+		this.jsonInit({
+			"type" : "minecraft_materialbockonlyone",
+			"message0" : "%1 %2",
+			"args0" : [ {
+				"type" : "field_dropdown",
+				"name" : "NAME",
+				"options" : getMaterials()
+			}, {
+				"type" : "input_value",
+				"name" : "singleblock",
+				"check" : [ "Material" ]
+			} ],
+			"output" : "Material",
+			"colour" : 285,
+			"tooltip" : "",
+			"helpUrl" : ""
+		});
+	}
 };
 	

@@ -550,7 +550,7 @@ Code.init = function() {
   Code.workspace.addChangeListener(setServerNeedsUpdate);
   window.onkeypress =handleKeyboardShortcuts;
     Code.workspace.addChangeListener(blockClickedEventHandler) 
-    Code.workspace.addChangeListener(fieldDropDownResetListEventHandler) 
+    //Code.workspace.addChangeListener(fieldDropDownResetListEventHandler) 
 document.getElementById('playernamefield').addEventListener('change', Code.changeLanguage);
 
   
@@ -992,102 +992,10 @@ document.getElementById('playernamefield').onblur = function() {
 
 }
 
-// event handler that resets the content of the filter for dropdowns on any event
-var fieldDropDownTypedLetters='';
-function fieldDropDownResetListEventHandler(event){
-	fieldDropDownTypedLetters='';
-}
-
-function getSingleDropDownField(block){
-	//console.log(block.inputList[0].fieldRow[1].name);
-	// only dropDownFields have a getOptions() function
-	if(block.inputList!=null && 
-	block.inputList[0].fieldRow!=null 
-	){
-		var row=block.inputList[0].fieldRow;
-		for (var i = 0; i < row.length; i++) {		
-			if(row [i]!=null && row[i].name=='NAME'){
-				return row [i];
-			}
-		}
-	} else{
-		return null;
-	}
-}
-
-function getDropDownField(block){
-	var fieldToUse=getSingleDropDownField(block);		
-	if(fieldToUse==null){ // if this is a dropdown
-        // one of the children could be the dropdown
-		var children=block.getChildren();
-		for (var i = 0; i < children.length; i++) {
-		    //console.log("type is "+children[i].type);
-			fieldToUse=getSingleDropDownField(children[i]) ;
-				//console.log("found "+children[i].inputList[0].fieldRow[0].name)
-			if(fieldToUse!=null){
-				break;					
-			}
-		}
-	}
-	return fieldToUse;
-}
-function refreshDynamicDropdownField(block, pressedKey) {
-	if(pressedKey<'0' || pressedKey>'9'){ // ignore all numbers
-		const NON_BREAKING_SPACE='\u00A0';
-		if(block!=null){
-			var field0 = getDropDownField(block);
-		
-			if(field0!=null){
-				fieldDropDownTypedLetters+=pressedKey.replace(' ', NON_BREAKING_SPACE); // block prefix/postfix matching of blockly dropdowns
-				//console.log("--->"+fieldDropDownTypedLetters+"<--");
-				
-				// store the data of the original dropdown 
-				var input=field0.getParentInput();
-				var options0=field0.getOptions(false);
-				var name=field0.name;
-				options0.sort(); // eset the order
-				// remove and recreate the original dropdown to hide it
-				input.removeField(name);
-				field0.dispose();
-			
-				
-				// select the options matching our string	
-				var optionsFirst=[];
-				var optionsSecond=[];
-				var optionsThird=[];
-				for (var i = 0; i < options0.length; i++) {
-					var label=options0[i][0];
-					label = label.replaceAll(' ', NON_BREAKING_SPACE); // block prefix/postfix matching of blockly dropdowns
-					var newSingleOption=[label, options0[i][1]];
-					var lowerLabel=label.toLowerCase();
-					var labelPos=lowerLabel.indexOf(fieldDropDownTypedLetters);
-					if(labelPos==0){ // starting with the typedletters	
-						optionsFirst.push(newSingleOption);
-					} else if (labelPos>0 && lowerLabel[labelPos-1]==NON_BREAKING_SPACE){ // has a word starting with typedletters
-						optionsSecond.push(newSingleOption);			
-					} else {
-						optionsThird.push(newSingleOption);								
-					}
-				}
-				for (var i = 0; i < optionsSecond.length; i++) {
-						optionsFirst.push(optionsSecond[i]);
-				}
-				for (var i = 0; i < optionsThird.length; i++) {
-						optionsFirst.push(optionsThird[i]);
-				}
-			 	// craete a new dropdown called NAME
-				var field2=new Blockly.FieldDropdown(optionsFirst);
-				input.appendField(field2, name);
-		
-			}
-		}
-	}
-}
 
 function handleKeyboardShortcuts(event) { // add a key 'r' that repeats the last used colour in the drawings
 	var pressedKey=event.key.toLowerCase(); 
 	var selected=Blockly.selected;
-	refreshDynamicDropdownField(selected, pressedKey);
 	if(selected!=null && selected.type.startsWith('m_draw_')) {
 		if((pressedKey>='0' && pressedKey<='9')||(pressedKey>='q' && pressedKey<='z')) { // colour a block
 			//getDrawingBlockCoordinate(Blockly.selected);
@@ -1440,4 +1348,62 @@ function blockClickedEventHandler(event){
 	  }
 }
 
+class FieldDropdownWithSearch extends Blockly.FieldDropdown {
+    constructor(options) {
+        super(options);
+        this.searchInput = null;
+        this.dropdownDiv = null;
+    }
 
+    showEditor_() {
+        super.showEditor_();
+
+        // Get the dropdown div created by Blockly
+        this.dropdownDiv = Blockly.DropDownDiv.getContentDiv();
+
+        // Create and inject the search input at the top of the dropdown
+        this.searchInput = document.createElement('input');
+        this.searchInput.setAttribute('type', 'text');
+        this.searchInput.setAttribute('placeholder', 'Search...');
+        this.searchInput.style.width = '100%';
+        this.searchInput.style.marginBottom = '5px';
+        this.dropdownDiv.insertBefore(this.searchInput, this.dropdownDiv.firstChild);
+
+        // Add event listener to the search input for filtering
+        this.searchInput.addEventListener('input', (e) => {
+            this.filterOptions(e.target.value);
+        });
+
+        // Ensure the search input is focused after a small delay
+        setTimeout(() => {
+            this.searchInput.focus();
+        }, 100); // Small delay to avoid focus interruption
+    }
+
+    filterOptions(query) {
+        const normalizedQuery = query.toLowerCase();
+        const filteredOptions = this.getOptions(true) // Get current options
+            .filter(option => option[0].toLowerCase().includes(normalizedQuery));
+
+        // Remove all options from dropdown and re-add the filtered ones
+        const contentDiv = Blockly.DropDownDiv.getContentDiv();
+        contentDiv.innerHTML = ''; // Clear previous options
+        contentDiv.appendChild(this.searchInput); // Keep the search input
+
+        filteredOptions.forEach((option) => {
+            const optionDiv = document.createElement('div');
+            optionDiv.innerText = option[0];
+            optionDiv.className = 'blocklyDropdownMenuItem';
+            optionDiv.style.padding = '5px';
+            optionDiv.addEventListener('click', () => {
+                this.setValue(option[1]); // Set the value on click
+                Blockly.DropDownDiv.hideIfOwner(this);
+            });
+            contentDiv.appendChild(optionDiv);
+        });
+        setTimeout(() => {
+            this.searchInput.focus();
+        }, 100); // Small delay to avoid focus interruption
+
+    }
+}
