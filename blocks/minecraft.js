@@ -4631,7 +4631,7 @@ Blockly.Blocks['shape_block'] = {
 Blockly.Blocks['custom_dropdown_block2'] = {
     init: function() {
         // Block properties: output connection on the left and input/output on the right
-        this.appendValueInput('Choice')
+        this.appendValueInput('singleblock')
             .setCheck("Material")
             .appendField(new FieldDropdownWithSearch(getMaterials()), 'NAME');
              
@@ -4646,6 +4646,10 @@ Blockly.Blocks['custom_dropdown_block2'] = {
         this.setOutput(true, "Material");
     }
 };
+
+
+
+
 Blockly.Blocks['minecraft_materialbockOnlyOne'] = {
 	init : function() {
 		this.jsonInit({
