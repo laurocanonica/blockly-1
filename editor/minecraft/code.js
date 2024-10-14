@@ -1365,7 +1365,7 @@ class FieldDropdownWithSearch extends Blockly.FieldDropdown {
         this.searchInput = document.createElement('input');
         this.searchInput.setAttribute('type', 'text');
         this.searchInput.setAttribute('placeholder', 'Search...');
-        this.searchInput.style.width = '100%';
+        this.searchInput.style.width = '95%';
         this.searchInput.style.marginBottom = '5px';
         this.dropdownDiv.insertBefore(this.searchInput, this.dropdownDiv.firstChild);
 

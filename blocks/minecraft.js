@@ -1956,94 +1956,6 @@ Blockly.Blocks['minecraft_delay_reset_random'] = {
 
 
 
-Blockly.Blocks['minecraft_materialbockOnlyOne_op'] = {
-		init : function() {
-			this.jsonInit({
-				"type" : "minecraft_materialbockonlyone_op",
-				"message0" : "%1 %2",
-				"args0" : [ {
-					"type" : "field_dropdown",
-					"name" : "NAME",
-					"options" : getMaterials_opOnly()
-				}, {
-					"type" : "input_value",
-					"name" : "singleblock",
-					"check" : [ "Material" ]
-				} ],
-				"output" : "Material",
-				"colour" : 330,
-				"tooltip" : "",
-				"helpUrl" : ""
-			});
-		}
-	};
-
-Blockly.Blocks['minecraft_particleOnlyOne'] = {
-		init : function() {
-			this.jsonInit({
-				"type" : "minecraft_particleOnlyOne",
-				"message0" : "%1 %2",
-				"args0" : [ {
-					"type" : "field_dropdown",
-					"name" : "NAME",
-					"options" : getParticles()
-				}, {
-					"type" : "input_value",
-					"name" : "singleblock",
-					"check" : [ "Material" ]
-				} ],
-				"output" : "Material",
-				"colour" : 285,
-				"tooltip" : "",
-				"helpUrl" : ""
-			});
-		}
-	};
-
-Blockly.Blocks['minecraft_entity'] = {
-	init : function() {
-		this.jsonInit({
-			"type" : "minecraft_entity",
-			"message0" : "%1 %2",
-			"args0" : [ {
-				"type" : "field_dropdown",
-				"name" : "NAME",
-				"options" : getEntities()
-			}, {
-				"type" : "input_value",
-				"name" : "singleblock",
-				"check" : [ "Material" ]
-		} ],
-			"output" : "Material",
-			"colour" : 210,
-			"tooltip" : "",
-			"helpUrl" : ""
-		});
-	}
-};
-
-Blockly.Blocks['minecraft_entity_op'] = {
-		init : function() {
-			this.jsonInit({
-				"type" : "minecraft_entity_op",
-				"message0" : "%1 %2",
-				"args0" : [ {
-					"type" : "field_dropdown",
-					"name" : "NAME",
-					"options" : getEntities_opOnly()
-				}, {
-					"type" : "input_value",
-					"name" : "singleblock",
-					"check" : [ "Material" ]
-				} ],
-				"output" : "Material",
-				"colour" : 210,
-				"tooltip" : "",
-				"helpUrl" : ""
-			});
-		}
-	};
-
 
 
 Blockly.Blocks['minecraft_gotopos'] = {
@@ -2503,59 +2415,7 @@ Blockly.Blocks['minecraft_playerHas'] = {
 		}
 	};
 
-Blockly.Blocks['minecraft_item'] = {
-			init : function() {
-				this.jsonInit({
-					  "type": "minecraft_item",
-					  "message0": "%1 %2",
-					  "args0": [
-						  {
-						      "type": "field_dropdown",
-						      "name" : "NAME",
-								"options" : getItems()
-							},
-					    {
-					      "type": "input_value",
-					      "name": "singleblock",
-					      "check": [ "Item" ]
-					    }
-					  ],
-					  "output": "Item",
-					  "colour": 20,
-					  "tooltip": "",
-					  "helpUrl": ""
-					});
-			}
-		};
 
-
-
-Blockly.Blocks['minecraft_item_op'] = {
-			init : function() {
-				this.jsonInit({
-					  "type": "minecraft_item_op",
-					  "message0": "%1 %2",
-					  "args0": [
-						  {
-						      "type": "field_dropdown",
-						      "name" : "NAME",
-								"options" : getItems_opOnly()
-							},
-					    {
-					      "type": "input_value",
-					      "name": "singleblock",
-					      "check": [ "Item" ]
-					    }
-					  ],
-					  "output": "Item",
-					  "colour": 20,
-					  "tooltip": "",
-					  "helpUrl": ""
-					});
-			}
-		};
-		
-		
 		
 
 
@@ -4628,47 +4488,96 @@ Blockly.Blocks['shape_block'] = {
 };
 	
 
-Blockly.Blocks['custom_dropdown_block2'] = {
+Blockly.Blocks['minecraft_materialbockOnlyOne'] = {
     init: function() {
-        // Block properties: output connection on the left and input/output on the right
-        this.appendValueInput('singleblock')
+         this.appendValueInput('singleblock')
             .setCheck("Material")
             .appendField(new FieldDropdownWithSearch(getMaterials()), 'NAME');
-             
-        
-        
-        // Color and styling
         this.setColour(285);
         this.setTooltip('');
         this.setHelpUrl('');
-
-         // Set the output on the left side
         this.setOutput(true, "Material");
+    }
+};
+
+Blockly.Blocks['minecraft_materialbockOnlyOne_op'] = {
+    init: function() {
+         this.appendValueInput('singleblock')
+            .setCheck("Material")
+            .appendField(new FieldDropdownWithSearch(getMaterials_opOnly()), 'NAME');
+        this.setColour(285);
+        this.setTooltip('');
+        this.setHelpUrl('');
+        this.setOutput(true, "Material");
+    }
+};
+
+
+Blockly.Blocks['minecraft_particleOnlyOne'] = {
+    init: function() {
+         this.appendValueInput('singleblock')
+            .setCheck("Material") //
+            .appendField(new FieldDropdownWithSearch(getParticles()), 'NAME'); //
+        this.setColour(285); //
+        this.setTooltip('');
+        this.setHelpUrl('');
+        this.setOutput(true, "Material");//
     }
 };
 
 
 
 
-Blockly.Blocks['minecraft_materialbockOnlyOne'] = {
-	init : function() {
-		this.jsonInit({
-			"type" : "minecraft_materialbockonlyone",
-			"message0" : "%1 %2",
-			"args0" : [ {
-				"type" : "field_dropdown",
-				"name" : "NAME",
-				"options" : getMaterials()
-			}, {
-				"type" : "input_value",
-				"name" : "singleblock",
-				"check" : [ "Material" ]
-			} ],
-			"output" : "Material",
-			"colour" : 285,
-			"tooltip" : "",
-			"helpUrl" : ""
-		});
-	}
+Blockly.Blocks['minecraft_item'] = {
+    init: function() {
+         this.appendValueInput('singleblock')
+            .setCheck("Item") //
+            .appendField(new FieldDropdownWithSearch(getItems()), 'NAME'); //
+        this.setColour(20); //
+        this.setTooltip('');
+        this.setHelpUrl('');
+        this.setOutput(true, "Item");//
+    }
 };
+
+Blockly.Blocks['minecraft_item_op'] = {
+    init: function() {
+         this.appendValueInput('singleblock')
+            .setCheck("Item") //
+            .appendField(new FieldDropdownWithSearch(getItems_opOnly()), 'NAME'); //
+        this.setColour(20); //
+        this.setTooltip('');
+        this.setHelpUrl('');
+        this.setOutput(true, "Item");//
+    }
+};
+
+
+
+Blockly.Blocks['minecraft_entity'] = {
+    init: function() {
+         this.appendValueInput('singleblock')
+            .setCheck("Material") //
+            .appendField(new FieldDropdownWithSearch(getEntities()), 'NAME'); //
+        this.setColour(210); //
+        this.setTooltip('');
+        this.setHelpUrl('');
+        this.setOutput(true, "Material");//
+    }
+};
+
+
+Blockly.Blocks['minecraft_entity_op'] = {
+    init: function() {
+         this.appendValueInput('singleblock')
+            .setCheck("Material") //
+            .appendField(new FieldDropdownWithSearch(getEntities_opOnly()), 'NAME'); //
+        this.setColour(210); //
+        this.setTooltip('');
+        this.setHelpUrl('');
+        this.setOutput(true, "Material");//
+    }
+};
+
+
 	

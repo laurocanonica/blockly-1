@@ -464,10 +464,6 @@ function minecraft_materialbockOnlyOne_fn(block){
 	return [ code, Blockly.JavaScript.ORDER_NONE ];
 }
 
-Blockly.JavaScript['custom_dropdown_block2'] = function(block) {
-	return minecraft_materialbockOnlyOne_fn(block);
-};
-
 Blockly.JavaScript['minecraft_materialbockOnlyOne'] = function(block) {
 	return minecraft_materialbockOnlyOne_fn(block);
 };
