@@ -993,8 +993,106 @@ document.getElementById('playernamefield').onblur = function() {
 }
 
 
+function shiftRowsDownAndCloneSelectedBlockRow(block) {
+    const itemCount = block.itemCount_; // Get the current number of rows
+    console.log(`Initial item count: ${itemCount}`);
+
+    // Step 1: Identify the currently selected block
+    const selectedBlock = getFirstInRow(Blockly.selected); // Get the currently selected block
+
+    if (!selectedBlock) {
+        console.log('No block is currently selected');
+        return;
+    }
+
+    console.log(`Selected block: ${selectedBlock.type}`);
+
+    // Step 2: Find the row that contains the selected block
+    let startingRowIndex = -1;
+    for (let i = 0; i < itemCount; i++) {
+        const inputName = 'ADD' + i;
+        const connection = block.getInput(inputName)?.connection;
+        const connectedBlock = connection?.targetBlock();
+
+        if (connectedBlock === selectedBlock) {
+            startingRowIndex = i;
+            console.log(`Selected block is in row ${i} (${inputName})`);
+            break;
+        }
+    }
+
+    if (startingRowIndex === -1) {
+        console.log('Selected block is not connected to this list block');
+        return;
+    }
+
+    // Step 3: Clone the block from the selected row
+    const cloneRowInputName = 'ADD' + startingRowIndex;
+    const cloneConnection = block.getInput(cloneRowInputName)?.connection;
+    const cloneBlock = cloneConnection?.targetBlock();
+
+    if (!cloneBlock) {
+        console.log(`No block found in the selected row to clone`);
+        return;
+    }
+
+    // Serialize the block to XML and then create a new block from it
+    const xml = Blockly.Xml.blockToDom(cloneBlock);
+    const clonedBlock = Blockly.Xml.domToBlock(xml, block.workspace);
+    console.log(`Cloned block from row ${startingRowIndex}: ${clonedBlock.type}`);
+
+    // Step 4: Add a new row at the end to make space
+    const newInputName = 'ADD' + itemCount;
+    block.appendValueInput(newInputName)
+        .setCheck(null)
+        .appendField("Item " + (itemCount + 1));
+    block.itemCount_ += 1;
+
+    console.log(`Added new row: ${newInputName}, Total rows after adding: ${block.itemCount_}`);
+	var currentInputName;
+    // Step 5: Shift each row starting from the row with the selected block
+    for (let i = itemCount; i > startingRowIndex; i--) { // Shift rows starting from the row with the selected block
+        currentInputName = 'ADD' + (i - 1);
+        const nextInputName = 'ADD' + i;
+
+        console.log(`Shifting row ${i - 1} (${currentInputName}) to row ${i} (${nextInputName})`);
+
+        // Get the block connected to the current row
+        const currentConnection = block.getInput(currentInputName)?.connection;
+        const connectedBlock = currentConnection?.targetBlock();
+
+        // If there's a block connected to the current row, move it down to the next row
+        if (connectedBlock) {
+            console.log(`Moving block from row ${i - 1} (${currentInputName}) to row ${i} (${nextInputName})`);
+
+            const nextConnection = block.getInput(nextInputName)?.connection;
+            nextConnection.connect(connectedBlock.outputConnection); // Move the block to the next row
+
+            console.log(`Block moved to ${nextInputName}`);
+
+            //currentConnection.disconnect(); // Clear the original connection
+            console.log(`Cleared original connection at row ${i - 1} (${currentInputName})`);
+        } else {
+            console.log(`No block connected to row ${i - 1} (${currentInputName})`);
+        }
+    }
+
+    // Step 6: Move the cloned block to the new row
+    const newConnection = block.getInput(currentInputName)?.connection;
+    newConnection.connect(clonedBlock.outputConnection);
+    console.log(`Moved cloned block to new row ${newInputName}`);
+
+    console.log('Shift operation completed');
+}
+
+
+
+
+
+
 function handleKeyboardShortcuts(event) { // add a key 'r' that repeats the last used colour in the drawings
-	var pressedKey=event.key.toLowerCase(); 
+	//var pressedKey=event.key.toLowerCase(); 
+	var pressedKey=event.key; 
 	var selected=Blockly.selected;
 	if(selected!=null && selected.type.startsWith('m_draw_')) {
 		if((pressedKey>='0' && pressedKey<='9')||(pressedKey>='q' && pressedKey<='z')) { // colour a block
@@ -1003,12 +1101,15 @@ function handleKeyboardShortcuts(event) { // add a key 'r' that repeats the last
 			//alert(pressedKey)
 			setDrawingBlock(selected, pressedKey);
 			//Blockly.Events.fire(new Blockly.Events.BlockChange(selected, 'field', 'tooltip', 'm_draw_0', 'm_draw_1'));
-		}
+		} else if(pressedKey=='I' ){
+			var mainList=getContainingList(selected);			
+			shiftRowsDownAndCloneSelectedBlockRow(mainList);
+			}
 		else if(pressedKey=='i' || pressedKey=='d' ) { // insert or delete a column
 			var coord=getDrawingBlockCoordinate(selected)
+			var mainList=getContainingList(selected);			
 			if(coord!=null){
 				var mainList=getContainingList(selected);
-				//alert(mainList.childBlocks_.length);
 				var nLines=mainList.childBlocks_.length;
 				var yPos = 0;
 				for (var y = 0; y < nLines && yPos<200;) {  // 200 to avoid potential infinite loops
@@ -1146,7 +1247,7 @@ function getDrawingBlockCoordinate(block){
 	if(parent!=null){
 		coord={'x':x, 'y':parseInt(parent.getInputWithBlock(block).name.substring(3))};
 	}
-	//window.alert(x +","+ 	parent.getInputWithBlock(block).name.substring(3));
+	//window.alert(x +","+ 	parent.getInputWithBlock(block).name);
 	return coord;
 }
 
@@ -1157,6 +1258,16 @@ function getContainingList(block){
 	}
 	return parent;
 }
+
+function getFirstInRow(block){
+	var parent=block.getParent();
+	while (parent!=null && parent.type.startsWith('m_draw_')) {
+		block=parent;
+		parent=parent.getParent();
+	}
+	return block;
+}
+
 
 function setDrawingBlockByCoordinate(listBlock, x, y, id){
 	//window.alert(x +","+ y);	
