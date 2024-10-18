@@ -3687,12 +3687,15 @@ Blockly.Blocks['m_draw_0'] = {
 			{
 			  "type": "m_draw_0",
 			  "message0": " %1",
-			  "args0": [{"type": "input_value", "name": "child"}],
-			  "output": null,
+			  "args0": [{"type": "input_value", "name": "child", "check" : [ "drawPixel" ]}],
+			  "output": "drawPixel",
 			  "colour": getColorForDrawCol('0'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});
+			  
+			  
+			  
+			});this.setMovable(false);
 		}
 	};
 
@@ -3702,12 +3705,12 @@ Blockly.Blocks['m_draw_1'] = {
 		{
 		  "type": "m_draw_1",
 		  "message0": " %1",
-		  "args0": [{"type": "input_value", "name": "child"}],
-		  "output": null,
+		  "args0": [{"type": "input_value", "name": "child", "check" : [ "drawPixel" ]}],
+		  "output": "drawPixel",
 		  "colour": getColorForDrawCol('1'), // defined in code.js
 		  "tooltip": "",
 		  "helpUrl": ""
-		});
+		});this.setMovable(false);
 	}
 };
 
@@ -3717,12 +3720,12 @@ Blockly.Blocks['m_draw_2'] = {
 			{
 			  "type": "m_draw_2",
 			  "message0": " %1",
-			  "args0": [{"type": "input_value", "name": "child"}],
-			  "output": null,
+			  "args0": [{"type": "input_value", "name": "child", "check" : [ "drawPixel" ]}],
+			  "output": "drawPixel",
 			  "colour": getColorForDrawCol('2'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});
+			});this.setMovable(false);
 		}
 	};
 Blockly.Blocks['m_draw_3'] = {
@@ -3731,12 +3734,12 @@ Blockly.Blocks['m_draw_3'] = {
 			{
 			  "type": "m_draw_3",
 			  "message0": " %1",
-			  "args0": [{"type": "input_value", "name": "child"}],
-			  "output": null,
+			  "args0": [{"type": "input_value", "name": "child", "check" : [ "drawPixel" ]}],
+			  "output": "drawPixel",
 			  "colour": getColorForDrawCol('3'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});
+			});this.setMovable(false);
 		}
 	};
 Blockly.Blocks['m_draw_4'] = {
@@ -3745,12 +3748,12 @@ Blockly.Blocks['m_draw_4'] = {
 			{
 			  "type": "m_draw_4",
 			  "message0": " %1",
-			  "args0": [{"type": "input_value", "name": "child"}],
-			  "output": null,
+			  "args0": [{"type": "input_value", "name": "child", "check" : [ "drawPixel" ]}],
+			  "output": "drawPixel",
 			  "colour": getColorForDrawCol('4'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});
+			});this.setMovable(false);
 		}
 	};
 Blockly.Blocks['m_draw_5'] = {
@@ -3759,12 +3762,12 @@ Blockly.Blocks['m_draw_5'] = {
 			{
 			  "type": "m_draw_5",
 			  "message0": " %1",
-			  "args0": [{"type": "input_value", "name": "child"}],
-			  "output": null,
+			  "args0": [{"type": "input_value", "name": "child", "check" : [ "drawPixel" ]}],
+			  "output": "drawPixel",
 			  "colour": getColorForDrawCol('5'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});
+			});this.setMovable(false);
 		}
 	};
 Blockly.Blocks['m_draw_6'] = {
@@ -3773,12 +3776,12 @@ Blockly.Blocks['m_draw_6'] = {
 			{
 			  "type": "m_draw_6",
 			  "message0": " %1",
-			  "args0": [{"type": "input_value", "name": "child"}],
-			  "output": null,
+			  "args0": [{"type": "input_value", "name": "child", "check" : [ "drawPixel" ]}],
+			  "output": "drawPixel",
 			  "colour": getColorForDrawCol('6'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});
+			});this.setMovable(false);
 		}
 	};
 Blockly.Blocks['m_draw_7'] = {
@@ -3787,12 +3790,12 @@ Blockly.Blocks['m_draw_7'] = {
 			{
 			  "type": "m_draw_7",
 			  "message0": " %1",
-			  "args0": [{"type": "input_value", "name": "child"}],
-			  "output": null,
+			  "args0": [{"type": "input_value", "name": "child", "check" : [ "drawPixel" ]}],
+			  "output": "drawPixel",
 			  "colour": getColorForDrawCol('7'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});
+			});this.setMovable(false);
 		}
 	};
 Blockly.Blocks['m_draw_8'] = {
@@ -3801,12 +3804,12 @@ Blockly.Blocks['m_draw_8'] = {
 			{
 			  "type": "m_draw_8",
 			  "message0": " %1",
-			  "args0": [{"type": "input_value", "name": "child"}],
-			  "output": null,
+			  "args0": [{"type": "input_value", "name": "child", "check" : [ "drawPixel" ]}],
+			  "output": "drawPixel",
 			  "colour": getColorForDrawCol('8'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});
+			});this.setMovable(false);
 		}
 	};
 Blockly.Blocks['m_draw_9'] = {
@@ -3815,12 +3818,12 @@ Blockly.Blocks['m_draw_9'] = {
 			{
 			  "type": "m_draw_9",
 			  "message0": " %1",
-			  "args0": [{"type": "input_value", "name": "child"}],
-			  "output": null,
+			  "args0": [{"type": "input_value", "name": "child", "check" : [ "drawPixel" ]}],
+			  "output": "drawPixel",
 			  "colour": getColorForDrawCol('9'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});
+			});this.setMovable(false);
 		}
 	};
 Blockly.Blocks['m_draw_q'] = {
@@ -3829,12 +3832,12 @@ Blockly.Blocks['m_draw_q'] = {
 			{
 			  "type": "m_draw_q",
 			  "message0": " %1",
-			  "args0": [{"type": "input_value", "name": "child"}],
-			  "output": null,
+			  "args0": [{"type": "input_value", "name": "child", "check" : [ "drawPixel" ]}],
+			  "output": "drawPixel",
 			  "colour": getColorForDrawCol('q'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});
+			});this.setMovable(false);
 		}
 	};
 Blockly.Blocks['m_draw_r'] = {
@@ -3843,12 +3846,12 @@ Blockly.Blocks['m_draw_r'] = {
 			{
 			  "type": "m_draw_r",
 			  "message0": " %1",
-			  "args0": [{"type": "input_value", "name": "child"}],
-			  "output": null,
+			  "args0": [{"type": "input_value", "name": "child", "check" : [ "drawPixel" ]}],
+			  "output": "drawPixel",
 			  "colour": getColorForDrawCol('r'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});
+			});this.setMovable(false);
 		}
 	};
 Blockly.Blocks['m_draw_s'] = {
@@ -3857,12 +3860,12 @@ Blockly.Blocks['m_draw_s'] = {
 			{
 			  "type": "m_draw_s",
 			  "message0": " %1",
-			  "args0": [{"type": "input_value", "name": "child"}],
-			  "output": null,
+			  "args0": [{"type": "input_value", "name": "child", "check" : [ "drawPixel" ]}],
+			  "output": "drawPixel",
 			  "colour": getColorForDrawCol('s'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});
+			});this.setMovable(false);
 		}
 	};
 Blockly.Blocks['m_draw_t'] = {
@@ -3871,12 +3874,12 @@ Blockly.Blocks['m_draw_t'] = {
 			{
 			  "type": "m_draw_t",
 			  "message0": " %1",
-			  "args0": [{"type": "input_value", "name": "child"}],
-			  "output": null,
+			  "args0": [{"type": "input_value", "name": "child", "check" : [ "drawPixel" ]}],
+			  "output": "drawPixel",
 			  "colour": getColorForDrawCol('t'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});
+			});this.setMovable(false);
 		}
 	};
 Blockly.Blocks['m_draw_u'] = {
@@ -3885,12 +3888,12 @@ Blockly.Blocks['m_draw_u'] = {
 			{
 			  "type": "m_draw_u",
 			  "message0": " %1",
-			  "args0": [{"type": "input_value", "name": "child"}],
-			  "output": null,
+			  "args0": [{"type": "input_value", "name": "child", "check" : [ "drawPixel" ]}],
+			  "output": "drawPixel",
 			  "colour": getColorForDrawCol('u'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});
+			});this.setMovable(false);
 		}
 	};
 Blockly.Blocks['m_draw_v'] = {
@@ -3899,12 +3902,12 @@ Blockly.Blocks['m_draw_v'] = {
 			{
 			  "type": "m_draw_v",
 			  "message0": " %1",
-			  "args0": [{"type": "input_value", "name": "child"}],
-			  "output": null,
+			  "args0": [{"type": "input_value", "name": "child", "check" : [ "drawPixel" ]}],
+			  "output": "drawPixel",
 			  "colour": getColorForDrawCol('v'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});
+			});this.setMovable(false);
 		}
 	};
 Blockly.Blocks['m_draw_w'] = {
@@ -3913,12 +3916,12 @@ Blockly.Blocks['m_draw_w'] = {
 			{
 			  "type": "m_draw_w",
 			  "message0": " %1",
-			  "args0": [{"type": "input_value", "name": "child"}],
-			  "output": null,
+			  "args0": [{"type": "input_value", "name": "child", "check" : [ "drawPixel" ]}],
+			  "output": "drawPixel",
 			  "colour": getColorForDrawCol('w'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});
+			});this.setMovable(false);
 		}
 	};
 Blockly.Blocks['m_draw_x'] = {
@@ -3927,12 +3930,12 @@ Blockly.Blocks['m_draw_x'] = {
 			{
 			  "type": "m_draw_x",
 			  "message0": " %1",
-			  "args0": [{"type": "input_value", "name": "child"}],
-			  "output": null,
+			  "args0": [{"type": "input_value", "name": "child", "check" : [ "drawPixel" ]}],
+			  "output": "drawPixel",
 			  "colour": getColorForDrawCol('x'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});
+			});this.setMovable(false);
 		}
 	};
 Blockly.Blocks['m_draw_y'] = {
@@ -3941,12 +3944,12 @@ Blockly.Blocks['m_draw_y'] = {
 			{
 			  "type": "m_draw_y",
 			  "message0": " %1",
-			  "args0": [{"type": "input_value", "name": "child"}],
-			  "output": null,
+			  "args0": [{"type": "input_value", "name": "child", "check" : [ "drawPixel" ]}],
+			  "output": "drawPixel",
 			  "colour": getColorForDrawCol('y'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});
+			});this.setMovable(false);
 		}
 	};
 Blockly.Blocks['m_draw_z'] = {
@@ -3955,12 +3958,12 @@ Blockly.Blocks['m_draw_z'] = {
 			{
 			  "type": "m_draw_z",
 			  "message0": " %1",
-			  "args0": [{"type": "input_value", "name": "child"}],
-			  "output": null,
+			  "args0": [{"type": "input_value", "name": "child", "check" : [ "drawPixel" ]}],
+			  "output": "drawPixel",
 			  "colour": getColorForDrawCol('z'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});
+			});this.setMovable(false);
 		}
 	};
 

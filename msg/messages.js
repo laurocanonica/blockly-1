@@ -1145,7 +1145,7 @@ Blockly.Msg.LISTS_CREATE_WITH_HELPURL = 'https://github.com/google/blockly/wiki/
 Blockly.Msg.LISTS_CREATE_WITH_TOOLTIP = 'Create a list with any number of items.';
 /** @type {string} */
 /// block text - See [https://github.com/google/blockly/wiki/Lists#create-list-with https://github.com/google/blockly/wiki/Lists#create-list-with].
-Blockly.Msg.LISTS_CREATE_WITH_INPUT_WITH = 'create list with';
+Blockly.Msg.LISTS_CREATE_WITH_INPUT_WITH = 'list';
 /** @type {string} */
 /// block text - This appears in a sub-block when [https://github.com/google/blockly/wiki/Lists#changing-number-of-inputs changing the number of inputs in a ''''create list with'''' block].\n{{Identical|List}}
 Blockly.Msg.LISTS_CREATE_WITH_CONTAINER_TITLE_ADD = 'list';

@@ -1044,8 +1044,7 @@ function shiftRowsDownAndCloneSelectedBlockRow(block) {
     // Step 4: Add a new row at the end to make space
     const newInputName = 'ADD' + itemCount;
     block.appendValueInput(newInputName)
-        .setCheck(null)
-        .appendField("Item " + (itemCount + 1));
+        .setCheck(null);
     block.itemCount_ += 1;
 
     console.log(`Added new row: ${newInputName}, Total rows after adding: ${block.itemCount_}`);
@@ -1087,6 +1086,77 @@ function shiftRowsDownAndCloneSelectedBlockRow(block) {
 
 
 
+function deleteRowContainingSelectedBlock(block) {
+    // Step 1: Identify the currently selected block
+    var selectedBlock = Blockly.selected; // Get the currently selected block
+
+    if (!selectedBlock) {
+        console.log('No block is currently selected');
+        return;
+    }
+	selectedBlock=getFirstInRow(selectedBlock); 
+    console.log(`Selected block: ${selectedBlock.type}`);
+
+    // Step 2: Find the row that contains the selected block
+    let rowIndex = -1;
+    const itemCount = block.itemCount_; // Get the current number of rows
+
+    for (let i = 0; i < itemCount; i++) {
+        const inputName = 'ADD' + i;
+        const connection = block.getInput(inputName)?.connection;
+        const connectedBlock = connection?.targetBlock();
+
+        if (connectedBlock === selectedBlock) {
+            rowIndex = i;
+            console.log(`Selected block is in row ${i} (${inputName})`);
+            break;
+        }
+    }
+
+    if (rowIndex === -1) {
+        console.log('Selected block is not connected to this list block');
+        return;
+    }
+
+    // Step 3: Disconnect the block from the input
+    const inputNameToDelete = 'ADD' + rowIndex;
+    const connectionToDelete = block.getInput(inputNameToDelete)?.connection;
+    const blockToDelete = connectionToDelete?.targetBlock();
+
+    if (blockToDelete) {
+        console.log(`Disconnecting block from row ${rowIndex} (${inputNameToDelete})`);
+        connectionToDelete.disconnect(); // Disconnect the block
+        blockToDelete.dispose(); // Disconnect the block
+    }
+
+    // Step 4: Shift each row up starting from the row below the deleted row
+    for (let i = rowIndex + 1; i <= itemCount; i++) {
+        const currentInputName = 'ADD' + i;
+        const previousInputName = 'ADD' + (i - 1);
+
+        console.log(`Shifting row ${i} (${currentInputName}) to row ${i - 1} (${previousInputName})`);
+
+        const currentConnection = block.getInput(currentInputName)?.connection;
+        const connectedBlock = currentConnection?.targetBlock();
+
+        if (connectedBlock) {
+            const previousConnection = block.getInput(previousInputName)?.connection;
+            previousConnection.connect(connectedBlock.outputConnection); // Move the block up
+            console.log(`Moved block from row ${i} to row ${i - 1}`);
+        }
+    }
+
+    // Step 5: Remove the input for the deleted row and adjust item count
+    //block.removeInput(inputNameToDelete);
+    block.itemCount_ -= 1; // Decrease the item count
+	//Code.workspace.render(); // Re-render the workspace
+	//block.bumpNeighbours(); // Ensure connections are correctly updated
+	//block.render();
+	//block.workspace.resizeContents();
+	window.location.reload(); //nothing else works
+
+    console.log(`Removed row ${rowIndex}, Total rows after deletion: ${block.itemCount_}`);
+}
 
 
 
@@ -1104,6 +1174,9 @@ function handleKeyboardShortcuts(event) { // add a key 'r' that repeats the last
 		} else if(pressedKey=='I' ){
 			var mainList=getContainingList(selected);			
 			shiftRowsDownAndCloneSelectedBlockRow(mainList);
+		} else if(pressedKey=='D' ){
+			var mainList=getContainingList(selected);			
+			deleteRowContainingSelectedBlock(mainList);
 			}
 		else if(pressedKey=='i' || pressedKey=='d' ) { // insert or delete a column
 			var coord=getDrawingBlockCoordinate(selected)

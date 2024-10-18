@@ -257,7 +257,7 @@
 	"LISTS_CREATE_EMPTY_TITLE": "crea lista vuota",
 	"LISTS_CREATE_EMPTY_TOOLTIP": "Restituisce una lista, di lunghezza 0, contenente nessun record di dati",
 	"LISTS_CREATE_WITH_TOOLTIP": "Crea una lista con un certo numero di elementi.",
-	"LISTS_CREATE_WITH_INPUT_WITH": "crea lista con",
+	"LISTS_CREATE_WITH_INPUT_WITH": "lista",
 	"LISTS_CREATE_WITH_CONTAINER_TITLE_ADD": "lista",
 	"LISTS_CREATE_WITH_CONTAINER_TOOLTIP": "Aggiungi, rimuovi o riordina le sezioni per riconfigurare il blocco lista.",
 	"LISTS_CREATE_WITH_ITEM_TOOLTIP": "Aggiunge un elemento alla lista.",
