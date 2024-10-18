@@ -993,19 +993,25 @@ document.getElementById('playernamefield').onblur = function() {
 }
 
 
+
+// DRAWING HANDLING
+
+
+
+
 function shiftRowsDownAndCloneSelectedBlockRow(block) {
     const itemCount = block.itemCount_; // Get the current number of rows
-    console.log(`Initial item count: ${itemCount}`);
+    //console.log(`Initial item count: ${itemCount}`);
 
     // Step 1: Identify the currently selected block
     const selectedBlock = getFirstInRow(Blockly.selected); // Get the currently selected block
 
     if (!selectedBlock) {
-        console.log('No block is currently selected');
+        //console.log('No block is currently selected');
         return;
     }
 
-    console.log(`Selected block: ${selectedBlock.type}`);
+    //console.log(`Selected block: ${selectedBlock.type}`);
 
     // Step 2: Find the row that contains the selected block
     let startingRowIndex = -1;
@@ -1016,13 +1022,13 @@ function shiftRowsDownAndCloneSelectedBlockRow(block) {
 
         if (connectedBlock === selectedBlock) {
             startingRowIndex = i;
-            console.log(`Selected block is in row ${i} (${inputName})`);
+            //console.log(`Selected block is in row ${i} (${inputName})`);
             break;
         }
     }
 
     if (startingRowIndex === -1) {
-        console.log('Selected block is not connected to this list block');
+        //console.log('Selected block is not connected to this list block');
         return;
     }
 
@@ -1032,14 +1038,14 @@ function shiftRowsDownAndCloneSelectedBlockRow(block) {
     const cloneBlock = cloneConnection?.targetBlock();
 
     if (!cloneBlock) {
-        console.log(`No block found in the selected row to clone`);
+        //console.log(`No block found in the selected row to clone`);
         return;
     }
 
     // Serialize the block to XML and then create a new block from it
     const xml = Blockly.Xml.blockToDom(cloneBlock);
     const clonedBlock = Blockly.Xml.domToBlock(xml, block.workspace);
-    console.log(`Cloned block from row ${startingRowIndex}: ${clonedBlock.type}`);
+    //console.log(`Cloned block from row ${startingRowIndex}: ${clonedBlock.type}`);
 
     // Step 4: Add a new row at the end to make space
     const newInputName = 'ADD' + itemCount;
@@ -1047,14 +1053,14 @@ function shiftRowsDownAndCloneSelectedBlockRow(block) {
         .setCheck(null);
     block.itemCount_ += 1;
 
-    console.log(`Added new row: ${newInputName}, Total rows after adding: ${block.itemCount_}`);
+    //console.log(`Added new row: ${newInputName}, Total rows after adding: ${block.itemCount_}`);
 	var currentInputName;
     // Step 5: Shift each row starting from the row with the selected block
     for (let i = itemCount; i > startingRowIndex; i--) { // Shift rows starting from the row with the selected block
         currentInputName = 'ADD' + (i - 1);
         const nextInputName = 'ADD' + i;
 
-        console.log(`Shifting row ${i - 1} (${currentInputName}) to row ${i} (${nextInputName})`);
+        //console.log(`Shifting row ${i - 1} (${currentInputName}) to row ${i} (${nextInputName})`);
 
         // Get the block connected to the current row
         const currentConnection = block.getInput(currentInputName)?.connection;
@@ -1062,26 +1068,26 @@ function shiftRowsDownAndCloneSelectedBlockRow(block) {
 
         // If there's a block connected to the current row, move it down to the next row
         if (connectedBlock) {
-            console.log(`Moving block from row ${i - 1} (${currentInputName}) to row ${i} (${nextInputName})`);
+            //console.log(`Moving block from row ${i - 1} (${currentInputName}) to row ${i} (${nextInputName})`);
 
             const nextConnection = block.getInput(nextInputName)?.connection;
             nextConnection.connect(connectedBlock.outputConnection); // Move the block to the next row
 
-            console.log(`Block moved to ${nextInputName}`);
+            //console.log(`Block moved to ${nextInputName}`);
 
             //currentConnection.disconnect(); // Clear the original connection
-            console.log(`Cleared original connection at row ${i - 1} (${currentInputName})`);
+            //console.log(`Cleared original connection at row ${i - 1} (${currentInputName})`);
         } else {
-            console.log(`No block connected to row ${i - 1} (${currentInputName})`);
+            //console.log(`No block connected to row ${i - 1} (${currentInputName})`);
         }
     }
 
     // Step 6: Move the cloned block to the new row
     const newConnection = block.getInput(currentInputName)?.connection;
     newConnection.connect(clonedBlock.outputConnection);
-    console.log(`Moved cloned block to new row ${newInputName}`);
+    //console.log(`Moved cloned block to new row ${newInputName}`);
 
-    console.log('Shift operation completed');
+    //console.log('Shift operation completed');
 }
 
 
@@ -1091,11 +1097,11 @@ function deleteRowContainingSelectedBlock(block) {
     var selectedBlock = Blockly.selected; // Get the currently selected block
 
     if (!selectedBlock) {
-        console.log('No block is currently selected');
+        //console.log('No block is currently selected');
         return;
     }
 	selectedBlock=getFirstInRow(selectedBlock); 
-    console.log(`Selected block: ${selectedBlock.type}`);
+    //console.log(`Selected block: ${selectedBlock.type}`);
 
     // Step 2: Find the row that contains the selected block
     let rowIndex = -1;
@@ -1108,13 +1114,13 @@ function deleteRowContainingSelectedBlock(block) {
 
         if (connectedBlock === selectedBlock) {
             rowIndex = i;
-            console.log(`Selected block is in row ${i} (${inputName})`);
+            //console.log(`Selected block is in row ${i} (${inputName})`);
             break;
         }
     }
 
     if (rowIndex === -1) {
-        console.log('Selected block is not connected to this list block');
+        //console.log('Selected block is not connected to this list block');
         return;
     }
 
@@ -1124,7 +1130,7 @@ function deleteRowContainingSelectedBlock(block) {
     const blockToDelete = connectionToDelete?.targetBlock();
 
     if (blockToDelete) {
-        console.log(`Disconnecting block from row ${rowIndex} (${inputNameToDelete})`);
+        //console.log(`Disconnecting block from row ${rowIndex} (${inputNameToDelete})`);
         connectionToDelete.disconnect(); // Disconnect the block
         blockToDelete.dispose(); // Disconnect the block
     }
@@ -1134,7 +1140,7 @@ function deleteRowContainingSelectedBlock(block) {
         const currentInputName = 'ADD' + i;
         const previousInputName = 'ADD' + (i - 1);
 
-        console.log(`Shifting row ${i} (${currentInputName}) to row ${i - 1} (${previousInputName})`);
+        //console.log(`Shifting row ${i} (${currentInputName}) to row ${i - 1} (${previousInputName})`);
 
         const currentConnection = block.getInput(currentInputName)?.connection;
         const connectedBlock = currentConnection?.targetBlock();
@@ -1142,7 +1148,7 @@ function deleteRowContainingSelectedBlock(block) {
         if (connectedBlock) {
             const previousConnection = block.getInput(previousInputName)?.connection;
             previousConnection.connect(connectedBlock.outputConnection); // Move the block up
-            console.log(`Moved block from row ${i} to row ${i - 1}`);
+            //console.log(`Moved block from row ${i} to row ${i - 1}`);
         }
     }
 
@@ -1155,96 +1161,235 @@ function deleteRowContainingSelectedBlock(block) {
 	//block.workspace.resizeContents();
 	window.location.reload(); //nothing else works
 
-    console.log(`Removed row ${rowIndex}, Total rows after deletion: ${block.itemCount_}`);
+    //console.log(`Removed row ${rowIndex}, Total rows after deletion: ${block.itemCount_}`);
 }
 
 
+// Function to define the custom context menu
+function addCustomContextMenuToDrawingBlocks(block, options) {
+    // Clear the default options
+    options.length = 0; // This removes any default options Blockly might add
 
-function handleKeyboardShortcuts(event) { // add a key 'r' that repeats the last used colour in the drawings
-	//var pressedKey=event.key.toLowerCase(); 
-	var pressedKey=event.key; 
-	var selected=Blockly.selected;
-	if(selected!=null && selected.type.startsWith('m_draw_')) {
-		if((pressedKey>='0' && pressedKey<='9')||(pressedKey>='q' && pressedKey<='z')) { // colour a block
-			//getDrawingBlockCoordinate(Blockly.selected);
-			//setDrawingBlockByCoordinate(getContainingList(Blockly.selected), 19, 19, pressedKey)
-			//alert(pressedKey)
-			setDrawingBlock(selected, pressedKey);
-			//Blockly.Events.fire(new Blockly.Events.BlockChange(selected, 'field', 'tooltip', 'm_draw_0', 'm_draw_1'));
-		} else if(pressedKey=='I' ){
-			var mainList=getContainingList(selected);			
-			shiftRowsDownAndCloneSelectedBlockRow(mainList);
-		} else if(pressedKey=='D' ){
-			var mainList=getContainingList(selected);			
-			deleteRowContainingSelectedBlock(mainList);
-			}
-		else if(pressedKey=='i' || pressedKey=='d' ) { // insert or delete a column
-			var coord=getDrawingBlockCoordinate(selected)
-			var mainList=getContainingList(selected);			
-			if(coord!=null){
-				var mainList=getContainingList(selected);
-				var nLines=mainList.childBlocks_.length;
-				var yPos = 0;
-				for (var y = 0; y < nLines && yPos<200;) {  // 200 to avoid potential infinite loops
-					//alert(coord.x+","+y);
-					var inBlock=getDrawingBlockByCoordinate(mainList, coord.x, yPos);
-					if(inBlock!=null){
-						y++; //increment only when there is a subelement
-						if(pressedKey=='d'){
-							deleteDrawingBlock(inBlock);
-						}else{
-							insertDrawingBlock(inBlock);
-						}
-					}
-					yPos++;
-				}
-			}
-			//selected.setColour('#ff0000');
-		}
-		else if(lastSelectedDrawColBlock!=null && lastSelectedDrawColBlock.type.startsWith('m_draw_')){
-			var coordStart=getDrawingBlockCoordinate(lastSelectedDrawColBlock);
-			var coordEnd=getDrawingBlockCoordinate(selected);
-			var mainList=getContainingList(selected)
-			var id=lastSelectedDrawColBlock.type.substring('m_draw_'.length);
-			if(coordStart!=null && coordEnd!=null){
-				if(pressedKey=='l' ) { // draw line
-						bresenham_draw_line (coordStart.x, coordStart.y, coordEnd.x, coordEnd.y, mainList, id);
-				} else if(pressedKey=='b' ) { // draw rectangle
-					bresenham_draw_line (coordStart.x, coordStart.y, coordEnd.x, coordStart.y, mainList, id);
-					bresenham_draw_line (coordStart.x, coordStart.y, coordStart.x, coordEnd.y, mainList, id);
-					bresenham_draw_line (coordStart.x, coordEnd.y, coordEnd.x, coordEnd.y, mainList, id);
-					bresenham_draw_line (coordEnd.x, coordStart.y, coordEnd.x, coordEnd.y, mainList, id);
-				} else if(pressedKey=='c' ) { // draw rectangle
-					var dx=Math.abs(coordEnd.x - coordStart.x);
-					var dy=Math.abs(coordEnd.y - coordStart.y);
-					var radiusExp2=dx*dx+dy*dy;
-					var radius=Math.sqrt(radiusExp2);
-					var prevY=0;
-					for (var x = coordStart.x-radius+1; x <= coordStart.x+radius; x+=1) {
-						var y=Math.sqrt(radiusExp2-Math.pow(x-coordStart.x, 2));
-						bresenham_draw_line (x-1, Math.round(coordStart.y+prevY), x, Math.round(coordStart.y+y), mainList, id);
-						bresenham_draw_line (x-1, Math.round(coordStart.y-prevY), x, Math.round(coordStart.y-y), mainList, id);
-				    	//setDrawingBlockByCoordinate(mainList, Math.round(x), Math.round(coordStart.y+y), id);
-				    	//setDrawingBlockByCoordinate(mainList, Math.round(x), Math.round(coordStart.y-y), id);
-				    	prevY=y;
-				    	//window.alert(x +","+ y+",rad="+ radius +", start= "+coordStart.x +","+coordStart.y+'--->'+(radiusExp2-(x-coordStart.x)^2)+'-a->'+(x-coordStart.x)+'-b->'+Math.pow(x-coordStart.x,2)+'-xx>'+radiusExp2);	
-					}
-					
-				} else if(pressedKey=='f' ) { // draw full block
-					if(coordStart.y<coordEnd.y){
-						for (var i = coordStart.y; i <= coordEnd.y; i++) {
-							bresenham_draw_line (coordStart.x, i, coordEnd.x, i, mainList, id);						
-						}
-					} else {
-						for (var i = coordEnd.y; i <= coordStart.y; i++) {
-							bresenham_draw_line (coordStart.x, i, coordEnd.x, i, mainList, id);						
-						}
-						
-					}
-				} 
-			}
-		}
-	}
+    // Insert row option
+    var insertRowOption = {
+        text: "Insert Row (I)",
+        enabled: true,
+        callback: function() {
+            console.log('Insert Row clicked');
+            shiftRowDown(block); // Calls the refactored function for row insertion
+        }
+    };
+    options.push(insertRowOption);
+
+    // Delete row option
+    var deleteRowOption = {
+        text: "Delete Row (D)",
+        enabled: true,
+        callback: function() {
+            console.log('Delete Row clicked');
+            deleteRow(block); // Calls the refactored function for row deletion
+        }
+    };
+    options.push(deleteRowOption);
+
+    // Insert column option
+    var insertColumnOption = {
+        text: "Insert Column (i)",
+        enabled: true,
+        callback: function() {
+            console.log('Insert Column clicked');
+            handleColumnInsertOrDelete('i', block); // Calls the refactored function to insert column
+        }
+    };
+    options.push(insertColumnOption);
+
+    // Delete column option
+    var deleteColumnOption = {
+        text: "Delete Column (d)",
+        enabled: true,
+        callback: function() {
+            console.log('Delete Column clicked');
+            handleColumnInsertOrDelete('d', block); // Calls the refactored function to delete column
+        }
+    };
+    options.push(deleteColumnOption);
+
+    // Draw line option
+    var drawLineOption = {
+        text: "Draw Line (l)",
+        enabled: true,
+        callback: function() {
+            console.log('Draw Line clicked');
+            handleShapeDrawing('l', block); // Calls the refactored function to draw a line
+        }
+    };
+    options.push(drawLineOption);
+
+    // Draw rectangle option
+    var drawRectangleOption = {
+        text: "Draw Rectangle (r)",
+        enabled: true,
+        callback: function() {
+            console.log('Draw Rectangle clicked');
+            handleShapeDrawing('b', block); // Calls the refactored function to draw a rectangle
+        }
+    };
+    options.push(drawRectangleOption);
+
+    // Draw circle option
+    var drawCircleOption = {
+        text: "Draw Circle (c)",
+        enabled: true,
+        callback: function() {
+            console.log('Draw Circle clicked');
+            handleShapeDrawing('c', block); // Calls the refactored function to draw a circle
+        }
+    };
+    options.push(drawCircleOption);
+
+    // Fill block option
+    var fillBlockOption = {
+        text: "Fill Block (f)",
+        enabled: true,
+        callback: function() {
+            console.log('Fill Block clicked');
+            handleShapeDrawing('f', block); // Calls the refactored function to fill the block
+        }
+    };
+    options.push(fillBlockOption);
+}
+
+// Main function handling keyboard shortcuts
+function handleKeyboardShortcuts(event) {
+    var pressedKey = event.key;
+    var selected = Blockly.selected;
+
+    if (selected != null && selected.type.startsWith('m_draw_')) {
+        handleDrawingBlockActions(pressedKey, selected);
+    }
+}
+
+// Handles actions for drawing blocks
+function handleDrawingBlockActions(pressedKey, selected) {
+    if (isColorKey(pressedKey)) {
+        setDrawingBlock(selected, pressedKey);
+    } else if (pressedKey == 'I') {
+        shiftRowDown(selected);
+    } else if (pressedKey == 'D') {
+        deleteRow(selected);
+    } else if (pressedKey == 'i' || pressedKey == 'd') {
+        handleColumnInsertOrDelete(pressedKey, selected);
+    } else if (lastSelectedDrawColBlock != null && lastSelectedDrawColBlock.type.startsWith('m_draw_')) {
+        handleShapeDrawing(pressedKey, selected);
+    }
+}
+
+// Checks if the pressed key is a valid color key
+function isColorKey(key) {
+    return (key >= '0' && key <= '9') || (key >= 'q' && key <= 'z');
+}
+
+// Shifts rows down starting from the row containing the selected block
+function shiftRowDown(selected) {
+    var mainList = getContainingList(selected);
+    shiftRowsDownAndCloneSelectedBlockRow(mainList);
+}
+
+// Deletes the row containing the selected block
+function deleteRow(selected) {
+    var mainList = getContainingList(selected);
+    deleteRowContainingSelectedBlock(mainList);
+}
+
+// Handles inserting or deleting a column
+function handleColumnInsertOrDelete(pressedKey, selected) {
+    var coord = getDrawingBlockCoordinate(selected);
+    var mainList = getContainingList(selected);
+
+    if (coord != null) {
+        processColumnChange(pressedKey, coord.x, mainList);
+    }
+}
+
+// Processes column insertion or deletion
+function processColumnChange(pressedKey, xCoord, mainList) {
+    var nLines = mainList.childBlocks_.length;
+    var yPos = 0;
+
+    for (var y = 0; y < nLines && yPos < 200; ) { // Limit to 200 loops to avoid infinite loop
+        var inBlock = getDrawingBlockByCoordinate(mainList, xCoord, yPos);
+        if (inBlock != null) {
+            y++;
+            if (pressedKey == 'd') {
+                deleteDrawingBlock(inBlock);
+            } else {
+                insertDrawingBlock(inBlock);
+            }
+        }
+        yPos++;
+    }
+}
+
+// Handles drawing shapes like lines, rectangles, circles, and filled blocks
+function handleShapeDrawing(pressedKey, selected) {
+    var coordStart = getDrawingBlockCoordinate(lastSelectedDrawColBlock);
+    var coordEnd = getDrawingBlockCoordinate(selected);
+    var mainList = getContainingList(selected);
+    var id = lastSelectedDrawColBlock.type.substring('m_draw_'.length);
+
+    if (coordStart != null && coordEnd != null) {
+        if (pressedKey == 'l') {
+            drawLine(coordStart, coordEnd, mainList, id);
+        } else if (pressedKey == 'b') {
+            drawRectangle(coordStart, coordEnd, mainList, id);
+        } else if (pressedKey == 'c') {
+            drawCircle(coordStart, coordEnd, mainList, id);
+        } else if (pressedKey == 'f') {
+            fillBlock(coordStart, coordEnd, mainList, id);
+        }
+    }
+}
+
+// Draws a line using Bresenham's algorithm
+function drawLine(coordStart, coordEnd, mainList, id) {
+    bresenham_draw_line(coordStart.x, coordStart.y, coordEnd.x, coordEnd.y, mainList, id);
+}
+
+// Draws a rectangle by connecting four lines
+function drawRectangle(coordStart, coordEnd, mainList, id) {
+    bresenham_draw_line(coordStart.x, coordStart.y, coordEnd.x, coordStart.y, mainList, id);
+    bresenham_draw_line(coordStart.x, coordStart.y, coordStart.x, coordEnd.y, mainList, id);
+    bresenham_draw_line(coordStart.x, coordEnd.y, coordEnd.x, coordEnd.y, mainList, id);
+    bresenham_draw_line(coordEnd.x, coordStart.y, coordEnd.x, coordEnd.y, mainList, id);
+}
+
+// Draws a circle using Bresenham's algorithm for circles
+function drawCircle(coordStart, coordEnd, mainList, id) {
+    var dx = Math.abs(coordEnd.x - coordStart.x);
+    var dy = Math.abs(coordEnd.y - coordStart.y);
+    var radiusExp2 = dx * dx + dy * dy;
+    var radius = Math.sqrt(radiusExp2);
+    var prevY = 0;
+
+    for (var x = coordStart.x - radius + 1; x <= coordStart.x + radius; x += 1) {
+        var y = Math.sqrt(radiusExp2 - Math.pow(x - coordStart.x, 2));
+        bresenham_draw_line(x - 1, Math.round(coordStart.y + prevY), x, Math.round(coordStart.y + y), mainList, id);
+        bresenham_draw_line(x - 1, Math.round(coordStart.y - prevY), x, Math.round(coordStart.y - y), mainList, id);
+        prevY = y;
+    }
+}
+
+// Fills a block by drawing multiple horizontal lines
+function fillBlock(coordStart, coordEnd, mainList, id) {
+    if (coordStart.y < coordEnd.y) {
+        for (var i = coordStart.y; i <= coordEnd.y; i++) {
+            bresenham_draw_line(coordStart.x, i, coordEnd.x, i, mainList, id);
+        }
+    } else {
+        for (var i = coordEnd.y; i <= coordStart.y; i++) {
+            bresenham_draw_line(coordStart.x, i, coordEnd.x, i, mainList, id);
+        }
+    }
 }
 
 function setDrawingBlock(selected, key) { 

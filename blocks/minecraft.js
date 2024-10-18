@@ -3680,7 +3680,6 @@ Blockly.Blocks['minecraft_drawing_extended'] = {
 	};
 
 
-
 Blockly.Blocks['m_draw_0'] = {
 		init : function() {
 			this.jsonInit( 	
@@ -3691,11 +3690,9 @@ Blockly.Blocks['m_draw_0'] = {
 			  "output": "drawPixel",
 			  "colour": getColorForDrawCol('0'), // defined in code.js
 			  "tooltip": "",
-			  "helpUrl": ""
-			  
-			  
-			  
-			});this.setMovable(false);
+			  "helpUrl": "",
+			});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
+			
 		}
 	};
 
@@ -3710,7 +3707,7 @@ Blockly.Blocks['m_draw_1'] = {
 		  "colour": getColorForDrawCol('1'), // defined in code.js
 		  "tooltip": "",
 		  "helpUrl": ""
-		});this.setMovable(false);
+		});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
 	}
 };
 
@@ -3725,7 +3722,7 @@ Blockly.Blocks['m_draw_2'] = {
 			  "colour": getColorForDrawCol('2'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});this.setMovable(false);
+			});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
 		}
 	};
 Blockly.Blocks['m_draw_3'] = {
@@ -3739,7 +3736,7 @@ Blockly.Blocks['m_draw_3'] = {
 			  "colour": getColorForDrawCol('3'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});this.setMovable(false);
+			});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
 		}
 	};
 Blockly.Blocks['m_draw_4'] = {
@@ -3753,7 +3750,7 @@ Blockly.Blocks['m_draw_4'] = {
 			  "colour": getColorForDrawCol('4'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});this.setMovable(false);
+			});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
 		}
 	};
 Blockly.Blocks['m_draw_5'] = {
@@ -3767,7 +3764,7 @@ Blockly.Blocks['m_draw_5'] = {
 			  "colour": getColorForDrawCol('5'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});this.setMovable(false);
+			});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
 		}
 	};
 Blockly.Blocks['m_draw_6'] = {
@@ -3781,7 +3778,7 @@ Blockly.Blocks['m_draw_6'] = {
 			  "colour": getColorForDrawCol('6'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});this.setMovable(false);
+			});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
 		}
 	};
 Blockly.Blocks['m_draw_7'] = {
@@ -3795,7 +3792,7 @@ Blockly.Blocks['m_draw_7'] = {
 			  "colour": getColorForDrawCol('7'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});this.setMovable(false);
+			});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
 		}
 	};
 Blockly.Blocks['m_draw_8'] = {
@@ -3809,7 +3806,7 @@ Blockly.Blocks['m_draw_8'] = {
 			  "colour": getColorForDrawCol('8'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});this.setMovable(false);
+			});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
 		}
 	};
 Blockly.Blocks['m_draw_9'] = {
@@ -3823,7 +3820,7 @@ Blockly.Blocks['m_draw_9'] = {
 			  "colour": getColorForDrawCol('9'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});this.setMovable(false);
+			});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
 		}
 	};
 Blockly.Blocks['m_draw_q'] = {
@@ -3837,7 +3834,7 @@ Blockly.Blocks['m_draw_q'] = {
 			  "colour": getColorForDrawCol('q'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});this.setMovable(false);
+			});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
 		}
 	};
 Blockly.Blocks['m_draw_r'] = {
@@ -3851,7 +3848,7 @@ Blockly.Blocks['m_draw_r'] = {
 			  "colour": getColorForDrawCol('r'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});this.setMovable(false);
+			});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
 		}
 	};
 Blockly.Blocks['m_draw_s'] = {
@@ -3865,7 +3862,7 @@ Blockly.Blocks['m_draw_s'] = {
 			  "colour": getColorForDrawCol('s'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});this.setMovable(false);
+			});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
 		}
 	};
 Blockly.Blocks['m_draw_t'] = {
@@ -3879,7 +3876,7 @@ Blockly.Blocks['m_draw_t'] = {
 			  "colour": getColorForDrawCol('t'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});this.setMovable(false);
+			});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
 		}
 	};
 Blockly.Blocks['m_draw_u'] = {
@@ -3893,7 +3890,7 @@ Blockly.Blocks['m_draw_u'] = {
 			  "colour": getColorForDrawCol('u'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});this.setMovable(false);
+			});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
 		}
 	};
 Blockly.Blocks['m_draw_v'] = {
@@ -3907,7 +3904,7 @@ Blockly.Blocks['m_draw_v'] = {
 			  "colour": getColorForDrawCol('v'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});this.setMovable(false);
+			});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
 		}
 	};
 Blockly.Blocks['m_draw_w'] = {
@@ -3921,7 +3918,7 @@ Blockly.Blocks['m_draw_w'] = {
 			  "colour": getColorForDrawCol('w'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});this.setMovable(false);
+			});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
 		}
 	};
 Blockly.Blocks['m_draw_x'] = {
@@ -3935,7 +3932,7 @@ Blockly.Blocks['m_draw_x'] = {
 			  "colour": getColorForDrawCol('x'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});this.setMovable(false);
+			});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
 		}
 	};
 Blockly.Blocks['m_draw_y'] = {
@@ -3949,7 +3946,7 @@ Blockly.Blocks['m_draw_y'] = {
 			  "colour": getColorForDrawCol('y'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});this.setMovable(false);
+			});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
 		}
 	};
 Blockly.Blocks['m_draw_z'] = {
@@ -3963,7 +3960,7 @@ Blockly.Blocks['m_draw_z'] = {
 			  "colour": getColorForDrawCol('z'), // defined in code.js
 			  "tooltip": "",
 			  "helpUrl": ""
-			});this.setMovable(false);
+			});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
 		}
 	};
 
