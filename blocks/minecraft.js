@@ -2707,7 +2707,18 @@ Blockly.Blocks['minecraft_move_to_view_target'] = {
 							        [
 							        	eval('Blockly.Msg.MC_cmd_minecraft_move_to_view_player'+'_'+GLOBAL_MESSAGE_VERSION),	
 							          "PLAYER_EYES"
+							        ],
+							        
+							        [
+							        	eval('Blockly.Msg.MC_cmd_minecraft_option_start_position'+'_'+GLOBAL_MESSAGE_VERSION),
+							          "START_POS"
+							        ],
+							        [
+							        	eval('Blockly.Msg.MC_cmd_minecraft_option_lastmarked_position'+'_'+GLOBAL_MESSAGE_VERSION),
+							          "MARKED_POS"
 							        ]
+								      
+							        
 							      ]
 							    }
 							  ],						  
@@ -2940,7 +2951,7 @@ Blockly.Blocks['minecraft_comment'] = {
 			this.jsonInit( 	
 					{
 						  "type": "minecraft_comment",
-						  "message0": "/* %1 */",
+						  "message0": "// %1",
 						  "args0": [
 						    {
 						      "type": "field_input",
@@ -3161,11 +3172,11 @@ Blockly.Blocks['minecraft_gotomark'] = {
 						      "options": [
 						        [
 						        	eval('Blockly.Msg.MC_cmd_minecraft_option_start_position'+'_'+GLOBAL_MESSAGE_VERSION),
-						          "0"
+						          "START_POS"
 						        ],
 						        [
 						        	eval('Blockly.Msg.MC_cmd_minecraft_option_lastmarked_position'+'_'+GLOBAL_MESSAGE_VERSION),
-						          "1"
+						          "MARKED_POS"
 						        ]
 						      ]
 						    }

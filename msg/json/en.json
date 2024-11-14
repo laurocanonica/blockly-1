@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2024-11-12 15:20:09.271293",
+		"lastupdated": "2024-11-14 13:02:16.156044",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2089,7 +2089,7 @@
 	"MC_cmd_minecraft_move_to_view_player_ver1": " where I'm looking",
 	"MC_cmd_minecraft_move_to_view_player_ver2": " where I'm looking",
 	"MC_cmd_minecraft_move_to_view_target_ver1": "the next solid block",
-	"MC_cmd_minecraft_move_to_view_target_ver2": "the closest block",
+	"MC_cmd_minecraft_move_to_view_target_ver2": "the next solid block",
 	"MC_cmd_minecraft_movePos_To_Player_ver1": "set the position to player %1",
 	"MC_cmd_minecraft_movePos_To_Player_ver2": "go to player %1",
 	"MC_cmd_minecraft_mark_position_ver1": "mark this position",
@@ -2097,9 +2097,9 @@
 	"MC_cmd_minecraft_reset_position_ver1": "reset the current position to %1 %2",
 	"MC_cmd_minecraft_reset_position_ver2": "go back to the %1 %2",
 	"MC_cmd_minecraft_option_start_position_ver1": "the start position",
-	"MC_cmd_minecraft_option_start_position_ver2": "start",
+	"MC_cmd_minecraft_option_start_position_ver2": "the start",
 	"MC_cmd_minecraft_option_lastmarked_position_ver1": "the last marked position",
-	"MC_cmd_minecraft_option_lastmarked_position_ver2": "marked block",
+	"MC_cmd_minecraft_option_lastmarked_position_ver2": "the marked block",
 	"MC_cmd_facing": "facing %1 %2",
 	"MC_cmd_upper_lower": "side %1 %2",
 	"MC_cmd_ground": "on the ground %1",

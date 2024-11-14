@@ -153,29 +153,70 @@
 			</block>
 
 
-			<block type="minecraft_givetoplayer">
-				<value name="NAME">
-					<block type="minecraft_item">
-						<field name="NAME">i.apple</field>
-					</block>
-					<shadow type="minecraft_item">
-						<field name="NAME">i.apple</field>
-					</shadow>
-				</value>
-			</block>
 
-			<block type="minecraft_createchest">
-				<value name="NAME">
-					<block type="minecraft_item">
-						<field name="NAME">i.apple</field>
-					</block>
-					<shadow type="minecraft_item">
-						<field name="NAME">i.apple</field>
+
+			<block type="minecraft_move">
+				<field name="direction">UP</field>
+				<value name="times">
+					<shadow type="math_number">
+						<field name="NUM">1</field>
 					</shadow>
 				</value>
 			</block>
 
 
+
+
+			<block type="minecraft_gotopos">
+				<value name="x">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+				<value name="y">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+				<value name="z">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+			</block>
+
+			<block type="minecraft_move_to_view_target"></block>
+
+
+			<block type="minecraft_setrotation"></block>
+
+			<block type="minecraft_rotate">
+				<value name="angle">
+					<shadow type="math_number">
+						<field name="NUM">90</field>
+					</shadow>
+				</value>
+			</block>
+
+			<block type="minecraft_set_elevation">
+				<value name="angle">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+			</block>
+
+			<block type="minecraft_set_elevation_relative">
+				<value name="angle">
+					<shadow type="math_number">
+						<field name="NUM">45</field>
+					</shadow>
+				</value>
+			</block>
+
+
+
+			<block type="minecraft_mark"></block>
 			<block type="minecraft_text">
 				<field name="fontName">Arial</field>
 				<field name="fontStyle">0</field>
@@ -201,60 +242,7 @@
 					</shadow>
 				</value>
 			</block>
-			<block type="minecraft_importobj">
-				<value name="filename">
-					<block type="text">
-						<field name="TEXT">filename</field>
-					</block>
-					<shadow type="text">
-						<field name="TEXT">filename</field>
-					</shadow>
-				</value>
-				<value name="size">
-					<shadow type="math_number">
-						<field name="NUM">50</field>
-					</shadow>
-				</value>
-			</block>
-
-			<block type="minecraft_executecommand">
-				<value name="fn">
-					<shadow type="text">
-						<field name="TEXT"></field>
-					</shadow>
-				</value>
-				<value name="player">
-					<shadow type="text">
-						<field name="TEXT"></field>
-					</shadow>
-				</value>
-				<value name="param1">
-					<shadow type="math_number">
-						<field name="NUM">0</field>
-					</shadow>
-				</value>
-				<value name="param2">
-					<shadow type="math_number">
-						<field name="NUM">0</field>
-					</shadow>
-				</value>
-				<value name="param3">
-					<shadow type="math_number">
-						<field name="NUM">0</field>
-					</shadow>
-				</value>
-				<value name="param4">
-					<shadow type="math_number">
-						<field name="NUM">0</field>
-					</shadow>
-				</value>
-				<value name="param5">
-					<shadow type="math_number">
-						<field name="NUM">0</field>
-					</shadow>
-				</value>
-			</block>
-			<block type="minecraft_group"></block>
+			<block type="minecraft_comment"></block>
 
 		</category>
 
@@ -302,6 +290,28 @@
 		<category name="{c_Items}" colour="30">
 			<block type="minecraft_item"></block>
 			<block type="minecraft_splashpotion"></block>
+			<block type="minecraft_givetoplayer">
+				<value name="NAME">
+					<block type="minecraft_item">
+						<field name="NAME">i.apple</field>
+					</block>
+					<shadow type="minecraft_item">
+						<field name="NAME">i.apple</field>
+					</shadow>
+				</value>
+			</block>
+
+			<block type="minecraft_createchest">
+				<value name="NAME">
+					<block type="minecraft_item">
+						<field name="NAME">i.apple</field>
+					</block>
+					<shadow type="minecraft_item">
+						<field name="NAME">i.apple</field>
+					</shadow>
+				</value>
+			</block>
+
 		</category>
 
 		<category name="{c_Time}" colour="90">
@@ -317,79 +327,6 @@
 					</shadow>
 				</value>
 			</block>
-		</category>
-
-
-
-		<category name="{c_Movement}" colour="210">
-
-
-
-
-			<block type="minecraft_move">
-				<field name="direction">UP</field>
-				<value name="times">
-					<shadow type="math_number">
-						<field name="NUM">1</field>
-					</shadow>
-				</value>
-			</block>
-
-
-
-			<block type="minecraft_move_to_view_target"></block>
-
-			<block type="minecraft_gotopos">
-				<value name="x">
-					<shadow type="math_number">
-						<field name="NUM">0</field>
-					</shadow>
-				</value>
-				<value name="y">
-					<shadow type="math_number">
-						<field name="NUM">0</field>
-					</shadow>
-				</value>
-				<value name="z">
-					<shadow type="math_number">
-						<field name="NUM">0</field>
-					</shadow>
-				</value>
-			</block>
-
-
-
-			<block type="minecraft_setrotation"></block>
-
-			<block type="minecraft_rotate">
-				<value name="angle">
-					<shadow type="math_number">
-						<field name="NUM">90</field>
-					</shadow>
-				</value>
-			</block>
-
-			<block type="minecraft_set_elevation">
-				<value name="angle">
-					<shadow type="math_number">
-						<field name="NUM">0</field>
-					</shadow>
-				</value>
-			</block>
-
-			<block type="minecraft_set_elevation_relative">
-				<value name="angle">
-					<shadow type="math_number">
-						<field name="NUM">45</field>
-					</shadow>
-				</value>
-			</block>
-
-
-
-			<block type="minecraft_mark"></block>
-			<block type="minecraft_gotomark"></block>
-			<block type="minecraft_comment"></block>
 		</category>
 
 
@@ -535,88 +472,6 @@
 					<shadow type="math_number">
 						<field name="NUM">1</field>
 					</shadow>
-				</value>
-			</block>
-
-
-
-			<block type="lists_create_with" collapsed="false">
-				<mutation items="25" />
-				</mutation>
-				<value name="ADD0">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD1">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD2">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD3">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD4">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD5">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD6">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD7">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD8">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD9">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD10">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD11">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD12">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD13">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD14">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD15">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD16">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD17">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD18">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD19">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD20">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD21">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD22">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD23">
-					<block type="m_draw_0" />
-				</value>
-				<value name="ADD24">
-					<block type="m_draw_0" />
 				</value>
 			</block>
 
@@ -883,13 +738,6 @@
 					</shadow>
 				</value>
 			</block>
-			<block type="text_prompt_ext">
-				<value name="TEXT">
-					<shadow type="text">
-						<field name="TEXT">abc</field>
-					</shadow>
-				</value>
-			</block>
 		</category>
 		<category name="{catLists}" colour="260">
 			<block type="lists_create_with">
@@ -1016,6 +864,60 @@
 					</shadow>
 				</value>
 			</block>
+						<block type="minecraft_importobj">
+				<value name="filename">
+					<block type="text">
+						<field name="TEXT">filename</field>
+					</block>
+					<shadow type="text">
+						<field name="TEXT">filename</field>
+					</shadow>
+				</value>
+				<value name="size">
+					<shadow type="math_number">
+						<field name="NUM">50</field>
+					</shadow>
+				</value>
+			</block>
+
+			<block type="minecraft_executecommand">
+				<value name="fn">
+					<shadow type="text">
+						<field name="TEXT"></field>
+					</shadow>
+				</value>
+				<value name="player">
+					<shadow type="text">
+						<field name="TEXT"></field>
+					</shadow>
+				</value>
+				<value name="param1">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+				<value name="param2">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+				<value name="param3">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+				<value name="param4">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+				<value name="param5">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+			</block>
+
 		</category>
 
 	</xml>

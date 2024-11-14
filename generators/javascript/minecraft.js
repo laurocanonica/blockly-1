@@ -387,7 +387,7 @@ Blockly.JavaScript['minecraft_gotopos'] = function(block) {
 	var value_x = Blockly.JavaScript.valueToCode(block, 'x', Blockly.JavaScript.ORDER_NONE);
 	var value_y = Blockly.JavaScript.valueToCode(block, 'y', Blockly.JavaScript.ORDER_NONE);
 	var value_z = Blockly.JavaScript.valueToCode(block, 'z', Blockly.JavaScript.ORDER_NONE);
-	var code = "nextLocation=CMD.movePosition(player, startLocation, ";
+	var code = "nextLocation=CMD.movePositionAbsolute(player, startLocation, ";
 	code += "nextLocation.getYaw(), ";
 	code += "nextLocation.getPitch(), ";
 	code += '"'+dropdown_coordsystem + '", ';
@@ -401,18 +401,30 @@ Blockly.JavaScript['minecraft_gotopos'] = function(block) {
 Blockly.JavaScript['minecraft_move'] = function(block) {
 	var value_times = Blockly.JavaScript.valueToCode(block, 'times', Blockly.JavaScript.ORDER_NONE);
 	var dropdown_direction = block.getFieldValue('direction');
-	var code = "nextLocation=CMD.movePosition(player, nextLocation, " + value_times + ", \'" + dropdown_direction + "\');\n";
+	var code = "nextLocation=CMD.movePositionRelative(player, nextLocation, " + value_times + ", \'" + dropdown_direction + "\');\n";
 	return code;
 };
 
 Blockly.JavaScript['minecraft_move_to_view_target'] = function(block) {
 	  var dropdown_viewer = block.getFieldValue('viewer');
 	  var code = "nextLocation=";
-	  if(dropdown_viewer=='PLAYER_EYES'){
+	  switch(dropdown_viewer){
+	  case 'PLAYER_EYES':
 		  code+="CMD.movePosition(player);\n";
-      } else {
-		  code+="CMD.movePosition(player, nextLocation);\n";
-      }
+		  break;
+ 	  case 'ROBOT_EYES':
+ 		  code+="CMD.movePosition(player, nextLocation);\n";
+ 		  break;
+	  case 'START_POS':
+ 	  	code = 'nextLocation=CMD.movePosition(startLocation, nextLocation.getYaw(), nextLocation.getPitch());\n';
+ 		  break;
+	  case 'MARKED_POS':
+ 		  code = 'nextLocation=CMD.movePosition(markLocation, nextLocation.getYaw(), nextLocation.getPitch());\n';		   
+ 		  break;
+ 	  default:
+ 	      console.log("Invalid option for minecraft_move_to_view_target:"+dropdown_viewer);
+ 	  }
+      
 	code+="if(nextLocation==null) return;\n";
 	return code;
 };
@@ -616,10 +628,10 @@ Blockly.JavaScript['minecraft_mark'] = function(block) {
 Blockly.JavaScript['minecraft_gotomark'] = function(block) {
   var dropdown_origin = block.getFieldValue('origin');
   var code;
-  if(dropdown_origin=='0') {
-	  code = 'nextLocation=CMD.copyLocation(startLocation, nextLocation.getYaw(), nextLocation.getPitch());\n';
+  if(dropdown_origin=='START_POS') {
+	  code = 'nextLocation=CMD.movePosition(startLocation, nextLocation.getYaw(), nextLocation.getPitch());\n';
   } else {
-	  code = 'nextLocation=CMD.copyLocation(markLocation, nextLocation.getYaw(), nextLocation.getPitch());\n';		   
+	  code = 'nextLocation=CMD.movePosition(markLocation, nextLocation.getYaw(), nextLocation.getPitch());\n';		   
   }
   return code;
 };
@@ -805,7 +817,7 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 
 	Blockly.JavaScript['minecraft_movePos_To_Player'] = function(block) {
 		  var value_playername = Blockly.JavaScript.valueToCode(block, 'playerName', Blockly.JavaScript.ORDER_ATOMIC);
-			var code = "nextLocation=CMD.movePosition(player, nextLocation, ";
+			var code = "nextLocation=CMD.movePositionToPlayer(player, nextLocation, ";
 			code += value_playername + ");\n";
 			return code;
 		};
