@@ -11,11 +11,9 @@
         <h1>Multiverse Interface</h1>
         <p>Select a world and a command to execute:</p>
         <label for="worldSelect">Select World:</label>
-        <select id="worldSelect">
-            <option value="world1">World 1</option>
-            <option value="world2">World 2</option>
-            <option value="world3">World 3</option>
-        </select>
+	    <select id="worldSelect">
+	        <option value="">Loading worlds...</option>
+	    </select>
 
         <div class="buttons">
             <button onclick="confirmCommand('reset')">Reset World</button>
@@ -46,6 +44,43 @@
                 document.getElementById("result").innerText = data.message;
             });
         }
+        
+        function confirmCommand(command) {
+            if (confirm("Are you sure you want to execute this command?")) {
+                executeCommand(command);
+            }
+        }
+
+        async function loadWorlds() {
+            try {
+                const response = await fetch('/WORLDS');
+                if (!response.ok) {
+                    throw new Error('Failed to load world list');
+                }
+                const worlds = await response.json();
+                const select = document.getElementById('worldSelect');
+
+                // Clear existing options
+                select.innerHTML = '';
+
+                // Populate dropdown with world names
+                worlds.forEach(world => {
+                    const option = document.createElement('option');
+                    option.value = world;
+                    option.textContent = world.toLowerCase();
+                    select.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error loading worlds:', error);
+                const select = document.getElementById('worldSelect');
+                select.innerHTML = '<option value="">Error loading worlds</option>';
+            }
+        }
+
+        // Load the worlds when the page is ready
+        document.addEventListener('DOMContentLoaded', loadWorlds);
+
+
     </script>
 </body>
 </html>
