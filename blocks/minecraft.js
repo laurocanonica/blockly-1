@@ -3131,7 +3131,7 @@ Blockly.Blocks['minecraft_text'] = {
 						  "inputsInline": true,
 						  "previousStatement": null,
 						  "nextStatement": null,
-						  "colour": 45,
+						  "colour": 120,
 						  "tooltip": "",
 						  "helpUrl": ""
 						});

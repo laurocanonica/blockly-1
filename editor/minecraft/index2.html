@@ -152,8 +152,111 @@
 				</value>
 			</block>
 
+			<block type="minecraft_createchest">
+				<value name="NAME">
+					<block type="minecraft_item">
+						<field name="NAME">i.apple</field>
+					</block>
+					<shadow type="minecraft_item">
+						<field name="NAME">i.apple</field>
+					</shadow>
+				</value>
+			</block>
+
+			<block type="minecraft_givetoplayer">
+				<value name="NAME">
+					<block type="minecraft_item">
+						<field name="NAME">i.apple</field>
+					</block>
+					<shadow type="minecraft_item">
+						<field name="NAME">i.apple</field>
+					</shadow>
+				</value>
+			</block>
 
 
+			<block type="minecraft_text">
+				<field name="fontName">Arial</field>
+				<field name="fontStyle">0</field>
+				<value name="inputText">
+					<block type="text">
+						<field name="TEXT">abc</field>
+					</block>
+					<shadow type="text">
+						<field name="TEXT">abc</field>
+					</shadow>
+				</value>
+				<value name="fontPoints">
+					<shadow type="math_number">
+						<field name="NUM">18</field>
+					</shadow>
+				</value>
+				<value name="NAME">
+					<block type="minecraft_materialbockOnlyOne">
+						<field name="NAME">b.grass_block</field>
+					</block>					
+					<shadow type="minecraft_materialbockOnlyOne">
+						<field name="NAME">b.clay</field>
+					</shadow>
+				</value>
+			</block>
+
+
+
+			<block type="minecraft_comment"></block>
+
+		</category>
+
+		<category name="{c_Blocks}" colour="330">
+			<block type="minecraft_materialbockOnlyOne"></block>
+			<block type="minecraft_sign"></block>
+			<block type="minecraft_particleOnlyOne"></block>
+			<block type="minecraft_multiciplity"></block>
+			<block type="minecraft_multiciplity_var"></block>
+			<block type="minecraft_direction"></block>
+			<block type="minecraft_upper_lower_part"></block>
+			<block type="minecraft_on_the_ground"></block>
+			<block type="customimage_var"></block>
+			<block type="minecraft_materialNothing"></block>
+			<block type="minecraft_multiciplity_ver2">
+				<value name="quantity">
+					<block type="math_number">
+						<field name="NUM">1</field>
+					</block>
+					<shadow type="math_number">
+						<field name="NUM">1</field>
+					</shadow>
+				</value>
+				<value name="singleblock">
+					<block type="minecraft_materialbockOnlyOne">
+						<field name="NAME">b.grass_block</field>
+					</block>					
+					<shadow type="minecraft_materialbockOnlyOne">
+						<field name="NAME">b.grass_block</field>
+					</shadow>
+				</value>
+
+			</block>
+		</category>
+
+		<category name="{c_Mobs}" colour="180">
+			<block type="minecraft_entity"></block>
+			<block type="minecraft_team"></block>
+			<block type="minecraft_team_ver2"></block>
+			<block type="minecraft_baby"></block>
+			<block type="minecraft_talking"></block>
+			<block type="minecraft_leash"></block>
+		</category>
+
+		<category name="{c_Items}" colour="30">
+			<block type="minecraft_item"></block>
+			<block type="minecraft_splashpotion"></block>
+
+		</category>
+		
+		<category name="{c_Movement}" colour="210">
+		
+		
 
 			<block type="minecraft_move">
 				<field name="direction">UP</field>
@@ -217,102 +320,10 @@
 
 
 			<block type="minecraft_mark"></block>
-			<block type="minecraft_text">
-				<field name="fontName">Arial</field>
-				<field name="fontStyle">0</field>
-				<value name="inputText">
-					<block type="text">
-						<field name="TEXT">abc</field>
-					</block>
-					<shadow type="text">
-						<field name="TEXT">abc</field>
-					</shadow>
-				</value>
-				<value name="fontPoints">
-					<shadow type="math_number">
-						<field name="NUM">18</field>
-					</shadow>
-				</value>
-				<value name="NAME">
-					<block type="minecraft_materialbockOnlyOne">
-						<field name="NAME">b.grass_block</field>
-					</block>					
-					<shadow type="minecraft_materialbockOnlyOne">
-						<field name="NAME">b.clay</field>
-					</shadow>
-				</value>
-			</block>
-			<block type="minecraft_comment"></block>
-
 		</category>
 
-		<category name="{c_Blocks}" colour="330">
-			<block type="minecraft_materialbockOnlyOne"></block>
-			<block type="minecraft_sign"></block>
-			<block type="minecraft_particleOnlyOne"></block>
-			<block type="minecraft_multiciplity"></block>
-			<block type="minecraft_multiciplity_var"></block>
-			<block type="minecraft_direction"></block>
-			<block type="minecraft_upper_lower_part"></block>
-			<block type="minecraft_on_the_ground"></block>
-			<block type="customimage_var"></block>
-			<block type="minecraft_materialNothing"></block>
-			<block type="minecraft_multiciplity_ver2">
-				<value name="quantity">
-					<block type="math_number">
-						<field name="NUM">1</field>
-					</block>
-					<shadow type="math_number">
-						<field name="NUM">1</field>
-					</shadow>
-				</value>
-				<value name="singleblock">
-					<block type="minecraft_materialbockOnlyOne">
-						<field name="NAME">b.grass_block</field>
-					</block>					
-					<shadow type="minecraft_materialbockOnlyOne">
-						<field name="NAME">b.grass_block</field>
-					</shadow>
-				</value>
 
-			</block>
-		</category>
 
-		<category name="{c_Mobs}" colour="180">
-			<block type="minecraft_entity"></block>
-			<block type="minecraft_team"></block>
-			<block type="minecraft_team_ver2"></block>
-			<block type="minecraft_baby"></block>
-			<block type="minecraft_talking"></block>
-			<block type="minecraft_leash"></block>
-		</category>
-
-		<category name="{c_Items}" colour="30">
-			<block type="minecraft_item"></block>
-			<block type="minecraft_splashpotion"></block>
-			<block type="minecraft_givetoplayer">
-				<value name="NAME">
-					<block type="minecraft_item">
-						<field name="NAME">i.apple</field>
-					</block>
-					<shadow type="minecraft_item">
-						<field name="NAME">i.apple</field>
-					</shadow>
-				</value>
-			</block>
-
-			<block type="minecraft_createchest">
-				<value name="NAME">
-					<block type="minecraft_item">
-						<field name="NAME">i.apple</field>
-					</block>
-					<shadow type="minecraft_item">
-						<field name="NAME">i.apple</field>
-					</shadow>
-				</value>
-			</block>
-
-		</category>
 
 		<category name="{c_Time}" colour="90">
 			<block type="minecraft_delay"></block>
@@ -480,7 +491,7 @@
 		</category>
 
 
-		<category name="{c_Events}" colour="210">
+		<category name="{c_Events}" colour="210" expanded="true">
 			<block type="minecraft_addevent">
 				<field name="eventType">HITTING_ENTITY_EVENT</field>
 				<value name="NAME">
@@ -532,7 +543,6 @@
 				</value>
 			</block>
 
-			<block type="minecraft_getPlayerCoord"></block>
 			<block type="minecraft_cancelEvents"></block>
 		</category>
 
