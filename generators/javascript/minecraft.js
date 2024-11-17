@@ -907,4 +907,10 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 		  return code;
 		};		
 		
-	
+	Blockly.JavaScript['image_select'] = function(block) {
+	  // Get the value from the field
+	  var selectedValue = block.getFieldValue('IMAGE');
+	  // Return it as a JavaScript string
+	  var code = "image is "+selectedValue;
+	  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+	};
