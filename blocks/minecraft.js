@@ -2974,7 +2974,7 @@ Blockly.Blocks['minecraft_printposition'] = {
 			this.jsonInit( 	
 					{
 						  "type": "minecraft_printposition",
-						  "message0": "print current location",
+						  "message0": Blockly.Msg.MC_cmd_minecraft_currentLocation,
 						  "output": null,
 						  "colour": 230,
 						  "tooltip": "",

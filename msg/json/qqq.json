@@ -2133,6 +2133,7 @@
 	"MC_cmd_minecraft_shape_polygon_param": "",
 	"MC_cmd_minecraft_shape_ellipse_param": "",
 	"MC_cmd_minecraft_shape_star_param": "",
+	"MC_cmd_minecraft_currentLocation": "",
 	"PROCEDURES_DEFNORETURN_TITLE": "",
 	"PROCEDURES_DEFNORETURN_PROCEDURE": ""
 }

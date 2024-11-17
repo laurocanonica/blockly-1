@@ -307,6 +307,7 @@ Blockly.Msg["MC_cmd_minecraft_cancel_events"] = "cancella tutti gli eventi";
 Blockly.Msg["MC_cmd_minecraft_connectPositions1"] = "crea una serie di blocchi fatta di %1";
 Blockly.Msg["MC_cmd_minecraft_connectPositions2"] = "dall'ultima posizione marcata a questa posizione ";
 Blockly.Msg["MC_cmd_minecraft_createchest"] = "crea un baule con %1";
+Blockly.Msg["MC_cmd_minecraft_currentLocation"] = "le mie coordinate";
 Blockly.Msg["MC_cmd_minecraft_customimage"] = "immagine %1 %2";
 Blockly.Msg["MC_cmd_minecraft_delay"] = "dopo %1 sec. %2";
 Blockly.Msg["MC_cmd_minecraft_delay_random"] = "dopo un tempo tra %1 e %2 sec. %3";

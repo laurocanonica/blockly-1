@@ -2105,7 +2105,7 @@
 "MC_cmd_minecraft_shape_polygon_param": "con%4 lati e raggio",
 "MC_cmd_minecraft_shape_ellipse_param": "di raggio X%4 e raggio Y",
 "MC_cmd_minecraft_shape_star_param": "con%4lati e raggio interno di%e raggio esterno di",
-
+"MC_cmd_minecraft_currentLocation": "le mie coordinate",
 "PROCEDURES_DEFNORETURN_TITLE": "/vm",
 "PROCEDURES_DEFNORETURN_POCEDURE": "miocomando"
 	

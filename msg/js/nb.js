@@ -307,6 +307,7 @@ Blockly.Msg["MC_cmd_minecraft_cancel_events"] = "avbryt alle begivenheter";
 Blockly.Msg["MC_cmd_minecraft_connectPositions1"] = "lag en rekke laget av %1";
 Blockly.Msg["MC_cmd_minecraft_connectPositions2"] = "fra den sist markerte posisjonen til denne posisjonen";
 Blockly.Msg["MC_cmd_minecraft_createchest"] = "lag kiste med %1";
+Blockly.Msg["MC_cmd_minecraft_currentLocation"] = "my location coordinates";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_customimage"] = "bilde %1 %2";
 Blockly.Msg["MC_cmd_minecraft_delay"] = "etter %1 sek. %2";
 Blockly.Msg["MC_cmd_minecraft_delay_random"] = "etter en stund, mellom %1 og %2 sek. %3";

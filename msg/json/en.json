@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2024-11-15 22:53:51.176703",
+		"lastupdated": "2024-11-17 17:18:17.625090",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2139,6 +2139,7 @@
 	"MC_cmd_minecraft_shape_polygon_param": "with%4sides and radius",
 	"MC_cmd_minecraft_shape_ellipse_param": "with radiusX%4and radius Y",
 	"MC_cmd_minecraft_shape_star_param": "with%4sides and inner radius%5and outer radius",
+	"MC_cmd_minecraft_currentLocation": "my location coordinates",
 	"PROCEDURES_DEFNORETURN_TITLE": "/vm",
 	"PROCEDURES_DEFNORETURN_PROCEDURE": "mycommand"
 }

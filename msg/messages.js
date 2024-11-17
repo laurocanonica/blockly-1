@@ -3385,6 +3385,7 @@ Blockly.Msg.MC_cmd_minecraft_shape_rectangle_param = 'of width %4and length';
 Blockly.Msg.MC_cmd_minecraft_shape_polygon_param = 'with%4sides and radius';
 Blockly.Msg.MC_cmd_minecraft_shape_ellipse_param = 'with radiusX%4and radius Y';
 Blockly.Msg.MC_cmd_minecraft_shape_star_param = 'with%4sides and inner radius%5and outer radius';
+Blockly.Msg.MC_cmd_minecraft_currentLocation = 'my location coordinates';
 
 
 
