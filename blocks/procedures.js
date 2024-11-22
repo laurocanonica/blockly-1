@@ -396,6 +396,43 @@ Blockly.Blocks['procedures_defnoreturn'] = {
         options.push(argOption);
       }
     }
+
+    var block = this;
+
+    // Define the "Save as XML" option
+    var saveOption = {
+        text: 'Save Function as XML',
+        enabled: true,
+        callback: function() {
+            // Serialize the block and its children to XML
+            var xmlDom = Blockly.Xml.blockToDom(block, true); // Include children
+            var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
+
+            // Create a blob and initiate download
+            var blob = new Blob([xmlText], { type: 'text/xml' });
+            var url = URL.createObjectURL(blob);
+
+            // Create a sanitized file name (replace spaces or special characters)
+            var functionName = block.getFieldValue('NAME') || 'function';
+            var sanitizedFileName = functionName.replace(/[^a-zA-Z0-9_-]/g, '_');
+            var fileName = sanitizedFileName + '.xml';
+
+            // Create a download link
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+
+            // Cleanup
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    };
+
+    // Add the option to the context menu
+    options.push(saveOption);
+
   },
   callType_: 'procedures_callnoreturn'
 };
