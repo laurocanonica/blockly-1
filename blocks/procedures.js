@@ -399,36 +399,70 @@ Blockly.Blocks['procedures_defnoreturn'] = {
 
     var block = this;
 
-    // Define the "Save as XML" option
-    var saveOption = {
-        text: 'Save Function as XML',
-        enabled: true,
-        callback: function() {
-            // Serialize the block and its children to XML
-            var xmlDom = Blockly.Xml.blockToDom(block, true); // Include children
-            var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
+var saveOption = {
+    text: 'Save Function as PNG',
+    enabled: true,
+    callback: function() {
+        console.log('Save Option triggered.');
 
-            // Create a blob and initiate download
-            var blob = new Blob([xmlText], { type: 'text/xml' });
-            var url = URL.createObjectURL(blob);
+        // Serialize the block and its children to XML
+		var blockXml = Blockly.Xml.blockToDom(block, true); // Serialize block with children
+		
+		// Wrap the block XML in an <xml> tag and add position attributes
+		var wrapper = document.createElement('xml');
+		wrapper.appendChild(blockXml);
+		
+		var blockNode = wrapper.querySelector('block');
+		blockNode.setAttribute('x', 0); // Default X position
+		blockNode.setAttribute('y', 0); // Default Y position
+		
+		var blockXmlText = Blockly.Xml.domToPrettyText(wrapper);
+        console.log('Serialized XML for the block:', blockXmlText);
 
-            // Create a sanitized file name (replace spaces or special characters)
-            var functionName = block.getFieldValue('NAME') || 'function';
-            var sanitizedFileName = functionName.replace(/[^a-zA-Z0-9_-]/g, '_');
-            var fileName = sanitizedFileName + '.xml';
-
-            // Create a download link
-            var a = document.createElement('a');
-            a.href = url;
-            a.download = fileName;
-            document.body.appendChild(a);
-            a.click();
-
-            // Cleanup
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+        // Open a new tab
+        var newTab = window.open('', '_blank');
+        if (!newTab) {
+            console.error('Failed to open a new tab. Check popup blockers.');
+            return;
         }
-    };
+
+        // Write HTML content to the new tab
+        newTab.document.open();
+        newTab.document.write(
+            '<!DOCTYPE html>' +
+            '<html>' +
+            '<head>' +
+            '<title>Blockly Block</title>'+
+            '<style>' +
+            '  html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }' +
+            '  #blockly-container { width: 100%; height: 100%; position: absolute; }' +
+            '  .blocklySvg { background-color: #f9f9f9; }' + // Basic styling for Blockly SVG
+            '  .blocklyMainBackground { stroke-width: 1; stroke: #ddd; }' +
+            '</style>' +
+            '</head>' +
+            '<body>' +
+            '<div id="blockly-container"></div>' +
+
+			'<script src="storage.js"></script>' +
+			'<script src="../../blockly_compressed.js"></script>' +
+			'<script src="../../blocks_compressed.js"></script>' +
+			'<script src="../../javascript_compressed.js"></script>' +
+			'<script src="code.js"></script>' +
+			'<script src="imageSelector.js"></script>' +
+			'<script src="copyAsImage.js"></script>' +
+
+            '<script>' +
+            '  window.blockXmlText = ' + JSON.stringify(blockXmlText) + ';' + // Inject the XML into the global variable
+            '</script>' +
+            '<script src="../../blocks/xmlToPng.js"></script>' +  // Reference the external setup file
+            '</body>' +
+            '</html>'
+        );
+        newTab.document.close();
+    }
+};
+
+
 
     // Add the option to the context menu
     options.push(saveOption);
