@@ -413,7 +413,7 @@ var saveOption = {
 		wrapper.appendChild(blockXml);
 		
 		var blockNode = wrapper.querySelector('block');
-		blockNode.setAttribute('x', 0); // Default X position
+		blockNode.setAttribute('x', 0); // Default X position 0
 		blockNode.setAttribute('y', 0); // Default Y position
 		
 		var blockXmlText = Blockly.Xml.domToPrettyText(wrapper);
@@ -450,11 +450,11 @@ var saveOption = {
 			'<script src="code.js"></script>' +
 			'<script src="imageSelector.js"></script>' +
 			'<script src="copyAsImage.js"></script>' +
-
+			'<script src="../../scripts/html2canvas.min.js"></script>' +
             '<script>' +
             '  window.blockXmlText = ' + JSON.stringify(blockXmlText) + ';' + // Inject the XML into the global variable
             '</script>' +
-            '<script src="../../blocks/xmlToPng.js"></script>' +  // Reference the external setup file
+            '<script src="../../scripts/xmlToPng.js"></script>' +  // Reference the external setup file
             '</body>' +
             '</html>'
         );
