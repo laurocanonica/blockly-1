@@ -451,10 +451,10 @@ var saveOption = {
 			'<script src="imageSelector.js"></script>' +
 			'<script src="copyAsImage.js"></script>' +
 			'<script src="../../scripts/html2canvas.min.js"></script>' +
+            '<script src="../../scripts/xmlToPng.js"></script>' +  // Reference the external setup file
             '<script>' +
             '  window.blockXmlText = ' + JSON.stringify(blockXmlText) + ';' + // Inject the XML into the global variable
             '</script>' +
-            '<script src="../../scripts/xmlToPng.js"></script>' +  // Reference the external setup file
             '</body>' +
             '</html>'
         );
