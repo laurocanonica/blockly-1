@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Blockly Viewer</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #blockly-container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .blocklySvg {
+            background-color: #f9f9f9;
+        }
+        .blocklyMainBackground {
+            stroke-width: 1;
+            stroke: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div id="blockly-container"></div>
+
+    <!-- Include Blockly -->
+    <script src="../../blockly_compressed.js"></script>
+    <script src="../../blocks_compressed.js"></script>
+    <script src="../../javascript_compressed.js"></script>
+    <script src="../../scripts/html2canvas.min.js"></script>
+			<script src="storage.js"></script>
+			<script src="code.js"></script> 
+			<script src="imageSelector.js"></script>
+    <script src="../../scripts/xmlToPng.js"></script>
+    <script src="../../msg/js/it.js"></script>
+
+
+    <!-- Initialize Blockly -->
+    <script>
+	var GLOBAL_MESSAGE_VERSION='ver2';
+
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const blockXmlText = getParameterByName('xml');
+        	window.blockXmlText = blockXmlText;//JSON.stringify(blockXmlText)  // Inject the XML into the global variable
+            //console.log("----->"+window.blockXmlText+"<----")
+            if (!blockXmlText) {
+                console.error('No XML parameter provided in the URL.');
+                return;
+            }
+
+            // Parse the XML
+            const workspace = Blockly.inject('blockly-container', {
+                toolbox: null,
+                trashcan: false,
+                zoom: { controls: false, wheel: false, startScale: 1.0 },
+                grid: { spacing: 20, length: 3, colour: '#ccc', snap: true }
+            });
+
+            const parser = new DOMParser();
+            const xmlDom = parser.parseFromString(blockXmlText, 'text/xml');
+            Blockly.Xml.domToWorkspace(xmlDom.documentElement, workspace);
+
+            // Align block to the top-left corner
+            workspace.getTopBlocks(true).forEach(function (block) {
+                block.moveBy(0 - block.getRelativeToSurfaceXY().x, 0 - block.getRelativeToSurfaceXY().y);
+            });
+        });
+    </script>
+</body>
+</html>

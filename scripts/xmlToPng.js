@@ -22,7 +22,8 @@ var container;
             }
         });
 
-        console.log("Blockly subWorkspace initialized.");
+        console.log("Blockly subWorkspace initialized...");
+ 		console.log(blockXmlText);
 
         try {
             // Parse the XML string into a DOM object
@@ -50,6 +51,8 @@ var container;
         });
     }
 })();
+
+
 function screenshot(){
 
 setTimeout(function () {
