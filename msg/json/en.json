@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2024-11-17 17:18:17.625090",
+		"lastupdated": "2024-11-28 15:20:39.702654",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2065,12 +2065,12 @@
 	"MC_cmd_friendly_ver1": "friendly",
 	"MC_cmd_friendly_ver2": "friendly %1",
 	"MC_cmd_enemy": "enemy",
-	"MC_cmd_up": "up",
-	"MC_cmd_down": "down",
-	"MC_cmd_left": "left",
-	"MC_cmd_right": "right",
-	"MC_cmd_forward": "forward",
-	"MC_cmd_backwards": "backwards",
+	"MC_cmd_up": "up ↥",
+	"MC_cmd_down": "down ↧",
+	"MC_cmd_left": "left ←",
+	"MC_cmd_right": "right →",
+	"MC_cmd_forward": "forward ↑",
+	"MC_cmd_backwards": "backwards ↓",
 	"MC_cmd_whereLook_ver1": "where I'm looking",
 	"MC_cmd_whereLook_ver2": "to where I'm looking",
 	"MC_cmd_south": "south",

@@ -4606,7 +4606,7 @@ Blockly.Blocks["image_select"] = {
   // Static list of categories
   getCategories: function () {
     return [
-      ["Animals", "images/animals.png"],
+      ["Animals", "http://tambo:10273/EXF?EF=images/animals/animals.png"],
       ["Fruits", "images/fruits.png"],
       ["Vehicles", "images/vehicles.png"]
     ];
@@ -4618,7 +4618,7 @@ Blockly.Blocks["image_select"] = {
 
     var imagesByCategory = {
       "images/animals.png": [
-        ["Cat", "images/cat.png"],
+        ["Cat", "http://tambo:10273/EXF?EF=images/animals/cat.png"],
         ["Dog", "images/dog.png"],
         ["Bird", "images/bird.png"]
       ],

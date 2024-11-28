@@ -1,8 +1,4 @@
 Blockly.FieldImageDropdown = class extends Blockly.FieldDropdown {
-  /**
-   * @param {Array|Function} menuGenerator Array of dropdown options or function that generates them.
-   * @param {Function=} opt_validator Optional validator function.
-   */
   constructor(menuGenerator, opt_validator) {
     super(menuGenerator, opt_validator);
     this.menuGenerator_ = menuGenerator;
@@ -13,37 +9,11 @@ Blockly.FieldImageDropdown = class extends Blockly.FieldDropdown {
    */
   fetchCategoriesAndImages() {
     return new Promise((resolve, reject) => {
-      fetch('/api/images')  // HTTP endpoint that will serve category and image data
+      fetch('/IMG')  // HTTP endpoint that will serve category and image data
         .then(response => response.json())
         .then(data => resolve(data))  // Resolves with the fetched data
         .catch(error => reject(error));  // Reject if there's an error
     });
-  }
-
-  /**
-   * Validates the input value against the dropdown options.
-   * @param {string} newValue The new value to validate.
-   * @returns {string|null} The validated value, or null if invalid.
-   */
-  doClassValidation_(newValue) {
-    let options = this.menuGenerator_;
-
-    // If options is a function, call it to get the array
-    if (typeof options === "function") {
-      options = options();
-    }
-
-    // Validate that options is an array of arrays
-    if (Array.isArray(options)) {
-      for (const option of options) {
-        if (Array.isArray(option) && option[1] === newValue) {
-          return newValue; // Valid value found
-        }
-      }
-    }
-
-    // If no match, return null to indicate invalid value
-    return null;
   }
 
   /**
@@ -146,8 +116,7 @@ Blockly.FieldImageDropdown = class extends Blockly.FieldDropdown {
    * Updates the images based on the selected category
    */
   updateImages(images) {
-    // Logic to update images dropdown based on selected category
     console.log("Updating images based on selected category:", images);
-    // Here, you would need to re-render the images dropdown with the new images.
+    // Logic to update images based on selected category
   }
 };

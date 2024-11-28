@@ -60,10 +60,10 @@ setTimeout(function () {
         var bbox = subWorkspace.getBlocksBoundingBox();
         // Adjust bounding box for padding
 		var padding=5;
-        bbox.left = -padding;
-        bbox.top = -padding;
-        bbox.width = bbox.right+2*padding;
-        bbox.height = bbox.bottom+2*padding;
+        bbox.left = 0; // the blocks are already at ()5,5)
+        bbox.top = 0;
+        bbox.width = bbox.right+padding;
+        bbox.height = bbox.bottom+padding;
 
         // Use html2canvas to capture the subWorkspace
         html2canvas(container, {
