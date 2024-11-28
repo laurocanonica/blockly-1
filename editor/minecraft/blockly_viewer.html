@@ -68,9 +68,8 @@
                 toolbox: null,
                 trashcan: false,
                 zoom: { controls: false, wheel: false, startScale: 1.0 },
-                grid: { spacing: 20, length: 3, colour: '#ccc', snap: true }
+                grid: { spacing: 0, length: 3, colour: '#ffffff', snap: true }
             });
-
             const parser = new DOMParser();
             const xmlDom = parser.parseFromString(blockXmlText, 'text/xml');
             Blockly.Xml.domToWorkspace(xmlDom.documentElement, workspace);
