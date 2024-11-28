@@ -420,6 +420,24 @@ var saveOption = {
         // Encode the XML and redirect to the static page
         var encodedXml = encodeURIComponent(blockXmlText);
         var viewerUrl = 'blockly_viewer.html?xml=' + encodedXml;
+
+        // Use Clipboard API to copy the XML text
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(blockXmlText)
+                .then(function() {
+                    console.log("XML copied to clipboard successfully!");
+                    //alert("XML code has been copied to your clipboard.");
+                })
+                .catch(function(err) {
+                    console.error("Error copying XML to clipboard:", err);
+                    //alert("Failed to copy XML to clipboard.");
+                });
+        } else {
+            console.error("Clipboard API not supported in this browser.");
+            //alert("Clipboard API is not supported in your browser.");
+        }
+
+
         window.open(viewerUrl, '_blank');
     }
 };
