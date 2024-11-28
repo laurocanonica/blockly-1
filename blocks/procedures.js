@@ -418,12 +418,13 @@ var saveOption = {
         console.log('Serialized XML for the block:', blockXmlText);
 
         // Encode the XML and redirect to the static page
-        var encodedXml = encodeURIComponent(blockXmlText);
+		var minimizedXmlText = blockXmlText.replace(/\s+/g, ' ').trim(); // Remove extra whitespace
+        var encodedXml = encodeURIComponent(minimizedXmlText);
         var viewerUrl = 'blockly_viewer.html?xml=' + encodedXml;
 
         // Use Clipboard API to copy the XML text
         if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(blockXmlText)
+            navigator.clipboard.writeText(encodedXml)
                 .then(function() {
                     console.log("XML copied to clipboard successfully!");
                     //alert("XML code has been copied to your clipboard.");
