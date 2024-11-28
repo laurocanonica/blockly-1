@@ -406,59 +406,21 @@ var saveOption = {
         console.log('Save Option triggered.');
 
         // Serialize the block and its children to XML
-		var blockXml = Blockly.Xml.blockToDom(block, true); // Serialize block with children
-		
-		// Wrap the block XML in an <xml> tag and add position attributes
-		var wrapper = document.createElement('xml');
-		wrapper.appendChild(blockXml);
-		
-		var blockNode = wrapper.querySelector('block');
-		blockNode.setAttribute('x', 0); // Default X position 0
-		blockNode.setAttribute('y', 0); // Default Y position
-		
-		var blockXmlText = Blockly.Xml.domToPrettyText(wrapper);
+        var blockXml = Blockly.Xml.blockToDom(block, true);
+        var wrapper = document.createElement('xml');
+        wrapper.appendChild(blockXml);
+
+        var blockNode = wrapper.querySelector('block');
+        blockNode.setAttribute('x', 0); // Default X position
+        blockNode.setAttribute('y', 0); // Default Y position
+
+        var blockXmlText = Blockly.Xml.domToPrettyText(wrapper);
         console.log('Serialized XML for the block:', blockXmlText);
 
-        // Open a new tab
-        var newTab = window.open('', '_blank');
-        if (!newTab) {
-            console.error('Failed to open a new tab. Check popup blockers.');
-            return;
-        }
-
-        // Write HTML content to the new tab
-        newTab.document.open();
-        newTab.document.write(
-            '<!DOCTYPE html>' +
-            '<html>' +
-            '<head>' +
-            '<title>Blockly Block</title>'+
-            '<style>' +
-            '  html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }' +
-            '  #blockly-container { width: 100%; height: 100%; position: absolute; }' +
-            '  .blocklySvg { background-color: #f9f9f9; }' + // Basic styling for Blockly SVG
-            '  .blocklyMainBackground { stroke-width: 1; stroke: #ddd; }' +
-            '</style>' +
-            '</head>' +
-            '<body>' +
-            '<div id="blockly-container"></div>' +
-
-			'<script src="storage.js"></script>' +
-			'<script src="../../blockly_compressed.js"></script>' +
-			'<script src="../../blocks_compressed.js"></script>' +
-			'<script src="../../javascript_compressed.js"></script>' +
-			'<script src="code.js"></script>' +
-			'<script src="imageSelector.js"></script>' +
-			'<script src="copyAsImage.js"></script>' +
-			'<script src="../../scripts/html2canvas.min.js"></script>' +
-            '<script src="../../scripts/xmlToPng.js"></script>' +  // Reference the external setup file
-            '<script>' +
-            '  window.blockXmlText = ' + JSON.stringify(blockXmlText) + ';' + // Inject the XML into the global variable
-            '</script>' +
-            '</body>' +
-            '</html>'
-        );
-        newTab.document.close();
+        // Encode the XML and redirect to the static page
+        var encodedXml = encodeURIComponent(blockXmlText);
+        var viewerUrl = 'blockly_viewer.html?xml=' + encodedXml;
+        window.open(viewerUrl, '_blank');
     }
 };
 
