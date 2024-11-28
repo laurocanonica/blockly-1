@@ -59,10 +59,11 @@ setTimeout(function () {
         console.log('Starting screenshot capture.');
         var bbox = subWorkspace.getBlocksBoundingBox();
         // Adjust bounding box for padding
-        bbox.left = 0;
-        bbox.top = 0;
-        bbox.width = bbox.right;
-        bbox.height = bbox.bottom;
+		var padding=5;
+        bbox.left = -padding;
+        bbox.top = -padding;
+        bbox.width = bbox.right+2*padding;
+        bbox.height = bbox.bottom+2*padding;
 
         // Use html2canvas to capture the subWorkspace
         html2canvas(container, {
