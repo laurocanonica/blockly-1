@@ -60,6 +60,8 @@
             const blockXmlText = getParameterByName('xml');
             const fileName = getParameterByName('filename') || 'block_screenshot';
             const language = getParameterByName('language') || 'en'; // Default to 'en'
+            const rtlString = getParameterByName('rtl') || 'false'; // Default to left to right language
+            const rtlLang = (rtlString === 'true'); // Converts to true/false boolean
 
             // Load the language script dynamically
             const languageScript = document.createElement('script');
@@ -68,21 +70,22 @@
                 console.log(`Language script (${languageScript.src}) loaded successfully.`);
                 
                 // Now that the language script is loaded, we can initialize Blockly
-                initializeBlockly(blockXmlText, fileName, language);
+                initializeBlockly(blockXmlText, fileName, language, rtlLang);
             };
             languageScript.onerror = function () {
                 console.error(`Failed to load language script for: ${language}`);
                 // Fallback: Load default language (English)
-                initializeBlockly(blockXmlText, fileName, 'en');
+                initializeBlockly(blockXmlText, fileName, 'en', 'false');
             };
             document.head.appendChild(languageScript);
         });
 
-        function initializeBlockly(blockXmlText, fileName, language) {
+        function initializeBlockly(blockXmlText, fileName, language, rtlLang) {
             // Initialize Blockly workspace
             const workspace = Blockly.inject('blockly-container', {
                 toolbox: null,
                 trashcan: false,
+                rtl: rtlLang,
                 zoom: { controls: false, wheel: false, startScale: 1.0 },
                 grid: { spacing: 0, length: 3, colour: '#ffffff', snap: true }
             });
@@ -105,12 +108,12 @@
 
                 // Adjust bounding box for padding
                 const padding = 5;
-                
+                console.log(bbox);
                 const adjustedBbox = {
-                    x: 0,
-                    y: 0,
-                    width: bbox.right +  padding,
-                    height: bbox.bottom + padding,
+                    x: bbox.left-padding,
+                    y: bbox.top- padding,
+                    width: bbox.right -bbox.left+  padding * 2,
+                    height: bbox.bottom -bbox.top + padding *2,
                 };
 
                 // Use html2canvas to capture only the block's bounding box
