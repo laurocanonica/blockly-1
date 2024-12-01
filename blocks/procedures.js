@@ -426,7 +426,7 @@ var saveOption = {
         console.log('Current Blockly language:', language);
 
         // Generate the viewer URL
-		var viewerUrl = 'blockly_viewer.html?xml=' + encodedXml + '&filename=function_screenshot&language=' + language;
+		var viewerUrl = 'blockly_viewer.html?filename=function_screenshot&language=' + language+'&xml=' + encodedXml;;
         // Use Clipboard API to copy the XML text
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(encodedXml)
