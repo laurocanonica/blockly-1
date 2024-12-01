@@ -74,10 +74,6 @@
             const xmlDom = parser.parseFromString(blockXmlText, 'text/xml');
             Blockly.Xml.domToWorkspace(xmlDom.documentElement, workspace);
 
-            // Align block to the top-left corner
-            //workspace.getTopBlocks(true).forEach(function (block) {
-            //    block.moveBy(5 - block.getRelativeToSurfaceXY().x, 5 - block.getRelativeToSurfaceXY().y);
-            //});
         });
     </script>
 </body>
