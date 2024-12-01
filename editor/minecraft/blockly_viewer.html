@@ -33,11 +33,11 @@
     <script src="../../blocks_compressed.js"></script>
     <script src="../../javascript_compressed.js"></script>
     <script src="../../scripts/html2canvas.min.js"></script>
-			<script src="storage.js"></script>
-			<script src="code.js"></script> 
-			<script src="imageSelector.js"></script>
+    <script src="storage.js"></script>
+    <script src="code.js"></script> 
+    <script src="imageSelector.js"></script>            
 
-    <script src="../../msg/js/it.js"></script>
+    <script src="../../msg/js/it.js"></script> <!-- Default language -->
 
     <!-- Initialize Blockly -->
     <script>
@@ -54,15 +54,31 @@
         }
 
         document.addEventListener('DOMContentLoaded', function () {
+            console.log('DOMContentLoaded');
+
+            // Get parameters from URL
             const blockXmlText = getParameterByName('xml');
             const fileName = getParameterByName('filename') || 'block_screenshot';
             const language = getParameterByName('language') || 'en'; // Default to 'en'
 
-            if (!blockXmlText) {
-                console.error('No XML parameter provided in the URL.');
-                return;
-            }
+            // Load the language script dynamically
+            const languageScript = document.createElement('script');
+            languageScript.src = `../../msg/js/${language}.js`;
+            languageScript.onload = function () {
+                console.log(`Language script (${languageScript.src}) loaded successfully.`);
+                
+                // Now that the language script is loaded, we can initialize Blockly
+                initializeBlockly(blockXmlText, fileName, language);
+            };
+            languageScript.onerror = function () {
+                console.error(`Failed to load language script for: ${language}`);
+                // Fallback: Load default language (English)
+                initializeBlockly(blockXmlText, fileName, 'en');
+            };
+            document.head.appendChild(languageScript);
+        });
 
+        function initializeBlockly(blockXmlText, fileName, language) {
             // Initialize Blockly workspace
             const workspace = Blockly.inject('blockly-container', {
                 toolbox: null,
@@ -70,6 +86,11 @@
                 zoom: { controls: false, wheel: false, startScale: 1.0 },
                 grid: { spacing: 0, length: 3, colour: '#ffffff', snap: true }
             });
+
+            if (!blockXmlText) {
+                console.error('No XML parameter provided in the URL.');
+                return;
+            }
 
             // Parse the XML and load it into the workspace
             const parser = new DOMParser();
@@ -122,16 +143,7 @@
 
             // Trigger the automatic screenshot after rendering is complete
             setTimeout(captureBlockScreenshot, 1000);
-
-            // Handle language (load localized messages if necessary)
-            if (language !== 'en') {
-                const script = document.createElement('script');
-                script.src = `../../msg/js/${language}.js`;
-                script.onload = () => console.log(`Language set to: ${language}`);
-                script.onerror = () => console.error(`Failed to load language file for: ${language}`);
-                document.head.appendChild(script);
-            }
-        });
+        }
     </script>
 </body>
 </html>

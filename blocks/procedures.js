@@ -417,28 +417,31 @@ var saveOption = {
         var blockXmlText = Blockly.Xml.domToPrettyText(wrapper);
         console.log('Serialized XML for the block:', blockXmlText);
 
-        // Encode the XML and redirect to the static page
-		var minimizedXmlText = blockXmlText.replace(/\s+/g, ' ').trim(); // Remove extra whitespace
+        // Encode the XML
+ 		var minimizedXmlText = blockXmlText.replace(/\s+/g, ' ').trim(); // Remove extra whitespace
         var encodedXml = encodeURIComponent(minimizedXmlText);
-        var viewerUrl = 'blockly_viewer.html?xml=' + encodedXml;
 
+        // Get the language currently used by Blockly
+        var language = Code.LANG || 'en'; // Default to 'en' if not set
+        console.log('Current Blockly language:', language);
+
+        // Generate the viewer URL
+		var viewerUrl = 'blockly_viewer.html?xml=' + encodedXml + '&filename=function_screenshot&language=' + language;
         // Use Clipboard API to copy the XML text
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(encodedXml)
                 .then(function() {
                     console.log("XML copied to clipboard successfully!");
-                    //alert("XML code has been copied to your clipboard.");
+                    // Optional: Alert the user
                 })
                 .catch(function(err) {
                     console.error("Error copying XML to clipboard:", err);
-                    //alert("Failed to copy XML to clipboard.");
                 });
         } else {
             console.error("Clipboard API not supported in this browser.");
-            //alert("Clipboard API is not supported in your browser.");
         }
 
-
+        // Open the viewer page in a new tab
         window.open(viewerUrl, '_blank');
     }
 };
