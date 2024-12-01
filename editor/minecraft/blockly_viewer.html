@@ -36,13 +36,12 @@
 			<script src="storage.js"></script>
 			<script src="code.js"></script> 
 			<script src="imageSelector.js"></script>
-    <script src="../../scripts/xmlToPng.js"></script>
-    <script src="../../msg/js/it.js"></script>
 
+    <script src="../../msg/js/it.js"></script>
 
     <!-- Initialize Blockly -->
     <script>
-	var GLOBAL_MESSAGE_VERSION='ver2';
+        var GLOBAL_MESSAGE_VERSION = 'ver2';
 
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
@@ -56,24 +55,82 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             const blockXmlText = getParameterByName('xml');
-        	window.blockXmlText = blockXmlText;//JSON.stringify(blockXmlText)  // Inject the XML into the global variable
-            //console.log("----->"+window.blockXmlText+"<----")
+            const fileName = getParameterByName('filename') || 'block_screenshot';
+            const language = getParameterByName('language') || 'en'; // Default to 'en'
+
             if (!blockXmlText) {
                 console.error('No XML parameter provided in the URL.');
                 return;
             }
 
-            // Parse the XML
+            // Initialize Blockly workspace
             const workspace = Blockly.inject('blockly-container', {
                 toolbox: null,
                 trashcan: false,
                 zoom: { controls: false, wheel: false, startScale: 1.0 },
                 grid: { spacing: 0, length: 3, colour: '#ffffff', snap: true }
             });
+
+            // Parse the XML and load it into the workspace
             const parser = new DOMParser();
             const xmlDom = parser.parseFromString(blockXmlText, 'text/xml');
             Blockly.Xml.domToWorkspace(xmlDom.documentElement, workspace);
 
+            // Automatically take a screenshot of the block
+            function captureBlockScreenshot() {
+                console.log('Starting screenshot capture.');
+                const bbox = workspace.getBlocksBoundingBox(); // Get bounding box for the blocks
+                const container = document.getElementById('blockly-container');
+
+                // Adjust bounding box for padding
+                const padding = 5;
+                
+                const adjustedBbox = {
+                    x: 0,
+                    y: 0,
+                    width: bbox.right +  padding,
+                    height: bbox.bottom + padding,
+                };
+
+                // Use html2canvas to capture only the block's bounding box
+                html2canvas(container, {
+                    x: adjustedBbox.x,
+                    y: adjustedBbox.y,
+                    width: adjustedBbox.width,
+                    height: adjustedBbox.height,
+                }).then(function (canvas) {
+                    console.log('Screenshot captured.');
+
+                    // Convert canvas to PNG Blob
+                    canvas.toBlob(function (blob) {
+                        if (blob) {
+                            const pngUrl = URL.createObjectURL(blob);
+                            const downloadLink = document.createElement('a');
+                            downloadLink.href = pngUrl;
+                            downloadLink.download = fileName + '.png';
+                            downloadLink.click();
+                            URL.revokeObjectURL(pngUrl);
+                            console.log('PNG downloaded.');
+                        } else {
+                            console.error('Failed to create PNG blob.');
+                        }
+                    }, 'image/png');
+                }).catch(function (error) {
+                    console.error('Failed to capture screenshot:', error);
+                });
+            }
+
+            // Trigger the automatic screenshot after rendering is complete
+            setTimeout(captureBlockScreenshot, 1000);
+
+            // Handle language (load localized messages if necessary)
+            if (language !== 'en') {
+                const script = document.createElement('script');
+                script.src = `../../msg/js/${language}.js`;
+                script.onload = () => console.log(`Language set to: ${language}`);
+                script.onerror = () => console.error(`Failed to load language file for: ${language}`);
+                document.head.appendChild(script);
+            }
         });
     </script>
 </body>
