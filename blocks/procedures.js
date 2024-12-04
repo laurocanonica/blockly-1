@@ -411,8 +411,8 @@ var saveOption = {
         wrapper.appendChild(blockXml);
 
         var blockNode = wrapper.querySelector('block');
-        blockNode.setAttribute('x', 5); // Default X position
-        blockNode.setAttribute('y', 5); // Default Y position
+        blockNode.setAttribute('x', 3); // Default X position
+        blockNode.setAttribute('y', 3); // Default Y position
 
         var blockXmlText = Blockly.Xml.domToPrettyText(wrapper);
         //console.log('Serialized XML for the block:\n', blockXmlText);
