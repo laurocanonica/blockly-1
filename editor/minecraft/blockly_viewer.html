@@ -97,31 +97,69 @@
 
             // Parse the XML and load it into the workspace
             const parser = new DOMParser();
-            const xmlDom = parser.parseFromString(blockXmlText, 'text/xml');
+            const xmlDom = parser.parseFromString(blockXmlText, 'text/xml');            
+            
             Blockly.Xml.domToWorkspace(xmlDom.documentElement, workspace);
+ 
+            const originalXmlBlocks = xmlDom.querySelectorAll('block'); // Parse the original XML to find block IDs
+            var topFunctionName = null;
 
+            originalXmlBlocks.forEach((xmlBlock) => {
+                const blockType = xmlBlock.getAttribute('type'); // Get the block type
+                const blockNameField = xmlBlock.querySelector('field[name="NAME"]'); // Get the "NAME" field, if it exists
+                const blockName = blockNameField ? blockNameField.textContent : 'Unnamed Block';
+
+                //console.log(`Original Block Type: ${blockType}, Block Name: ${blockName}`);
+                
+                // Add the type of the block to the originalBlocks set, since there's no id in XML
+                if (blockType==='procedures_defnoreturn'){
+                	topFunctionName=blockName;     
+                	//console.log(`found funct: ${blockName}`);
+                }
+            });
+
+            function getBlockBoundingBox(topProcedure) { // if the topfunctions contains call to other procedures we have to ignore the generated block
+                const allBlocks = workspace.getAllBlocks(); // Get all blocks in the workspace
+                console.log(`Total blocks in workspace: ${allBlocks.length}`); // Check if any blocks exist
+				var bbox=null;
+                allBlocks.forEach((block) => {
+                            
+                    // Check if the block is part of the original set
+                    if (block.type==='procedures_defnoreturn' && block.getFieldValue('NAME') ===topProcedure) { 
+                        //console.log(`Added Block: ${block.type} with ID: ${block.id}`);
+                        
+                        const blockSvg = block.getSvgRoot();
+                        if (blockSvg) {
+                           bbox = blockSvg.getBBox();
+                            console.log(bbox);
+                        }
+                    }
+                });
+                return(bbox);
+      		}
+            
+            
+            
             // Automatically take a screenshot of the block
             function captureBlockScreenshot() {
                 console.log('Starting screenshot capture.');
-                const bbox = workspace.getBlocksBoundingBox(); // Get bounding box for the blocks
+                const bbox= getBlockBoundingBox(topFunctionName);
                 const container = document.getElementById('blockly-container');
 
                 // Adjust bounding box for padding
                 const padding = 5;
-                console.log(bbox);
-                const adjustedBbox = {
-                    x: bbox.left-padding,
-                    y: bbox.top- padding,
-                    width: bbox.right -bbox.left+  padding * 2,
-                    height: bbox.bottom -bbox.top + padding *2,
-                };
+                var adjustedX = bbox.x;
+                if(rtlLang){ //rtl languages have a different positioning on the page
+                    const workspaceBBox = workspace.getBlocksBoundingBox(); // Get bounding box for the blocks
+                	adjustedX=bbox.x + workspaceBBox.right -padding ;
+                }
 
                 // Use html2canvas to capture only the block's bounding box
                 html2canvas(container, {
-                    x: adjustedBbox.x,
-                    y: adjustedBbox.y,
-                    width: adjustedBbox.width,
-                    height: adjustedBbox.height,
+                    x: adjustedX,
+                    y: bbox.y,
+                    width: bbox.width + padding * 2,
+                    height: bbox.height + padding * 2,
                 }).then(function (canvas) {
                     console.log('Screenshot captured.');
 
