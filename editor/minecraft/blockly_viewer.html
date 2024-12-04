@@ -79,6 +79,10 @@
             };
             document.head.appendChild(languageScript);
         });
+        
+        function isTopFunction(fType){
+        	return fType==='procedures_defreturn' || fType==='procedures_defnoreturn'; 
+        }
 
         function initializeBlockly(blockXmlText, fileName, language, rtlLang) {
             // Initialize Blockly workspace
@@ -109,10 +113,10 @@
                 const blockNameField = xmlBlock.querySelector('field[name="NAME"]'); // Get the "NAME" field, if it exists
                 const blockName = blockNameField ? blockNameField.textContent : 'Unnamed Block';
 
-                //console.log(`Original Block Type: ${blockType}, Block Name: ${blockName}`);
+                console.log(`Original Block Type: ${blockType}, Block Name: ${blockName}`);
                 
                 // Add the type of the block to the originalBlocks set, since there's no id in XML
-                if (blockType==='procedures_defnoreturn'){
+                if (isTopFunction(blockType)){
                 	topFunctionName=blockName;     
                 	//console.log(`found funct: ${blockName}`);
                 }
@@ -125,7 +129,7 @@
                 allBlocks.forEach((block) => {
                             
                     // Check if the block is part of the original set
-                    if (block.type==='procedures_defnoreturn' && block.getFieldValue('NAME') ===topProcedure) { 
+                    if (isTopFunction(block.type) && block.getFieldValue('NAME') ===topProcedure) { 
                         //console.log(`Added Block: ${block.type} with ID: ${block.id}`);
                         
                         const blockSvg = block.getSvgRoot();
@@ -147,7 +151,7 @@
                 const container = document.getElementById('blockly-container');
 
                 // Adjust bounding box for padding
-                const padding = 5;
+                const padding = 3; // same as the vlaue defined in procedures.js in the saveOptions function
                 var adjustedX = bbox.x;
                 if(rtlLang){ //rtl languages have a different positioning on the page
                     const workspaceBBox = workspace.getBlocksBoundingBox(); // Get bounding box for the blocks
