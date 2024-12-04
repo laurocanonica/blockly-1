@@ -135,6 +135,7 @@
                             downloadLink.click();
                             URL.revokeObjectURL(pngUrl);
                             console.log('PNG downloaded.');
+                            window.close();
                         } else {
                             console.error('Failed to create PNG blob.');
                         }
