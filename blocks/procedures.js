@@ -415,7 +415,7 @@ var saveOption = {
         blockNode.setAttribute('y', 5); // Default Y position
 
         var blockXmlText = Blockly.Xml.domToPrettyText(wrapper);
-        console.log('Serialized XML for the block:\n', blockXmlText);
+        //console.log('Serialized XML for the block:\n', blockXmlText);
 
         // Encode the XML
  		var minimizedXmlText = blockXmlText.replace(/\s+/g, ' ').trim(); // Remove extra whitespace
