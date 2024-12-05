@@ -3391,6 +3391,8 @@ Blockly.Msg.MC_cmd_minecraft_currentLocation = 'my location coordinates';
 
 Blockly.Msg.PROCEDURES_DEFNORETURN_TITLE = '/vm';
 Blockly.Msg.PROCEDURES_DEFNORETURN_PROCEDURE = 'mycommand';
+Blockly.Msg.PROCEDURES_DOWNLOAD_SCREENSHOT = 'Download image';
+Blockly.Msg.PROCEDURES_DOWNLOAD_SCREENSHOT_CONFIRM = 'Saving The XML definition in the clipboard and downloading a screenshot in the file: ';
 
 
 

@@ -400,7 +400,7 @@ Blockly.Blocks['procedures_defnoreturn'] = {
     var block = this;
 
 var saveOption = {
-    text: 'Save Function as PNG',
+    text: Blockly.Msg['PROCEDURES_DOWNLOAD_SCREENSHOT'],
     enabled: true,
     callback: function() {
         console.log('Save Option triggered.');
@@ -426,7 +426,8 @@ var saveOption = {
         console.log('Current Blockly language:', language);
 
         // Generate the viewer URL
-		var viewerUrl = 'blockly_viewer.html?filename=function_screenshot&language=' + language+'&rtl=' + Code.isRtl()+'&xml=' + encodedXml;
+		var fileName='function_screenshot';
+		var viewerUrl = 'blockly_viewer.html?filename='+fileName+'&language=' + language+'&rtl=' + Code.isRtl()+'&xml=' + encodedXml;
         // Use Clipboard API to copy the XML text
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(encodedXml)
@@ -442,7 +443,9 @@ var saveOption = {
         }
 
         // Open the viewer page in a new tab
-        window.open(viewerUrl, '_blank');
+		if (window.confirm(Blockly.Msg['PROCEDURES_DOWNLOAD_SCREENSHOT_CONFIRM']+fileName)) {
+			window.open(viewerUrl, '_blank');
+		}
     }
 };
 

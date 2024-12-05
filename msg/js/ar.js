@@ -420,6 +420,8 @@ Blockly.Msg["PROCEDURES_DEFRETURN_HELPURL"] = "https://tr.wikipedia.org/wiki/د�
 Blockly.Msg["PROCEDURES_DEFRETURN_RETURN"] = "يرجع";
 Blockly.Msg["PROCEDURES_DEFRETURN_TOOLTIP"] = "انشئ دالة مع المخرجات.";
 Blockly.Msg["PROCEDURES_DEF_DUPLICATE_WARNING"] = "تحذير: هذه الدالة تحتوي على معلمات مكررة.";
+Blockly.Msg["PROCEDURES_DOWNLOAD_SCREENSHOT"] = "Download image";  // untranslated
+Blockly.Msg["PROCEDURES_DOWNLOAD_SCREENSHOT_CONFIRM"] = "Saving The XML definition in the clipboard and downloading a screenshot in the file: ";  // untranslated
 Blockly.Msg["PROCEDURES_HIGHLIGHT_DEF"] = "تسليط الضوء على تعريف الدالة";
 Blockly.Msg["PROCEDURES_IFRETURN_HELPURL"] = "http://c2.com/cgi/wiki?GuardClause";  // untranslated
 Blockly.Msg["PROCEDURES_IFRETURN_TOOLTIP"] = "إذا كانت القيمة صحيحة ، اذان قم بارجاع القيمة الثانية.";

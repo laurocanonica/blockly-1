@@ -2107,6 +2107,8 @@
 "MC_cmd_minecraft_shape_star_param": "con%4lati e raggio interno di%e raggio esterno di",
 "MC_cmd_minecraft_currentLocation": "le mie coordinate",
 "PROCEDURES_DEFNORETURN_TITLE": "/vm",
-"PROCEDURES_DEFNORETURN_POCEDURE": "miocomando"
+"PROCEDURES_DEFNORETURN_PROCEDURE": "comando",
+"PROCEDURES_DOWNLOAD_SCREENSHOT": "Scarica immagine",
+"PROCEDURES_DOWNLOAD_SCREENSHOT_CONFIRM": "Salvataggio della definizione XML negli appunti e download di uno screenshot nel file: "
 	
 }

@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2024-11-28 15:20:39.702654",
+		"lastupdated": "2024-12-05 11:00:22.461502",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2141,5 +2141,7 @@
 	"MC_cmd_minecraft_shape_star_param": "with%4sides and inner radius%5and outer radius",
 	"MC_cmd_minecraft_currentLocation": "my location coordinates",
 	"PROCEDURES_DEFNORETURN_TITLE": "/vm",
-	"PROCEDURES_DEFNORETURN_PROCEDURE": "mycommand"
+	"PROCEDURES_DEFNORETURN_PROCEDURE": "mycommand",
+	"PROCEDURES_DOWNLOAD_SCREENSHOT": "Download image",
+	"PROCEDURES_DOWNLOAD_SCREENSHOT_CONFIRM": "Saving The XML definition in the clipboard and downloading a screenshot in the file: "
 }
