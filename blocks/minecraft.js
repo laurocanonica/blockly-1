@@ -4590,53 +4590,59 @@ Blockly.Blocks['minecraft_entity_op'] = {
     }
 };
 
-Blockly.Blocks["image_select"] = {
-  init: function () {
-    this.appendDummyInput()
-        .appendField("Category:")
-        .appendField(new Blockly.FieldImageDropdown(this.getCategories()), "CATEGORY")
-        .appendField("Image:")
-        .appendField(new Blockly.FieldImageDropdown(this.getImages.bind(this)), "IMAGE");
-    this.setOutput(true, null);
-    this.setColour(160);
-    this.setTooltip("Select an image based on the chosen category");
+
+
+// Define a placeholder for 'image_select'
+Blockly.Blocks['image_select'] = {
+  init: function() {
+    this.appendDummyInput().appendField("Loading...");
+    this.setColour(230);
+    this.setTooltip("Block will load soon");
     this.setHelpUrl("");
-  },
-
-  // Static list of categories
-  getCategories: function () {
-    return [
-      ["Animals", "http://tambo:10273/EXF?EF=images/animals/animals.png"],
-      ["Fruits", "images/fruits.png"],
-      ["Vehicles", "images/vehicles.png"]
-    ];
-  },
-
-  // Dynamically update images based on the selected category
-  getImages: function () {
-    var category = this.getFieldValue("CATEGORY");
-
-    var imagesByCategory = {
-      "images/animals.png": [
-        ["Cat", "http://tambo:10273/EXF?EF=images/animals/cat.png"],
-        ["Dog", "images/dog.png"],
-        ["Bird", "images/bird.png"]
-      ],
-      "images/fruits.png": [
-        ["Apple", "images/apple.png"],
-        ["Banana", "images/banana.png"],
-        ["Cherry", "images/cherry.png"]
-      ],
-      "images/vehicles.png": [
-        ["Car", "images/car.png"],
-        ["Bike", "images/bike.png"],
-        ["Plane", "images/plane.png"]
-      ]
-    };
-
-    return imagesByCategory[category] || [["Select a category first", ""]];
   }
 };
+
+// Create an instance of the ImageSelectBlock class
+var imageSelectBlock = new ImageSelectBlock();
+
+
+// After data is loaded, redefine the block
+imageSelectBlock.ensureDataLoaded(function() {
+  Blockly.Blocks['image_select'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("First menu")
+          .appendField(new Blockly.FieldDropdown(function() {
+            return imageSelectBlock.getFirstMenuOptions();
+          }), "FIRST_MENU")
+          .appendField("Second menu")
+          .appendField(new Blockly.FieldDropdown(function() {
+            return imageSelectBlock.getSecondMenuOptions(this);
+          }.bind(this)), "SECOND_MENU");
+      this.setColour(230);
+      this.setTooltip("Two dependent dropdowns");
+      this.setHelpUrl("");
+
+      this.setOnChange(function(event) {
+        imageSelectBlock.handleMenuInteraction(this, event);
+      }.bind(this));
+    }
+  };
+
+  // Wait for the toolbox to load, then refresh it
+  if (Blockly.mainWorkspace && Blockly.mainWorkspace.toolbox_) {
+    Blockly.mainWorkspace.updateToolbox();
+  } else {
+    // Fallback if toolbox is not ready yet
+    setTimeout(function() {
+      if (Blockly.mainWorkspace) {
+        Blockly.mainWorkspace.updateToolbox();
+      }
+    }, 300);
+  }
+
+});
+
 
 
 
