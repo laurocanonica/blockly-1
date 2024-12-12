@@ -907,10 +907,19 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 		  return code;
 		};		
 		
-	Blockly.JavaScript['image_select'] = function(block) {
-	  // Get the value from the field
-	  var selectedValue = block.getFieldValue('IMAGE');
-	  // Return it as a JavaScript string
-	  var code = "image is "+selectedValue;
-	  return [code, Blockly.JavaScript.ORDER_ATOMIC];
-	};
+		// Define the JavaScript generator for the block in ES5
+		Blockly.JavaScript['image_select'] = function(block) {
+		  // Get selected values from the menus
+		  var firstMenuValue = block.getFieldValue('FIRST_MENU');
+		  var secondMenuValue = block.getFieldValue('SECOND_MENU');
+		
+		  // Generate JavaScript code
+		  var code = "handleImageSelection('" + firstMenuValue + "', '" + secondMenuValue + "');\n";
+		  //var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
+		  // Check if there is a block connected to the right input
+		  var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
+		  var code = '"IM='+secondMenuValue+',TY=e.item_frame;"'+addPlusIfNotEmpty(value_singleblock);
+		   return [ code, Blockly.JavaScript.ORDER_NONE ];
+		};	
+	
+	

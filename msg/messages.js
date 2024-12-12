@@ -3272,6 +3272,7 @@ Blockly.Msg.MC_particles='particles';
 
 
 Blockly.Msg.MC_cmd_minecraft_customimage = 'image %1 %2';
+Blockly.Msg.MC_cmd_minecraft_customimage_ver2 = 'image';
 Blockly.Msg.MC_cmd_minecraft_delay = 'after %1 sec. %2';
 Blockly.Msg.MC_cmd_minecraft_delay_random = 'after a time between %1 and %2 sec. %3';
 Blockly.Msg.MC_cmd_minecraft_delay_random_reset = 'reset the random generator for delays to %1';

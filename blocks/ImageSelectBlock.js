@@ -74,16 +74,17 @@
     if (!cache.hasLoaded) {
       return [["No options available", "NONE"]];
     }
-
     var firstMenuValue = block.getFieldValue("FIRST_MENU");
     if (!firstMenuValue || firstMenuValue === "LOADING") {
       return [["No options available", "NONE"]];
     }
 
     var index = parseInt(firstMenuValue, 10);
+	var firstMenuField = block.getField('FIRST_MENU');
+	var firstMenuOption=firstMenuField.getOptions()[index];
     var images = cache.data.imagesByCategory[index] || [];
     return images.map(function(image) {
-      return [image, image];
+      return [image, firstMenuOption[0]+'/'+image];
     });
   };
 

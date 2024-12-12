@@ -4592,7 +4592,7 @@ Blockly.Blocks['minecraft_entity_op'] = {
 
 
 
-// Define a placeholder for 'image_select'
+// Define a loading ... placeholder for 'image_select'
 Blockly.Blocks['image_select'] = {
   init: function() {
     this.appendDummyInput().appendField("Loading...");
@@ -4602,6 +4602,7 @@ Blockly.Blocks['image_select'] = {
   }
 };
 
+
 // Create an instance of the ImageSelectBlock class
 var imageSelectBlock = new ImageSelectBlock();
 
@@ -4610,12 +4611,11 @@ var imageSelectBlock = new ImageSelectBlock();
 imageSelectBlock.ensureDataLoaded(function() {
   Blockly.Blocks['image_select'] = {
     init: function() {
-      this.appendDummyInput()
-          .appendField("First menu")
+      this.appendValueInput('singleblock').setCheck([ "Material" ])
+          .appendField(Blockly.Msg.MC_cmd_minecraft_customimage_ver2)
           .appendField(new Blockly.FieldDropdown(function() {
             return imageSelectBlock.getFirstMenuOptions();
           }), "FIRST_MENU")
-          .appendField("Second menu")
           .appendField(new Blockly.FieldDropdown(function() {
             return imageSelectBlock.getSecondMenuOptions(this);
           }.bind(this)), "SECOND_MENU");
@@ -4623,6 +4623,8 @@ imageSelectBlock.ensureDataLoaded(function() {
       this.setTooltip("Two dependent dropdowns");
       this.setHelpUrl("");
 
+	    // Set the output on the left
+	    this.setOutput(true, "Material"); // Ensure block outputs a value
       this.setOnChange(function(event) {
         imageSelectBlock.handleMenuInteraction(this, event);
       }.bind(this));

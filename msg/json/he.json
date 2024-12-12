@@ -1974,6 +1974,7 @@
 
 
 	"MC_cmd_minecraft_customimage": "תמונה %1 %2",
+	"MC_cmd_minecraft_customimage_ver2": "תמונה",
 	"MC_cmd_minecraft_delay": "המתנה של %1 שניות %2",
 	"MC_cmd_minecraft_delay_random": "לאחר המתנה של %1 ו- %2 שניות %3",
 	"MC_cmd_minecraft_delay_random_reset": "אפס את בחירת הרנדומאליות ל- %1",
