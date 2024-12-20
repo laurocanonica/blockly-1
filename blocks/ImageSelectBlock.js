@@ -84,9 +84,21 @@
 	var firstMenuOption=firstMenuField.getOptions()[index];
     var images = cache.data.imagesByCategory[index] || [];
     return images.map(function(image) {
-      return [image, firstMenuOption[0]+'/'+image];
+	var icon={
+            "src": "http://localhost:10273/EXF?EF=images/"+firstMenuOption[0]+"/"+image+".png", // Path to the player image
+            "width": 30, "height": 30, "alt": firstMenuOption[0]+"/"+image
+          }
+
+      return [icon, firstMenuOption[0]+'/'+image];
     });
   };
+
+
+ImageSelectBlock.prototype.setSelectedObject = function(block, objectKey) {
+  var secondMenuField = block.getField("SECOND_MENU");
+
+ };
+
 
   ImageSelectBlock.prototype.handleMenuInteraction = function(block, event) {
     if (event && event.type === Blockly.Events.BLOCK_CHANGE && event.blockId === block.id) {
