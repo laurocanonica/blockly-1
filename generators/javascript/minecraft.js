@@ -468,6 +468,14 @@ Blockly.JavaScript['minecraft_rotate'] = function(block) {
 				return [ code, Blockly.JavaScript.ORDER_NONE ];
 			};
 
+		Blockly.JavaScript['minecraft_sign_textfield'] = function(block) {
+			  var displayText = block.getFieldValue('displayText');
+			  displayText=displayText.replaceAll(",","&#44").replaceAll(";","&#59");
+			  var value_singleblock = Blockly.JavaScript.valueToCode(block, 'name', Blockly.JavaScript.ORDER_NONE);
+				var code = '"ST='+displayText+",TY=i.acacia_sign;\""+addPlusIfNotEmpty(value_singleblock);
+				return [ code, Blockly.JavaScript.ORDER_NONE ];
+			};
+
 		
 function minecraft_materialbockOnlyOne_fn(block){
 	var dropdown_name = block.getFieldValue('NAME');

@@ -2469,6 +2469,31 @@ Blockly.Blocks['minecraft_sign'] = {
 		}
 	};
 
+Blockly.Blocks['minecraft_sign_textfield'] = {
+		init : function() {
+			this.jsonInit({
+				  "type": "minecraft_sign_textfield",
+				  "message0": Blockly.Msg.i_sign.toLowerCase()+" "+Blockly.Msg.MC_cmd_minecraft_sign_with_text+" %1 %2",
+				  "args0": [
+				    {
+				      "type": "field_input",
+				      "name": "displayText",
+				      "text": ""
+				    },
+				    {
+				      "type": "input_value",
+				      "name": "name",
+						"check" : [ "Material" ]
+				    }
+				  ],
+				  "output": "Material",
+				  "colour": 285,
+				  "tooltip": "",
+				  "helpUrl": ""
+				});
+		}
+	};
+
 
 Blockly.Blocks['minecraft_hitting'] = {
 	init : function() {
