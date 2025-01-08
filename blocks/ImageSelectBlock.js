@@ -86,7 +86,7 @@
     return images.map(function(image) {
 	var icon={
             "src": "http://localhost:10273/EXF?EF=images/"+firstMenuOption[0]+"/"+image+".png", // Path to the player image
-            "width": 30, "height": 30, "alt": firstMenuOption[0]+"/"+image
+            "width": 22, "height": 22, "alt": firstMenuOption[0]+"/"+image
           }
 
       return [icon, firstMenuOption[0]+'/'+image];
