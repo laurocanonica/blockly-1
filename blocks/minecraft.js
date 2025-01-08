@@ -3007,6 +3007,67 @@ Blockly.Blocks['minecraft_givetoplayer'] = {
 						});
 		}
 	};
+	
+Blockly.Blocks['minecraft_equipplayer'] = {
+		init : function() {
+			this.jsonInit( 	
+					{
+						  "type": "minecraft_equipplayer",
+						  "message0": Blockly.Msg.MC_cmd_minecraft_equipme,
+						  "args0": [
+						    {
+						      "type": "input_value",
+						      "name": "NAME",
+						      "check": ["Item"]
+						    }
+						  ],
+						  "inputsInline": true,
+						  "previousStatement": null,
+						  "nextStatement": null,
+						  "colour": 120,
+						  "tooltip": "",
+						  "helpUrl": ""
+						});
+		}
+	};
+	
+Blockly.Blocks['minecraft_putinhand'] = {
+		init : function() {
+			this.jsonInit( 	
+					{
+						  "type": "minecraft_putinhand",
+						  "message0": Blockly.Msg.MC_cmd_minecraft_putinhand,
+						  "args0": [
+						    {
+						      "type": "field_dropdown",
+						      "name": "hand",
+						      "options": [
+							        [
+							        	Blockly.Msg.MC_cmd_right,
+							          "RIGHT_HAND"
+							        ],
+							        [
+							        	Blockly.Msg.MC_cmd_left,
+							          "LEFT_HAND"
+							        ]
+						      ]
+						    },
+						    {
+						      "type": "input_value",
+						      "name": "NAME",
+						      "check": ["Item"]
+						    }
+						  ],
+						  "inputsInline": true,
+						  "previousStatement": null,
+						  "nextStatement": null,
+						  "colour": 120,
+						  "tooltip": "",
+						  "helpUrl": ""
+						});
+		}
+	};
+
 
 Blockly.Blocks['minecraft_createchest'] = {
 		init : function() {
@@ -4597,7 +4658,7 @@ Blockly.Blocks['image_select'] = {
 		init : function() {
 			this.jsonInit({
 				  "type": "image_select",
-				  "message0": '... %1',
+				  "message0": 'Zzz ... %1',
 				  "args0": [
 				    {
 				      "type": "input_value",

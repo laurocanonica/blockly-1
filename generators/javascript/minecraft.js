@@ -594,9 +594,23 @@ Blockly.JavaScript['minecraft_printposition'] = function(block) {
 		
 Blockly.JavaScript['minecraft_givetoplayer'] = function(block) {
 	  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_NONE);
-	  var code = "CMD.giveToPlayer(player, " + cleanMaterialList(value_name) + ");\n";
+	  var code = "CMD.giveToPlayer(player, 'INVENTORY', " + cleanMaterialList(value_name) + ");\n";
 	  return code;
 	};
+	
+Blockly.JavaScript['minecraft_equipplayer'] = function(block) {
+	  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_NONE);
+	  var code = "CMD.giveToPlayer(player, 'EQUIP', " + cleanMaterialList(value_name) + ");\n";
+	  return code;
+	};
+	
+Blockly.JavaScript['minecraft_putinhand'] = function(block) {
+	  var dropdown_hand = block.getFieldValue('hand');
+	  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_NONE);
+	  var code = "CMD.giveToPlayer(player, '"+dropdown_hand+"', " + cleanMaterialList(value_name) + ");\n";
+	  return code;
+	};
+	
 	
 Blockly.JavaScript['minecraft_createchest'] = function(block) {
 	  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_NONE);

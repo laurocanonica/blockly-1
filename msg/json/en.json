@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2024-12-05 11:00:22.461502",
+		"lastupdated": "2025-01-08 15:09:40.628536",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2029,6 +2029,7 @@
 	"i_wild_ARMOR_TRIM_SMITHING_TEMPLATE": "Wild Armour Trim",
 	"MC_particles": "particles",
 	"MC_cmd_minecraft_customimage": "image %1 %2",
+	"MC_cmd_minecraft_customimage_ver2": "image ",
 	"MC_cmd_minecraft_delay": "after %1 sec. %2",
 	"MC_cmd_minecraft_delay_random": "after a time between %1 and %2 sec. %3",
 	"MC_cmd_minecraft_delay_random_reset": "reset the random generator for delays to %1",
@@ -2048,6 +2049,8 @@
 	"MC_cmd_minecraft_hitting": "I'm hitting a %1",
 	"MC_cmd_minecraft_sensing": "this block is made of %1",
 	"MC_cmd_minecraft_giveme": "give me %1",
+	"MC_cmd_minecraft_equipme": "dress me with %1",
+	"MC_cmd_minecraft_putinhand": "put in my %1 hand a %2",
 	"MC_cmd_minecraft_createchest": "create chest with %1",
 	"MC_cmd_minecraft_move_ver1": "change the position %1 times %2",
 	"MC_cmd_minecraft_move_ver2": "go %1 block %2",

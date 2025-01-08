@@ -3272,7 +3272,7 @@ Blockly.Msg.MC_particles='particles';
 
 
 Blockly.Msg.MC_cmd_minecraft_customimage = 'image %1 %2';
-Blockly.Msg.MC_cmd_minecraft_customimage_ver2 = 'image';
+Blockly.Msg.MC_cmd_minecraft_customimage_ver2 = 'image ';
 Blockly.Msg.MC_cmd_minecraft_delay = 'after %1 sec. %2';
 Blockly.Msg.MC_cmd_minecraft_delay_random = 'after a time between %1 and %2 sec. %3';
 Blockly.Msg.MC_cmd_minecraft_delay_random_reset = 'reset the random generator for delays to %1';
@@ -3292,6 +3292,8 @@ Blockly.Msg.MC_cmd_minecraft_playerHas = 'I have a %1';
 Blockly.Msg.MC_cmd_minecraft_hitting = 'I"m hitting a %1';
 Blockly.Msg.MC_cmd_minecraft_sensing = 'this block is made of %1';
 Blockly.Msg.MC_cmd_minecraft_giveme = 'give me %1';
+Blockly.Msg.MC_cmd_minecraft_equipme = 'dress me with %1';
+Blockly.Msg.MC_cmd_minecraft_putinhand = 'put in my %1 hand a %2';
 Blockly.Msg.MC_cmd_minecraft_createchest = 'create chest with %1';
 Blockly.Msg.MC_cmd_minecraft_move_ver1 = 'change the position %1 times %2';
 Blockly.Msg.MC_cmd_minecraft_move_ver2 = 'go %1 block %2';
