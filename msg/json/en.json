@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2025-01-08 15:09:40.628536",
+		"lastupdated": "2025-01-08 15:22:37.116520",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2051,6 +2051,8 @@
 	"MC_cmd_minecraft_giveme": "give me %1",
 	"MC_cmd_minecraft_equipme": "dress me with %1",
 	"MC_cmd_minecraft_putinhand": "put in my %1 hand a %2",
+	"MC_cmd_left_hand": "left ←",
+	"MC_cmd_right_hand": "right →",
 	"MC_cmd_minecraft_createchest": "create chest with %1",
 	"MC_cmd_minecraft_move_ver1": "change the position %1 times %2",
 	"MC_cmd_minecraft_move_ver2": "go %1 block %2",

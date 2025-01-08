@@ -3043,11 +3043,11 @@ Blockly.Blocks['minecraft_putinhand'] = {
 						      "name": "hand",
 						      "options": [
 							        [
-							        	Blockly.Msg.MC_cmd_right,
+							        	Blockly.Msg.MC_cmd_right_hand,
 							          "RIGHT_HAND"
 							        ],
 							        [
-							        	Blockly.Msg.MC_cmd_left,
+							        	Blockly.Msg.MC_cmd_left_hand,
 							          "LEFT_HAND"
 							        ]
 						      ]
