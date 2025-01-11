@@ -191,6 +191,62 @@
 				</value>
 			</block>
 
+  <block type="minecraft_drawing_version2" >
+    <field name="origin">C</field>
+    <value name="matlist">
+      <block type="lists_create_with" >
+        <mutation items="3"></mutation>
+        <value name="ADD0">
+          <block type="m_draw_0" movable="false">
+            <value name="child">
+              <block type="m_draw_0" movable="false">
+                <value name="child">
+                  <block type="m_draw_0" movable="false"></block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="m_draw_0" movable="false">
+            <value name="child">
+              <block type="m_draw_1" movable="false">
+                <value name="child">
+                  <block type="m_draw_0" movable="false"></block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="ADD2">
+          <block type="m_draw_0" movable="false">
+            <value name="child">
+              <block type="m_draw_0" movable="false">
+                <value name="child">
+                  <block type="m_draw_0" movable="false"></block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+    <value name="index_material">
+      <shadow type="math_number" >
+        <field name="NUM">1</field>
+      </shadow>
+    </value>
+    <value name="blockchoice0">
+      <block type="minecraft_materialbockOnlyOne">
+        <field name="NAME">b.air</field>
+      </block>
+    </value>
+    <value name="blockchoice1">
+      <block type="minecraft_materialbockOnlyOne" >
+        <field name="NAME">b.pumpkin</field>
+      </block>
+    </value>
+  </block>
 
 
 			<block type="minecraft_comment"></block>
