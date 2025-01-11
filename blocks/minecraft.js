@@ -3276,6 +3276,93 @@ Blockly.Blocks['minecraft_gotomark'] = {
 						});
 		}
 	};
+	
+	
+	
+Blockly.Blocks['minecraft_drawing_version2'] = {
+  init: function() {
+    this.appendValueInput("matlist")
+        .setCheck("Array")
+        .appendField("DisegnaXX");
+
+    this.appendValueInput("index_material")
+        .setCheck("Number")
+        .appendField("Index");
+
+    this.appendDummyInput("origin")
+        .appendField(new Blockly.FieldDropdown([
+          [Blockly.Msg.MC_cmd_minecraft_draw_from_center, "C"],
+          [Blockly.Msg.MC_cmd_minecraft_draw_from_bottomleft, "S"]
+        ]), "origin");
+
+    // Initialize block with the first two draw choices.
+    this.appendValueInput("blockchoice0")
+		.setCheck([ "Material", "Array" ])
+        .appendField(new Blockly.FieldImage("drawcol_icons/drawcol0.jpg", 15, 15, "*"))
+        .appendField("0");
+
+    this.appendValueInput("blockchoice1")
+		.setCheck([ "Material", "Array" ])
+        .appendField(new Blockly.FieldImage("drawcol_icons/drawcol1.jpg", 15, 15, "*"))
+        .appendField("1");
+
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+
+    this.extraChoiceCount = 2; // Start with two draw choices visible.
+    this.registerKeyboardEvents_(); // Register keyboard events.
+  },
+
+  // Persist the number of extra draw choices.
+  mutationToDom: function() {
+    var container = document.createElement('mutation');
+    container.setAttribute('extra_choice_count', this.extraChoiceCount);
+    return container;
+  },
+
+  // Restore the number of extra draw choices.
+  domToMutation: function(xmlElement) {
+    this.extraChoiceCount = parseInt(xmlElement.getAttribute('extra_choice_count'), 10);
+    this.updateShape_();
+  },
+
+  // Add or remove inputs based on the number of choices.
+  updateShape_: function() {
+    // Remove all extra draw choices.
+    for (var i = 2; i <= 9; i++) {
+      if (this.getInput("blockchoice" + i)) {
+        this.removeInput("blockchoice" + i);
+      }
+    }
+
+    // Add only the extra choices that are currently needed.
+    for (var i = 2; i < this.extraChoiceCount; i++) {
+    this.appendValueInput("blockchoice" + i)
+		.setCheck([ "Material", "Array" ])
+        .appendField(new Blockly.FieldImage("drawcol_icons/drawcol" + i + ".jpg", 15, 15, "*"))
+        .appendField(""+i);
+
+    }
+  },
+
+  // Register 'i' keypress event for this block.
+  registerKeyboardEvents_: function() {
+    var self = this;
+    Blockly.bindEventWithChecks_(document, 'keydown', null, function(event) {
+      if (event.key === 'i' && Blockly.selected === self) {
+        if (self.extraChoiceCount < 10) {
+          self.extraChoiceCount++;
+          self.updateShape_();
+        }
+      }
+    });
+  }
+};
+
+
 
 Blockly.Blocks['minecraft_drawing'] = {
 		init : function() {
