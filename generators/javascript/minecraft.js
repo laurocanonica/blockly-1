@@ -679,8 +679,13 @@ function validateBlockchoice(block, blockChoice) {
 	choice = choice.replace(/\"\)/g, "\""); // remove round parenthesis left overs
 	choice = choice.replace(/, /g, "+ "); // change commas with +
 */
+	if (choice==""){
+		return ""
+	} else {
+		return("  ["+choice+"],\n");
+	}
 
-	return("\t["+choice+"],\n");
+	
 }
 function removeNulls(valMatList) {
 	  //alert("*"+valMatList);
@@ -691,6 +696,9 @@ function removeNulls(valMatList) {
 
 
 
+Blockly.JavaScript['minecraft_drawing_version2'] = function(block) {
+	return prepareDrawingBlocks(block);
+};
 Blockly.JavaScript['minecraft_drawing'] = function(block) {
 	return prepareDrawingBlocks(block);
 };
@@ -710,13 +718,13 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 		  var matString ="";
 
 		//window.alert(value_matlist);
-		matString= value_matlist.replace(/]/,"],[");
+		matString= value_matlist.replace(/]/,"],\n[");
 		  
 		//window.alert(matString);
 		  
-		  var code = 'CMD.createDrawing(nextLocation, ';
+		  var code = 'CMD.createDrawing(nextLocation, \n';
 		  code += matString;
-		  code += validateBlockchoice(block, "blockchoice0");
+		  code += '\n'+validateBlockchoice(block, "blockchoice0");
 		  code += validateBlockchoice(block, "blockchoice1");
 		  code += validateBlockchoice(block, "blockchoice2");
 		  code += validateBlockchoice(block, "blockchoice3");
@@ -737,7 +745,7 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 		  code += validateBlockchoice(block, "blockchoicer");
 		  code += validateBlockchoice(block, "blockchoiceq");
 		  code=code.substring(code, code.length-2); // remove last comma
-		  code +="],";
+		  code +="\n], ";
 		  code +=index_material;
 		  code +=", '";
 		  code +=drawOrigin;

@@ -3283,11 +3283,11 @@ Blockly.Blocks['minecraft_drawing_version2'] = {
   init: function() {
     this.appendValueInput("matlist")
         .setCheck("Array")
-        .appendField("DisegnaXX");
+        .appendField(Blockly.Msg.MC_cmd_minecraft_draw_version2);
 
     this.appendValueInput("index_material")
         .setCheck("Number")
-        .appendField("Index");
+        .appendField(Blockly.Msg.MC_cmd_minecraft_draw_index);
 
     this.appendDummyInput("origin")
         .appendField(new Blockly.FieldDropdown([
@@ -3308,9 +3308,11 @@ Blockly.Blocks['minecraft_drawing_version2'] = {
 
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(120);
     this.setTooltip("");
     this.setHelpUrl("");
+	this.setInputsInline(false);
+
 
     this.extraChoiceCount = 2; // Start with two draw choices visible.
     this.registerKeyboardEvents_(); // Register keyboard events.
@@ -3329,21 +3331,28 @@ Blockly.Blocks['minecraft_drawing_version2'] = {
     this.updateShape_();
   },
 
+  getCode : function(i) {
+		if(i>=10){
+			var iChar=String.fromCharCode("z".charCodeAt(0)-i+10);
+			return iChar
+		} else return(""+i)
+  },
+
   // Add or remove inputs based on the number of choices.
   updateShape_: function() {
     // Remove all extra draw choices.
-    for (var i = 2; i <= 9; i++) {
-      if (this.getInput("blockchoice" + i)) {
-        this.removeInput("blockchoice" + i);
+    for (var i = 2; i < 20; i++) {
+     if (this.getInput("blockchoice" + this.getCode(i))) {
+        this.removeInput("blockchoice" + this.getCode(i));
       }
     }
 
     // Add only the extra choices that are currently needed.
     for (var i = 2; i < this.extraChoiceCount; i++) {
-    this.appendValueInput("blockchoice" + i)
+    this.appendValueInput("blockchoice" + this.getCode(i))
 		.setCheck([ "Material", "Array" ])
-        .appendField(new Blockly.FieldImage("drawcol_icons/drawcol" + i + ".jpg", 15, 15, "*"))
-        .appendField(""+i);
+        .appendField(new Blockly.FieldImage("drawcol_icons/drawcol" + this.getCode(i) + ".jpg", 15, 15, "*"))
+        .appendField(this.getCode(i));
 
     }
   },
@@ -3353,7 +3362,7 @@ Blockly.Blocks['minecraft_drawing_version2'] = {
     var self = this;
     Blockly.bindEventWithChecks_(document, 'keydown', null, function(event) {
       if (event.key === 'i' && Blockly.selected === self) {
-        if (self.extraChoiceCount < 10) {
+        if (self.extraChoiceCount < 20) {
           self.extraChoiceCount++;
           self.updateShape_();
         }
@@ -3863,7 +3872,6 @@ Blockly.Blocks['minecraft_drawing_extended'] = {
 		}
 	};
 
-
 Blockly.Blocks['m_draw_0'] = {
 		init : function() {
 			this.jsonInit( 	
@@ -4147,6 +4155,9 @@ Blockly.Blocks['m_draw_z'] = {
 			});this.setMovable(false); this.customContextMenu = function(options) { addCustomContextMenuToDrawingBlocks(this, options);};
 		}
 	};
+
+
+
 
 
 Blockly.Blocks['minecraft_wait'] = {
