@@ -4781,7 +4781,7 @@ Blockly.Blocks['image_select'] = {
 		init : function() {
 			this.jsonInit({
 				  "type": "image_select",
-				  "message0": 'Zzz ... %1',
+				  "message0": 'Images not available %1',
 				  "args0": [
 				    {
 				      "type": "input_value",
