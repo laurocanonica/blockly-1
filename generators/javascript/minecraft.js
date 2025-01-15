@@ -26,13 +26,6 @@ Blockly.JavaScript['minecraft_multiciplity'] = function(block) {
 	return [ code, Blockly.JavaScript.ORDER_NONE ];
 };
 
-Blockly.JavaScript['minecraft_multiciplity_ver2'] = function(block) {
-	var value_quantity = Blockly.JavaScript.valueToCode(block, 'quantity', Blockly.JavaScript.ORDER_ATOMIC);
-	var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
-	var code = '"MU='+value_quantity+',"'+addPlusIfNotEmpty(value_singleblock);
-	return [ code, Blockly.JavaScript.ORDER_NONE ];
-};
-
 Blockly.JavaScript['minecraft_multiciplity_var'] = function(block) {
 	var variable_mutiplicity = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('mutiplicity'), Blockly.Variables.NAME_TYPE);
 	var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);

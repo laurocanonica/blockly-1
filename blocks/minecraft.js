@@ -1763,35 +1763,6 @@ Blockly.Blocks['minecraft_multiciplity'] = {
 		}
 	};
 	
-Blockly.Blocks['minecraft_multiciplity_ver2'] = {
-		init : function() {
-			this.jsonInit({
-			  "type": "minecraft_multiciplity_ver2",
-			  "message0" : "%1 replace me %2 %3",
-			  "args0": [
-			    {
-			      "type": "input_value",
-			      "name": "quantity",
-			      "check" : [ "Number" ]
-			    },
-			    {
-			      "type": "input_dummy"
-			    },
-			    {
-			      "type": "input_value",
-			      "name": "singleblock",
-				  "check" : [ "Material" ]
-			    }
-			  ],
-			  "inputsInline": true,
-			  "output": "Material",
-			  "colour": 330,
-			  "tooltip": "",
-			  "helpUrl": ""
-			});
-		}
-	};	
-	
 	
 Blockly.Blocks['minecraft_multiciplity_var'] = {
 		init : function() {
@@ -4812,7 +4783,7 @@ imageSelectBlock.ensureDataLoaded(function() {
           .appendField(new Blockly.FieldDropdown(function() {
             return imageSelectBlock.getSecondMenuOptions(this);
           }.bind(this)), "SECOND_MENU");
-      this.setColour(230);
+      this.setColour(330);
       this.setTooltip("Two dependent dropdowns");
       this.setHelpUrl("");
 

@@ -85,7 +85,7 @@
     var images = cache.data.imagesByCategory[index] || [];
     return images.map(function(image) {
 	var icon={
-            "src": "http://localhost:10273/EXF?EF=images/"+firstMenuOption[0]+"/"+image+".png", // Path to the player image
+            "src": "http://"+Code.remoteHost+"/EXF?EF=images/"+firstMenuOption[0]+"/"+image+".png", // Path to the player image
             "width": 22, "height": 22, "alt": firstMenuOption[0]+"/"+image
           }
 
