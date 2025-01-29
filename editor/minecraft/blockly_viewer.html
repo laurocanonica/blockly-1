@@ -120,9 +120,26 @@
                 	//console.log(`found funct: ${blockName}`);
                 }
             });
+            
+            function hideExternalFunctionBlocks(topProcedure) { 
+                const blocks = workspace.getTopBlocks(true); // Get all top-level blocks
+                let x = 500; // somewhere around the middle where it doesn't distur
+                let y = 9999; // Far away, but it will be at the bottom of the page
+
+                blocks.forEach(block => {
+                	let blockName=block.getFieldValue('NAME');
+                	if(blockName!=topProcedure){ // all external function blocks will be moved away
+                    	block.moveBy(x, y); // Move block to the calculated position
+                    	block.setCollapsed(true);
+
+                	}
+                });
+            }
+
 
             function getBlockBoundingBox(topProcedure) { // if the topfunctions contains call to other procedures we have to ignore the generated block
-                const allBlocks = workspace.getAllBlocks(); // Get all blocks in the workspace
+            	hideExternalFunctionBlocks(topProcedure);
+            	const allBlocks = workspace.getAllBlocks(); // Get all blocks in the workspace
                 console.log(`Total blocks in workspace: ${allBlocks.length}`); // Check if any blocks exist
 				var bbox=null;
                 allBlocks.forEach((block) => {
@@ -176,6 +193,7 @@
                             downloadLink.click();
                             URL.revokeObjectURL(pngUrl);
                             console.log('PNG downloaded.');
+                            //alert('bye');
                             window.close();
                         } else {
                             console.error('Failed to create PNG blob.');
