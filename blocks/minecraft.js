@@ -4478,6 +4478,7 @@ Blockly.Blocks['shape_block'] = {
             [Blockly.Msg.MC_cmd_minecraft_shape_rectangle, "RECTANGLE"],
             [Blockly.Msg.MC_cmd_minecraft_shape_polygon, "POLYGON"],
             [Blockly.Msg.MC_cmd_minecraft_shape_ellipse, "ELLIPSE"],
+            [Blockly.Msg.MC_cmd_minecraft_shape_arc, "ARC"],
             [Blockly.Msg.MC_cmd_minecraft_shape_star, "STAR"]
           ],
  
@@ -4615,6 +4616,27 @@ Blockly.Blocks['shape_block'] = {
             .appendField(this.splitBlockLabel[1].slice(1))
             .setAlign(Blockly.ALIGN_RIGHT);
         this.createShadowBlock('RADIUS2', 4);
+           break;
+
+      case "ARC":
+        this.splitBlockLabel = Blockly.Msg.MC_cmd_minecraft_shape_arc_param.split('%');
+        this.appendValueInput('RADIUS1')
+            .setCheck('Number')
+            .appendField(this.splitBlockLabel[0])
+            .setAlign(Blockly.ALIGN_RIGHT);
+        this.createShadowBlock('RADIUS1', 4);
+        
+        this.appendValueInput('RADIUS2')
+            .setCheck('Number')
+            .appendField(this.splitBlockLabel[1].slice(1))
+            .setAlign(Blockly.ALIGN_RIGHT);
+        this.createShadowBlock('RADIUS2', 4);
+        
+        this.appendValueInput('ANGLE')
+            .setCheck('Number')
+            .appendField(this.splitBlockLabel[2].slice(1))
+            .setAlign(Blockly.ALIGN_RIGHT);
+        this.createShadowBlock('ANGLE', 4);
            break;
 
       case "STAR":

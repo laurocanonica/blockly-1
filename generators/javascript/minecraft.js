@@ -104,6 +104,7 @@ Blockly.JavaScript['minecraft_polygon'] = function(block) {
 	code += value_nr_sides + ", ";
 	code += value_sidelength + ", ";
 	code += value_sidelength + ", ";
+	code += "360, ";
 	code += dropdown_fill + ", ";
 	code += cleanMaterialList(value_name);
 	code += ", player, startCmdTime);\n";
@@ -148,6 +149,7 @@ Blockly.JavaScript['minecraft_star'] = function(block) {
 			var code = 'CMD.createPolygon(nextLocation, 100, ';
 			code += radiusX + ", ";
 			code += radiusY + ", ";
+			code += "360, ";
 			code += dropdown_fill + ", ";
 			code += cleanMaterialList(value_name);
 			code += ", player, startCmdTime);\n";
@@ -165,6 +167,7 @@ Blockly.JavaScript['minecraft_circle_shape'] = function(block) {
   var code = 'CMD.createPolygon(nextLocation, 100, ';
   code += value_radius + ", ";
   code += value_radius + ", ";
+  code += "360, ";
   code += convertFillToBoolean(dropdown_fill) + ", ";
   code += cleanMaterialList(value_name);
   code += ", player, startCmdTime);\n";
@@ -221,6 +224,7 @@ Blockly.JavaScript['minecraft_polygon_shape'] = function(block) {
   code += value_nr_sides + ", ";
   code += value_polygon_radius + ", ";
   code += value_polygon_radius + ", "; // Assuming the side length is same as the radius for simplicity
+  code += "360, ";
   code += convertFillToBoolean(dropdown_fill) + ", ";
   code += cleanMaterialList(value_name);
   code += ", player, startCmdTime);\n";
@@ -236,6 +240,24 @@ Blockly.JavaScript['minecraft_ellipse_shape'] = function(block) {
   var code = 'CMD.createPolygon(nextLocation, 100, ';
   code += radiusX + ", ";
   code += radiusY + ", ";
+  code += "360, ";
+  code += convertFillToBoolean(dropdown_fill) + ", ";
+  code += cleanMaterialList(value_name);
+  code += ", player, startCmdTime);\n";
+  return code;
+};
+
+// Generator for Ellipse shape
+Blockly.JavaScript['minecraft_arc_shape'] = function(block) {
+  var dropdown_fill = block.getFieldValue('FILL');
+  var radiusX = Blockly.JavaScript.valueToCode(block, 'RADIUS1', Blockly.JavaScript.ORDER_NONE);
+  var radiusY = Blockly.JavaScript.valueToCode(block, 'RADIUS2', Blockly.JavaScript.ORDER_NONE);
+  var angle = Blockly.JavaScript.valueToCode(block, 'ANGLE', Blockly.JavaScript.ORDER_NONE);
+  var value_name = Blockly.JavaScript.valueToCode(block, 'MATERIAL', Blockly.JavaScript.ORDER_NONE);
+  var code = 'CMD.createPolygon(nextLocation, 100, ';
+  code += radiusX + ", ";
+  code += radiusY + ", ";
+  code += angle + ", ";
   code += convertFillToBoolean(dropdown_fill) + ", ";
   code += cleanMaterialList(value_name);
   code += ", player, startCmdTime);\n";
@@ -297,6 +319,9 @@ Blockly.JavaScript['shape_block'] = function(block) {
       break;
     case 'ELLIPSE':
       code = Blockly.JavaScript['minecraft_ellipse_shape'](block);
+      break;
+    case 'ARC':
+      code = Blockly.JavaScript['minecraft_arc_shape'](block);
       break;
     case 'STAR':
       code = Blockly.JavaScript['minecraft_star_shape'](block);

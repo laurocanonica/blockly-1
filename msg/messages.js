@@ -3381,6 +3381,7 @@ Blockly.Msg.MC_cmd_minecraft_shape_line = 'row';
 Blockly.Msg.MC_cmd_minecraft_shape_rectangle = 'rectangle';
 Blockly.Msg.MC_cmd_minecraft_shape_polygon = 'polygon';
 Blockly.Msg.MC_cmd_minecraft_shape_ellipse = 'ellipse';
+Blockly.Msg.MC_cmd_minecraft_shape_arc = 'arc';
 Blockly.Msg.MC_cmd_minecraft_shape_star = 'star';
 
 Blockly.Msg.MC_cmd_minecraft_shape_start = 'create a%1%2%9made of';
@@ -3390,7 +3391,8 @@ Blockly.Msg.MC_cmd_minecraft_shape_block_param = 'block';
 Blockly.Msg.MC_cmd_minecraft_shape_line_param = 'of length';
 Blockly.Msg.MC_cmd_minecraft_shape_rectangle_param = 'of width %4and length';
 Blockly.Msg.MC_cmd_minecraft_shape_polygon_param = 'with%4sides and radius';
-Blockly.Msg.MC_cmd_minecraft_shape_ellipse_param = 'with radiusX%4and radius Y';
+Blockly.Msg.MC_cmd_minecraft_shape_ellipse_param = 'with radius X%4and radius Y';
+Blockly.Msg.MC_cmd_minecraft_shape_arc_param = 'with radius X%4radius Y%5 and angle';
 Blockly.Msg.MC_cmd_minecraft_shape_star_param = 'with%4sides and inner radius%5and outer radius';
 Blockly.Msg.MC_cmd_minecraft_currentLocation = 'my location coordinates';
 

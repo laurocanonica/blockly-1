@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2025-01-15 15:50:10.072545",
+		"lastupdated": "2025-01-30 10:19:19.529609",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2136,6 +2136,7 @@
 	"MC_cmd_minecraft_shape_rectangle": "rectangle",
 	"MC_cmd_minecraft_shape_polygon": "polygon",
 	"MC_cmd_minecraft_shape_ellipse": "ellipse",
+	"MC_cmd_minecraft_shape_arc": "arc",
 	"MC_cmd_minecraft_shape_star": "star",
 	"MC_cmd_minecraft_shape_start": "create a%1%2%9made of",
 	"MC_cmd_minecraft_shape_square_param": "of width",
@@ -2144,7 +2145,8 @@
 	"MC_cmd_minecraft_shape_line_param": "of length",
 	"MC_cmd_minecraft_shape_rectangle_param": "of width %4and length",
 	"MC_cmd_minecraft_shape_polygon_param": "with%4sides and radius",
-	"MC_cmd_minecraft_shape_ellipse_param": "with radiusX%4and radius Y",
+	"MC_cmd_minecraft_shape_ellipse_param": "with radius X%4and radius Y",
+	"MC_cmd_minecraft_shape_arc_param": "with radius X%4radius Y%5 and angle",
 	"MC_cmd_minecraft_shape_star_param": "with%4sides and inner radius%5and outer radius",
 	"MC_cmd_minecraft_currentLocation": "my location coordinates",
 	"PROCEDURES_DEFNORETURN_TITLE": "/vm",
