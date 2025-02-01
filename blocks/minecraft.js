@@ -2720,7 +2720,7 @@ Blockly.Blocks['minecraft_move_to_view_target'] = {
 							  ],						  
 						  "previousStatement": null,
 						  "nextStatement": null,
-						  "colour": 230,
+						  "colour": 180,
 						  "tooltip": "",
 						  "helpUrl": ""
 						});
