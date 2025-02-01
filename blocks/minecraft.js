@@ -4832,6 +4832,45 @@ imageSelectBlock.ensureDataLoaded(function() {
 });
 
 
+Blockly.Blocks['minecraft_velocity'] = {
+		init : function() {
+			this.jsonInit({
+				"type" : "minecraft_velocity",
+				"message0" : Blockly.Msg.MC_cmd_minecraft_velocity,
+				"args0" : [ {
+					"type" : "field_number",
+					"name" : "velX",
+					"value" : 0,
+					"min" : -10,
+					"max" : 10,
+					"precision" : .01
+				}, {
+					"type" : "field_number",
+					"name" : "velY",
+					"value" : 0,
+					"min" : -10,
+					"max" : 10,
+					"precision" : .01
+				}, {
+					"type" : "field_number",
+					"name" : "velZ",
+					"value" : 0,
+					"min" : -10,
+					"max" : 10,
+					"precision" : .01
+				}, {
+					"type" : "input_value",
+					"name" : "singleblock",
+					"check" : [ "Material" ]
+				} ],
+				"output" : "Material",
+				"colour" : 330,
+				"tooltip" : "",
+				"helpUrl" : ""
+			});
+		}
+	};
+	
 
 
 	

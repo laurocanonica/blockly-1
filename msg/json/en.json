@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2025-01-30 10:19:19.529609",
+		"lastupdated": "2025-02-01 22:23:39.750518",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2034,6 +2034,7 @@
 	"MC_cmd_minecraft_delay_random": "after a time between %1 and %2 sec. %3",
 	"MC_cmd_minecraft_delay_random_reset": "reset the random generator for delays to %1",
 	"MC_cmd_minecraft_multiciplity": "%1 of %2",
+	"MC_cmd_minecraft_velocity": "with speed X%1 Y %2 Z %3 %4",
 	"MC_cmd_minecraft_gotopos_ver1": "set the position at %1 %2 %3 %4 %5 %6 from the start position",
 	"MC_cmd_minecraft_gotopos_ver2": "go to %1 %2 %3 %4 %5 %6 from the start",
 	"MC_cmd_minecraft_polygon": "create a %1 %2 %3 polygon with %4 %5 sides and radius %6 %7 made of %8 %9",

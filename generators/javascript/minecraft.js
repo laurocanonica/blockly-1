@@ -971,3 +971,13 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 		};	
 	
 	
+Blockly.JavaScript['minecraft_velocity'] = function(block) {
+	var velocityX = block.getFieldValue('velX');
+	var velocityY = block.getFieldValue('velY');
+	var velocityZ = block.getFieldValue('velZ');
+	var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
+	var code = '"VE='+velocityX+'_'+velocityY+'_'+velocityZ+',"'+addPlusIfNotEmpty(value_singleblock);
+	return [ code, Blockly.JavaScript.ORDER_NONE ];
+};
+
+	
