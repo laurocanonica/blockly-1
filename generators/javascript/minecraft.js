@@ -734,7 +734,7 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 		value_matlist=removeNulls(value_matlist);
 		  var matString ="";
 
-		window.alert(value_matlist);
+		//window.alert(value_matlist);
 		matString= value_matlist.replace(/]/,"],\n[");
 		  
 		//window.alert(matString);
