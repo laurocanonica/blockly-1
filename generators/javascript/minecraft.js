@@ -87,10 +87,8 @@ Blockly.JavaScript['minecraft_item_op'] = function(block) {
 };
 
 function cleanMaterialList(materialList) {
-//	if(materialList!="[]" && // not an empty list
-//			materialList.indexOf(",")>0){ // not a simple variable name
-//		materialList='(' + materialList + ')'
-//	}
+	materialList=materialList.replaceAll(',"+"', ', '); // avoid concatenation of strings using the + sign
+	materialList=materialList.replaceAll(';"+"', '; '); // avoid concatenation of strings using the + sign
 	return materialList;
 }
 
@@ -682,6 +680,7 @@ function validateBlockchoice(block, blockChoice) {
 	
 	//if(choice!="") alert(choice);
 	choice=removeNulls(choice);
+	choice=cleanMaterialList(choice);
 	// transform lists into strings
 	//choice = choice.replace(/\[/, ""); // replace the start list
 	//choice = choice.replace(/\]/, ""); // replace the end list
@@ -735,13 +734,14 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 		value_matlist=removeNulls(value_matlist);
 		  var matString ="";
 
-		//window.alert(value_matlist);
+		window.alert(value_matlist);
 		matString= value_matlist.replace(/]/,"],\n[");
 		  
 		//window.alert(matString);
 		  
 		  var code = 'CMD.createDrawing(nextLocation, \n';
-		  code += matString;
+
+		  code += cleanMaterialList(matString);
 		  code += '\n'+validateBlockchoice(block, "blockchoice0");
 		  code += validateBlockchoice(block, "blockchoice1");
 		  code += validateBlockchoice(block, "blockchoice2");
