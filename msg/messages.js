@@ -3277,7 +3277,7 @@ Blockly.Msg.MC_cmd_minecraft_delay = 'after %1 sec. %2';
 Blockly.Msg.MC_cmd_minecraft_delay_random = 'after a time between %1 and %2 sec. %3';
 Blockly.Msg.MC_cmd_minecraft_delay_random_reset = 'reset the random generator for delays to %1';
 Blockly.Msg.MC_cmd_minecraft_multiciplity = '%1 of %2';
-Blockly.Msg.MC_cmd_minecraft_velocity = 'with speed %1 %2';
+Blockly.Msg.MC_cmd_minecraft_velocity = 'speed %1 %2';
 Blockly.Msg.MC_cmd_minecraft_gotopos_ver1 = 'set the position at %1 %2 %3 %4 %5 %6 from the start position';
 Blockly.Msg.MC_cmd_minecraft_gotopos_ver2 = 'go to %1 %2 %3 %4 %5 %6 from the start';
 Blockly.Msg.MC_cmd_minecraft_polygon = 'create a %1 %2 %3 polygon with %4 %5 sides and radius %6 %7 made of %8 %9';
@@ -3375,15 +3375,15 @@ Blockly.Msg.MC_cmd_minecraft_talking = 'talking %1 %2';
 
 Blockly.Msg.MC_cmd_voronoi = 'create a %1 Voronoi diagram of width %2 and length %3 for the points %4 made of %5';
 
-Blockly.Msg.MC_cmd_minecraft_shape_square = 'square';
-Blockly.Msg.MC_cmd_minecraft_shape_circle = 'circle';
-Blockly.Msg.MC_cmd_minecraft_shape_block = 'block';
-Blockly.Msg.MC_cmd_minecraft_shape_line = 'row';
-Blockly.Msg.MC_cmd_minecraft_shape_rectangle = 'rectangle';
-Blockly.Msg.MC_cmd_minecraft_shape_polygon = 'polygon';
-Blockly.Msg.MC_cmd_minecraft_shape_ellipse = 'ellipse';
-Blockly.Msg.MC_cmd_minecraft_shape_arc = 'arc';
-Blockly.Msg.MC_cmd_minecraft_shape_star = 'star';
+Blockly.Msg.MC_cmd_minecraft_shape_square = 'square □';
+Blockly.Msg.MC_cmd_minecraft_shape_circle = 'circle ○';
+Blockly.Msg.MC_cmd_minecraft_shape_block = 'block ▫';
+Blockly.Msg.MC_cmd_minecraft_shape_line = 'row --';
+Blockly.Msg.MC_cmd_minecraft_shape_rectangle = 'rectangle ▭';
+Blockly.Msg.MC_cmd_minecraft_shape_polygon = 'polygon ⬠';
+Blockly.Msg.MC_cmd_minecraft_shape_ellipse = 'ellipse ⬭';
+Blockly.Msg.MC_cmd_minecraft_shape_arc = 'arc ◠';
+Blockly.Msg.MC_cmd_minecraft_shape_star = 'star ☆';
 
 Blockly.Msg.MC_cmd_minecraft_shape_start = 'create a%1%2%9made of';
 Blockly.Msg.MC_cmd_minecraft_shape_square_param = 'of width';
