@@ -2701,6 +2701,10 @@ Blockly.Blocks['minecraft_move_to_view_target'] = {
 							          "ROBOT_EYES"
 							        ],
 							        [
+							        	Blockly.Msg.MC_cmd_minecraft_move_to_position_player,	
+							          "PLAYER_POS"
+							        ],
+							        [
 							        	eval('Blockly.Msg.MC_cmd_minecraft_move_to_view_player'+'_'+GLOBAL_MESSAGE_VERSION),	
 							          "PLAYER_EYES"
 							        ],
@@ -2817,10 +2821,6 @@ Blockly.Blocks['minecraft_setrotation'] = {
 						      "name": "angle",
 						      "options": [
 						        [
-						        	eval('Blockly.Msg.MC_cmd_whereLook'+'_'+GLOBAL_MESSAGE_VERSION),
-						          "X"
-						        ],
-						        [
 						        	Blockly.Msg.MC_cmd_south,
 						          "S"
 						        ],
@@ -2835,6 +2835,10 @@ Blockly.Blocks['minecraft_setrotation'] = {
 						        [
 						        	Blockly.Msg.MC_cmd_west,
 						          "W"
+						        ],
+						        [
+						        	eval('Blockly.Msg.MC_cmd_whereLook'+'_'+GLOBAL_MESSAGE_VERSION),
+						          "X"
 						        ]
 						      ]
 						    }
@@ -2847,6 +2851,46 @@ Blockly.Blocks['minecraft_setrotation'] = {
 						});
 		}
 	};
+
+Blockly.Blocks['minecraft_set_elevation_absolute'] = {
+		init : function() {
+			this.jsonInit( 	
+					{
+						  "type": "minecraft_set_elevation_absolute",
+						  "message0": Blockly.Msg.MC_cmd_minecraft_set_elevation_absolute,
+						  "args0": [
+						    {
+						      "type": "field_dropdown",
+						      "name": "angle",
+						      "options": [
+						        [
+						        	Blockly.Msg.MC_cmd_minecraft_set_elevation_horizontal,
+						          "90"
+						        ],
+						        [
+						        	Blockly.Msg.MC_cmd_minecraft_set_elevation_vertical,
+						          "0"
+						        ],
+						        [
+						        	Blockly.Msg.MC_cmd_minecraft_set_elevation_oblique,
+						          "45"
+						        ],
+						        [
+						        	eval('Blockly.Msg.MC_cmd_whereLook'+'_'+GLOBAL_MESSAGE_VERSION),
+						          "X"
+						        ]
+						      ]
+						    }
+						  ],
+						  "previousStatement": null,
+						  "nextStatement": null,
+						  "colour": 90,
+						  "tooltip": "",
+						  "helpUrl": ""
+						});
+		}
+	};
+
 
 Blockly.Blocks['minecraft_set_elevation'] = {
 		init : function() {

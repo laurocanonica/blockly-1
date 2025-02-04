@@ -426,7 +426,10 @@ Blockly.JavaScript['minecraft_move_to_view_target'] = function(block) {
 	  var code = "nextLocation=";
 	  switch(dropdown_viewer){
 	  case 'PLAYER_EYES':
-		  code+="CMD.movePosition(player);\n";
+		  code+="CMD.movePositionWherePlayerIsLooking(player);\n";
+		  break;
+	  case 'PLAYER_POS':
+		  code+="CMD.movePositionWherePlayerIs(player);\n";
 		  break;
  	  case 'ROBOT_EYES':
  		  code+="CMD.movePosition(player, nextLocation);\n";
@@ -456,6 +459,12 @@ Blockly.JavaScript['minecraft_rotate'] = function(block) {
 	  var value_angle = Blockly.JavaScript.valueToCode(block, 'angle', Blockly.JavaScript.ORDER_NONE);
 		var code = "nextLocation=CMD.rotatePositionRelative(player, nextLocation, " + value_angle + ");\n";
 		return code;
+	};
+	
+Blockly.JavaScript['minecraft_set_elevation_absolute'] = function(block) {
+	  var dropdown_angle = block.getFieldValue('angle');
+		var code = "nextLocation=CMD.setVerticalAxisAbsolute(player, nextLocation, \'" + dropdown_angle + "\');\n";
+	  return code;
 	};
 	
 	Blockly.JavaScript['minecraft_set_elevation'] = function(block) {

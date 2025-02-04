@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2025-02-04 11:46:17.286990",
+		"lastupdated": "2025-02-04 14:25:07.060752",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2061,6 +2061,10 @@
 	"MC_cmd_minecraft_rotate_ver2": "turn right by %1 degrees",
 	"MC_cmd_minecraft_setrotation_ver1": "set the direction to %1",
 	"MC_cmd_minecraft_setrotation_ver2": "turn %1",
+	"MC_cmd_minecraft_set_elevation_absolute": "tilt %1",
+	"MC_cmd_minecraft_set_elevation_horizontal": "horizontal ↔",
+	"MC_cmd_minecraft_set_elevation_vertical": "vertical ↕",
+	"MC_cmd_minecraft_set_elevation_oblique": "oblique ↗",
 	"MC_cmd_minecraft_set_elevation_ver1": "set the vertical axes to %1 degrees (0=vertical, 90=horizontal)",
 	"MC_cmd_minecraft_set_elevation_ver2": "set tilt to %1 degrees",
 	"MC_cmd_minecraft_set_elevation_relative_ver1": "change the vertical axes by %1 degrees",
@@ -2095,6 +2099,7 @@
 	"MC_cmd_minecraft_move_to_view_player_ver1": " where I'm looking",
 	"MC_cmd_minecraft_move_to_view_player_ver2": " where I'm looking",
 	"MC_cmd_minecraft_move_to_view_target_ver1": "the next solid block",
+	"MC_cmd_minecraft_move_to_position_player": " where I'm",
 	"MC_cmd_minecraft_move_to_view_target_ver2": "the next solid block",
 	"MC_cmd_minecraft_movePos_To_Player_ver1": "set the position to player %1",
 	"MC_cmd_minecraft_movePos_To_Player_ver2": "go to player %1",

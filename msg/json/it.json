@@ -2056,6 +2056,7 @@
 "MC_cmd_minecraft_move_to_view_player_ver2" :"dove sto guardando",
 "MC_cmd_minecraft_move_to_view_target_ver1" :"al prossimo blocco solido",
 "MC_cmd_minecraft_move_to_view_target_ver2" :"al blocco più vicino",
+"MC_cmd_minecraft_move_to_position_player" :"dove mi trovo",
 "MC_cmd_minecraft_movePos_To_Player_ver1" :"metti la posizione a dove si trova il giocatore %1",
 "MC_cmd_minecraft_movePos_To_Player_ver2" :"vai dal giocatore %1",
 "MC_cmd_minecraft_mark_position_ver1" : "marca questa posizione",
