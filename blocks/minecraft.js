@@ -2963,6 +2963,12 @@ Blockly.Blocks['minecraft_addevent'] = {
 							        	Blockly.Msg.MC_cmd_DAMAGING_BLOCK_EVENT,
 								          "DAMAGING_BLOCK_EVENT"
 								    ],[
+							        	Blockly.Msg.MC_cmd_LEFT_CLICK_AIR_EVENT,
+								          "LEFT_CLICK_AIR"
+							        ],[
+							        	Blockly.Msg.MC_cmd_RIGHT_CLICK_AIR_EVENT,
+								          "RIGHT_CLICK_AIR"
+								    ],[
 							        	Blockly.Msg.MC_cmd_MOVED_EVENT,
 								          "MOVED_EVENT"
 								 ]

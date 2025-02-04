@@ -2047,6 +2047,8 @@
 "MC_cmd_HIT_BY_ENTITY_EVENT" : "sono colpito da qualcuno",
 "MC_cmd_DIED_EVENT" : "muoio",
 "MC_cmd_DAMAGING_BLOCK_EVENT" : "colpisco un blocco",
+"MC_cmd_LEFT_CLICK_AIR_EVENT" : "faccio un mouse-clic a sinistra",
+"MC_cmd_RIGHT_CLICK_AIR_EVENT" : "faccio un mouse-clic a destra",
 "MC_cmd_MOVED_EVENT" : "mi muovo",
 "MC_cmd_empty" : "vuoto",
 "MC_cmd_full" : "pieno",
