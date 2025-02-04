@@ -982,8 +982,12 @@ Blockly.JavaScript['minecraft_drawing_extended'] = function(block) {
 	
 Blockly.JavaScript['minecraft_velocity'] = function(block) {
 	var velocity = block.getFieldValue('velocity');
+	var yaw = block.getFieldValue('yaw');
+	var pitch = block.getFieldValue('pitch');
 	var value_singleblock = Blockly.JavaScript.valueToCode(block, 'singleblock', Blockly.JavaScript.ORDER_NONE);
-	var code = '"VE='+velocity+',"'+addPlusIfNotEmpty(value_singleblock);
+	var code="";
+	var code = code+'"VE='+velocity+', VY='+yaw+', VP='+pitch+',"'
+	var code = code+addPlusIfNotEmpty(value_singleblock);
 	return [ code, Blockly.JavaScript.ORDER_NONE ];
 };
 

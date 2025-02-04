@@ -4894,6 +4894,20 @@ Blockly.Blocks['minecraft_velocity'] = {
 					"min" : -5,
 					"max" : 5,
 					"precision" : .01
+				},{
+					"type" : "field_number",
+					"name" : "yaw",
+					"value" : 0,
+					"min" : 0,
+					"max" : 359,
+					"precision" : .01
+				},{
+					"type" : "field_number",
+					"name" : "pitch",
+					"value" : 0,
+					"min" : 0,
+					"max" : 180,
+					"precision" : .01
 				}, {
 					"type" : "input_value",
 					"name" : "singleblock",
