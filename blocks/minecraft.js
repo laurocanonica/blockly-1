@@ -4839,24 +4839,10 @@ Blockly.Blocks['minecraft_velocity'] = {
 				"message0" : Blockly.Msg.MC_cmd_minecraft_velocity,
 				"args0" : [ {
 					"type" : "field_number",
-					"name" : "velX",
-					"value" : 0,
-					"min" : -10,
-					"max" : 10,
-					"precision" : .01
-				}, {
-					"type" : "field_number",
-					"name" : "velY",
-					"value" : 0,
-					"min" : -10,
-					"max" : 10,
-					"precision" : .01
-				}, {
-					"type" : "field_number",
-					"name" : "velZ",
-					"value" : 0,
-					"min" : -10,
-					"max" : 10,
+					"name" : "velocity",
+					"value" : 1,
+					"min" : -5,
+					"max" : 5,
 					"precision" : .01
 				}, {
 					"type" : "input_value",
