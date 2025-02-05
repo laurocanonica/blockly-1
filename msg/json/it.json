@@ -1994,7 +1994,7 @@
 
 
 "MC_cmd_minecraft_multiciplity" : "%1 di %2",
-"MC_cmd_minecraft_velocity" : "con velocità %1 direzione %2 inclinazione %3 %4",
+"MC_cmd_minecraft_velocity" : "con velocità %1 in direzione %2 e inclinazione %3 %4",
 "MC_cmd_minecraft_gotopos_ver1" : "metti la posizione a %1 %2 %3 %4 %5 %6 dalla posizione di inizio",
 "MC_cmd_minecraft_gotopos_ver2" : "vai a %1 %2 %3 %4 %5 %6 dall'inizio",
 "MC_cmd_minecraft_polygon" : "crea un poligono %1 %2 %3 con %4 %5 lati e raggio %6 %7 fatto di %8 %9",
