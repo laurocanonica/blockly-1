@@ -4914,7 +4914,7 @@ Blockly.Blocks['minecraft_velocity'] = {
 					"check" : [ "Material" ]
 				} ],
 				"output" : "Material",
-				"colour" : 330,
+				"colour" : 180,
 				"tooltip" : "",
 				"helpUrl" : ""
 			});
