@@ -2697,6 +2697,10 @@ Blockly.Blocks['minecraft_move_to_view_target'] = {
 							      "name": "viewer",
 							      "options": [
 							        [
+							        	eval('Blockly.Msg.MC_cmd_minecraft_option_start_position'+'_'+GLOBAL_MESSAGE_VERSION),
+							          "START_POS"
+							        ],
+							        [
 							        	eval('Blockly.Msg.MC_cmd_minecraft_move_to_view_target'+'_'+GLOBAL_MESSAGE_VERSION),	
 							          "ROBOT_EYES"
 							        ],
@@ -2709,10 +2713,6 @@ Blockly.Blocks['minecraft_move_to_view_target'] = {
 							          "PLAYER_EYES"
 							        ],
 							        
-							        [
-							        	eval('Blockly.Msg.MC_cmd_minecraft_option_start_position'+'_'+GLOBAL_MESSAGE_VERSION),
-							          "START_POS"
-							        ],
 							        [
 							        	eval('Blockly.Msg.MC_cmd_minecraft_option_lastmarked_position'+'_'+GLOBAL_MESSAGE_VERSION),
 							          "MARKED_POS"
