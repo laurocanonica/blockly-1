@@ -4525,6 +4525,7 @@ Blockly.Blocks['shape_block'] = {
             [Blockly.Msg.MC_cmd_minecraft_shape_circle, "CIRCLE"],
             [Blockly.Msg.MC_cmd_minecraft_shape_block, "BLOCK"],
             [Blockly.Msg.MC_cmd_minecraft_shape_line, "LINE"],
+            [Blockly.Msg.MC_cmd_minecraft_shape_connection, "CONNECTION"],
             [Blockly.Msg.MC_cmd_minecraft_shape_rectangle, "RECTANGLE"],
             [Blockly.Msg.MC_cmd_minecraft_shape_polygon, "POLYGON"],
             [Blockly.Msg.MC_cmd_minecraft_shape_ellipse, "ELLIPSE"],
@@ -4625,6 +4626,10 @@ Blockly.Blocks['shape_block'] = {
             .setAlign(Blockly.ALIGN_RIGHT);
         this.createShadowBlock('LENGTH', 1);
         break;
+      case "CONNECTION":
+       this.getInput("FILL_TYPE").setVisible(false);
+       break;
+
       case "RECTANGLE":
         this.splitBlockLabel = Blockly.Msg.MC_cmd_minecraft_shape_rectangle_param.split('%');
         this.appendValueInput('WIDTH')

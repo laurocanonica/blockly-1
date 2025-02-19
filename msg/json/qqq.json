@@ -2136,6 +2136,7 @@
 	"MC_cmd_minecraft_shape_circle": "",
 	"MC_cmd_minecraft_shape_block": "",
 	"MC_cmd_minecraft_shape_line": "",
+	"MC_cmd_minecraft_shape_connection": "",
 	"MC_cmd_minecraft_shape_rectangle": "",
 	"MC_cmd_minecraft_shape_polygon": "",
 	"MC_cmd_minecraft_shape_ellipse": "",

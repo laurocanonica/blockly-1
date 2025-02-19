@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2025-02-19 15:52:03.227315",
+		"lastupdated": "2025-02-19 18:20:46.311992",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2142,6 +2142,7 @@
 	"MC_cmd_minecraft_shape_circle": "circle ○",
 	"MC_cmd_minecraft_shape_block": "block ▫",
 	"MC_cmd_minecraft_shape_line": "row --",
+	"MC_cmd_minecraft_shape_connection": "connection o--o",
 	"MC_cmd_minecraft_shape_rectangle": "rectangle ▭",
 	"MC_cmd_minecraft_shape_polygon": "polygon ⬠",
 	"MC_cmd_minecraft_shape_ellipse": "ellipse ⬭",

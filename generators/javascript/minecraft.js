@@ -195,6 +195,14 @@ Blockly.JavaScript['minecraft_line_shape'] = function(block) {
   return code;
 };
 
+Blockly.JavaScript['minecraft_connection_shape'] = function(block) {
+	var value_name = Blockly.JavaScript.valueToCode(block, 'MATERIAL', Blockly.JavaScript.ORDER_NONE);
+	var code = 'CMD.connectPositions(markLocation, nextLocation,';
+	code += cleanMaterialList(value_name);
+	code += ", player, startCmdTime);\n";
+	return code;
+};
+
 // Generator for Rectangle shape
 Blockly.JavaScript['minecraft_rectangle_shape'] = function(block) {
   var dropdown_fill = block.getFieldValue('FILL');
@@ -306,6 +314,9 @@ Blockly.JavaScript['shape_block'] = function(block) {
       break;
     case 'LINE':
       code = Blockly.JavaScript['minecraft_line_shape'](block);
+      break;
+    case 'CONNECTION':
+      code = Blockly.JavaScript['minecraft_connection_shape'](block);
       break;
     case 'RECTANGLE':
       code = Blockly.JavaScript['minecraft_rectangle_shape'](block);

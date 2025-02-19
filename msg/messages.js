@@ -3387,6 +3387,7 @@ Blockly.Msg.MC_cmd_minecraft_shape_square = 'square □';
 Blockly.Msg.MC_cmd_minecraft_shape_circle = 'circle ○';
 Blockly.Msg.MC_cmd_minecraft_shape_block = 'block ▫';
 Blockly.Msg.MC_cmd_minecraft_shape_line = 'row --';
+Blockly.Msg.MC_cmd_minecraft_shape_connection = 'connection o--o';
 Blockly.Msg.MC_cmd_minecraft_shape_rectangle = 'rectangle ▭';
 Blockly.Msg.MC_cmd_minecraft_shape_polygon = 'polygon ⬠';
 Blockly.Msg.MC_cmd_minecraft_shape_ellipse = 'ellipse ⬭';
