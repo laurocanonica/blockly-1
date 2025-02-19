@@ -191,36 +191,15 @@
 				</value>
 			</block>
 
-  <block type="minecraft_drawing_version2" >
-    <field name="origin">C</field>
-    <value name="matlist">
-      <block type="lists_create_with" >
-        <mutation items="2"></mutation>
-        <value name="ADD0">
-          <block type="m_draw_0" movable="false">
-            <value name="child">
-              <block type="m_draw_0" movable="false">
-               </block>
-            </value>
-          </block>
-        </value>
-        <value name="ADD1">
-          <block type="m_draw_0" movable="false">
-            <value name="child">
-              <block type="m_draw_1" movable="false">
-               </block>
-            </value>
-          </block>
-        </value>
-      </block>
-    </value>
-    <value name="index_material">
-      <shadow type="math_number" >
-        <field name="NUM">1</field>
-      </shadow>
-    </value>
-  </block>
-
+			<block type="minecraft_addevent">
+				<field name="eventType">HITTING_ENTITY_EVENT</field>
+				<value name="NAME">
+					<shadow type="text">
+						<field name="TEXT"></field>
+					</shadow>
+				</value>
+			</block>
+			<block type="minecraft_cancelEvents"></block>
 
 			<block type="minecraft_comment"></block>
 
@@ -286,6 +265,38 @@
 					</shadow>
 				</value>
 			</block>
+
+		</category>
+		<category name="{c_Drawing}" colour="210">
+		  <block type="minecraft_drawing_version2" >
+		    <field name="origin">C</field>
+		    <value name="matlist">
+		      <block type="lists_create_with" >
+		        <mutation items="2"></mutation>
+		        <value name="ADD0">
+		          <block type="m_draw_0" movable="false">
+		            <value name="child">
+		              <block type="m_draw_0" movable="false">
+		               </block>
+		            </value>
+		          </block>
+		        </value>
+		        <value name="ADD1">
+		          <block type="m_draw_0" movable="false">
+		            <value name="child">
+		              <block type="m_draw_1" movable="false">
+		               </block>
+		            </value>
+		          </block>
+		        </value>
+		      </block>
+		    </value>
+		    <value name="index_material">
+		      <shadow type="math_number" >
+		        <field name="NUM">1</field>
+		      </shadow>
+		    </value>
+		  </block>
 
 		</category>
 		
@@ -381,15 +392,7 @@
 
 
 
-		<category name="{c_Events}" colour="210" expanded="true">
-			<block type="minecraft_addevent">
-				<field name="eventType">HITTING_ENTITY_EVENT</field>
-				<value name="NAME">
-					<shadow type="text">
-						<field name="TEXT"></field>
-					</shadow>
-				</value>
-			</block>
+		<category name="{c_Status}" colour="210" expanded="true">
 			<block type="minecraft_holding">
 				<value name="NAME">
 					<block type="minecraft_item">
@@ -433,7 +436,6 @@
 				</value>
 			</block>
 
-			<block type="minecraft_cancelEvents"></block>
 		</category>
 
 

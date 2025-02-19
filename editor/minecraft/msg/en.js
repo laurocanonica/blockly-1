@@ -31,6 +31,7 @@ var MSG = {
 	  c_Actions : "Actions",
 	  c_Drawing : "Drawing",
 	  c_Events : "Events",
+	  c_Status : "Status",
 	  c_Operators : "only for OPs",
 	  c_ExamplesMenu : "Examples ...",
 	  c_Examples : "Examples",

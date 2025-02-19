@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2025-02-18 22:45:22.933049",
+		"lastupdated": "2025-02-19 15:52:03.227315",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2048,7 +2048,8 @@
 	"MC_cmd_minecraft_holding": "I'm holding a %1",
 	"MC_cmd_minecraft_playerHas": "I have a %1",
 	"MC_cmd_minecraft_hitting": "I'm hitting a %1",
-	"MC_cmd_minecraft_sensing": "this block is made of %1",
+	"MC_cmd_minecraft_sensing_ver1": "this block is made of %1",
+	"MC_cmd_minecraft_sensing_ver2": "you are in a block made of %1",
 	"MC_cmd_minecraft_giveme": "give me %1",
 	"MC_cmd_minecraft_equipme": "dress me with %1",
 	"MC_cmd_minecraft_putinhand": "put in my %1 hand a %2",

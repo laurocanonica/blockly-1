@@ -2249,7 +2249,7 @@ Blockly.Blocks['minecraft_sensing'] = {
 		init : function() {
 			this.jsonInit({
 				  "type": "minecraft_sensing",
-				  "message0": Blockly.Msg.MC_cmd_minecraft_sensing,
+				  "message0": eval('Blockly.Msg.MC_cmd_minecraft_sensing'+'_'+GLOBAL_MESSAGE_VERSION),
 				  "args0": [
 				    {
 				      "type": "input_value",
@@ -2360,7 +2360,7 @@ Blockly.Blocks['minecraft_holding'] = {
 					"check" : ["Material", "Item"]
 				} ],
 				"output" : "Boolean",
-				"colour" : 120,
+				"colour" : 65,
 				"tooltip" : "",
 				"helpUrl" : "http://www.example.com/"
 			});
@@ -2379,7 +2379,7 @@ Blockly.Blocks['minecraft_playerHas'] = {
 					"check" : ["Material", "Item"]
 				} ],
 				"output" : "Boolean",
-				"colour" : 120,
+				"colour" : 65,
 				"tooltip" : "",
 				"helpUrl" : "http://www.example.com/"
 			});
