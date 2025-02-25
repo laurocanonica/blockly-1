@@ -135,12 +135,34 @@
 	</div>
 
 
+ <style>
+        /* Base styles for toolbox items */
+        .blocklyTreeRow {
+            display: flex;
+            align-items: center;
+            padding-left: 25px; /* Space for the image */
+            background-repeat: no-repeat;
+            background-position: 5px center; /* Image position */
+            background-size: 18px 18px; /* Image size */
+        }
+
+        /* Custom icons for different categories */
+        .toolbox-logic .blocklyTreeRow {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png'); /* Replace with actual image */
+        }
+
+        .toolbox-loops .blocklyTreeRow {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/3f/Loop_icon.png'); /* Replace with actual image */
+        }
+    </style>
 
 
 	<xml id="toolbox" style="display: none">
 		<category name="{catFunctions}" colour="290" custom="PROCEDURE"> </category>
 
-		<category name="{c_Actions}" colour="120">
+
+
+		<category name="{c_Actions}" colour="120" class="toolbox-logic">
 
 			<block type="shape_block">
 				<value name="MATERIAL">
@@ -269,33 +291,417 @@
 		</category>
 		<category name="{c_Drawing}" colour="210">
 		  <block type="minecraft_drawing_version2" >
-		    <field name="origin">C</field>
-		    <value name="matlist">
-		      <block type="lists_create_with" >
-		        <mutation items="2"></mutation>
-		        <value name="ADD0">
-		          <block type="m_draw_0" movable="false">
-		            <value name="child">
-		              <block type="m_draw_0" movable="false">
-		               </block>
-		            </value>
-		          </block>
+		  <mutation xmlns="http://www.w3.org/1999/xhtml" extra_choice_count="2"></mutation>
+		  <field name="origin">C</field>
+		  <value name="matlist">
+		    <block type="lists_create_with"  >
+		    <mutation items="3"></mutation>
+		    <value name="ADD0">
+		      <block type="m_draw_0" movable="false">
+		      <value name="child">
+		        <block type="m_draw_0" movable="false">
+		        <value name="child">
+		          <block type="m_draw_0" movable="false"></block>
 		        </value>
-		        <value name="ADD1">
-		          <block type="m_draw_0" movable="false">
-		            <value name="child">
-		              <block type="m_draw_1" movable="false">
-		               </block>
-		            </value>
-		          </block>
-		        </value>
+		        </block>
+		      </value>
 		      </block>
 		    </value>
-		    <value name="index_material">
-		      <shadow type="math_number" >
-		        <field name="NUM">1</field>
-		      </shadow>
+		    <value name="ADD1">
+		      <block type="m_draw_0" movable="false">
+		      <value name="child">
+		        <block type="m_draw_0" movable="false">
+		        <value name="child">
+		          <block type="m_draw_0" movable="false"></block>
+		        </value>
+		        </block>
+		      </value>
+		      </block>
 		    </value>
+		    <value name="ADD2">
+		      <block type="m_draw_0" movable="false">
+		      <value name="child">
+		        <block type="m_draw_0" movable="false">
+		        <value name="child">
+		          <block type="m_draw_0" movable="false"></block>
+		        </value>
+		        </block>
+		      </value>
+		      </block>
+		    </value>
+		    </block>
+		  </value>
+		  <value name="index_material">
+		    <shadow type="math_number"  >
+		    <field name="NUM">1</field>
+		    </shadow>
+		  </value>
+		  </block>
+
+		  <block type="minecraft_drawing_version2" >
+		  <mutation xmlns="http://www.w3.org/1999/xhtml" extra_choice_count="5"></mutation>
+		  <field name="origin">C</field>
+		  <value name="matlist">
+		    <block type="lists_create_with">
+		    <mutation items="9"></mutation>
+		    <value name="ADD0">
+		      <block type="m_draw_0" movable="false">
+		      <value name="child">
+		        <block type="m_draw_0" movable="false">
+		        <value name="child">
+		          <block type="m_draw_0" movable="false">
+		          <value name="child">
+		            <block type="m_draw_0" movable="false">
+		            <value name="child">
+		              <block type="m_draw_0" movable="false">
+		              <value name="child">
+		                <block type="m_draw_0" movable="false">
+		                <value name="child">
+		                  <block type="m_draw_0" movable="false">
+		                  <value name="child">
+		                    <block type="m_draw_0" movable="false">
+		                    <value name="child">
+		                      <block type="m_draw_0" movable="false">
+		                      <value name="child">
+		                        <block type="m_draw_0" movable="false"></block>
+		                      </value>
+		                      </block>
+		                    </value>
+		                    </block>
+		                  </value>
+		                  </block>
+		                </value>
+		                </block>
+		              </value>
+		              </block>
+		            </value>
+		            </block>
+		          </value>
+		          </block>
+		        </value>
+		        </block>
+		      </value>
+		      </block>
+		    </value>
+		    <value name="ADD1">
+		      <block type="m_draw_0" movable="false">
+		      <value name="child">
+		        <block type="m_draw_0" movable="false">
+		        <value name="child">
+		          <block type="m_draw_0" movable="false">
+		          <value name="child">
+		            <block type="m_draw_0" movable="false">
+		            <value name="child">
+		              <block type="m_draw_0" movable="false">
+		              <value name="child">
+		                <block type="m_draw_0" movable="false">
+		                <value name="child">
+		                  <block type="m_draw_0" movable="false">
+		                  <value name="child">
+		                    <block type="m_draw_0" movable="false">
+		                    <value name="child">
+		                      <block type="m_draw_0" movable="false">
+		                      <value name="child">
+		                        <block type="m_draw_0" movable="false"></block>
+		                      </value>
+		                      </block>
+		                    </value>
+		                    </block>
+		                  </value>
+		                  </block>
+		                </value>
+		                </block>
+		              </value>
+		              </block>
+		            </value>
+		            </block>
+		          </value>
+		          </block>
+		        </value>
+		        </block>
+		      </value>
+		      </block>
+		    </value>
+		    <value name="ADD2">
+		      <block type="m_draw_0" movable="false">
+		      <value name="child">
+		        <block type="m_draw_0" movable="false">
+		        <value name="child">
+		          <block type="m_draw_0" movable="false">
+		          <value name="child">
+		            <block type="m_draw_0" movable="false">
+		            <value name="child">
+		              <block type="m_draw_0" movable="false">
+		              <value name="child">
+		                <block type="m_draw_0" movable="false">
+		                <value name="child">
+		                  <block type="m_draw_0" movable="false">
+		                  <value name="child">
+		                    <block type="m_draw_0" movable="false">
+		                    <value name="child">
+		                      <block type="m_draw_0" movable="false">
+		                      <value name="child">
+		                        <block type="m_draw_0" movable="false"></block>
+		                      </value>
+		                      </block>
+		                    </value>
+		                    </block>
+		                  </value>
+		                  </block>
+		                </value>
+		                </block>
+		              </value>
+		              </block>
+		            </value>
+		            </block>
+		          </value>
+		          </block>
+		        </value>
+		        </block>
+		      </value>
+		      </block>
+		    </value>
+		    <value name="ADD3">
+		      <block type="m_draw_0" movable="false">
+		      <value name="child">
+		        <block type="m_draw_0" movable="false">
+		        <value name="child">
+		          <block type="m_draw_0" movable="false">
+		          <value name="child">
+		            <block type="m_draw_0" movable="false">
+		            <value name="child">
+		              <block type="m_draw_0" movable="false">
+		              <value name="child">
+		                <block type="m_draw_0" movable="false">
+		                <value name="child">
+		                  <block type="m_draw_0" movable="false">
+		                  <value name="child">
+		                    <block type="m_draw_0" movable="false">
+		                    <value name="child">
+		                      <block type="m_draw_0" movable="false">
+		                      <value name="child">
+		                        <block type="m_draw_0" movable="false"></block>
+		                      </value>
+		                      </block>
+		                    </value>
+		                    </block>
+		                  </value>
+		                  </block>
+		                </value>
+		                </block>
+		              </value>
+		              </block>
+		            </value>
+		            </block>
+		          </value>
+		          </block>
+		        </value>
+		        </block>
+		      </value>
+		      </block>
+		    </value>
+		    <value name="ADD4">
+		      <block type="m_draw_0" movable="false">
+		      <value name="child">
+		        <block type="m_draw_0" movable="false">
+		        <value name="child">
+		          <block type="m_draw_0" movable="false">
+		          <value name="child">
+		            <block type="m_draw_0" movable="false">
+		            <value name="child">
+		              <block type="m_draw_0" movable="false">
+		              <value name="child">
+		                <block type="m_draw_0" movable="false">
+		                <value name="child">
+		                  <block type="m_draw_0" movable="false">
+		                  <value name="child">
+		                    <block type="m_draw_0" movable="false">
+		                    <value name="child">
+		                      <block type="m_draw_0" movable="false">
+		                      <value name="child">
+		                        <block type="m_draw_0" movable="false"></block>
+		                      </value>
+		                      </block>
+		                    </value>
+		                    </block>
+		                  </value>
+		                  </block>
+		                </value>
+		                </block>
+		              </value>
+		              </block>
+		            </value>
+		            </block>
+		          </value>
+		          </block>
+		        </value>
+		        </block>
+		      </value>
+		      </block>
+		    </value>
+		    <value name="ADD5">
+		      <block type="m_draw_0" movable="false">
+		      <value name="child">
+		        <block type="m_draw_0" movable="false">
+		        <value name="child">
+		          <block type="m_draw_0" movable="false">
+		          <value name="child">
+		            <block type="m_draw_0" movable="false">
+		            <value name="child">
+		              <block type="m_draw_0" movable="false">
+		              <value name="child">
+		                <block type="m_draw_0" movable="false">
+		                <value name="child">
+		                  <block type="m_draw_0" movable="false">
+		                  <value name="child">
+		                    <block type="m_draw_0" movable="false">
+		                    <value name="child">
+		                      <block type="m_draw_0" movable="false">
+		                      <value name="child">
+		                        <block type="m_draw_0" movable="false"></block>
+		                      </value>
+		                      </block>
+		                    </value>
+		                    </block>
+		                  </value>
+		                  </block>
+		                </value>
+		                </block>
+		              </value>
+		              </block>
+		            </value>
+		            </block>
+		          </value>
+		          </block>
+		        </value>
+		        </block>
+		      </value>
+		      </block>
+		    </value>
+		    <value name="ADD6">
+		      <block type="m_draw_0" movable="false">
+		      <value name="child">
+		        <block type="m_draw_0" movable="false">
+		        <value name="child">
+		          <block type="m_draw_0" movable="false">
+		          <value name="child">
+		            <block type="m_draw_0" movable="false">
+		            <value name="child">
+		              <block type="m_draw_0" movable="false">
+		              <value name="child">
+		                <block type="m_draw_0" movable="false">
+		                <value name="child">
+		                  <block type="m_draw_0" movable="false">
+		                  <value name="child">
+		                    <block type="m_draw_0" movable="false">
+		                    <value name="child">
+		                      <block type="m_draw_0" movable="false">
+		                      <value name="child">
+		                        <block type="m_draw_0" movable="false"></block>
+		                      </value>
+		                      </block>
+		                    </value>
+		                    </block>
+		                  </value>
+		                  </block>
+		                </value>
+		                </block>
+		              </value>
+		              </block>
+		            </value>
+		            </block>
+		          </value>
+		          </block>
+		        </value>
+		        </block>
+		      </value>
+		      </block>
+		    </value>
+		    <value name="ADD7">
+		      <block type="m_draw_0" movable="false">
+		      <value name="child">
+		        <block type="m_draw_0" movable="false">
+		        <value name="child">
+		          <block type="m_draw_0" movable="false">
+		          <value name="child">
+		            <block type="m_draw_0" movable="false">
+		            <value name="child">
+		              <block type="m_draw_0" movable="false">
+		              <value name="child">
+		                <block type="m_draw_0" movable="false">
+		                <value name="child">
+		                  <block type="m_draw_0" movable="false">
+		                  <value name="child">
+		                    <block type="m_draw_0" movable="false">
+		                    <value name="child">
+		                      <block type="m_draw_0" movable="false">
+		                      <value name="child">
+		                        <block type="m_draw_0" movable="false"></block>
+		                      </value>
+		                      </block>
+		                    </value>
+		                    </block>
+		                  </value>
+		                  </block>
+		                </value>
+		                </block>
+		              </value>
+		              </block>
+		            </value>
+		            </block>
+		          </value>
+		          </block>
+		        </value>
+		        </block>
+		      </value>
+		      </block>
+		    </value>
+		    <value name="ADD8">
+		      <block type="m_draw_0" movable="false">
+		      <value name="child">
+		        <block type="m_draw_0" movable="false">
+		        <value name="child">
+		          <block type="m_draw_0" movable="false">
+		          <value name="child">
+		            <block type="m_draw_0" movable="false">
+		            <value name="child">
+		              <block type="m_draw_0" movable="false">
+		              <value name="child">
+		                <block type="m_draw_0" movable="false">
+		                <value name="child">
+		                  <block type="m_draw_0" movable="false">
+		                  <value name="child">
+		                    <block type="m_draw_0" movable="false">
+		                    <value name="child">
+		                      <block type="m_draw_0" movable="false">
+		                      <value name="child">
+		                        <block type="m_draw_0" movable="false"></block>
+		                      </value>
+		                      </block>
+		                    </value>
+		                    </block>
+		                  </value>
+		                  </block>
+		                </value>
+		                </block>
+		              </value>
+		              </block>
+		            </value>
+		            </block>
+		          </value>
+		          </block>
+		        </value>
+		        </block>
+		      </value>
+		      </block>
+		    </value>
+		    </block>
+		  </value>
+		  <value name="index_material">
+		    <shadow type="math_number">
+		    <field name="NUM">1</field>
+		    </shadow>
+		  </value>
 		  </block>
 
 		</category>
