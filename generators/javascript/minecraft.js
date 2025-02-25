@@ -88,7 +88,7 @@ Blockly.JavaScript['minecraft_item_op'] = function(block) {
 
 function cleanMaterialList(materialList) {
 	materialList=materialList.replaceAll(',"+"', ', '); // avoid concatenation of strings using the + sign
-	materialList=materialList.replaceAll(';"+"', '; '); // avoid concatenation of strings using the + sign
+	materialList=materialList.replaceAll(';"+"', ';'); // avoid concatenation of strings using the + sign
 	return materialList;
 }
 
