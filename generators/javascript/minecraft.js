@@ -694,34 +694,15 @@ Blockly.JavaScript['minecraft_gotomark'] = function(block) {
 
 function validateBlockchoice(block, blockChoice) {
 	var choice = Blockly.JavaScript.valueToCode(block, blockChoice, Blockly.JavaScript.ORDER_NONE);
-
-	
-	//if(choice!="") alert(choice);
 	choice=removeNulls(choice);
 	choice=cleanMaterialList(choice);
-	// transform lists into strings
-	//choice = choice.replace(/\[/, ""); // replace the start list
-	//choice = choice.replace(/\]/, ""); // replace the end list
-//choice = choice.replace(/\), \(/g, "+ "); // replace the end list
-	//choice = choice.replace(/\[.*?\(/g, ""); // replace the starting nulls
-	//choice = choice.replace(/\).*\]/g, ""); // replace the ending nulls
-	
-	//choice = choice.replace(/\[\]/g, ""); // remove empty lists
-/*	
-	choice = choice.replace(/\[null\]/g, ""); // remove empty lists
-	choice = choice.replace(/[\[\]]/g, ""); // remove square parenthesis left overs
-	choice = choice.replace(/\(\"/g, "\""); // remove round parenthesis left overs
-	choice = choice.replace(/\"\)/g, "\""); // remove round parenthesis left overs
-	choice = choice.replace(/, /g, "+ "); // change commas with +
-*/
 	if (choice==""){
-		return ""
+		return('  ["TY=X.EMPTY"],\n');
 	} else {
-		return("  ["+choice+"],\n");
+		return('  ['+choice+'],\n');
 	}
-
-	
 }
+
 function removeNulls(valMatList) {
 	  //alert("*"+valMatList);
 	  valMatList=valMatList.replace(new RegExp('null, ', "g"), "");
