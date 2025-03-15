@@ -3161,12 +3161,12 @@ Blockly.Blocks['minecraft_text'] = {
 						      "name": "fontName",
 						      "options": [
 						        [
-						          "Arial",
-						          "Arial"
+						          "Monospace",
+						          "monospace"
 						        ],
 						        [
-						          "Helvetica",
-						          "Helvetica"
+						          "Arial",
+						          "Arial"
 						        ],
 						        [
 						          "Garamond",
