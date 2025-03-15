@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2025-02-19 18:20:46.311992",
+		"lastupdated": "2025-03-15 21:54:19.495160",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2070,7 +2070,7 @@
 	"MC_cmd_minecraft_set_elevation_ver2": "set tilt to %1 degrees",
 	"MC_cmd_minecraft_set_elevation_relative_ver1": "change the vertical axes by %1 degrees",
 	"MC_cmd_minecraft_set_elevation_relative_ver2": "change tilt by %1 degrees",
-	"MC_cmd_minecraft_writetext": "write %1 %2 using font %3 %4 %5 %6 %7 of size %8 %9 points, made of %10 %11",
+	"MC_cmd_minecraft_writetext": "write %1 %2 using font %3 %4 %5 %6 %7 of size %8 %9 points, %10 %11, made of %12 %13",
 	"MC_cmd_minecraft_addevent": "when %1 call function %2",
 	"MC_cmd_minecraft_wait": "wait %1 milliseconds",
 	"MC_cmd_friendly_ver1": "friendly",
@@ -2139,7 +2139,7 @@
 	"MC_cmd_minecraft_talking": "talking %1 %2",
 	"MC_cmd_voronoi": "create a %1 Voronoi diagram of width %2 and length %3 for the points %4 made of %5",
 	"MC_cmd_minecraft_shape_square": "square □",
-	"MC_cmd_minecraft_shape_circle": "circle ○",
+	"MC_cmd_minecraft_shape_circle": "circle ○○",
 	"MC_cmd_minecraft_shape_block": "block ▫",
 	"MC_cmd_minecraft_shape_line": "row --",
 	"MC_cmd_minecraft_shape_connection": "connection o--o",

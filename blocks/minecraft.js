@@ -3230,6 +3230,23 @@ Blockly.Blocks['minecraft_text'] = {
 						      "type": "input_dummy"
 						    },
 						    {
+						      "type": "field_dropdown",
+						      "name": "fill",
+						      "options": [
+						        [
+						        	Blockly.Msg.MC_cmd_full,
+						          "false"
+						        ],
+						        [
+						        	Blockly.Msg.MC_cmd_empty,
+						          "true"
+						        ]
+						      ]
+						    },
+						    {
+						      "type": "input_dummy"
+						    },
+							{
 						      "type": "input_value",
 						      "name": "NAME",
 								"check" : [ "Material" ]

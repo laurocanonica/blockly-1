@@ -2018,7 +2018,7 @@
 "MC_cmd_minecraft_setrotation": "Setze die Ausrichtung auf %1",
 "MC_cmd_minecraft_set_elevation": "Setze die vertikale Achse auf %1 Grad (0=vertikal, 90=horizontal)",
 "MC_cmd_minecraft_set_elevation_relative": "Ändere die vertikale Achse um %1 Grad",
-"MC_cmd_minecraft_writetext": "Schreibe %1 %2 mit der Schriftart %3 %4 %5 %6 %7 der Größe %8 %9 Punkte, aus %10 %11",
+"MC_cmd_minecraft_writetext": "Schreibe %1 %2 mit der Schriftart %3 %4 %5 %6 %7 der Größe %8 %9 Punkte, %10 %11, aus %12 %13",
 "MC_cmd_minecraft_addevent": "Wenn %1 den Befehl %2 aufruft",
 "MC_cmd_minecraft_wait": "Warte %1 Millisekunden",
 "MC_cmd_friendly": "freundlich",

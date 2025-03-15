@@ -2030,7 +2030,7 @@
 "MC_cmd_minecraft_set_elevation_ver2" : "inclinati a %1 gradi (0=verticale, 90=orizzontale)",
 "MC_cmd_minecraft_set_elevation_relative_ver1" : "cambia l'asse verticale di %1 gradi",
 "MC_cmd_minecraft_set_elevation_relative_ver2" : "inclinati di altri%1 gradi",
-"MC_cmd_minecraft_writetext" : "scrivi %1 %2 con il font %3 %4 %5 %6 %7 di grandezza %8 %9 punti, fatto di %10 %11",
+"MC_cmd_minecraft_writetext" : "scrivi %1 %2 con il font %3 %4 %5 %6 %7 di grandezza %8 %9 punti, %10 %11, fatto di %12 %13",
 "MC_cmd_minecraft_addevent" : "Quando %1 chiama il comando %2",
 "MC_cmd_minecraft_wait" : "aspetta %1 millisecondi",
 "MC_cmd_friendly_ver1" : "amichevole",

@@ -3313,7 +3313,7 @@ Blockly.Msg.MC_cmd_minecraft_set_elevation_ver1 = 'set the vertical axes to %1 d
 Blockly.Msg.MC_cmd_minecraft_set_elevation_ver2 = 'set tilt to %1 degrees';
 Blockly.Msg.MC_cmd_minecraft_set_elevation_relative_ver1 = 'change the vertical axes by %1 degrees';
 Blockly.Msg.MC_cmd_minecraft_set_elevation_relative_ver2 = 'change tilt by %1 degrees';
-Blockly.Msg.MC_cmd_minecraft_writetext = 'write %1 %2 using font %3 %4 %5 %6 %7 of size %8 %9 points, made of %10 %11'
+Blockly.Msg.MC_cmd_minecraft_writetext = 'write %1 %2 using font %3 %4 %5 %6 %7 of size %8 %9 points, %10 %11, made of %12 %13'
 Blockly.Msg.MC_cmd_minecraft_addevent = 'when %1 call function %2';
 Blockly.Msg.MC_cmd_minecraft_wait = 'wait %1 milliseconds';
 Blockly.Msg.MC_cmd_friendly_ver1 = 'friendly';
@@ -3384,7 +3384,7 @@ Blockly.Msg.MC_cmd_minecraft_talking = 'talking %1 %2';
 Blockly.Msg.MC_cmd_voronoi = 'create a %1 Voronoi diagram of width %2 and length %3 for the points %4 made of %5';
 
 Blockly.Msg.MC_cmd_minecraft_shape_square = 'square □';
-Blockly.Msg.MC_cmd_minecraft_shape_circle = 'circle ○';
+Blockly.Msg.MC_cmd_minecraft_shape_circle = 'circle ○○';
 Blockly.Msg.MC_cmd_minecraft_shape_block = 'block ▫';
 Blockly.Msg.MC_cmd_minecraft_shape_line = 'row --';
 Blockly.Msg.MC_cmd_minecraft_shape_connection = 'connection o--o';
