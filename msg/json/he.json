@@ -1999,7 +1999,7 @@
 	"MC_cmd_minecraft_setrotation_ver1": "שנה את הכיוון ל- %1",
 	"MC_cmd_minecraft_set_elevation_ver1": "הגדר את כיוון הציר האנכי %1 מעלות (0=אנכי, 90=אופקי)",
 	"MC_cmd_minecraft_set_elevation_relative_ver1": "שנה את כיוון הציר האנכי ב- %1 מעלות",
-	"MC_cmd_minecraft_writetext": "כתוב טקסט %1 %2 מסוג פונט %3 %4 %5 %6 %7 בגודל %8 %9 קוביות, %10 %11, הבנוי מ- %12 %13",
+	"MC_cmd_minecraft_writetext": "כתוב טקסט %1 %2 מסוג פונט בגודל %3 %4 קוביות, %5 %6, הבנוי מ- %7 %8",
 	"MC_cmd_minecraft_addevent": "כאשר השחקן %1 תפעיל את הפקודה %2",
 	"MC_cmd_minecraft_wait": "תמתין %1 אלפיות השנייה",
 	"MC_cmd_friendly_ver1": "ידידותי",

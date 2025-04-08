@@ -662,16 +662,12 @@ Blockly.JavaScript['minecraft_createchest'] = function(block) {
 		
 Blockly.JavaScript['minecraft_text'] = function(block) {
 	  var value_inputtext = Blockly.JavaScript.valueToCode(block, 'inputText', Blockly.JavaScript.ORDER_NONE);
-	  var dropdown_fontname = block.getFieldValue('fontName');
-	  var dropdown_fontstyle = block.getFieldValue('fontStyle');
 	  var value_fontpoints = Blockly.JavaScript.valueToCode(block, 'fontPoints', Blockly.JavaScript.ORDER_NONE);
 	  var dropdown_fill = block.getFieldValue('fill');
 	  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_NONE);
 	  var code = "CMD.convertTextToBlocks(nextLocation, player, ";
 	  code+= cleanMaterialList(value_name)+", ";
 	  code+= value_inputtext+", ";
-	  code+= "\""+dropdown_fontname+"\", ";
-	  code+= dropdown_fontstyle+", ";
 	  code+= value_fontpoints+", ";
 	  code+= dropdown_fill;
 	  code+= ", startCmdTime);\n";
@@ -983,5 +979,9 @@ Blockly.JavaScript['minecraft_velocity'] = function(block) {
 	return [ code, Blockly.JavaScript.ORDER_NONE ];
 };
 
-
+Blockly.JavaScript['minecraft_unicode_grid_selector'] = function(block) {
+  var symbol = block.getFieldValue('SYMBOL');
+  var code = '"' + symbol + '"';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
 	

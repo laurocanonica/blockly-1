@@ -1993,7 +1993,7 @@
 "MC_cmd_minecraft_setrotation": "pon la dirección %1",
 "MC_cmd_minecraft_set_elevation": "pon el eje vertical a %1 grados (0=vertical, 90=horizontal)",
 "MC_cmd_minecraft_set_elevation_relative": "cambia el eje vertical %1 grados",
-"MC_cmd_minecraft_writetext": "escribe %1 %2 con la fuente %3 %4 %5 %6 %7 de tamaño %8 %9 puntos, %10 %11, hecho de %12 %13",
+"MC_cmd_minecraft_writetext": "escribe %1 %2 con la fuente de tamaño %3 %4 puntos, %5 %6, hecho de %7 %8",
 "MC_cmd_minecraft_addevent": "Cuando %1 llama al comando %2",
 "MC_cmd_minecraft_wait": "espera %1 milisegundos",
 "MC_cmd_friendly": "amigable",

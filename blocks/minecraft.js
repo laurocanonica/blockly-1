@@ -3139,129 +3139,62 @@ Blockly.Blocks['minecraft_createchest'] = {
 	};
 
 Blockly.Blocks['minecraft_text'] = {
-		init : function() {
-			this.jsonInit( 	
-					{
-						  "type": "minecraft_text",
-						  "message0": Blockly.Msg.MC_cmd_minecraft_writetext,
-						  "args0": [
-						    {
-						      "type": "input_dummy"
-						    },
-						    {
-						      "type": "input_value",
-						      "name": "inputText",
-							  "check" : [ "String", "Number" ]
-						    },
-						    {
-						      "type": "input_dummy"
-						    },
-						    {
-						      "type": "field_dropdown",
-						      "name": "fontName",
-						      "options": [
-						        [
-						          "Monospace",
-						          "monospace"
-						        ],
-						        [
-						          "Arial",
-						          "Arial"
-						        ],
-						        [
-						          "Garamond",
-						          "Garamond"
-						        ],
-						        [
-						          "Bookman",
-						          "Bookman"
-						        ],
-						        [
-						          "Courier New",
-						          "Courier New"
-						        ],
-						        [
-						          "Times New Roman",
-						          "Times New Roman"
-						        ],
-						        [
-						          "Avant Garde",
-						          "Avant Garde"
-						        ],
-						        [
-						          "Palatino",
-						          "Palatino"
-						        ]
-						      ]
-						    },
-						    {
-						      "type": "input_dummy"
-						    },
-						    {
-						      "type": "field_dropdown",
-						      "name": "fontStyle",
-						      "options": [
-						        [
-						          "plain",
-						          "0"
-						        ],
-						        [
-						          "bold",
-						          "1"
-						        ],
-						        [
-						          "italic",
-						          "2"
-						        ]
-						      ]
-						    },
-						    {
-						      "type": "input_dummy"
-						    },
-						    {
-						      "type": "input_dummy"
-						    },
-						    {
-						      "type": "input_value",
-						      "name": "fontPoints",
-						      "check": "Number"
-						    },
-						    {
-						      "type": "input_dummy"
-						    },
-						    {
-						      "type": "field_dropdown",
-						      "name": "fill",
-						      "options": [
-						        [
-						        	Blockly.Msg.MC_cmd_full,
-						          "false"
-						        ],
-						        [
-						        	Blockly.Msg.MC_cmd_empty,
-						          "true"
-						        ]
-						      ]
-						    },
-						    {
-						      "type": "input_dummy"
-						    },
-							{
-						      "type": "input_value",
-						      "name": "NAME",
-								"check" : [ "Material" ]
-						    }
-						  ],
-						  "inputsInline": true,
-						  "previousStatement": null,
-						  "nextStatement": null,
-						  "colour": 120,
-						  "tooltip": "",
-						  "helpUrl": ""
-						});
-		}
-	};
-
+  init: function () {
+    this.jsonInit({
+      "type": "minecraft_text",
+      "message0": Blockly.Msg.MC_cmd_minecraft_writetext,
+      "args0": [
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_value",
+          "name": "inputText",
+          "check": ["String", "Number"]
+        },
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_value",
+          "name": "fontPoints",
+          "check": "Number"
+        },
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "fill",
+          "options": [
+            [
+              Blockly.Msg.MC_cmd_full,
+              "false"
+            ],
+            [
+              Blockly.Msg.MC_cmd_empty,
+              "true"
+            ]
+          ]
+        },
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_value",
+          "name": "NAME",
+          "check": ["Material"]
+        }
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 120,
+      "tooltip": "",
+      "helpUrl": ""
+    });
+  }
+};
 
 
 Blockly.Blocks['minecraft_mark'] = {
@@ -4943,6 +4876,57 @@ Blockly.Blocks['minecraft_velocity'] = {
 		}
 	};
 	
+Blockly.Blocks['minecraft_unicode_grid_selector'] = {
+  init: function() {
+    var symbols = [
+      ['★', '☆', '✦', '✧', '✪', '✫', '✬', '✭', '✮', '✯'],
+      ['✰', '✱', '✲', '✳', '✴', '✵', '✶', '✷', '✸', '✹'],
+      ['✺', '✻', '✼', '✽', '✾', '✿', '❀', '❁', '❂', '❃'],
+      ['■', '□', '▪', '▫', '▲', '△', '▼', '▽', '◆', '◇'],
+      ['◈', '◉', '●', '○', '◍', '◐', '◑', '◒', '◓', '◔'],
+      ['◕', '◖', '◗', '◘', '◙', '◚', '◛', '◜', '◝', '◞'],
+      ['◟', '◠', '◡', '◢', '◣', '◤', '◥', '◦', '◧', '◨'],
+      ['◩', '◪', '◫', '◬', '◭', '◮', '◯', '⬛', '⬜', '◼'],
+      ['⬝', '⬞', '⬟', '⬠', '⬡', '⬢', '⬣', '⬤', '⬥', '⬦'],
+      ['←', '↑', '→', '↓', '↔', '↕', '↖', '↗', '↘', '↙'],
+      ['↚', '↛', '↜', '↝', '↞', '↟', '↠', '↡', '↢', '↣'],
+      ['↤', '↥', '↦', '↧', '↨', '↩', '↪', '↫', '↬', '↭'],
+      ['↮', '↯', '↰', '↱', '↲', '↳', '↴', '↵', '↶', '↷'],
+      ['↸', '↹', '↺', '↻', '↼', '↽', '↾', '↿', '⇀', '⇁'],
+      ['⇂', '⇃', '⇄', '⇅', '⇆', '⇇', '⇈', '⇉', '⇊', '⇋'],
+      ['➔', '➜', '➝', '➞', '➟', '➠', '➡', '➢', '➣', '➤'],
+      ['➥', '➦', '➧', '➨', '➩', '➪', '➫', '➬', '➭', '➮'],
+      ['➯', '➱', '➲', '➳', '➴', '➵', '➶', '➷', '➸', '➹'],
+      ['➺', '➻', '➼', '➽', '➾', '➿', '✔', '✖', '✗', '✘'],
+      ['✙', '✚', '✛', '✜', '✢', '✣', '✤', '✥', '✦', '✧'],
+      ['✒', '✍', '✎', '✏', '✐', '✑', '✂', '✃', '✄', '✆'],
+      ['♠', '♣', '♥', '♦', '♤', '♧', '♡', '♢', '♩', '♪'],
+      ['♫', '♬', '♭', '♯', '♮', '⚀', '⚁', '⚂', '⚃', '⚄'],
+      ['⚅', '⚐', '⚑', '⚓', '⚔', '⚖', '⚗', '⚙', '⚛', '⚜'],
+      ['☀', '☁', '☂', '☃', '☄', '☇', '☈', '☉', '☊', '☋'],
+      ['☌', '☍', '☎', '☏', '☑', '☒', '☓', '☕', '☘', '☠'],
+      ['☢', '☣', '☤', '☥', '☦', '☧', '☨', '☩', '☪', '☫'],
+      ['☬', '☭', '☮', '☯', '☸', '☹', '☺', '☻', '☽', '☾'],
+      ['☿', '♀', '♂', '♁', '♃', '♄', '♅', '♆', '♇', '♈'],
+      ['♉', '♊', '♋', '♌', '♍', '♎', '♏', '♐', '♑', '♒'],
+      ['♓', '♔', '♕', '♖', '♗', '♘', '♙', '♚', '♛', '♜'],
+      ['♝', '♞', '♟', '♨', '♩', '♬', '⎈', '⏏', '⎋', '⏎'],
+      ['⎙', '⎌', '⎗', '⎘', '⎛', '⎝', '⎡', '⎢', '⎣', '⎤'],
+      ['∑', '∏', '∫', '∬', '√', '∞', '≠', '≈', '≡', '≤'],
+      ['≥', '∂', '∇', '∈', '∉', '∋', '⊂', '⊃', '⊆', '⊇'],
+      ['⊕', '⊗', '⊥', '∩', '∪', '∧', '∨', '¬', '∃', '∀'],
+      ['⊤', '⊥', '∅', '∴', '⇒', '⇔', 'ℝ', 'ℤ', 'ℕ', 'ℚ']
+    ];
+    
+    this.appendDummyInput()
+        .appendField(new FieldUnicodeGrid(symbols), 'SYMBOL');
+    this.setOutput(true, 'String');
+    this.setColour(230);
+    this.setTooltip('Select a Unicode symbol');
+    this.setHelpUrl('');
+  }
+};
+
 
 
 	
