@@ -29,8 +29,8 @@ FieldUnicodeGrid.prototype.showEditor_ = function() {
         (function(symbol) {
           var item = document.createElement('div');
           item.textContent = symbol;
-          item.style.padding = '6px 10px';
-          item.style.fontSize = '20px';
+          item.style.padding = '2px 2px';
+          item.style.fontSize = '48px';
           item.style.cursor = 'pointer';
           item.style.border = '1px solid #ccc';
           item.style.marginRight = '4px';

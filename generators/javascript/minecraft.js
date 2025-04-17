@@ -470,11 +470,6 @@ Blockly.JavaScript['minecraft_rotate'] = function(block) {
 		return code;
 	};
 	
-Blockly.JavaScript['minecraft_set_elevation_absolute'] = function(block) {
-	  var dropdown_angle = block.getFieldValue('angle');
-		var code = "nextLocation=CMD.setVerticalAxisAbsolute(player, nextLocation, \'" + dropdown_angle + "\');\n";
-	  return code;
-	};
 	
 	Blockly.JavaScript['minecraft_set_elevation'] = function(block) {
 		  var value_angle = Blockly.JavaScript.valueToCode(block, 'angle', Blockly.JavaScript.ORDER_NONE);
