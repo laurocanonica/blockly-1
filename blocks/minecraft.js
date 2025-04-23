@@ -4882,4 +4882,145 @@ var symbols = [
 
 
 
+
 	
+Blockly.Blocks['python_code_snippet'] = {
+  init: function () {
+    this.jsonInit({
+      "type": "python_code_snippet",
+      "message0": "Python %1 %2",
+      "args0": [
+        {
+          "type": "field_multilinetext",
+          "name": "CODE",
+          "text": "# type your Python code here"
+        },
+        {
+          "type": "input_dummy"
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 230,
+      "tooltip": "Enter Python code. Syntax errors will be highlighted.",
+      "helpUrl": ""
+    });
+
+    var self = this;
+    this.setOnChange(function () {
+      if (!self.editorAttached && self.workspace && self.rendered) {
+        self.attachEditorListener();
+        self.editorAttached = true;
+      }
+    });
+  },
+
+  attachEditorListener: function () {
+    var block = this;
+    var field = this.getField('CODE');
+
+    field.showEditor_ = function () {
+      var svgRoot = this.getSvgRoot();
+      var fieldRect = svgRoot.getBoundingClientRect();
+
+      var originalTextarea = document.querySelector('.blocklyHtmlInput');
+      if (originalTextarea) {
+        originalTextarea.style.display = 'none';
+      }
+ 
+ 
+      var overlay = document.createElement('div');
+      overlay.style.position = 'absolute';
+      overlay.style.left = fieldRect.left + window.scrollX + 'px';
+      overlay.style.top = fieldRect.top + window.scrollY + 'px';
+
+      overlay.style.width = measureTextCanvas(field)+20 + 'px';
+      overlay.style.height = fieldRect.height + 'px';
+      overlay.style.zIndex = 10000;
+      overlay.style.backgroundColor = '#fff';
+      overlay.style.border = '1px solid #ccc';
+      overlay.style.resize = 'both';
+      overlay.style.overflow = 'auto';
+      overlay.style.minWidth = '150px';
+      overlay.style.minHeight = '100px';
+      overlay.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+      overlay.style.padding = '0';
+      overlay.style.boxSizing = 'border-box';
+
+      document.body.appendChild(overlay);
+
+      var cm = CodeMirror(overlay, {
+        value: field.getValue(),
+        mode: 'python',
+        lineNumbers: false,
+        indentUnit: 4,
+        autofocus: true,
+		autoMatchParens: true,
+   		theme: 'default'
+     });
+
+	var computedStyle = window.getComputedStyle(field.getSvgRoot());
+	var fontSize = computedStyle.fontSize;
+	var fontFamily = computedStyle.fontFamily;
+	var wrapper = cm.getWrapperElement();
+	wrapper.style.fontSize = 15*Blockly.getMainWorkspace().scale+'px'; //fontSize;
+	//wrapper.style.fontSize = '15px'; //fontSize;
+	wrapper.style.fontFamily = fontFamily;
+	wrapper.style.lineHeight = computedStyle.lineHeight;
+	
+	function measureTextCanvas(field) { // Blockly limits the width of text blocks
+	  var lines = field.getValue().split('\n');
+	
+	  var longest = lines.reduce(function(a, b) {
+	    return a.length > b.length ? a : b;
+	  }, '');	
+	  var canvas = document.createElement('canvas');
+	  var context = canvas.getContext('2d');
+	  context.font = '16px Arial';
+	  var workspace=Blockly.getMainWorkspace();
+	  var scale=workspace.scale; 
+	  var newWidth=context.measureText(longest).width*scale;
+	  var workspace_width = workspace.getMetrics().viewWidth*.9; // reduce 90%
+	  if(newWidth>workspace_width)	{
+		newWidth=workspace_width;
+	  }
+	  return newWidth;
+
+	}
+
+
+
+
+      // Refresh and match CodeMirror size to overlay
+      function resizeCM() {
+        cm.setSize(overlay.clientWidth + 'px', overlay.clientHeight + 'px');
+        cm.refresh();
+      }
+
+      resizeCM(); // Initial
+      setTimeout(resizeCM, 10); // Just in case
+
+      // Optional: live update size as user resizes
+      var observer = new MutationObserver(function () {
+        resizeCM();
+      });
+      observer.observe(overlay, { attributes: true, attributeFilter: ['style'] });
+
+		// Close only if clicked outside the overlay
+		overlay.addEventListener('focusout', function (event) {
+		  setTimeout(function () {
+		    if (!overlay.contains(document.activeElement)) {
+		      field.setValue(cm.getValue());
+		      observer.disconnect();
+		      if (overlay.parentNode) {
+		        overlay.parentNode.removeChild(overlay);
+		      }
+		      if (originalTextarea) {
+		        originalTextarea.style.display = '';
+		      }
+		    }
+		  }, 10); // Slight delay to allow scrollbar clicks
+		});
+    };
+  }
+};
