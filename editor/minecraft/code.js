@@ -287,7 +287,7 @@ Code.LANG = Code.getLang();
  * List of tab names.
  * @private
  */
-Code.TABS_ = ['blocks', 'javascript', 'xml', 'log', 'text'];
+Code.TABS_ = ['blocks', 'javascript', 'python', 'xml', 'log', 'text'];
 
 Code.selected = 'blocks';
 
@@ -354,6 +354,8 @@ Code.renderContent = function() {
     xmlTextarea.focus();
   } else if (content.id == 'content_javascript') {
     Code.attemptCodeGeneration(Blockly.JavaScript);
+  } else if (content.id == 'content_python') {
+    Code.attemptCodeGeneration(Blockly.Python);
   } else if (content.id == 'content_log') {
     Code.loadLog();
   } else if (content.id == 'content_text') {

@@ -4989,8 +4989,6 @@ Blockly.Blocks['python_code_snippet'] = {
 	}
 
 
-
-
       // Refresh and match CodeMirror size to overlay
       function resizeCM() {
         cm.setSize(overlay.clientWidth + 'px', overlay.clientHeight + 'px');

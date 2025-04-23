@@ -979,4 +979,17 @@ Blockly.JavaScript['minecraft_unicode_grid_selector'] = function(block) {
   var code = '"' + symbol + '"';
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+
+Blockly.JavaScript['python_code_snippet'] = function(block) {
+  var code = block.getFieldValue('CODE') || '';
+  return code + '\n';
+};
+
+
+Blockly.JavaScript['codemirror_code'] = function(block) {
+  var code = block.codeText || '';
+  return code + '\n';
+};
+
+
 	

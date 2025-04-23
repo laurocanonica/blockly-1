@@ -12,8 +12,14 @@
 	<script src="../../blockly_compressed.js"></script>
 	<script src="../../blocks_compressed.js"></script>
 	<script src="../../javascript_compressed.js"></script>
+    <script src="../../python_compressed.js"></script>
 	<script src="populateTextTab.js"></script>	
 	<script src="code.js"></script>	
+
+	<!-- CodeMirror CSS & JS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
 
 
 </head>
@@ -56,6 +62,7 @@
 						<td id="tab_blocks" class="tabon">...</td>
 						<td class="tabmin"> </td>
 						<td id="tab_javascript" class="taboff">JavaScript</td>
+						<td id="tab_python" class="taboff">Python</td>
 						<td class="tabmin"> </td>
 						<td id="tab_xml" class="taboff">XML</td>
 						<td class="tabmin"> </td>
@@ -111,6 +118,7 @@
 	</table>
 	<div id="content_blocks" class="content"></div>
 	<pre id="content_javascript" class="content"></pre>
+	<pre id="content_python" class="content"></pre>
 	<textarea id="content_xml" class="content" wrap="off"></textarea>
 	<textarea id="content_log" class="content" wrap="off"></textarea>
 	<textarea id="content_text" class="content" wrap="off"></textarea>
@@ -1267,7 +1275,7 @@
 					</shadow>
 				</value>
 			</block>
-
+			<block type="python_code_snippet"></block>
 		</category>
 
 	</xml>
