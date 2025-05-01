@@ -654,7 +654,7 @@ Code.runJS = function() {
 		   var infiniteLoopMessage=MSG['infiniteLoopMessage'];
 		   Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if(infiniteLoopCounter>'+MAX_LOOP_CYCLES+') {return("'+infiniteLoopMessage+'")}else{(infiniteLoopCounter++)}\n';
 
-		   var code = Blockly.JavaScript.workspaceToCode(Code.workspace);
+		   var code = Blockly.Python.workspaceToCode(Code.workspace);
 		   var xmlCodeDom = Blockly.Xml.workspaceToDom(Code.workspace);
 		   var xmlCode = Blockly.Xml.domToText(xmlCodeDom);
 		   var host='http://'+ Code.remoteHost; 	   
@@ -662,7 +662,7 @@ Code.runJS = function() {
 		   
 		   //postToServer('/EXE', {'EXECODE': code});
 		   //postToServer(playerName, host+':'+port+'/EXE', {'EXECODE': code , 'Playername':playerName});
-		   Code.formData = new FormData(); 
+		   Code.formData = new FormData();
 		   Code.formData.append('EXECODE', code);
 		   Code.formData.append('XMLCODE', xmlCode);
 		   Code.formData.append('Playername', playerName);
