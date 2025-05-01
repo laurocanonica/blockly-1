@@ -713,9 +713,9 @@ Code.loadLog = function() {
 	Code.formData.append('Playername', playerName);
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", hpath, true); 
-	xhr.timeout = 2000; 
+	xhr.timeout = 5000; 
 	xhr.onload=function(event){
-	   logTextarea.value =xhr.responseText;		   
+	   logTextarea.value ='log of last command:\n'+xhr.responseText; 
 	}; 
 	xhr.onerror=function(event){ 
 	   logTextarea.value ='ERROR Connecting server\n'+xhr.responseText; 
@@ -738,7 +738,8 @@ Code.loadLog = function() {
 	      console.log("error uploading " + this.status);
 	    }
 	  };
-	xhr.send(Code.formData);	   
+	logTextarea.value ='Loading log file'; 
+	xhr.send(Code.formData);  
 };
 
 Code.loadExamplesList = function() {
