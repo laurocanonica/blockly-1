@@ -32,74 +32,83 @@ function cleanMaterialList(value_name) {
 var TAB_SPACES ='  ';
 function optimizeMaterialList(value_name) {
 	var materialList='';
-	if(value_name.includes(', "TY"')){ //elswe when we have simple {"TY":"b.acacia_fence_gate"} we transform it in a string
+	if(value_name.includes(', "TYPE"')){ //else when we have simple {"TYPE":"b.acacia_fence_gate"} we transform it in a string
 		materialList= '\n'+TAB_SPACES+value_name;		
-	} else { // transform all occurences of {"TY":"b.acacia_fence_gate"} into "b.acacia_fence_gate"
-		materialList=value_name.replaceAll(TAB_SPACES, '').replaceAll('{"TY":', '').replaceAll('}', '').replaceAll('\n', ' ');
+	} else { // transform all occurences of {"TYPE":"b.acacia_fence_gate"} into "b.acacia_fence_gate"
+		materialList=value_name.replaceAll(TAB_SPACES, '').replaceAll('{"TYPE":', '').replaceAll('}', '').replaceAll('\n', ' ');
 	}
+	if(!materialList.includes('},')){ // if there is only one dictionary block, write it on one line
+		materialList=materialList.replaceAll("\n", "").replaceAll(TAB_SPACES, '');
+	} 
+	
 	return materialList;
 }
 
 
 
-function addReplaceCommasAndSemicolons(){
+function addReplaceCommasAndSemicolons(){ // to be deleted
 		return'.replaceAll(",","&#44").replaceAll(";","&#59")'; // replace commas and semicolumns
 	};
 
 Blockly.Python['minecraft_multiciplity'] = function(block) {
 	var number_mutiplicity = block.getFieldValue('mutiplicity');
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '{"MU":"'+number_mutiplicity+'"'+addDictionaryEntry(value_singleblock);
+	var code = '{"AMOUNT":"'+number_mutiplicity+'"'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 Blockly.Python['minecraft_multiciplity_var'] = function(block) {
 	var variable_mutiplicity = Blockly.Python.variableDB_.getName(block.getFieldValue('mutiplicity'), Blockly.Variables.NAME_TYPE);
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '{"MU":'+variable_mutiplicity+addDictionaryEntry(value_singleblock);
+	var code = '{"AMOUNT":'+variable_mutiplicity+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 Blockly.Python['minecraft_delay'] = function(block) {
 	var number_delay = block.getFieldValue('delay');
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '"DE='+number_delay+',"'+addDictionaryEntry(value_singleblock);
+	var code = '{"DELAY":"'+number_delay+'"'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 Blockly.Python['minecraft_delay_var'] = function(block) {
 	var variable_delay = Blockly.Python.variableDB_.getName(block.getFieldValue('delay'), Blockly.Variables.NAME_TYPE);
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '"DE="+'+variable_delay+'+","'+addDictionaryEntry(value_singleblock);
+	var code = '{"DELAY":'+variable_delay+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 Blockly.Python['minecraft_delay_random'] = function(block) {
 	var min = block.getFieldValue('min');
 	var max = block.getFieldValue('max');
-	var number_delay = min+'-x-'+max;
+	var number_delay = min+', '+max;
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '"DE='+number_delay+',"'+addDictionaryEntry(value_singleblock);
+	var code = '{"DELAY":"'+number_delay+'"'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 Blockly.Python['minecraft_delay_random_var'] = function(block) {
 	var min = Blockly.Python.variableDB_.getName(block.getFieldValue('min'), Blockly.Variables.NAME_TYPE);
 	var max = Blockly.Python.variableDB_.getName(block.getFieldValue('max'), Blockly.Variables.NAME_TYPE);
-	var number_delay =min+'+"-x-"+'+max;
+	var number_delay ="str("+min+")"+'+", "+ str('+max+")";
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '"DE="+'+number_delay+'+","'+addDictionaryEntry(value_singleblock);
+	var code = '{"DELAY":'+number_delay+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 
 Blockly.Python['minecraft_delay_reset_random'] = function(block) {
 	  var number_seed = block.getFieldValue('seed');
-	  var code = "CMD.setDelayRandomGeneratorSeed(" + number_seed + ");\n";
+	  var code = "vm.setDelayRandomGeneratorSeed(" + number_seed + ");\n";
 	  return code;
 	};
 
 
+Blockly.Python['minecraft_wait'] = function(block) {
+	  var value_time = Blockly.Python.valueToCode(block, 'time', Blockly.Python.ORDER_NONE);
+	  var code = "vm.programWait("+value_time+");\n";
+	  return code;
+	};
 
 
 
@@ -311,10 +320,10 @@ Blockly.Python['minecraft_block_shape'] = function(block) {
 	var code = 'vm.createBlock([';
 	code += optimizeMaterialList(value_name);
 	/*
-	if(value_name.includes('", ')){ //when we have simple {"TY":"b.acacia_fence_gate"} we transfor it in a string
+	if(value_name.includes('", ')){ //when we have simple {"TYPE":"b.acacia_fence_gate"} we transfor it in a string
 		code += '\n  '+value_name;		
-	} else { // transform all occurences of {"TY":"b.acacia_fence_gate"} into "b.acacia_fence_gate"
-		code+=value_name.replaceAll('{"TY":', '').replaceAll('}', '').replaceAll('\n', '');
+	} else { // transform all occurences of {"TYPE":"b.acacia_fence_gate"} into "b.acacia_fence_gate"
+		code+=value_name.replaceAll('{"TYPE":', '').replaceAll('}', '').replaceAll('\n', '');
 	}
 	*/
 	code += "])\n";
@@ -404,7 +413,7 @@ Blockly.Python['minecraft_block'] = function(block) {
 	var code = 'vm.tofixcreateBlock(';
 	if(value_name.includes(',')){
 		code += value_name;		
-	}else { // transform {"TY":"b.acacia_fence_gate"} into "b.acacia_fence_gate"
+	}else { // transform {"TYPE":"b.acacia_fence_gate"} into "b.acacia_fence_gate"
 		code+=valueName.substring(valueName.indexof(':'));
 	}
 	code += ");\n";
@@ -541,7 +550,7 @@ Blockly.Python['minecraft_rotate'] = function(block) {
 function minecraft_materialbockOnlyOne_fn(block){
 	var dropdown_name = block.getFieldValue('NAME');
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '{"TY":"'+dropdown_name+'"'+closeDictionaryEntry(value_singleblock);
+	var code = '{"TYPE":"'+dropdown_name+'"'+closeDictionaryEntry(value_singleblock);
 
 	return [ code, Blockly.Python.ORDER_NONE ];
 }
@@ -723,7 +732,7 @@ function validateBlockchoice(block, blockChoice) {
 	choice=removeNulls(choice);
 	choice=cleanMaterialList(choice);
 	if (choice==""){
-		return('  ["TY=X.EMPTY"],\n');
+		return('  ["TYPE=X.EMPTY"],\n');
 	} else {
 		return('  ['+choice+'],\n');
 	}
@@ -882,11 +891,6 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 	};
 		
 	
-	Blockly.Python['minecraft_wait'] = function(block) {
-		  var value_time = Blockly.Python.valueToCode(block, 'time', Blockly.Python.ORDER_NONE);
-		  var code = "CMD.programWait("+value_time+");\n";
-		  return code;
-		};
 
 	Blockly.Python['minecraft_movePos_To_Player'] = function(block) {
 		  var value_playername = Blockly.Python.valueToCode(block, 'playerName', Blockly.Python.ORDER_ATOMIC);
@@ -955,7 +959,7 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 		
 		Blockly.Python['minecraft_materialNothing'] = function(block) {
 			var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-			var code = '"TY=X.EMPTY,"'+addDictionaryEntry(value_singleblock);
+			var code = '"TYPE=X.EMPTY,"'+addDictionaryEntry(value_singleblock);
 			return [ code, Blockly.Python.ORDER_NONE ];
 		}
 
