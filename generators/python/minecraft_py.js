@@ -41,9 +41,8 @@ function optimizeMaterialList(value_name) {
 		materialList=materialList.replaceAll("\n", "").replaceAll(TAB_SPACES, '');
 	} 
 	
-	return materialList;
+	return '['+materialList+']';
 }
-
 
 
 function addReplaceCommasAndSemicolons(){ // to be deleted
@@ -104,14 +103,6 @@ Blockly.Python['minecraft_delay_reset_random'] = function(block) {
 	};
 
 
-Blockly.Python['minecraft_wait'] = function(block) {
-	  var value_time = Blockly.Python.valueToCode(block, 'time', Blockly.Python.ORDER_NONE);
-	  var code = "vm.programWait("+value_time+");\n";
-	  return code;
-	};
-
-
-
 
 
 Blockly.Python['minecraft_item'] = function(block) {
@@ -128,14 +119,14 @@ Blockly.Python['minecraft_polygon'] = function(block) {
 	var value_nr_sides = Blockly.Python.valueToCode(block, 'nr_sides', Blockly.Python.ORDER_NONE);
 	var value_sidelength = Blockly.Python.valueToCode(block, 'sideLength', Blockly.Python.ORDER_NONE);
 	var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	var code = 'CMD.createPolygon(nextLocation, ';
+	var code = 'vm.createPolygon(';
 	code += value_nr_sides + ", ";
 	code += value_sidelength + ", ";
 	code += value_sidelength + ", ";
 	code += "360, ";
 	code += dropdown_fill + ", ";
-	code += cleanMaterialList(value_name);
-	code += ", player, startCmdTime);\n";
+	code += optimizeMaterialList(value_name);
+	code += ");\n";
 	return code;
 };
 
@@ -145,13 +136,13 @@ Blockly.Python['minecraft_star'] = function(block) {
 	var value_innerRadius = Blockly.Python.valueToCode(block, 'innerRadius', Blockly.Python.ORDER_NONE);
 	var value_outerRadius = Blockly.Python.valueToCode(block, 'outerRadius', Blockly.Python.ORDER_NONE);
 	var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	var code = 'CMD.createStar(nextLocation, ';
+	var code = 'vm.createStar(nextLocation, ';
 	code += value_nr_sides + ", ";
 	code += value_innerRadius + ", ";
 	code += value_outerRadius + ", ";
 	code += dropdown_fill + ", ";
-	code += cleanMaterialList(value_name);
-	code += ", player, startCmdTime);\n";
+	code += optimizeMaterialList(value_name);
+	code += ");\n";
 	return code;
 };
 
@@ -160,12 +151,12 @@ Blockly.Python['minecraft_star'] = function(block) {
 		  var value_width = Blockly.Python.valueToCode(block, 'width', Blockly.Python.ORDER_NONE);
 		  var value_height = Blockly.Python.valueToCode(block, 'height', Blockly.Python.ORDER_NONE);
 		  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-			var code = 'CMD.createRectangle(nextLocation, ';
+			var code = 'vm.createRectangle(';
 			code += value_width + ", ";
 			code += value_height + ", ";
 			code += dropdown_fill + ", ";
-			code += cleanMaterialList(value_name);
-			code += ", player, startCmdTime);\n";
+			code += optimizeMaterialList(value_name);
+			code += ");\n";
 			return code;
 		};
 		
@@ -174,13 +165,13 @@ Blockly.Python['minecraft_star'] = function(block) {
 		  var radiusX = Blockly.Python.valueToCode(block, 'width', Blockly.Python.ORDER_NONE);
 		  var radiusY = Blockly.Python.valueToCode(block, 'height', Blockly.Python.ORDER_NONE);
 		  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-			var code = 'CMD.createPolygon(nextLocation, 100, ';
+			var code = 'vm.createPolygon(100, ';
 			code += radiusX + ", ";
 			code += radiusY + ", ";
 			code += "360, ";
 			code += dropdown_fill + ", ";
-			code += cleanMaterialList(value_name);
-			code += ", player, startCmdTime);\n";
+			code += optimizeMaterialList(value_name);
+			code += ");\n";
 			return code;
 		}; 
 
@@ -192,12 +183,12 @@ Blockly.Python['minecraft_circle_shape'] = function(block) {
   var dropdown_fill = block.getFieldValue('FILL');
   var value_radius = Blockly.Python.valueToCode(block, 'RADIUS', Blockly.Python.ORDER_NONE);
   var value_name = Blockly.Python.valueToCode(block, 'MATERIAL', Blockly.Python.ORDER_NONE);
-  var code = 'CMD.createPolygon(nextLocation, 100, ';
-  code += value_radius + ", null, ";
+  var code = 'vm.createPolygon(100, ';
+  code += value_radius + ", None, ";
   code += "360, ";
   code += convertFillToBoolean(dropdown_fill) + ", ";
-  code += cleanMaterialList(value_name);
-  code += ", player, startCmdTime);\n";
+  code += optimizeMaterialList(value_name);
+  code += ");\n";
   return code;
 };
 
@@ -206,11 +197,11 @@ Blockly.Python['minecraft_square_shape'] = function(block) {
   var dropdown_fill = block.getFieldValue('FILL');
   var value_sideLength = Blockly.Python.valueToCode(block, 'WIDTH', Blockly.Python.ORDER_NONE);
   var value_name = Blockly.Python.valueToCode(block, 'MATERIAL', Blockly.Python.ORDER_NONE);
-  var code = 'CMD.createRectangle(nextLocation, ';
-  code += value_sideLength + ", null, ";
+  var code = 'vm.createRectangle(';
+  code += value_sideLength + ", None, ";
   code += convertFillToBoolean(dropdown_fill) + ", ";
-  code += cleanMaterialList(value_name);
-  code += ", player, startCmdTime);\n";
+  code += optimizeMaterialList(value_name);
+  code += ");\n";
   return code;
 };
 
@@ -239,12 +230,12 @@ Blockly.Python['minecraft_rectangle_shape'] = function(block) {
   var value_width = Blockly.Python.valueToCode(block, 'WIDTH', Blockly.Python.ORDER_NONE);
   var value_height = Blockly.Python.valueToCode(block, 'HEIGHT', Blockly.Python.ORDER_NONE);
   var value_name = Blockly.Python.valueToCode(block, 'MATERIAL', Blockly.Python.ORDER_NONE);
-  var code = 'CMD.createRectangle(nextLocation, ';
+  var code = 'vm.createRectangle(';
   code += value_width + ", ";
   code += value_height + ", ";
   code += convertFillToBoolean(dropdown_fill) + ", ";
-  code += cleanMaterialList(value_name);
-  code += ", player, startCmdTime);\n";
+  code += optimizeMaterialList(value_name);
+  code += ");\n";
   return code;
 };
 
@@ -254,14 +245,14 @@ Blockly.Python['minecraft_polygon_shape'] = function(block) {
   var value_nr_sides = Blockly.Python.valueToCode(block, 'SIDES', Blockly.Python.ORDER_NONE);
   var value_polygon_radius = Blockly.Python.valueToCode(block, 'POLYGON_RADIUS', Blockly.Python.ORDER_NONE);
   var value_name = Blockly.Python.valueToCode(block, 'MATERIAL', Blockly.Python.ORDER_NONE);
-  var code = 'CMD.createPolygon(nextLocation, ';
+  var code = 'vm.createPolygon(';
   code += value_nr_sides + ", ";
   code += value_polygon_radius + ", ";
   code += value_polygon_radius + ", "; // Assuming the side length is same as the radius for simplicity
   code += "360, ";
   code += convertFillToBoolean(dropdown_fill) + ", ";
-  code += cleanMaterialList(value_name);
-  code += ", player, startCmdTime);\n";
+  code += optimizeMaterialList(value_name);
+  code += ");\n";
   return code;
 };
 
@@ -271,13 +262,13 @@ Blockly.Python['minecraft_ellipse_shape'] = function(block) {
   var radiusX = Blockly.Python.valueToCode(block, 'RADIUS1', Blockly.Python.ORDER_NONE);
   var radiusY = Blockly.Python.valueToCode(block, 'RADIUS2', Blockly.Python.ORDER_NONE);
   var value_name = Blockly.Python.valueToCode(block, 'MATERIAL', Blockly.Python.ORDER_NONE);
-  var code = 'CMD.createPolygon(nextLocation, 100, ';
+  var code = 'vm.createPolygon(100, ';
   code += radiusX + ", ";
   code += radiusY + ", ";
   code += "360, ";
   code += convertFillToBoolean(dropdown_fill) + ", ";
-  code += cleanMaterialList(value_name);
-  code += ", player, startCmdTime);\n";
+  code += optimizeMaterialList(value_name);
+  code += ");\n";
   return code;
 };
 
@@ -288,13 +279,13 @@ Blockly.Python['minecraft_arc_shape'] = function(block) {
   var radiusY = Blockly.Python.valueToCode(block, 'RADIUS2', Blockly.Python.ORDER_NONE);
   var angle = Blockly.Python.valueToCode(block, 'ANGLE', Blockly.Python.ORDER_NONE);
   var value_name = Blockly.Python.valueToCode(block, 'MATERIAL', Blockly.Python.ORDER_NONE);
-  var code = 'CMD.createPolygon(nextLocation, 100, ';
+  var code = 'vm.createPolygon(100, ';
   code += radiusX + ", ";
   code += radiusY + ", ";
   code += angle + ", ";
   code += convertFillToBoolean(dropdown_fill) + ", ";
-  code += cleanMaterialList(value_name);
-  code += ", player, startCmdTime);\n";
+  code += optimizeMaterialList(value_name);
+  code += ");\n";
   return code;
 };
 
@@ -305,28 +296,21 @@ Blockly.Python['minecraft_star_shape'] = function(block) {
   var value_innerRadius = Blockly.Python.valueToCode(block, 'INNER_RADIUS', Blockly.Python.ORDER_NONE);
   var value_outerRadius = Blockly.Python.valueToCode(block, 'OUTER_RADIUS', Blockly.Python.ORDER_NONE);
   var value_name = Blockly.Python.valueToCode(block, 'MATERIAL', Blockly.Python.ORDER_NONE);
-  var code = 'CMD.createStar(nextLocation, ';
+  var code = 'vm.createStar(nextLocation, ';
   code += value_nr_sides + ", ";
   code += value_innerRadius + ", ";
   code += value_outerRadius + ", ";
   code += convertFillToBoolean(dropdown_fill) + ", ";
-  code += cleanMaterialList(value_name);
-  code += ", player, startCmdTime);\n";
+  code += optimizeMaterialList(value_name);
+  code += ");\n";
   return code;
 };
 
 Blockly.Python['minecraft_block_shape'] = function(block) {
 	var value_name = Blockly.Python.valueToCode(block, 'MATERIAL', Blockly.Python.ORDER_NONE);
-	var code = 'vm.createBlock([';
+	var code = 'vm.createBlock(';
 	code += optimizeMaterialList(value_name);
-	/*
-	if(value_name.includes('", ')){ //when we have simple {"TYPE":"b.acacia_fence_gate"} we transfor it in a string
-		code += '\n  '+value_name;		
-	} else { // transform all occurences of {"TYPE":"b.acacia_fence_gate"} into "b.acacia_fence_gate"
-		code+=value_name.replaceAll('{"TYPE":', '').replaceAll('}', '').replaceAll('\n', '');
-	}
-	*/
-	code += "])\n";
+	code += ")\n";
 	return code;
 };
 
@@ -381,7 +365,7 @@ Blockly.Python['shape_block'] = function(block) {
 
 // Helper to convert fill type to boolean
 function convertFillToBoolean(fill) {
-  return fill === 'FULL' ? true : false;
+  return fill === 'FULL' ? 'True' : 'False';
 }
 
 

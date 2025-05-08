@@ -2003,11 +2003,11 @@ Blockly.Blocks['minecraft_polygon'] = {
 				      "options": [
 				        [
 				        	Blockly.Msg.MC_cmd_empty,
-				          "false"
+				          "False"
 				        ],
 				        [
 				        	Blockly.Msg.MC_cmd_full,
-				          "true"
+				          "True"
 				        ]
 				      ]
 				    },
@@ -2064,11 +2064,11 @@ Blockly.Blocks['minecraft_star'] = {
 				      "options": [
 				        [
 				        	Blockly.Msg.MC_cmd_empty,
-				          "false"
+				          "False"
 				        ],
 				        [
 				        	Blockly.Msg.MC_cmd_full,
-				          "true"
+				          "True"
 				        ]
 				      ]
 				    },
@@ -2136,11 +2136,11 @@ Blockly.Blocks['minecraft_rectangle'] = {
 					      "options": [
 					        [
 					        	Blockly.Msg.MC_cmd_empty,
-					          "false"
+					          "False"
 					        ],
 					        [
 					        	Blockly.Msg.MC_cmd_full,
-					          "true"
+					          "True"
 					        ]
 					      ]
 					    },
@@ -2197,11 +2197,11 @@ Blockly.Blocks['minecraft_ellipse'] = {
 				      "options": [
 				        [
 				        	Blockly.Msg.MC_cmd_empty,
-				          "false"
+				          "False"
 				        ],
 				        [
 				        	Blockly.Msg.MC_cmd_full,
-				          "true"
+				          "frue"
 				        ]
 				      ]
 				    },
@@ -3130,11 +3130,11 @@ Blockly.Blocks['minecraft_text'] = {
           "options": [
             [
               Blockly.Msg.MC_cmd_full,
-              "false"
+              "False"
             ],
             [
               Blockly.Msg.MC_cmd_empty,
-              "true"
+              "True"
             ]
           ]
         },
@@ -4340,11 +4340,11 @@ Blockly.Blocks['minecraft_group'] = {
 				      "options": [
 				        [
 				        	Blockly.Msg.MC_cmd_empty,
-				          "false"
+				          "False"
 				        ],
 				        [
 				        	Blockly.Msg.MC_cmd_full,
-				          "true"
+				          "True"
 				        ]
 				      ]
 				    },
