@@ -2029,7 +2029,6 @@
 "MC_cmd_minecraft_set_elevation_relative_ver2" : "inclinati di altri%1 gradi",
 "MC_cmd_minecraft_writetext" : "scrivi %1 %2 con il font di grandezza %3 %4 punti, %5 %6, fatto di %7 %8",
 "MC_cmd_minecraft_addevent" : "Quando %1 chiama il comando %2",
-"MC_cmd_minecraft_wait" : "aspetta %1 millisecondi",
 "MC_cmd_friendly_ver1" : "amichevole",
 "MC_cmd_friendly_ver2" : "amico %1",
 "MC_cmd_enemy" : "nemico",

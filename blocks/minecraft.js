@@ -4092,31 +4092,6 @@ Blockly.Blocks['m_draw_z'] = {
 
 
 
-Blockly.Blocks['minecraft_wait'] = {
-		init : function() {
-			this.jsonInit( 	
-					{
-						  "type": "minecraft_wait",
-						  "message0": Blockly.Msg.MC_cmd_minecraft_wait,
-						  "args0": [
-						    {
-						      "type": "input_value",
-						      "name": "time",
-						      "check": "Number"
-						    }
-						  ],
-						  "previousStatement": null,
-						  "nextStatement": null,
-						  "colour": 90,
-						  "tooltip": "",
-						  "helpUrl": ""
-						});
-		}
-	};
-
-
-
-
 Blockly.Blocks['minecraft_movePos_To_Player'] = {
 		init : function() {
 			this.jsonInit( 	

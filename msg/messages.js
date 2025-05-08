@@ -3312,7 +3312,6 @@ Blockly.Msg.MC_cmd_minecraft_set_elevation_relative_ver1 = 'change the vertical 
 Blockly.Msg.MC_cmd_minecraft_set_elevation_relative_ver2 = 'change tilt by %1 degrees';
 Blockly.Msg.MC_cmd_minecraft_writetext = 'write %1 %2 using font of size %3 %4 points, %5 %6, made of %7 %8'
 Blockly.Msg.MC_cmd_minecraft_addevent = 'when %1 call function %2';
-Blockly.Msg.MC_cmd_minecraft_wait = 'wait %1 milliseconds';
 Blockly.Msg.MC_cmd_friendly_ver1 = 'friendly';
 Blockly.Msg.MC_cmd_friendly_ver2 = 'friendly %1';
 Blockly.Msg.MC_cmd_enemy = 'enemy';
