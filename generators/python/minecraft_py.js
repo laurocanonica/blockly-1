@@ -136,7 +136,7 @@ Blockly.Python['minecraft_star'] = function(block) {
 	var value_innerRadius = Blockly.Python.valueToCode(block, 'innerRadius', Blockly.Python.ORDER_NONE);
 	var value_outerRadius = Blockly.Python.valueToCode(block, 'outerRadius', Blockly.Python.ORDER_NONE);
 	var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	var code = 'vm.createStar(nextLocation, ';
+	var code = 'vm.createStar(';
 	code += value_nr_sides + ", ";
 	code += value_innerRadius + ", ";
 	code += value_outerRadius + ", ";
@@ -209,18 +209,18 @@ Blockly.Python['minecraft_square_shape'] = function(block) {
 Blockly.Python['minecraft_line_shape'] = function(block) {
   var value_length = Blockly.Python.valueToCode(block, 'LENGTH', Blockly.Python.ORDER_NONE);
   var value_name = Blockly.Python.valueToCode(block, 'MATERIAL', Blockly.Python.ORDER_NONE);
-  var code = 'CMD.createLine(nextLocation, ';
+  var code = 'vm.createLine(';
   code += value_length + ", ";
-  code += cleanMaterialList(value_name);
-  code += ", player, startCmdTime);\n";
+  code += optimizeMaterialList(value_name);
+  code += ");\n";
   return code;
 };
 
 Blockly.Python['minecraft_connection_shape'] = function(block) {
 	var value_name = Blockly.Python.valueToCode(block, 'MATERIAL', Blockly.Python.ORDER_NONE);
-	var code = 'CMD.connectPositions(markLocation, nextLocation,';
-	code += cleanMaterialList(value_name);
-	code += ", player, startCmdTime);\n";
+	var code = 'vm.connectPositions(';
+	code += optimizeMaterialList(value_name);
+	code += ");\n";
 	return code;
 };
 
@@ -296,7 +296,7 @@ Blockly.Python['minecraft_star_shape'] = function(block) {
   var value_innerRadius = Blockly.Python.valueToCode(block, 'INNER_RADIUS', Blockly.Python.ORDER_NONE);
   var value_outerRadius = Blockly.Python.valueToCode(block, 'OUTER_RADIUS', Blockly.Python.ORDER_NONE);
   var value_name = Blockly.Python.valueToCode(block, 'MATERIAL', Blockly.Python.ORDER_NONE);
-  var code = 'vm.createStar(nextLocation, ';
+  var code = 'vm.createStar(';
   code += value_nr_sides + ", ";
   code += value_innerRadius + ", ";
   code += value_outerRadius + ", ";
@@ -385,9 +385,9 @@ function convertFillToBoolean(fill) {
 
 Blockly.Python['minecraft_sensing'] = function(block) {
 	var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	var code = 'CMD.isCurrentBlockMadeOf(nextLocation,';
-	code += cleanMaterialList(value_name);
-	code += ", player)\n";
+	var code = 'vm.isCurrentBlockMadeOf(';
+	code += optimizeMaterialList(value_name);
+	code += ")";
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
@@ -413,10 +413,10 @@ Blockly.Python['minecraft_line'] = function(block) {
 		value_name='[' + value_name.substring(0, value_name.length-1) + ']';
 	}
 
-	var code = 'CMD.createLine(nextLocation, ';
+	var code = 'vm.createLine(';
 	code += value_length;
-	code += ", "+cleanMaterialList(value_name);
-	code += ", player, startCmdTime);\n";
+	code += ", "+optimizeMaterialList(value_name);
+	code += ");\n";
 	return code;
 };
 
@@ -424,9 +424,9 @@ Blockly.Python['minecraft_line'] = function(block) {
 
 Blockly.Python['minecraft_connectPositions'] = function(block) {
 	var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	var code = 'CMD.connectPositions(markLocation, nextLocation,';
-	code += cleanMaterialList(value_name);
-	code += ", player, startCmdTime);\n";
+	var code = 'vm.connectPositions(';
+	code += optimizeMaterialList(value_name);
+	code += ");\n";
 	return code;
 };
 
@@ -437,7 +437,7 @@ Blockly.Python['minecraft_gotopos'] = function(block) {
 	var value_x = Blockly.Python.valueToCode(block, 'x', Blockly.Python.ORDER_NONE);
 	var value_y = Blockly.Python.valueToCode(block, 'y', Blockly.Python.ORDER_NONE);
 	var value_z = Blockly.Python.valueToCode(block, 'z', Blockly.Python.ORDER_NONE);
-	var code = "nextLocation=CMD.movePositionAbsolute(player, startLocation, ";
+	var code = "vm.movePositionAbsolute(";
 	code += "nextLocation.getYaw(), ";
 	code += "nextLocation.getPitch(), ";
 	code += '"'+dropdown_coordsystem + '", ';
@@ -457,13 +457,13 @@ Blockly.Python['minecraft_move'] = function(block) {
 
 Blockly.Python['minecraft_move_to_view_target'] = function(block) {
 	  var dropdown_viewer = block.getFieldValue('viewer');
-	  var code = "nextLocation=";
+	  var code = "";
 	  switch(dropdown_viewer){
 	  case 'PLAYER_EYES':
-		  code+="CMD.movePositionWherePlayerIsLooking(player);\n";
+		  code+="vm.movePositionWherePlayerIsLooking();\n";
 		  break;
 	  case 'PLAYER_POS':
-		  code+="CMD.movePositionWherePlayerIs(player);\n";
+		  code+="vm.movePositionWherePlayerIs();\n";
 		  break;
  	  case 'ROBOT_EYES':
  		  code+="CMD.movePosition(player, nextLocation);\n";
@@ -477,8 +477,6 @@ Blockly.Python['minecraft_move_to_view_target'] = function(block) {
  	  default:
  	      console.log("Invalid option for minecraft_move_to_view_target:"+dropdown_viewer);
  	  }
-      
-	code+="if(nextLocation==null) return;\n";
 	return code;
 };
 
@@ -696,7 +694,7 @@ Blockly.Python['minecraft_text'] = function(block) {
 	};
 	
 Blockly.Python['minecraft_mark'] = function(block) {
-	  var code = 'markLocation=CMD.copyLocation(nextLocation, nextLocation.getYaw(), nextLocation.getPitch());\n';
+	  var code = 'vm.markLocation();\n';
 	  return code;
 };
 
