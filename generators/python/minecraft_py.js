@@ -8,20 +8,20 @@ function addDictionaryEntry(inText){
 	var outText="";
 	if(inText!=""){
 		outText+=", ";
-		outText+=inText.substring(1); // remove leading '{'
+		outText+=inText.substring(2); // remove leading '[{'
 	} else {
-		outText="}";
+		outText="}]";
 	}
 	return outText;
 }
 
-function closeDictionaryEntry(inText){
+function closeDictionaryEntry(inText){ // after a TYPE definitions we begin a new dictionary
 	var outText="";
 	if(inText!=""){
-		outText+="},\n  ";
-		outText+=inText;
+		outText+="},  ";
+		outText+=inText.substring(1); // remove leading '['
 	} else {
-		outText="}\n";
+		outText="}]";
 	}
 	return outText;
 }
@@ -41,7 +41,7 @@ function optimizeMaterialList(value_name) {
 		materialList=materialList.replaceAll("\n", "").replaceAll(TAB_SPACES, '');
 	} 
 	
-	return '['+materialList+']';
+	return materialList;
 }
 
 
@@ -52,28 +52,28 @@ function addReplaceCommasAndSemicolons(){ // to be deleted
 Blockly.Python['minecraft_multiciplity'] = function(block) {
 	var number_mutiplicity = block.getFieldValue('mutiplicity');
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '{"AMOUNT":"'+number_mutiplicity+'"'+addDictionaryEntry(value_singleblock);
+	var code = '[{"AMOUNT":"'+number_mutiplicity+'"'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 Blockly.Python['minecraft_multiciplity_var'] = function(block) {
 	var variable_mutiplicity = Blockly.Python.variableDB_.getName(block.getFieldValue('mutiplicity'), Blockly.Variables.NAME_TYPE);
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '{"AMOUNT":'+variable_mutiplicity+addDictionaryEntry(value_singleblock);
+	var code = '[{"AMOUNT":'+variable_mutiplicity+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 Blockly.Python['minecraft_delay'] = function(block) {
 	var number_delay = block.getFieldValue('delay');
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '{"DELAY":"'+number_delay+'"'+addDictionaryEntry(value_singleblock);
+	var code = '[{"DELAY":"'+number_delay+'"'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 Blockly.Python['minecraft_delay_var'] = function(block) {
 	var variable_delay = Blockly.Python.variableDB_.getName(block.getFieldValue('delay'), Blockly.Variables.NAME_TYPE);
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '{"DELAY":'+variable_delay+addDictionaryEntry(value_singleblock);
+	var code = '[{"DELAY":'+variable_delay+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
@@ -82,7 +82,7 @@ Blockly.Python['minecraft_delay_random'] = function(block) {
 	var max = block.getFieldValue('max');
 	var number_delay = min+', '+max;
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '{"DELAY":"'+number_delay+'"'+addDictionaryEntry(value_singleblock);
+	var code = '[{"DELAY":"'+number_delay+'"'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
@@ -91,7 +91,7 @@ Blockly.Python['minecraft_delay_random_var'] = function(block) {
 	var max = Blockly.Python.variableDB_.getName(block.getFieldValue('max'), Blockly.Variables.NAME_TYPE);
 	var number_delay ="str("+min+")"+'+", "+ str('+max+")";
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '{"DELAY":'+number_delay+addDictionaryEntry(value_singleblock);
+	var code = '[{"DELAY":'+number_delay+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
@@ -530,7 +530,7 @@ Blockly.Python['minecraft_rotate'] = function(block) {
 function minecraft_materialbockOnlyOne_fn(block){
 	var dropdown_name = block.getFieldValue('NAME');
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '{"TYPE":"'+dropdown_name+'"'+closeDictionaryEntry(value_singleblock);
+	var code = '[{"TYPE":"'+dropdown_name+'"'+closeDictionaryEntry(value_singleblock);
 
 	return [ code, Blockly.Python.ORDER_NONE ];
 }
