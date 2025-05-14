@@ -502,25 +502,36 @@ Blockly.Python['minecraft_rotate'] = function(block) {
 		  return code;
 		};
 		
+		
+		Blockly.Python['minecraft_multiciplity_double_DELETEME'] = function(block) {
+	var number_mutiplicity = block.getFieldValue('mutiplicity');
+	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
+	var code = '[{"AMOUNT":"'+number_mutiplicity+'"'+addDictionaryEntry(value_singleblock);
+	return [ code, Blockly.Python.ORDER_NONE ];
+};
+
+		
 		Blockly.Python['minecraft_splashpotion'] = function(block) {
 			  var text_functionname = block.getFieldValue('functionName');
+			  text_functionname=text_functionname.replaceAll('"',""); // prevent quotes breaking code
 			  var value_singleblock = Blockly.Python.valueToCode(block, 'name', Blockly.Python.ORDER_NONE);
-				var code = '"SP='+text_functionname+",TY=i.splash_potion;\""+addDictionaryEntry(value_singleblock);
+				var code = '[{"SP":"'+text_functionname+'", "TYPE":"i.splash_potion"'+closeDictionaryEntry(value_singleblock);
 				return [ code, Blockly.Python.ORDER_NONE ];
 			};
 
 		Blockly.Python['minecraft_sign'] = function(block) {
 			  var variable_varname = Blockly.Python.variableDB_.getName(block.getFieldValue('varName'), Blockly.Variables.NAME_TYPE);
+			  variable_varname=variable_varname.replaceAll('"',""); // prevent quotes breaking code
 			  var value_singleblock = Blockly.Python.valueToCode(block, 'name', Blockly.Python.ORDER_NONE);
-				var code = '"ST="+'+variable_varname+addReplaceCommasAndSemicolons()+'+",TY=b.acacia_sign;\"'+addDictionaryEntry(value_singleblock);
+				var code = '[{"ST":"'+variable_varname+'", "TYPE":"b.acacia_sign"'+closeDictionaryEntry(value_singleblock);
 				return [ code, Blockly.Python.ORDER_NONE ];
 			};
 
 		Blockly.Python['minecraft_sign_textfield'] = function(block) {
 			  var displayText = block.getFieldValue('displayText');
-			  displayText=displayText.replaceAll(",","&#44").replaceAll(";","&#59");
+			displayText=displayText.replaceAll('"',""); // prevent quotes breaking code
 			  var value_singleblock = Blockly.Python.valueToCode(block, 'name', Blockly.Python.ORDER_NONE);
-				var code = '"ST='+displayText+",TY=i.acacia_sign;\""+addDictionaryEntry(value_singleblock);
+				var code = '[{"ST":"'+displayText+'", "TYPE":"b.acacia_sign"'+closeDictionaryEntry(value_singleblock);
 				return [ code, Blockly.Python.ORDER_NONE ];
 			};
 
