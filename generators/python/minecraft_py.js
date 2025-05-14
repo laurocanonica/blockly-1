@@ -479,26 +479,26 @@ Blockly.Python['minecraft_move_to_view_target'] = function(block) {
 
 Blockly.Python['minecraft_setrotation'] = function(block) {
 	  var dropdown_angle = block.getFieldValue('angle');
-		var code = "nextLocation=CMD.rotatePositionAbsolute(player, nextLocation, \'" + dropdown_angle + "\');\n";
+		var code = "vm.rotatePositionAbsolute(\'" + dropdown_angle + "\')\n";
 	  return code;
 	};
 	
 Blockly.Python['minecraft_rotate'] = function(block) {
 	  var value_angle = Blockly.Python.valueToCode(block, 'angle', Blockly.Python.ORDER_NONE);
-		var code = "nextLocation=CMD.rotatePositionRelative(player, nextLocation, " + value_angle + ");\n";
+		var code = "vm.rotatePositionRelative(" + value_angle + ")\n";
 		return code;
 	};
 	
 	
 	Blockly.Python['minecraft_set_elevation'] = function(block) {
 		  var value_angle = Blockly.Python.valueToCode(block, 'angle', Blockly.Python.ORDER_NONE);
-		  var code = "nextLocation=CMD.setVerticalAxisAbsolute(player, nextLocation, " + value_angle + ");\n";
+		  var code = "vm.setVerticalAxisAbsolute(" + value_angle + ")\n";
 		  return code;
 		};
 
 	Blockly.Python['minecraft_set_elevation_relative'] = function(block) {
 		  var value_angle = Blockly.Python.valueToCode(block, 'angle', Blockly.Python.ORDER_NONE);
-		  var code = "nextLocation=CMD.setVerticalAxisRelative(player, nextLocation, " + value_angle + ");\n";
+		  var code = "vm.setVerticalAxisRelative(" + value_angle + ")\n";
 		  return code;
 		};
 		
