@@ -12,7 +12,15 @@
 	<script src="../../blockly_compressed.js"></script>
 	<script src="../../blocks_compressed.js"></script>
 	<script src="../../javascript_compressed.js"></script>
+    <script src="../../python_compressed.js"></script>
+	<script src="populateTextTab.js"></script>	
 	<script src="code.js"></script>
+
+	<!-- CodeMirror CSS & JS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+
 
 </head>
 
@@ -54,9 +62,11 @@
 						<td id="tab_blocks" class="tabon">...</td>
 						<td class="tabmin"> </td>
 						<td id="tab_javascript" class="taboff">JavaScript</td>
+						<td id="tab_python" class="taboff">Python</td>
 						<td class="tabmin"> </td>
 						<td id="tab_xml" class="taboff">XML</td>
 						<td class="tabmin"> </td>
+						<td id="tab_text" class="taboff">Text</td>
 						<td id="tab_log" class="taboff">Log</td>
 						<td class="tabwarning">
 							<button id='modalDeployResultMessageText' class="modalDeployResultMessageStyle"></button>
@@ -108,8 +118,10 @@
 	</table>
 	<div id="content_blocks" class="content"></div>
 	<pre id="content_javascript" class="content"></pre>
+	<pre id="content_python" class="content"></pre>
 	<textarea id="content_xml" class="content" wrap="off"></textarea>
 	<textarea id="content_log" class="content" wrap="off"></textarea>
+	<textarea id="content_text" class="content" wrap="off"></textarea>
 
 
 
@@ -134,6 +146,26 @@
 	</div>
 
 
+ <style>
+        /* Base styles for toolbox items */
+        .blocklyTreeRow {
+            display: flex;
+            align-items: center;
+            padding-left: 25px; /* Space for the image */
+            background-repeat: no-repeat;
+            background-position: 5px center; /* Image position */
+            background-size: 18px 18px; /* Image size */
+        }
+
+        /* Custom icons for different categories */
+        .toolbox-logic .blocklyTreeRow {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png'); /* Replace with actual image */
+        }
+
+        .toolbox-loops .blocklyTreeRow {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/3f/Loop_icon.png'); /* Replace with actual image */
+        }
+    </style>
 
 
 	<xml id="toolbox" style="display: none">
