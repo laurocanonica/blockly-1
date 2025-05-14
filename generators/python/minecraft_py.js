@@ -392,32 +392,28 @@ Blockly.Python['minecraft_sensing'] = function(block) {
 };
 
 
+
+
 Blockly.Python['minecraft_block'] = function(block) {
 	var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	var code = 'vm.tofixcreateBlock(';
-	if(value_name.includes(',')){
-		code += value_name;		
-	}else { // transform {"TYPE":"b.acacia_fence_gate"} into "b.acacia_fence_gate"
-		code+=valueName.substring(valueName.indexof(':'));
-	}
-	code += ");\n";
+	var code = 'vm.createBlock(';
+	code += optimizeMaterialList(value_name);
+	code += ")\n";
 	return code;
 };
 
 
+
+
+// Generator for Line shape
 Blockly.Python['minecraft_line'] = function(block) {
-
-	var value_length = Blockly.Python.valueToCode(block, 'length', Blockly.Python.ORDER_NONE);
-	var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	if(value_name[value_name.length-1]==','){  // remove dangling comma
-		value_name='[' + value_name.substring(0, value_name.length-1) + ']';
-	}
-
-	var code = 'vm.createLine(';
-	code += value_length;
-	code += ", "+optimizeMaterialList(value_name);
-	code += ");\n";
-	return code;
+  var value_length = Blockly.Python.valueToCode(block, 'LENGTH', Blockly.Python.ORDER_NONE);
+  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
+  var code = 'vm.createLine(';
+  code += value_length + ", ";
+  code += optimizeMaterialList(value_name);
+  code += ")\n";
+  return code;
 };
 
 
@@ -426,9 +422,11 @@ Blockly.Python['minecraft_connectPositions'] = function(block) {
 	var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
 	var code = 'vm.connectPositions(';
 	code += optimizeMaterialList(value_name);
-	code += ");\n";
+	code += ")\n";
 	return code;
 };
+
+
 
 
 
@@ -441,7 +439,7 @@ Blockly.Python['minecraft_gotopos'] = function(block) {
 	code += '"'+dropdown_coordsystem + '", ';
 	code += value_x + ", ";
 	code += value_y + ", ";
-	code += value_z + ");\n";
+	code += value_z + ")\n";
 	return code;
 };
 
@@ -449,7 +447,7 @@ Blockly.Python['minecraft_gotopos'] = function(block) {
 Blockly.Python['minecraft_move'] = function(block) {
 	var value_times = Blockly.Python.valueToCode(block, 'times', Blockly.Python.ORDER_NONE);
 	var dropdown_direction = block.getFieldValue('direction');
-	var code = "vm.movePositionRelative(" + value_times + ", \'" + dropdown_direction + "\');\n";
+	var code = "vm.movePositionRelative(" + value_times + ", \'" + dropdown_direction + "\')\n";
 	return code;
 };
 
@@ -458,19 +456,19 @@ Blockly.Python['minecraft_move_to_view_target'] = function(block) {
 	  var code = "";
 	  switch(dropdown_viewer){
 	  case 'PLAYER_EYES':
-		  code+="vm.movePositionWherePlayerIsLooking();\n";
+		  code+="vm.movePositionWherePlayerIsLooking()\n";
 		  break;
 	  case 'PLAYER_POS':
-		  code+="vm.movePositionWherePlayerIs();\n";
+		  code+="vm.movePositionWherePlayerIs()\n";
 		  break;
  	  case 'ROBOT_EYES':
- 		  code+="CMD.movePosition(player, nextLocation);\n";
+ 		  code+="vm.movePositionToNextSolidBlock()\n";
  		  break;
 	  case 'START_POS':
- 	  	code = 'nextLocation=CMD.movePosition(startLocation, nextLocation.getYaw(), nextLocation.getPitch());\n';
+ 	  	code = 'vm.movePositionToStart()\n';
  		  break;
 	  case 'MARKED_POS':
- 		  code = 'nextLocation=CMD.movePosition(markLocation, nextLocation.getYaw(), nextLocation.getPitch());\n';		   
+ 		  code = 'vm.movePositionToLastMark()\n';		   
  		  break;
  	  default:
  	      console.log("Invalid option for minecraft_move_to_view_target:"+dropdown_viewer);
