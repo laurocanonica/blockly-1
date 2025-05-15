@@ -701,7 +701,7 @@ Blockly.Python['minecraft_putinhand'] = function(block) {
 	
 Blockly.Python['minecraft_createchest'] = function(block) {
 	  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	  var code = "CMD.createChest(nextLocation, player, " + cleanMaterialList(value_name) + ", startCmdTime);\n";
+	  var code = "vm.createChest("+optimizeMaterialList(value_name)+")\n";
 	  return code;
 	};
 		
