@@ -516,13 +516,6 @@ Blockly.Python['minecraft_rotate'] = function(block) {
 		};
 		
 		
-		Blockly.Python['minecraft_multiciplity_double_DELETEME'] = function(block) {
-	var number_mutiplicity = block.getFieldValue('mutiplicity');
-	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '[{"AMOUNT":"'+number_mutiplicity+'"'+addDictionaryEntry(value_singleblock);
-	return [ code, Blockly.Python.ORDER_NONE ];
-};
-
 		
 		Blockly.Python['minecraft_splashpotion'] = function(block) {
 			  var text_functionname = block.getFieldValue('functionName');
@@ -582,13 +575,14 @@ Blockly.Python['minecraft_entity_op'] = function(block) {
 
 Blockly.Python['minecraft_team'] = function(block) {
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '"TE=FRIENDLY,"'+addDictionaryEntry(value_singleblock);
+	var code = '[{"TE":"FRIENDLY"'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
+
 Blockly.Python['minecraft_team_ver2'] = function(block) {
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '"TE=FRIENDLY,"'+addDictionaryEntry(value_singleblock);
+	var code = '[{"TE":"FRIENDLY"'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
@@ -679,23 +673,28 @@ Blockly.Python['minecraft_printposition'] = function(block) {
   code += '"   pitch="+nextLocation.getPitch()';
   return [ code, Blockly.Python.ORDER_NONE ];
 };
+
+
+
 		
 Blockly.Python['minecraft_givetoplayer'] = function(block) {
 	  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	  var code = "CMD.giveToPlayer(player, 'INVENTORY', " + cleanMaterialList(value_name) + ");\n";
+	  var code = "vm.giveToPlayer('INVENTORY', " + optimizeMaterialList(value_name) + ")\n";
 	  return code;
 	};
 	
+	
+	
 Blockly.Python['minecraft_equipplayer'] = function(block) {
 	  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	  var code = "CMD.giveToPlayer(player, 'EQUIP', " + cleanMaterialList(value_name) + ");\n";
+	  var code = "vm.giveToPlayer('EQUIP', " + optimizeMaterialList(value_name) + ")\n";
 	  return code;
 	};
 	
 Blockly.Python['minecraft_putinhand'] = function(block) {
 	  var dropdown_hand = block.getFieldValue('hand');
 	  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	  var code = "CMD.giveToPlayer(player, '"+dropdown_hand+"', " + cleanMaterialList(value_name) + ");\n";
+	  var code = "vm.giveToPlayer('"+dropdown_hand+"', " + optimizeMaterialList(value_name) + ")\n";
 	  return code;
 	};
 	
