@@ -45,6 +45,19 @@ function optimizeMaterialList(value_name) {
 }
 
 
+function sanitizePythonFunctionName(name) {
+  // change to underscore all characters except letters, digits, and underscores
+  var clean = name.replace(/[^a-zA-Z0-9_]/g, '_');
+
+  // If it starts with a digit, prefix with an underscore
+  if (/^[0-9]/.test(clean)) {
+    clean = 'my_' + clean;
+  }
+
+  return clean;
+}
+
+
 function addReplaceCommasAndSemicolons(){ // to be deleted
 		return'.replaceAll(",","&#44").replaceAll(";","&#59")'; // replace commas and semicolumns
 	};
@@ -513,15 +526,16 @@ Blockly.Python['minecraft_rotate'] = function(block) {
 		
 		Blockly.Python['minecraft_splashpotion'] = function(block) {
 			  var text_functionname = block.getFieldValue('functionName');
-			  text_functionname=text_functionname.replaceAll('"',""); // prevent quotes breaking code
+			  text_functionname=sanitizePythonFunctionName(text_functionname);
 			  var value_singleblock = Blockly.Python.valueToCode(block, 'name', Blockly.Python.ORDER_NONE);
 				var code = '[{"SP":"'+text_functionname+'", "TYPE":"i.splash_potion"'+closeDictionaryEntry(value_singleblock);
 				return [ code, Blockly.Python.ORDER_NONE ];
 			};
 
+
 		Blockly.Python['minecraft_sign'] = function(block) {
 			  var variable_varname = Blockly.Python.variableDB_.getName(block.getFieldValue('varName'), Blockly.Variables.NAME_TYPE);
-			  variable_varname=variable_varname.replaceAll('"',""); // prevent quotes breaking code
+			  variable_varname=variable_varname.replaceAll('"',"'"); // prevent quotes breaking code
 			  var value_singleblock = Blockly.Python.valueToCode(block, 'name', Blockly.Python.ORDER_NONE);
 				var code = '[{"ST":"'+variable_varname+'", "TYPE":"b.acacia_sign"'+closeDictionaryEntry(value_singleblock);
 				return [ code, Blockly.Python.ORDER_NONE ];
@@ -529,7 +543,7 @@ Blockly.Python['minecraft_rotate'] = function(block) {
 
 		Blockly.Python['minecraft_sign_textfield'] = function(block) {
 			  var displayText = block.getFieldValue('displayText');
-			displayText=displayText.replaceAll('"',""); // prevent quotes breaking code
+			displayText=displayText.replaceAll('"',"'"); // prevent quotes breaking code
 			  var value_singleblock = Blockly.Python.valueToCode(block, 'name', Blockly.Python.ORDER_NONE);
 				var code = '[{"ST":"'+displayText+'", "TYPE":"b.acacia_sign"'+closeDictionaryEntry(value_singleblock);
 				return [ code, Blockly.Python.ORDER_NONE ];
@@ -633,16 +647,22 @@ Blockly.Python['minecraft_playerHas'] = function(block) {
 };
 
 
+	
 Blockly.Python['minecraft_addevent'] = function(block) {
-	  var dropdown_eventtype = block.getFieldValue('eventType');
-	  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
-	  if (value_name==''){
-		  value_name="''";
-	  }
-	  var code = "CMD.addEvent(player, '"+dropdown_eventtype+"', ";
-	  code +=  value_name +");\n";
-	  return code;
-	};
+  var dropdown_eventtype = block.getFieldValue('eventType');
+  var functionName = block.getFieldValue('functionName') || '';
+  
+  if (functionName === '') {
+    functionName = "''";  // empty string in Python code
+  } else {
+    // Optionally sanitize function name here if needed
+    // e.g. remove invalid chars or wrap in quotes depending on usage
+    functionName = "'" + sanitizePythonFunctionName(functionName) + "'";
+  }
+
+  var code = "CMD.addEvent(player, '" + dropdown_eventtype + "', " + functionName + ");\n";
+  return code;
+};	
 
 	
 Blockly.Python['minecraft_comment'] = function(block) {
@@ -1010,5 +1030,3 @@ Blockly.Python['python_code_snippet'] = function(block) {
   var code = block.getFieldValue('CODE') || '';
   return code;
 };
-
-	

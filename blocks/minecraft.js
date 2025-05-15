@@ -2391,29 +2391,41 @@ Blockly.Blocks['minecraft_playerHas'] = {
 
 
 Blockly.Blocks['minecraft_splashpotion'] = {
-		init : function() {
-			this.jsonInit({
-				  "type": "minecraft_splashpotion",
-				  "message0": Blockly.Msg.i_splash_potion.toLowerCase()+" "+Blockly.Msg.MC_cmd_minecraft_splash_potion_function+" %1 %2",
-				  "args0": [
-				    {
-				      "type": "field_input",
-				      "name": "functionName",
-				      "text": ""
-				    },
-				    {
-				      "type": "input_value",
-				      "name": "name",
-				      "check": [ "Item"]
-				    }
-				  ],
-				  "output": "Item",
-				  "colour": 30,
-				  "tooltip": "",
-				  "helpUrl": ""
-				});
-		}
-	};
+  init: function() {
+    this.jsonInit({
+      "type": "minecraft_splashpotion",
+      "message0": Blockly.Msg.i_splash_potion.toLowerCase() + " " + Blockly.Msg.MC_cmd_minecraft_splash_potion_function + " %1 %2",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "functionName",
+          "options": function() {
+            var functionList = Blockly.Procedures.allProcedures(Blockly.getMainWorkspace())[0]; // [0] = non-returning
+            var result = [];
+            for (var i = 0; i < functionList.length; i++) {
+              var name = functionList[i][0];
+              result.push([name, name]);
+            }
+            if (result.length === 0) {
+              result.push(["?", ""]);
+            }
+            return result;
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "name",
+          "check": ["Item"]
+        }
+      ],
+      "output": "Item",
+      "colour": 30,
+      "tooltip": "",
+      "helpUrl": ""
+    });
+  }
+};
+
 
 Blockly.Blocks['minecraft_sign'] = {
 		init : function() {
@@ -2901,56 +2913,50 @@ Blockly.Blocks['minecraft_set_elevation_relative'] = {
 
 
 Blockly.Blocks['minecraft_addevent'] = {
-		init : function() {
-			this.jsonInit( 	
-					{
-						  "type": "minecraft_addevent",
-						  "message0": Blockly.Msg.MC_cmd_minecraft_addevent,
-						  "args0": [
-						    {
-						      "type": "field_dropdown",
-						      "name": "eventType",
-						      "options": [
-							        [
-							        	Blockly.Msg.MC_cmd_HITTING_ENTITY_EVENT,
-							          "HITTING_ENTITY_EVENT"
-							        ],[
-							        	Blockly.Msg.MC_cmd_HIT_BY_ENTITY_EVENT,
-								          "HIT_BY_ENTITY_EVENT"
-							        ],[
-							        	Blockly.Msg.MC_cmd_DIED_EVENT,
-								          "DIED_EVENT"
-							        ],[
-							        	Blockly.Msg.MC_cmd_DAMAGING_BLOCK_EVENT,
-								          "DAMAGING_BLOCK_EVENT"
-								    ],[
-							        	Blockly.Msg.MC_cmd_LEFT_CLICK_AIR_EVENT,
-								          "LEFT_CLICK_AIR"
-							        ],[
-							        	Blockly.Msg.MC_cmd_RIGHT_CLICK_AIR_EVENT,
-								          "RIGHT_CLICK_AIR"
-								    ],[
-							        	Blockly.Msg.MC_cmd_MOVED_EVENT,
-								          "MOVED_EVENT"
-								 ]
-						      ]
-						    },
-						    {
-						      "type": "input_value",
-						      "name": "NAME",
-						      "check": "String"
-						    }
-						  ],
-						  "inputsInline": false,
-						  "previousStatement": null,
-						  "nextStatement": null,
-						  "colour": 160,
-						  "tooltip": "",
-						  "helpUrl": ""
-						});
-		}
-	};
-
+  init: function() {
+    this.jsonInit({
+      "type": "minecraft_addevent",
+      "message0": Blockly.Msg.MC_cmd_minecraft_addevent,
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "eventType",
+          "options": [
+            [Blockly.Msg.MC_cmd_HITTING_ENTITY_EVENT, "HITTING_ENTITY_EVENT"],
+            [Blockly.Msg.MC_cmd_HIT_BY_ENTITY_EVENT, "HIT_BY_ENTITY_EVENT"],
+            [Blockly.Msg.MC_cmd_DIED_EVENT, "DIED_EVENT"],
+            [Blockly.Msg.MC_cmd_DAMAGING_BLOCK_EVENT, "DAMAGING_BLOCK_EVENT"],
+            [Blockly.Msg.MC_cmd_LEFT_CLICK_AIR_EVENT, "LEFT_CLICK_AIR"],
+            [Blockly.Msg.MC_cmd_RIGHT_CLICK_AIR_EVENT, "RIGHT_CLICK_AIR"],
+            [Blockly.Msg.MC_cmd_MOVED_EVENT, "MOVED_EVENT"]
+          ]
+        },
+        {
+          "type": "field_dropdown",
+          "name": "functionName",
+          "options": function() {
+            var functionList = Blockly.Procedures.allProcedures(Blockly.getMainWorkspace())[0]; // [0] = no-return
+            var result = [];
+            for (var i = 0; i < functionList.length; i++) {
+              var name = functionList[i][0];
+              result.push([name, name]);
+            }
+            if (result.length === 0) {
+              result.push(["?", ""]);
+            }
+            return result;
+          }
+        }
+      ],
+      "inputsInline": false,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 160,
+      "tooltip": "",
+      "helpUrl": ""
+    });
+  }
+};
 
 
 Blockly.Blocks['minecraft_comment'] = {
