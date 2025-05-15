@@ -420,7 +420,7 @@ Blockly.Python['minecraft_block'] = function(block) {
 
 // Generator for Line shape
 Blockly.Python['minecraft_line'] = function(block) {
-  var value_length = Blockly.Python.valueToCode(block, 'LENGTH', Blockly.Python.ORDER_NONE);
+  var value_length = Blockly.Python.valueToCode(block, 'length', Blockly.Python.ORDER_NONE);
   var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
   var code = 'vm.createLine(';
   code += value_length + ", ";
@@ -590,34 +590,34 @@ Blockly.Python['minecraft_team_ver2'] = function(block) {
 Blockly.Python['minecraft_direction'] = function(block) {
 	var dropdown_name = block.getFieldValue('NAME');
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '"DI='+dropdown_name+',"'+addDictionaryEntry(value_singleblock);
+	var code = '[{"DI":"'+dropdown_name+'"'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 Blockly.Python['minecraft_leash'] = function(block) {
 	var dropdown_name = block.getFieldValue('NAME');
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '"LE='+dropdown_name+',"'+addDictionaryEntry(value_singleblock);
+	var code = '[{"LE":"'+dropdown_name+'"'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 Blockly.Python['minecraft_upper_lower_part'] = function(block) {
 	var dropdown_name = block.getFieldValue('NAME');
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '"UD='+dropdown_name+',"'+addDictionaryEntry(value_singleblock);
+	var code = '[{"UD":"'+dropdown_name+'"'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 
 Blockly.Python['minecraft_on_the_ground'] = function(block) {
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '"GR=g,"'+addDictionaryEntry(value_singleblock);
+	var code = '[{"GR":"g"'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 Blockly.Python['minecraft_baby'] = function(block) {
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '"BA=b,"'+addDictionaryEntry(value_singleblock);
+	var code = '[{"BA":"b"'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
