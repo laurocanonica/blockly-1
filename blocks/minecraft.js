@@ -4085,39 +4085,6 @@ Blockly.Blocks['m_draw_z'] = {
 
 
 
-Blockly.Blocks['minecraft_importobj'] = {
-		init : function() {
-			this.jsonInit( 	
-					{
-						  "type": "minecraft_importobj",
-						  "message0": Blockly.Msg.MC_cmd_minecraft_importObj,
-						  "args0": [
-						    {
-						      "type": "input_dummy"
-						    },
-						    {
-						      "type": "input_value",
-						      "name": "filename",
-						      "check": "String"
-						    },
-						    {
-						      "type": "input_dummy"
-						    },
-						    {
-						      "type": "input_value",
-						      "name": "size",
-						      "check": "Number"
-						    }
-						  ],
-						  "inputsInline": true,
-						  "previousStatement": null,
-						  "nextStatement": null,
-						  "colour": 45,
-						  "tooltip": "",
-						  "helpUrl": ""
-						});
-		}
-	};
 
 Blockly.Blocks['minecraft_cancelEvents'] = {
 		init : function() {
@@ -4182,30 +4149,6 @@ Blockly.Blocks['minecraft_executecommand'] = {
 		}
 	};
 
-Blockly.Blocks['customimage_var'] = {
-		init : function() {
-			this.jsonInit({
-				  "type": "customimage_var",
-				  "message0" : Blockly.Msg.MC_cmd_minecraft_customimage,
-				  "args0": [
-				    {
-				      "type": "field_variable",
-				      "name": "url",
-				      "variable": "url"
-				    },
-				    {
-				      "type": "input_value",
-				      "name": "singleblock",
-						"check" : [ "Material" ]
-				    }
-				  ],
-				  "output": "Material",
-				  "colour": 330,
-				  "tooltip": "",
-				  "helpUrl": ""
-				});
-		}
-	};
 
 Blockly.Blocks['minecraft_talking'] = {
 		init : function() {
@@ -4252,27 +4195,6 @@ Blockly.Blocks['minecraft_materialNothing'] = {
 				});
 		}
 	};
-	
-Blockly.Blocks['minecraft_group'] = {
-		init : function() {
-			this.jsonInit({
-			  "type": "minecraft_group",
-			  "message0": "%1",
-			  "args0": [
-			    {
-			      "type": "input_statement",
-			      "name": "CodeBlocks"
-			    }
-			  ],
-			  "previousStatement": null,
-			  "nextStatement": null,
-			  "colour": 120,
-			  "tooltip": "",
-			  "helpUrl": ""
-			});
-		}
-	};
-	
 	
 	
 	Blockly.Blocks['minecraft_voronoi'] = {

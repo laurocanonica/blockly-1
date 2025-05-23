@@ -3271,7 +3271,6 @@ Blockly.Msg.MC_particles='particles';
 
 
 
-Blockly.Msg.MC_cmd_minecraft_customimage = 'image %1 %2';
 Blockly.Msg.MC_cmd_minecraft_customimage_ver2 = 'image ';
 Blockly.Msg.MC_cmd_minecraft_delay = 'after %1 sec. %2';
 Blockly.Msg.MC_cmd_minecraft_delay_random = 'after a time between %1 and %2 sec. %3';
@@ -3362,7 +3361,6 @@ Blockly.Msg.MC_cmd_minecraft_draw = 'Draw %1 %2 0 %3 %4 1 %5 %6 2 %7 %8 3 %9 %10
 Blockly.Msg.MC_cmd_minecraft_draw_extended = 'Draw %1 %2 0 %3 %4 1 %5 %6 2 %7 %8 3 %9 %10 4 %11 %12 5 %13 %14 6 %15 %16 7 %17 %18 8 %19 %20 9 %21 %22 z %23 %24 y %25 %26 x %27 %28 w %29 %30 v %31 %32 u %33 %34 t %35 %36 s %37 %38 r %39 %40 q %41 nr: %42 %43';
 Blockly.Msg.MC_cmd_minecraft_draw_from_center = 'Center';
 Blockly.Msg.MC_cmd_minecraft_draw_from_bottomleft = 'Left';
-Blockly.Msg.MC_cmd_minecraft_importObj = 'import %1 %2 with size %3 %4';
 Blockly.Msg.MC_cmd_minecraft_splash_potion_function = 'with function';
 Blockly.Msg.MC_cmd_minecraft_sign_with_text = 'with text';
 Blockly.Msg.MC_cmd_minecraft_execute_command = 'call function %1 of player %2 with parameter %3 %4 %5 %6 %7';
