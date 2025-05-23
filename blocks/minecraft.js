@@ -2910,8 +2910,6 @@ Blockly.Blocks['minecraft_set_elevation_relative'] = {
 	};
 
 
-
-
 Blockly.Blocks['minecraft_addevent'] = {
   init: function() {
     this.jsonInit({
@@ -2935,7 +2933,7 @@ Blockly.Blocks['minecraft_addevent'] = {
           "type": "field_dropdown",
           "name": "functionName",
           "options": function() {
-            var functionList = Blockly.Procedures.allProcedures(Blockly.getMainWorkspace())[0]; // [0] = no-return
+            var functionList = Blockly.Procedures.allProcedures(Blockly.getMainWorkspace())[0];
             var result = [];
             for (var i = 0; i < functionList.length; i++) {
               var name = functionList[i][0];
@@ -2945,6 +2943,11 @@ Blockly.Blocks['minecraft_addevent'] = {
               result.push(["?", ""]);
             }
             return result;
+          },
+          "validator": function(selected) {
+            // Always accept the stored value, even if not in current list
+
+            return selected;
           }
         }
       ],
@@ -2957,6 +2960,7 @@ Blockly.Blocks['minecraft_addevent'] = {
     });
   }
 };
+
 
 
 Blockly.Blocks['minecraft_comment'] = {

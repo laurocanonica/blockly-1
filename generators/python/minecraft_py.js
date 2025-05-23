@@ -15,6 +15,9 @@ function addDictionaryEntry(inText){
 	return outText;
 }
 
+
+
+
 function closeDictionaryEntry(inText){ // after a TYPE definitions we begin a new dictionary
 	var outText="";
 	if(inText!=""){
@@ -27,6 +30,7 @@ function closeDictionaryEntry(inText){ // after a TYPE definitions we begin a ne
 }
 
 function cleanMaterialList(value_name) {
+	alert("remove cleanmateraillist");
 	return value_name;
 }
 var TAB_SPACES ='  ';
@@ -624,19 +628,19 @@ Blockly.Python['minecraft_baby'] = function(block) {
 
 Blockly.Python['minecraft_hitting'] = function(block) {
 	var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	var code = "CMD.isPlayerHittingA(event, " + cleanMaterialList(value_name) + ")";
+	var code = "vm.isPlayerHittingA(" + value_name + ")";
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 Blockly.Python['minecraft_holding'] = function(block) {
 	var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	var code = "CMD.isPlayerHoldingA(player, " + cleanMaterialList(value_name) + ")";
+	var code = "CMD.isPlayerHoldingA(" + cleanMaterialList(value_name) + ")";
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 Blockly.Python['minecraft_playerHas'] = function(block) {
 	var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	var code = "CMD.hasPlayerA(player, " + cleanMaterialList(value_name) + ")";
+	var code = "CMD.hasPlayerA(" + cleanMaterialList(value_name) + ")";
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
@@ -654,7 +658,7 @@ Blockly.Python['minecraft_addevent'] = function(block) {
     functionName = "'" + sanitizePythonFunctionName(functionName) + "'";
   }
 
-  var code = "CMD.addEvent(player, '" + dropdown_eventtype + "', " + functionName + ");\n";
+  var code = "vm.addEvent('" + dropdown_eventtype + "', " + functionName + ");\n";
   return code;
 };	
 
