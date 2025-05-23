@@ -30,7 +30,7 @@ function closeDictionaryEntry(inText){ // after a TYPE definitions we begin a ne
 }
 
 function cleanMaterialList(value_name) {
-	alert("remove cleanmateraillist");
+	console.log("remove cleanmateraillist");
 	return value_name;
 }
 var TAB_SPACES ='  ';
@@ -722,21 +722,23 @@ Blockly.Python['minecraft_gotomark'] = function(block) {
   var dropdown_origin = block.getFieldValue('origin');
   var code;
   if(dropdown_origin=='START_POS') {
-	  code = 'nextLocation=CMD.movePosition(startLocation, nextLocation.getYaw(), nextLocation.getPitch());\n';
+	code = 'vm.movePositionToStart()\n';
+
   } else {
-	  code = 'nextLocation=CMD.movePosition(markLocation, nextLocation.getYaw(), nextLocation.getPitch());\n';		   
+	code = 'vm.movePositionToLastMark()\n';	   
   }
   return code;
 };
 
 function validateBlockchoice(block, blockChoice) {
 	var choice = Blockly.Python.valueToCode(block, blockChoice, Blockly.Python.ORDER_NONE);
-	choice=removeNulls(choice);
-	choice=cleanMaterialList(choice);
+//	choice=removeNulls(choice);
+	choice=optimizeMaterialList(choice);
 	if (choice==""){
-		return('  ["TYPE=X.EMPTY"],\n');
+		var emptyMaterial=optimizeMaterialList('[{"TYPE":"X.EMPTY"}]')
+		return('  '+emptyMaterial+',\n');
 	} else {
-		return('  ['+choice+'],\n');
+		return('  '+choice+',\n');
 	}
 }
 
@@ -761,6 +763,7 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 	
 	function prepareDrawingBlocks(block){
 		var value_matlist = Blockly.Python.valueToCode(block, 'matlist', Blockly.Python.ORDER_NONE);
+		//console.log(value_matlist);
 		var index_material = Blockly.Python.valueToCode(block, 'index_material', Blockly.Python.ORDER_NONE);
 		var drawOrigin = block.getFieldValue('origin');
 		if(index_material=="" || index_material==undefined){
@@ -775,7 +778,7 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 		  
 		//window.alert(matString);
 		  
-		  var code = 'CMD.createDrawing(nextLocation, \n';
+		  var code = 'vm.createDrawing(\n';
 
 		  code += cleanMaterialList(matString);
 		  code += '\n'+validateBlockchoice(block, "blockchoice0");
@@ -803,7 +806,7 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 		  code +=index_material;
 		  code +=", '";
 		  code +=drawOrigin;
-		  code += "' , player, startCmdTime);\n";
+		  code += "');\n";
 		  return code; 
 		
 	}
@@ -961,7 +964,7 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 		
 		Blockly.Python['minecraft_materialNothing'] = function(block) {
 			var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-			var code = '"TYPE=X.EMPTY,"'+addDictionaryEntry(value_singleblock);
+			var code = '[{"TYPE":"X.EMPTY"'+addDictionaryEntry(value_singleblock);
 			return [ code, Blockly.Python.ORDER_NONE ];
 		}
 

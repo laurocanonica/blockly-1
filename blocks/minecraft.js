@@ -3218,8 +3218,8 @@ Blockly.Blocks['minecraft_drawing_version2'] = {
 
     this.appendDummyInput("origin")
         .appendField(new Blockly.FieldDropdown([
-          [Blockly.Msg.MC_cmd_minecraft_draw_from_center, "C"],
-          [Blockly.Msg.MC_cmd_minecraft_draw_from_bottomleft, "S"]
+          [Blockly.Msg.MC_cmd_minecraft_draw_from_center, "CENTER"],
+          [Blockly.Msg.MC_cmd_minecraft_draw_from_bottomleft, "LEFT"]
         ]), "origin");
 
     // Initialize block with the first two draw choices.
@@ -3458,11 +3458,11 @@ Blockly.Blocks['minecraft_drawing'] = {
 						      "options": [
 						        [
 						        	Blockly.Msg.MC_cmd_minecraft_draw_from_center,
-						          "C"
+						          "CENTER"
 						        ],
 						        [
 						        	Blockly.Msg.MC_cmd_minecraft_draw_from_bottomleft,
-						          "S"
+						          "LEFT"
 						        ]
 						      ]
 						    }
@@ -3779,11 +3779,11 @@ Blockly.Blocks['minecraft_drawing_extended'] = {
 						      "options": [
 						        [
 						        	Blockly.Msg.MC_cmd_minecraft_draw_from_center,
-						          "C"
+						          "CENTER"
 						        ],
 						        [
 						        	Blockly.Msg.MC_cmd_minecraft_draw_from_bottomleft,
-						          "S"
+						          "LEFT"
 						        ]
 						      ]
 						    }
