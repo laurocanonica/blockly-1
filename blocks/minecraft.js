@@ -4085,54 +4085,6 @@ Blockly.Blocks['m_draw_z'] = {
 
 
 
-
-
-Blockly.Blocks['minecraft_movePos_To_Player'] = {
-		init : function() {
-			this.jsonInit( 	
-					{
-						  "type": "minecraft_movePos_To_Player",
-						  "message0": eval('Blockly.Msg.MC_cmd_minecraft_movePos_To_Player'+'_'+GLOBAL_MESSAGE_VERSION),
-						  "args0": [
-						    {
-						      "type": "input_value",
-						      "name": "playerName",
-						      "check": "String"
-						    }
-						  ],
-						  "previousStatement": null,
-						  "nextStatement": null,
-						  "colour": 230,
-						  "tooltip": "",
-						  "helpUrl": ""
-						});
-		}
-	};
-
-
-Blockly.Blocks['minecraft_getPlayerCoord'] = {
-		  init: function() {
-		    this.jsonInit({
-		      "message0": Blockly.Msg.MC_cmd_minecraft_playerCoord,
-		      "args0": [
-		        {
-		          "type": "field_dropdown",
-		          "name": "coordinateName",
-		          "options": [
-		            ['x', 'x'],
-		            ['y', 'y'],
-		            ['z', 'z']
-		          ]
-		        }
-		      ],
-		      "output": "Number",
-		      "colour": 230,
-		      "tooltip": "",
-		      "helpUrl": ""
-		    });
-		  }
-		};
-
 Blockly.Blocks['minecraft_importobj'] = {
 		init : function() {
 			this.jsonInit( 	

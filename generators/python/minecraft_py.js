@@ -896,20 +896,7 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 	};
 		
 	
-
-	Blockly.Python['minecraft_movePos_To_Player'] = function(block) {
-		  var value_playername = Blockly.Python.valueToCode(block, 'playerName', Blockly.Python.ORDER_ATOMIC);
-			var code = "nextLocation=CMD.movePositionToPlayer(player, nextLocation, ";
-			code += value_playername + ");\n";
-			return code;
-		};
 		
-	Blockly.Python['minecraft_getPlayerCoord'] = function(block) {
-		  var coordName=block.getFieldValue('coordinateName');
-		  var code = "CMD.getPlayerCoord(player, '";
-		  code += coordName+ "')";
-		  return [code, Blockly.Python.ORDER_NONE];
-		};
 
 	Blockly.Python['minecraft_importobj'] = function(block) {
 		  var value_filename = Blockly.Python.valueToCode(block, 'filename', Blockly.Python.ORDER_NONE);
