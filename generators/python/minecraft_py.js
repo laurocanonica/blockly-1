@@ -628,19 +628,19 @@ Blockly.Python['minecraft_baby'] = function(block) {
 
 Blockly.Python['minecraft_hitting'] = function(block) {
 	var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	var code = "vm.isPlayerHittingA(" + value_name + ")";
+	var code = "vm.isPlayerHittingA(" + optimizeMaterialList(value_name) + ")";
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 Blockly.Python['minecraft_holding'] = function(block) {
 	var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	var code = "vm.isPlayerHoldingA(" + value_name + ")";
+	var code = "vm.isPlayerHoldingA(" + optimizeMaterialList(value_name) + ")";
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 Blockly.Python['minecraft_playerHas'] = function(block) {
 	var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	var code = "vm.hasPlayerA(" + value_name + ")";
+	var code = "vm.hasPlayerA(" + optimizeMaterialList(value_name) + ")";
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
@@ -665,20 +665,10 @@ Blockly.Python['minecraft_addevent'] = function(block) {
 	
 Blockly.Python['minecraft_comment'] = function(block) {
 	  var text_comment = block.getFieldValue('comment');
-	  var code = '/* '+text_comment+' */\n';
+	  var code = '# '+text_comment+'\n';
 	  return code;
 	};
 		
-Blockly.Python['minecraft_printposition'] = function(block) {
-  var code = '"x="+nextLocation.getX()+';
-  code += '"   y="+nextLocation.getZ()+';
-  code += '"   z="+nextLocation.getY()+';
-  code += '"   yaw="+nextLocation.getYaw()+';
-  code += '"   pitch="+nextLocation.getPitch()';
-  return [ code, Blockly.Python.ORDER_NONE ];
-};
-
-
 
 		
 Blockly.Python['minecraft_givetoplayer'] = function(block) {
@@ -714,12 +704,12 @@ Blockly.Python['minecraft_text'] = function(block) {
 	  var value_fontpoints = Blockly.Python.valueToCode(block, 'fontPoints', Blockly.Python.ORDER_NONE);
 	  var dropdown_fill = block.getFieldValue('fill');
 	  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	  var code = "CMD.convertTextToBlocks(nextLocation, player, ";
-	  code+= cleanMaterialList(value_name)+", ";
+	  var code = "vm.convertTextToBlocks(";
 	  code+= value_inputtext+", ";
 	  code+= value_fontpoints+", ";
-	  code+= dropdown_fill;
-	  code+= ", startCmdTime);\n";
+	  code+= dropdown_fill+", ";
+	  code+= optimizeMaterialList(value_name);
+	  code+= ");\n";
 	  return code;
 	};
 	

@@ -2968,7 +2968,7 @@ Blockly.Blocks['minecraft_comment'] = {
 			this.jsonInit( 	
 					{
 						  "type": "minecraft_comment",
-						  "message0": "// %1",
+						  "message0": "# %1",
 						  "args0": [
 						    {
 						      "type": "field_input",
@@ -2985,21 +2985,6 @@ Blockly.Blocks['minecraft_comment'] = {
 						});
 		}
 	};
-
-Blockly.Blocks['minecraft_printposition'] = {
-		init : function() {
-			this.jsonInit( 	
-					{
-						  "type": "minecraft_printposition",
-						  "message0": Blockly.Msg.MC_cmd_minecraft_currentLocation,
-						  "output": null,
-						  "colour": 230,
-						  "tooltip": "",
-						  "helpUrl": ""
-						});
-		}
-	};
-
 
 
 Blockly.Blocks['minecraft_givetoplayer'] = {

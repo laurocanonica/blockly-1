@@ -2119,7 +2119,6 @@
 "MC_cmd_minecraft_shape_ellipse_param": "di raggio X%4 e raggio Y",
 "MC_cmd_minecraft_shape_arc_param": "di raggio X%4raggio Y%5 e di angolo",
 "MC_cmd_minecraft_shape_star_param": "con%4lati e raggio interno di%e raggio esterno di",
-"MC_cmd_minecraft_currentLocation": "le mie coordinate",
 "PROCEDURES_DEFNORETURN_TITLE": "/vm",
 "PROCEDURES_DEFNORETURN_PROCEDURE": "comando",
 "PROCEDURES_DOWNLOAD_SCREENSHOT": "Scarica immagine",
