@@ -634,13 +634,13 @@ Blockly.Python['minecraft_hitting'] = function(block) {
 
 Blockly.Python['minecraft_holding'] = function(block) {
 	var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	var code = "CMD.isPlayerHoldingA(" + cleanMaterialList(value_name) + ")";
+	var code = "vm.isPlayerHoldingA(" + value_name + ")";
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 Blockly.Python['minecraft_playerHas'] = function(block) {
 	var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	var code = "CMD.hasPlayerA(" + cleanMaterialList(value_name) + ")";
+	var code = "vm.hasPlayerA(" + value_name + ")";
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
@@ -1031,5 +1031,5 @@ Blockly.Python['minecraft_unicode_grid_selector'] = function(block) {
 
 Blockly.Python['python_code_snippet'] = function(block) {
   var code = block.getFieldValue('CODE') || '';
-  return code;
+  return code+"\n";
 };
