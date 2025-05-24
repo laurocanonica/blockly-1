@@ -909,18 +909,10 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 		  var value_fn = Blockly.Python.valueToCode(block, 'fn', Blockly.Python.ORDER_ATOMIC);
 		  var value_player = Blockly.Python.valueToCode(block, 'player', Blockly.Python.ORDER_ATOMIC);
 		  var value_param1 = Blockly.Python.valueToCode(block, 'param1', Blockly.Python.ORDER_ATOMIC);
-		  var value_param2 = Blockly.Python.valueToCode(block, 'param2', Blockly.Python.ORDER_ATOMIC);
-		  var value_param3 = Blockly.Python.valueToCode(block, 'param3', Blockly.Python.ORDER_ATOMIC);
-		  var value_param4 = Blockly.Python.valueToCode(block, 'param4', Blockly.Python.ORDER_ATOMIC);
-		  var value_param5 = Blockly.Python.valueToCode(block, 'param5', Blockly.Python.ORDER_ATOMIC);
 		  var code = "vm.callFunction(";
 		  code += value_fn +", ";
 		  code += value_player;
-		  code += ', "'+value_param1;
-		  code += '", "'+value_param2;
-		  code += '", "'+value_param3;
-		  code += '", "'+value_param4;
-		  code += '", "'+value_param5;
+		  code += ', "'+value_param1.replaceAll('"', "'"); //invert quotes to avoid conflicts in block definitions
 		  code += '");\n';
 		  return code;
 		};
@@ -930,7 +922,7 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 		Blockly.Python['minecraft_talking'] = function(block) {
 			var variable_text = Blockly.Python.variableDB_.getName(block.getFieldValue('text'), Blockly.Variables.NAME_TYPE);
 			var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-			var code = '[{"TA":"'+variable_text+'"'+addDictionaryEntry(value_singleblock);
+			var code = '[{"TA":'+variable_text+''+addDictionaryEntry(value_singleblock);
 			return [ code, Blockly.Python.ORDER_NONE ];
 		};
 		

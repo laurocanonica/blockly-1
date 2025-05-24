@@ -4121,22 +4121,6 @@ Blockly.Blocks['minecraft_executecommand'] = {
 						    {
 						      "type": "input_value",
 						      "name": "param1"
-						    },
-						    {
-						      "type": "input_value",
-						      "name": "param2"
-						    },
-						    {
-						      "type": "input_value",
-						      "name": "param3"
-						    },
-						    {
-						      "type": "input_value",
-						      "name": "param4"
-						    },
-						    {
-						      "type": "input_value",
-						      "name": "param5"
 						    }
 						  ],
 						  "inputsInline": true,

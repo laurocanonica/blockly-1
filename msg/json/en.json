@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2025-05-23 18:04:30.555733",
+		"lastupdated": "2025-05-24 21:56:18.169956",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2120,7 +2120,7 @@
 	"MC_cmd_minecraft_draw_from_bottomleft": "Left",
 	"MC_cmd_minecraft_splash_potion_function": "with function",
 	"MC_cmd_minecraft_sign_with_text": "with text",
-	"MC_cmd_minecraft_execute_command": "call function %1 of player %2 with parameter %3 %4 %5 %6 %7",
+	"MC_cmd_minecraft_execute_command": "call function %1 of player %2 with parameter %3",
 	"MC_cmd_minecraft_nothing": "nothing %1",
 	"MC_cmd_leashed_to": "leashed to %1 %2",
 	"MC_cmd_player": "the player",

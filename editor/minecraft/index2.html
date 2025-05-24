@@ -227,6 +227,24 @@
 			<block type="minecraft_addevent"></block>
 			<block type="minecraft_cancelEvents"></block>
 
+			<block type="minecraft_executecommand">
+				<value name="fn">
+					<shadow type="text">
+						<field name="TEXT"></field>
+					</shadow>
+				</value>
+				<value name="player">
+					<shadow type="text">
+						<field name="TEXT"></field>
+					</shadow>
+				</value>
+				<value name="param1">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="python_code_snippet"></block>
 			<block type="minecraft_comment"></block>
 
 		</category>
@@ -1198,44 +1216,6 @@
 			<block type="minecraft_materialbockOnlyOne_op"></block>
 			<block type="minecraft_item_op"></block>
 
-			<block type="minecraft_executecommand">
-				<value name="fn">
-					<shadow type="text">
-						<field name="TEXT"></field>
-					</shadow>
-				</value>
-				<value name="player">
-					<shadow type="text">
-						<field name="TEXT"></field>
-					</shadow>
-				</value>
-				<value name="param1">
-					<shadow type="math_number">
-						<field name="NUM">0</field>
-					</shadow>
-				</value>
-				<value name="param2">
-					<shadow type="math_number">
-						<field name="NUM">0</field>
-					</shadow>
-				</value>
-				<value name="param3">
-					<shadow type="math_number">
-						<field name="NUM">0</field>
-					</shadow>
-				</value>
-				<value name="param4">
-					<shadow type="math_number">
-						<field name="NUM">0</field>
-					</shadow>
-				</value>
-				<value name="param5">
-					<shadow type="math_number">
-						<field name="NUM">0</field>
-					</shadow>
-				</value>
-			</block>
-			<block type="python_code_snippet"></block>
 		</category>
 
 	</xml>
