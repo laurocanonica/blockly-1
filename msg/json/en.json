@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2025-05-24 21:56:18.169956",
+		"lastupdated": "2025-05-25 12:24:17.528268",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2129,7 +2129,6 @@
 	"MC_cmd_nobody": "nobody",
 	"MC_cmd_baby": "baby %1",
 	"MC_cmd_minecraft_talking": "talking %1 %2",
-	"MC_cmd_voronoi": "create a %1 Voronoi diagram of width %2 and length %3 for the points %4 made of %5",
 	"MC_cmd_minecraft_shape_square": "square □",
 	"MC_cmd_minecraft_shape_circle": "circle ○",
 	"MC_cmd_minecraft_shape_block": "block ▫",

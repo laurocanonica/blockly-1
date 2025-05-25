@@ -2094,7 +2094,6 @@
 "MC_cmd_nobody": "di nessuno",
 "MC_cmd_minecraft_talking" : "parlante %1 %2",
 "MC_cmd_baby" : "baby %1",
-"MC_cmd_voronoi": "crea un diagramma di Voronoi %1 largo %2 e lungo %3 per i punti %4 fatto di %5",
 "MC_cmd_minecraft_shape_square": "un quadrato □",
 "MC_cmd_minecraft_shape_circle": "un cerchio ○",
 "MC_cmd_minecraft_shape_block": "un blocco ▫",

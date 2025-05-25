@@ -2047,7 +2047,6 @@
 	"MC_cmd_nobody": "אף אחד",
 	"MC_cmd_minecraft_talking" : "לדבר %1 %2",
 	"MC_cmd_baby" : "תינוק %1",
-	"MC_cmd_voronoi": "צור a %1 צורה ברוחב %2 ובאורך %3 מהנתונים %4 הבנויה מ- of %5",
 	"PROCEDURES_DOWNLOAD_SCREENSHOT": "הורדת תמונה",
 	"PROCEDURES_DOWNLOAD_SCREENSHOT_CONFIRM": " שמירת הגדרת ה-XML בלוח והורדת צילום מסך לקובץ: "
 	

@@ -3373,7 +3373,6 @@ Blockly.Msg.MC_cmd_nobody = 'nobody';
 Blockly.Msg.MC_cmd_baby = 'baby %1';
 Blockly.Msg.MC_cmd_minecraft_talking = 'talking %1 %2';
 
-Blockly.Msg.MC_cmd_voronoi = 'create a %1 Voronoi diagram of width %2 and length %3 for the points %4 made of %5';
 
 Blockly.Msg.MC_cmd_minecraft_shape_square = 'square □';
 Blockly.Msg.MC_cmd_minecraft_shape_circle = 'circle ○';
