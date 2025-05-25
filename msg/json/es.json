@@ -2036,7 +2036,7 @@
 "MC_cmd_minecraft_importObj": "importa %1 %2 de tamaño %3 %4",
 "MC_cmd_minecraft_splash_potion_function": "con función",
 "MC_cmd_minecraft_sign_with_text": "con texto",
-"MC_cmd_minecraft_execute_command": "llama a la función %1 del jugador %2 con parámetros %3 %4 %5 %6 %7",
+"MC_cmd_minecraft_execute_command": "llama a la función %1 del jugador %2 con parámetros %3",
 "MC_cmd_minecraft_nothing": "nada %1",
 "MC_cmd_minecraft_customimage": "imagen %1 %2",
 "MC_cmd_minecraft_delay": "después de %1 seg. %2",
