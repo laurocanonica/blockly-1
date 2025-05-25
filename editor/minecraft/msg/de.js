@@ -30,7 +30,6 @@ var MSG = {
 	c_Operators : "Nur Op",
 	c_ExamplesMenu : "Beispiele ...",
 	c_Examples : "Beispiele",
-	c_Algorithms : "Algorithmen",
 	t_saveTooltip : "Programm auf dem Computer speichern",
 	t_readTooltip : "Programm vom Computer laden",
 	warn_entername : "Der MINECRAFT SPIELERNAME fehlt im oberen rechten Feld",

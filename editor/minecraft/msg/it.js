@@ -34,7 +34,6 @@ var MSG = {
 	  c_Status : "Stato 🖐",
 	  c_ExamplesMenu : "Esempi ...",
 	  c_Examples : "Esempi",
-	  c_Algorithms : "Algoritmi 🎓",
 
 
 	  c_Operators : "Solo per OP",

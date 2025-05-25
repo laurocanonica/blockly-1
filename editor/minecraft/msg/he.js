@@ -31,7 +31,6 @@ var MSG = {
 	  c_Operators : "מערכת",
 	  c_ExamplesMenu : "דוגמאות ...",
 	  c_Examples : "דוגמאות",
-	  c_Algorithms : "אלגוריתם",
 	  t_saveTooltip : "שמירה של הקוד במחשב",
 	  t_readTooltip : "טעינת קוד מהמחשב",
 	  warn_entername :  "שם השחקן לא מופיע בתיבה",
