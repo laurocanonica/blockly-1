@@ -723,10 +723,10 @@ function disposeCodeMirrorChildren() {
 Code.loadLog = function() {
 	var codeMirrorContainer=document.getElementById('codeMirrorContainer');
 	var content_blocks=document.getElementById('content_blocks');
-	codeMirrorContainer.style.visibility = 'visible';
 	codeMirrorContainer.style.top = content_blocks.style.top;
 	codeMirrorContainer.style.width = content_blocks.style.width;
 	codeMirrorContainer.style.height = content_blocks.style.height;
+	codeMirrorContainer.style.visibility = 'visible';
 
 
 	var nameField=document.getElementById('playernamefield');
