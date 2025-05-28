@@ -326,6 +326,10 @@ Code.tabClick = function(clickedName) {
     document.getElementById('tab_' + name).className = 'taboff';
     document.getElementById('content_' + name).style.visibility = 'hidden';
   }
+  //remove codemirror
+  disposeCodeMirrorChildren();
+  document.getElementById('codeMirrorContainer').style.visibility = 'hidden';
+
 
   // Select the active tab.
   Code.selected = clickedName;
@@ -357,7 +361,11 @@ Code.renderContent = function() {
   } else if (content.id == 'content_python') {
     Code.attemptCodeGeneration(Blockly.Python);
   } else if (content.id == 'content_log') {
-    Code.loadLog();
+	Code.runJS(); //upload the code so we get the clean version back
+	setTimeout(() => {
+	  Code.loadLog(); // wait to give time to the server to parse the code
+	}, 1000);
+
   } else if (content.id == 'content_text') {
 	var textTabTextarea = document.getElementById('content_text');
 	   textTabTextarea.value =convertBlocksToTextIndented(Blockly.getMainWorkspace());		
@@ -703,7 +711,28 @@ Code.runJS = function() {
 };
 
 
+function disposeCodeMirrorChildren() {
+  const container = document.getElementById('codeMirrorContainer');
+  const keep = document.getElementById('content_log');
+
+  // Loop through children and remove everything except #content_log
+  Array.from(container.children).forEach(child => {
+    if (child !== keep) {
+      container.removeChild(child);
+    }
+  });
+}
+
+
 Code.loadLog = function() {
+	var codeMirrorContainer=document.getElementById('codeMirrorContainer');
+	var content_blocks=document.getElementById('content_blocks');
+	codeMirrorContainer.style.visibility = 'visible';
+	codeMirrorContainer.style.top = content_blocks.style.top;
+	codeMirrorContainer.style.width = content_blocks.style.width;
+	codeMirrorContainer.style.height = content_blocks.style.height;
+
+
 	var nameField=document.getElementById('playernamefield');
 	var playerName=nameField.value.trim();
 	var logTextarea = document.getElementById('content_log');
@@ -715,11 +744,12 @@ Code.loadLog = function() {
 	xhr.open("POST", hpath, true); 
 	xhr.timeout = 5000; 
 	xhr.onload=function(event){
-	   logTextarea.value ='log of last command:\n'+xhr.responseText; 
+		logTextarea.value =xhr.responseText; 
 	}; 
 	xhr.onerror=function(event){ 
 	   logTextarea.value ='ERROR Connecting server\n'+xhr.responseText; 
        console.log('ERROR Connecting server\n'+xhr.responseText)
+
 	}; 
 	xhr.ontimeout = function (e) {
 	   logTextarea.value ="TIMEOUT Connecting server\n  "+xhr.responseText; 
@@ -734,6 +764,15 @@ Code.loadLog = function() {
 	 xhr.onloadend = function() {
 	   if (xhr.status == 200) {
 	      console.log("success uploading");
+
+		var editor=CodeMirror.fromTextArea(logTextarea, {
+		    mode: "python",
+		    lineNumbers: true,
+		    readOnly: true,
+		    theme: "default"
+		  });
+		editor.getWrapperElement().style.height = "100%";
+		editor.refresh();
 	    } else {
 	      console.log("error uploading " + this.status);
 	    }
