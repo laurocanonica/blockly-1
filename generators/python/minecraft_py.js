@@ -141,7 +141,7 @@ Blockly.Python['minecraft_polygon'] = function(block) {
 	code += value_sidelength + ", ";
 	code += value_sidelength + ", ";
 	code += "360, ";
-	code += dropdown_fill + ", ";
+	code += convertFillToBoolean(dropdown_fill) + ", ";
 	code += optimizeMaterialList(value_name);
 	code += ");\n";
 	return code;
@@ -157,7 +157,7 @@ Blockly.Python['minecraft_star'] = function(block) {
 	code += value_nr_sides + ", ";
 	code += value_innerRadius + ", ";
 	code += value_outerRadius + ", ";
-	code += dropdown_fill + ", ";
+	code += convertFillToBoolean(dropdown_fill) + ", ";
 	code += optimizeMaterialList(value_name);
 	code += ");\n";
 	return code;
@@ -171,7 +171,7 @@ Blockly.Python['minecraft_star'] = function(block) {
 			var code = 'vm.createRectangle(';
 			code += value_width + ", ";
 			code += value_height + ", ";
-			code += dropdown_fill + ", ";
+			code += convertFillToBoolean(dropdown_fill) + ", ";
 			code += optimizeMaterialList(value_name);
 			code += ");\n";
 			return code;
@@ -186,7 +186,7 @@ Blockly.Python['minecraft_star'] = function(block) {
 			code += radiusX + ", ";
 			code += radiusY + ", ";
 			code += "360, ";
-			code += dropdown_fill + ", ";
+			code += convertFillToBoolean(dropdown_fill) + ", ";
 			code += optimizeMaterialList(value_name);
 			code += ");\n";
 			return code;
@@ -382,8 +382,20 @@ Blockly.Python['shape_block'] = function(block) {
 
 // Helper to convert fill type to boolean
 function convertFillToBoolean(fill) {
-  return fill === 'FULL' ? 'True' : 'False';
+  return (fill === 'FULL' || fill === 'true') ? 'True' : 'False';
 }
+
+// Helper to convert directions to the java enumeration
+function convertDirectionToJavaEnum(direction) {
+	if(direction==='FW'){
+		return 'FORWARD'
+	} else if(direction==='BW'){
+		return 'BACKWARD'
+	} else {
+		return direction
+	}
+}
+
 
 
 
@@ -453,7 +465,7 @@ Blockly.Python['minecraft_gotopos'] = function(block) {
 	var value_y = Blockly.Python.valueToCode(block, 'y', Blockly.Python.ORDER_NONE);
 	var value_z = Blockly.Python.valueToCode(block, 'z', Blockly.Python.ORDER_NONE);
 	var code = "vm.movePositionAbsolute(";
-	code += '"'+dropdown_coordsystem + '", ';
+	code += '"'+dropdown_coordsystem.toUpperCase() + '", ';
 	code += value_x + ", ";
 	code += value_y + ", ";
 	code += value_z + ")\n";
@@ -464,7 +476,7 @@ Blockly.Python['minecraft_gotopos'] = function(block) {
 Blockly.Python['minecraft_move'] = function(block) {
 	var value_times = Blockly.Python.valueToCode(block, 'times', Blockly.Python.ORDER_NONE);
 	var dropdown_direction = block.getFieldValue('direction');
-	var code = "vm.movePositionRelative(" + value_times + ", \'" + dropdown_direction + "\')\n";
+	var code = "vm.movePositionRelative(" + value_times + ", \'" + convertDirectionToJavaEnum(dropdown_direction) + "\')\n";
 	return code;
 };
 
@@ -707,7 +719,7 @@ Blockly.Python['minecraft_text'] = function(block) {
 	  var code = "vm.createText(";
 	  code+= value_inputtext+", ";
 	  code+= value_fontpoints+", ";
-	  code+= dropdown_fill+", ";
+	  code+= convertFillToBoolean(dropdown_fill)+", ";
 	  code+= optimizeMaterialList(value_name);
 	  code+= ");\n";
 	  return code;
@@ -722,10 +734,10 @@ Blockly.Python['minecraft_gotomark'] = function(block) {
   var dropdown_origin = block.getFieldValue('origin');
   var code;
   if(dropdown_origin=='START_POS') {
-	code = 'vm.movePositionToStart()\n';
+	code = 'vm.resetPosition()\n';
 
   } else {
-	code = 'vm.movePositionToLastMark()\n';	   
+	code = 'vm.moveToLastMark()\n';	   
   }
   return code;
 };
@@ -932,22 +944,6 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 			return [ code, Blockly.Python.ORDER_NONE ];
 		}
 
-
-		Blockly.Python['minecraft_voronoi'] = function(block) {
-		  var dropdown_fill = block.getFieldValue('fill');
-		  var value_width = Blockly.Python.valueToCode(block, 'width', Blockly.Python.ORDER_ATOMIC);
-		  var value_length = Blockly.Python.valueToCode(block, 'length', Blockly.Python.ORDER_ATOMIC);
-		  var value_points = Blockly.Python.valueToCode(block, 'points', Blockly.Python.ORDER_ATOMIC);
-		  var value_materials = Blockly.Python.valueToCode(block, 'materials', Blockly.Python.ORDER_ATOMIC);
-			var code = 'vm.createVoronoi(';
-			code += dropdown_fill + ", ";
-			code += value_width + ", ";
-			code += value_length + ", ";
-			code += value_points + ", ";
-			code += optimizeMaterialList(value_materials);
-			code += ");\n";
-		  return code;
-		};		
 		
 		// Define the JavaScript generator for the block in ES5
 		Blockly.Python['image_select'] = function(block) {

@@ -1945,15 +1945,15 @@ Blockly.Blocks['minecraft_gotopos'] = {
 				      "options": [
 				        [
 				          "x, y, z",
-				          "CARTESIAN"
+				          "cartesian"
 				        ],
 				        [
 					          "r, theta, z",
-					          "CYLINDRICAL"
+					          "cylindrical"
 					        ],
 				        [
 					          "r, theta, phi",
-					          "SPHERICAL"
+					          "spherical"
 					        ]
 				      ]
 				    },
@@ -2003,11 +2003,11 @@ Blockly.Blocks['minecraft_polygon'] = {
 				      "options": [
 				        [
 				        	Blockly.Msg.MC_cmd_empty,
-				          "False"
+				          "false"
 				        ],
 				        [
 				        	Blockly.Msg.MC_cmd_full,
-				          "True"
+				          "true"
 				        ]
 				      ]
 				    },
@@ -2064,11 +2064,11 @@ Blockly.Blocks['minecraft_star'] = {
 				      "options": [
 				        [
 				        	Blockly.Msg.MC_cmd_empty,
-				          "False"
+				          "false"
 				        ],
 				        [
 				        	Blockly.Msg.MC_cmd_full,
-				          "True"
+				          "true"
 				        ]
 				      ]
 				    },
@@ -2136,11 +2136,11 @@ Blockly.Blocks['minecraft_rectangle'] = {
 					      "options": [
 					        [
 					        	Blockly.Msg.MC_cmd_empty,
-					          "False"
+					          "false"
 					        ],
 					        [
 					        	Blockly.Msg.MC_cmd_full,
-					          "True"
+					          "true"
 					        ]
 					      ]
 					    },
@@ -2197,11 +2197,11 @@ Blockly.Blocks['minecraft_ellipse'] = {
 				      "options": [
 				        [
 				        	Blockly.Msg.MC_cmd_empty,
-				          "False"
+				          "false"
 				        ],
 				        [
 				        	Blockly.Msg.MC_cmd_full,
-				          "frue"
+				          "true"
 				        ]
 				      ]
 				    },
@@ -2779,11 +2779,11 @@ Blockly.Blocks['minecraft_move'] = {
 					        ],
 					        [
 					        	Blockly.Msg.MC_cmd_forward,
-					          "FORWARDW"
+					          "FW"
 					        ],
 					        [
 					        	Blockly.Msg.MC_cmd_backwards,
-					          "BACKWARD"
+					          "BW"
 					        ]
 					      ]
 					    }
@@ -3125,11 +3125,11 @@ Blockly.Blocks['minecraft_text'] = {
           "options": [
             [
               Blockly.Msg.MC_cmd_full,
-              "False"
+              "false"
             ],
             [
               Blockly.Msg.MC_cmd_empty,
-              "True"
+              "true"
             ]
           ]
         },
