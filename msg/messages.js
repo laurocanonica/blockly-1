@@ -3274,7 +3274,6 @@ Blockly.Msg.MC_particles='particles';
 Blockly.Msg.MC_cmd_minecraft_customimage_ver2 = 'image ';
 Blockly.Msg.MC_cmd_minecraft_delay = 'after %1 sec. %2';
 Blockly.Msg.MC_cmd_minecraft_delay_random = 'after a time between %1 and %2 sec. %3';
-Blockly.Msg.MC_cmd_minecraft_delay_random_reset = 'reset the random generator for delays to %1';
 Blockly.Msg.MC_cmd_minecraft_multiciplity = '%1 of %2';
 Blockly.Msg.MC_cmd_minecraft_velocity = 'with speed %1 pointing to dir. %2 tilt %3 %4';
 Blockly.Msg.MC_cmd_minecraft_gotopos_ver1 = 'set the position at %1 %2 %3 %4 %5 %6 from the start position';

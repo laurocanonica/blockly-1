@@ -109,14 +109,6 @@ Blockly.Python['minecraft_delay_random_var'] = function(block) {
 };
 
 
-Blockly.Python['minecraft_delay_reset_random'] = function(block) {
-	  var number_seed = block.getFieldValue('seed');
-	  var code = "vm.setTimeRandomSeed(" + number_seed + ");\n";
-	  return code;
-	};
-
-
-
 
 Blockly.Python['minecraft_item'] = function(block) {
 	return minecraft_materialbockOnlyOne_fn(block);
@@ -740,7 +732,6 @@ Blockly.Python['minecraft_gotomark'] = function(block) {
 
 function validateBlockchoice(block, blockChoice) {
 	var choice = Blockly.Python.valueToCode(block, blockChoice, Blockly.Python.ORDER_NONE);
-//	choice=removeNulls(choice);
 	choice=optimizeMaterialList(choice);
 	if (choice==""){
 		var emptyMaterial=optimizeMaterialList('[{"TYPE":"X.EMPTY"}]')
@@ -749,14 +740,6 @@ function validateBlockchoice(block, blockChoice) {
 		return('  '+choice+',\n');
 	}
 }
-
-function removeNulls(valMatList) {
-	  //alert("*"+valMatList);
-	  valMatList=valMatList.replace(new RegExp('null, ', "g"), "");
-	  valMatList=valMatList.replace(new RegExp(', null', "g"), "");
-	  return(valMatList);
-}
-
 
 
 Blockly.Python['minecraft_drawing_version2'] = function(block) {
@@ -778,11 +761,12 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 			index_material=1; 
 		}
 
-		value_matlist=removeNulls(value_matlist);
-		  var matString ="";
-
 		//window.alert(value_matlist);
-		matString= value_matlist.replace(/]/,"],\n[");
+		
+		var matString= value_matlist.replace(/, /g, ",\n ");
+		matString=matString.replace('[', '[');
+		matString=matString.replace(']', '\n], [');
+		console.log(matString);
 		  
 		//window.alert(matString);
 		  
@@ -799,16 +783,6 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 		  code += validateBlockchoice(block, "blockchoice7");
 		  code += validateBlockchoice(block, "blockchoice8");
 		  code += validateBlockchoice(block, "blockchoice9");
-		  code += validateBlockchoice(block, "blockchoicez");
-		  code += validateBlockchoice(block, "blockchoicey");
-		  code += validateBlockchoice(block, "blockchoicex");
-		  code += validateBlockchoice(block, "blockchoicew");
-		  code += validateBlockchoice(block, "blockchoicev");
-		  code += validateBlockchoice(block, "blockchoiceu");
-		  code += validateBlockchoice(block, "blockchoicet");
-		  code += validateBlockchoice(block, "blockchoices");
-		  code += validateBlockchoice(block, "blockchoicer");
-		  code += validateBlockchoice(block, "blockchoiceq");
 		  code=code.substring(code, code.length-2); // remove last comma
 		  code +="\n], ";
 		  code +=index_material;
@@ -819,91 +793,58 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 		
 	}
 	
-	function getColor(block, id) {
-		  var value_child = Blockly.Python.valueToCode(block, 'child', Blockly.Python.ORDER_NONE);
-		  var code = "";
-		  if(value_child!=''){
-		    	code +='"'+id+';"'
-				code += '+'+value_child;
-		  } else {
-		    	code +='"'+id+'"\n'
+	function getColorNumbers(block, id) {
+		var value_child = Blockly.Python.valueToCode(block, 'child', Blockly.Python.ORDER_NONE);
+		var code = "";
+		if(value_child===''){
+			code='"'+id+'"'
+		} else {
+			code='"'+id+value_child.substring(1); // remove quote and merge with a string  like '7770'
 
-		  }
-		  return [code, Blockly.Python.ORDER_NONE];
+		}
+		return [code, Blockly.Python.ORDER_NONE];
 	}
 
 	
 	Blockly.Python['m_draw_0'] = function(block) {
-		  return getColor(block, 0);
+		  return getColorNumbers(block, 0);
 	};
 		
 	Blockly.Python['m_draw_1'] = function(block) {
-		  return getColor(block, 1);
+		  return getColorNumbers(block, 1);
 	};
 	
 	Blockly.Python['m_draw_2'] = function(block) {
-		  return getColor(block, 2);
+		  return getColorNumbers(block, 2);
 	};
 	
 	Blockly.Python['m_draw_3'] = function(block) {
-		  return getColor(block, 3);
+		  return getColorNumbers(block, 3);
 	};
 	
 	Blockly.Python['m_draw_4'] = function(block) {
-		  return getColor(block, 4);
+		  return getColorNumbers(block, 4);
 	};
 	
 	Blockly.Python['m_draw_5'] = function(block) {
-		  return getColor(block, 5);
+		  return getColorNumbers(block, 5);
 	};
 	
 	Blockly.Python['m_draw_6'] = function(block) {
-		  return getColor(block, 6);
+		  return getColorNumbers(block, 6);
 	};
 	
 	Blockly.Python['m_draw_7'] = function(block) {
-		  return getColor(block, 7);
+		  return getColorNumbers(block, 7);
 	};
 	
 	Blockly.Python['m_draw_8'] = function(block) {
-		  return getColor(block, 8);
+		  return getColorNumbers(block, 8);
 	};
 	
 	Blockly.Python['m_draw_9'] = function(block) {
-		  return getColor(block, 9);
+		  return getColorNumbers(block, 9);
 	};
-	Blockly.Python['m_draw_z'] = function(block) {
-		  return getColor(block, 10);
-	};
-	Blockly.Python['m_draw_y'] = function(block) {
-		  return getColor(block, 11);
-	};
-	Blockly.Python['m_draw_x'] = function(block) {
-		  return getColor(block, 12);
-	};
-	Blockly.Python['m_draw_w'] = function(block) {
-		  return getColor(block, 13);
-	};
-	Blockly.Python['m_draw_v'] = function(block) {
-		  return getColor(block, 14);
-	};
-	Blockly.Python['m_draw_u'] = function(block) {
-		  return getColor(block, 15);
-	};
-	Blockly.Python['m_draw_t'] = function(block) {
-		  return getColor(block, 16);
-	};
-	Blockly.Python['m_draw_s'] = function(block) {
-		  return getColor(block, 17);
-	};
-	Blockly.Python['m_draw_r'] = function(block) {
-		  return getColor(block, 18);
-	};
-	Blockly.Python['m_draw_q'] = function(block) {
-		  return getColor(block, 19);
-	};
-		
-	
 		
 
 	

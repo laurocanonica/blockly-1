@@ -1976,7 +1976,6 @@
 	"MC_cmd_minecraft_customimage_ver2": "תמונה",
 	"MC_cmd_minecraft_delay": "המתנה של %1 שניות %2",
 	"MC_cmd_minecraft_delay_random": "לאחר המתנה של %1 ו- %2 שניות %3",
-	"MC_cmd_minecraft_delay_random_reset": "אפס את בחירת הרנדומאליות ל- %1",
 	"MC_cmd_minecraft_multiciplity_ver1": "%1 מ- %2",
 	"MC_cmd_minecraft_gotopos_ver1": "הגדרת מיקום %1 %2 %3 %4 %5 %6 מהמיקום ההתחלתי",
 	"MC_cmd_minecraft_polygon": " צור%1 %2 %3 פוליגון בגודל %4 %5 על %6 %7 שבנוי מ- %8 %9",

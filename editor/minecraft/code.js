@@ -743,8 +743,9 @@ Code.loadLog = function() {
 		logTextarea.value =xhr.responseText; 
 	}; 
 	xhr.onerror=function(event){ 
-	   logTextarea.value ='ERROR Connecting server\n'+xhr.responseText; 
+	   logTextarea.value ='ERROR Connecting server\n'+xhr.responseText+"\n\nRaw code is\n"+Blockly.Python.workspaceToCode(Code.workspace);
        console.log('ERROR Connecting server\n'+xhr.responseText)
+
 
 	}; 
 	xhr.ontimeout = function (e) {
@@ -1327,7 +1328,7 @@ function handleDrawingBlockActions(pressedKey, selected) {
 
 // Checks if the pressed key is a valid color key
 function isColorKey(key) {
-    return (key >= '0' && key <= '9') || (key >= 'q' && key <= 'z');
+    return (key >= '0' && key <= '9');
 }
 
 // Shifts rows down starting from the row containing the selected block
@@ -1436,7 +1437,6 @@ function fillBlock(coordStart, coordEnd, mainList, id) {
 function setDrawingBlock(selected, key) { 
 	var oldType=selected.type;
 	selected.type='m_draw_'+key;
-	//selected.setColour(getColorForDrawCol(key));
 	//alert(selected.type);
 		currentlySelectedDrawColBlock=insertDrawingBlock(selected)
 lastSelectedDrawColBlock=null; // global to keep track of the last selection
@@ -1659,36 +1659,6 @@ function getColorForDrawCol(color){
 	    break;
 	  case '9':
 		  return '#bfef45';
-	    break;
-	  case 'q':
-		  return '#000000';
-	    break;
-	  case 'r':
-		  return '#469990';
-	    break;
-	  case 's':
-		  return '#dcbeff';
-	    break;
-	  case 't':
-		  return '#9A6324';
-	    break;
-	  case 'u':
-		  return '#fffac8';
-	    break;
-	  case 'v':
-		  return '#800000';
-	    break;
-	  case 'w':
-		  return '#aaffc3';
-	    break;
-	  case 'x':
-		  return '#808000';
-	    break;
-	  case 'y':
-		  return '#ffd8b1';
-	    break;
-	  case 'z':
-		  return '#000075';
 	    break;
 	  default:
 		  return '#000000';
