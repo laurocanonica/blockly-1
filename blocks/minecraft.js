@@ -2372,20 +2372,9 @@ Blockly.Blocks['minecraft_splashpotion'] = {
       "message0": Blockly.Msg.i_splash_potion.toLowerCase() + " " + Blockly.Msg.MC_cmd_minecraft_splash_potion_function + " %1 %2",
       "args0": [
         {
-          "type": "field_dropdown",
+		  "type": "field_input",
           "name": "functionName",
-          "options": function() {
-            var functionList = Blockly.Procedures.allProcedures(Blockly.getMainWorkspace())[0]; // [0] = non-returning
-            var result = [];
-            for (var i = 0; i < functionList.length; i++) {
-              var name = functionList[i][0];
-              result.push([name, name]);
-            }
-            if (result.length === 0) {
-              result.push(["?", ""]);
-            }
-            return result;
-          }
+		  "text": ""
         },
         {
           "type": "input_value",
@@ -2905,25 +2894,9 @@ Blockly.Blocks['minecraft_addevent'] = {
           ]
         },
         {
-          "type": "field_dropdown",
-          "name": "functionName",
-          "options": function() {
-            var functionList = Blockly.Procedures.allProcedures(Blockly.getMainWorkspace())[0];
-            var result = [];
-            for (var i = 0; i < functionList.length; i++) {
-              var name = functionList[i][0];
-              result.push([name, name]);
-            }
-            if (result.length === 0) {
-              result.push(["?", ""]);
-            }
-            return result;
-          },
-          "validator": function(selected) {
-            // Always accept the stored value, even if not in current list
-
-            return selected;
-          }
+	      "type": "input_value",
+	      "name": "functionName",
+	      "check": "String"
         }
       ],
       "inputsInline": false,

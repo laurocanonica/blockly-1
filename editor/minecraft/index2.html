@@ -220,8 +220,18 @@
 					</shadow>
 				</value>
 			</block>
-
-			<block type="minecraft_addevent"></block>
+			
+			<block type="minecraft_addevent">
+				<field name="eventType">HITTING_ENTITY_EVENT</field>
+				<value name="functionName">
+					<shadow type="text">
+						<field name="TEXT"></field>
+					</shadow>
+				</value>
+			</block>
+			
+			
+			
 			<block type="minecraft_cancelEvents"></block>
 
 			<block type="minecraft_executecommand">
