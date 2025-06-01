@@ -29,10 +29,6 @@ function closeDictionaryEntry(inText){ // after a TYPE definitions we begin a ne
 	return outText;
 }
 
-function cleanMaterialList(value_name) {
-	console.log("remove cleanmateraillist");
-	return value_name;
-}
 var TAB_SPACES ='  ';
 function optimizeMaterialList(value_name) {
 	var materialList='';
@@ -775,7 +771,7 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 	
 	function prepareDrawingBlocks(block){
 		var value_matlist = Blockly.Python.valueToCode(block, 'matlist', Blockly.Python.ORDER_NONE);
-		//console.log(value_matlist);
+		console.log(value_matlist);
 		var index_material = Blockly.Python.valueToCode(block, 'index_material', Blockly.Python.ORDER_NONE);
 		var drawOrigin = block.getFieldValue('origin');
 		if(index_material=="" || index_material==undefined){
@@ -792,7 +788,7 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 		  
 		  var code = 'vm.createDrawing(\n';
 
-		  code += cleanMaterialList(matString);
+		  code += matString;
 		  code += '\n'+validateBlockchoice(block, "blockchoice0");
 		  code += validateBlockchoice(block, "blockchoice1");
 		  code += validateBlockchoice(block, "blockchoice2");
