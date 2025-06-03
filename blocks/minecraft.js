@@ -2469,7 +2469,7 @@ Blockly.Blocks['minecraft_team'] = {
 				"args0" : [ {
 					"type" : "field_dropdown",
 					"name" : "NAME",
-					"options" : [ [ eval('Blockly.Msg.MC_cmd_friendly'+'_'+GLOBAL_MESSAGE_VERSION), "FRIENDLY" ], [ Blockly.Msg.MC_cmd_enemy, "ENEMY" ] ]
+					"options" : [ [ Blockly.Msg.MC_cmd_friendly_ver1, "FRIENDLY" ], [ Blockly.Msg.MC_cmd_enemy, "ENEMY" ] ]
 				}, {
 					"type" : "input_value",
 					"name" : "singleblock",
@@ -2488,7 +2488,7 @@ Blockly.Blocks['minecraft_team_ver2'] = {
 		init : function() {
 			this.jsonInit({
 				"type" : "minecraft_team",
-				"message0" : eval('Blockly.Msg.MC_cmd_friendly'+'_'+GLOBAL_MESSAGE_VERSION),
+				"message0" : Blockly.Msg.MC_cmd_friendly_ver2,
 				"args0" : [ {
 					"type" : "input_value",
 					"name" : "singleblock",
@@ -2681,7 +2681,7 @@ Blockly.Blocks['minecraft_move_to_view_target'] = {
 							          "ROBOT_EYES"
 							        ],
 							        [
-							        	Blockly.Msg.MC_cmd_minecraft_move_to_position_player,	
+										eval('Blockly.Msg.MC_cmd_minecraft_move_to_position_player'+'_'+GLOBAL_MESSAGE_VERSION),
 							          "PLAYER_POS"
 							        ],
 							        [
@@ -2797,19 +2797,19 @@ Blockly.Blocks['minecraft_setrotation'] = {
 						      "name": "angle",
 						      "options": [
 						        [
-						        	Blockly.Msg.MC_cmd_south,
+									eval('Blockly.Msg.MC_cmd_south'+'_'+GLOBAL_MESSAGE_VERSION),
 						          "S"
 						        ],
 						        [
-						        	Blockly.Msg.MC_cmd_north,
+									eval('Blockly.Msg.MC_cmd_north'+'_'+GLOBAL_MESSAGE_VERSION),
 						          "N"
 						        ],
 						        [
-						        	Blockly.Msg.MC_cmd_east,
+									eval('Blockly.Msg.MC_cmd_east'+'_'+GLOBAL_MESSAGE_VERSION),
 						          "E"
 						        ],
 						        [
-						        	Blockly.Msg.MC_cmd_west,
+									eval('Blockly.Msg.MC_cmd_west'+'_'+GLOBAL_MESSAGE_VERSION),
 						          "W"
 						        ],
 						        [
