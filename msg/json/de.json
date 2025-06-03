@@ -2074,7 +2074,8 @@
 "MC_cmd_nobody": "von niemandem",
 "MC_cmd_minecraft_talking": "sprechend %1 %2",
 "MC_cmd_baby": "Baby %1",
-"MC_cmd_voronoi": "Erstelle ein Voronoi-Diagramm %1 breit %2 und lang %3 für die Punkte %4 aus %5",
+"MC_cmd_minecraft_python_code": "# Python",
+
 
 "PROCEDURES_DEFNORETURN_TITLE": "/vm",
 "PROCEDURES_DEFNORETURN_POCEDURE": "meinBefehl"

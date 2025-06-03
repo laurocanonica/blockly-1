@@ -752,15 +752,10 @@ Code.loadLog = function() {
 	   logTextarea.value ="TIMEOUT Connecting server\n  "+xhr.responseText; 
        console.log('TIMEOUT Connecting server\n'+xhr.responseText)
 	};
-	 // track upload progress
-	  xhr.upload.onprogress = function(event) {
-	    console.log(`Uploaded ${event.loaded} of ${event.total}`);
-	 };
-	
+ 	
 	 // track completion: both successful or not
 	 xhr.onloadend = function() {
 	   if (xhr.status == 200) {
-	      console.log("success uploading");
 
 		var editor=CodeMirror.fromTextArea(logTextarea, {
 		    mode: "python",

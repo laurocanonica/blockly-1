@@ -746,7 +746,7 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 	
 	function prepareDrawingBlocks(block){
 		var value_matlist = Blockly.Python.valueToCode(block, 'matlist', Blockly.Python.ORDER_NONE);
-		console.log(value_matlist);
+		//console.log(value_matlist);
 		var index_material = Blockly.Python.valueToCode(block, 'index_material', Blockly.Python.ORDER_NONE);
 		var drawOrigin = block.getFieldValue('origin');
 		if(index_material=="" || index_material==undefined){
@@ -758,7 +758,7 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 		var matString= value_matlist.replace(/, /g, ",\n ");
 		matString=matString.replace('[', '[');
 		matString=matString.replace(']', '\n], [');
-		console.log(matString);
+		//console.log(matString);
 		  
 		//window.alert(matString);
 		  

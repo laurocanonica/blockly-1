@@ -4047,7 +4047,7 @@ imageSelectBlock.ensureDataLoaded(function() {
       if (Blockly.mainWorkspace) {
         Blockly.mainWorkspace.updateToolbox();
       }
-    }, 300);
+    }, 1000);
   }
 
 });
@@ -4148,7 +4148,7 @@ Blockly.Blocks['python_code_snippet'] = {
         {
           "type": "field_multilinetext",
           "name": "CODE",
-          "text": "# type your Python code here"
+          "text": Blockly.Msg.MC_cmd_minecraft_python_code
         },
         {
           "type": "input_dummy"
@@ -4157,7 +4157,7 @@ Blockly.Blocks['python_code_snippet'] = {
       "previousStatement": null,
       "nextStatement": null,
       "colour": 230,
-      "tooltip": "Enter Python code. Syntax errors will be highlighted.",
+      "tooltip": "",
       "helpUrl": ""
     });
 

@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2025-06-03 10:28:38.804872",
+		"lastupdated": "2025-06-03 19:58:37.356424",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2148,6 +2148,7 @@
 	"MC_cmd_minecraft_shape_ellipse_param": "with radius X%4and radius Y",
 	"MC_cmd_minecraft_shape_arc_param": "with radius X%4radius Y%5 and angle",
 	"MC_cmd_minecraft_shape_star_param": "with%4sides and inner radius%5and outer radius",
+	"MC_cmd_minecraft_python_code": "# Python",
 	"PROCEDURES_DEFNORETURN_TITLE": "/vm",
 	"PROCEDURES_DEFNORETURN_PROCEDURE": "mycommand",
 	"PROCEDURES_DOWNLOAD_SCREENSHOT": "Download image",
