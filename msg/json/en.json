@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2025-06-04 12:07:56.435456",
+		"lastupdated": "2025-06-04 13:06:24.180315",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2112,8 +2112,10 @@
 	"MC_cmd_minecraft_move_to_position_player_ver2": "go to where I am",
 	"MC_cmd_minecraft_mark_position_ver1": "mark this position",
 	"MC_cmd_minecraft_mark_position_ver2": "mark this block",
-	"MC_cmd_minecraft_reset_position_ver1": "reset the current position to %1 %2",
+	"MC_cmd_minecraft_reset_position_ver1": "%1 %2",
 	"MC_cmd_minecraft_reset_position_ver2": "go back to the %1 %2",
+	"MC_cmd_minecraft_option_reset_start_position_ver1": "reset the current position to the start",
+	"MC_cmd_minecraft_option_reset_lastmarked_position_ver1": "reset the current position to the last marked position",
 	"MC_cmd_minecraft_option_start_position_ver1": "set the position to the start",
 	"MC_cmd_minecraft_option_start_position_ver2": "go to the start",
 	"MC_cmd_minecraft_option_lastmarked_position_ver1": "set the position to the last marked position",

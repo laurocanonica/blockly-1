@@ -2108,6 +2108,8 @@
 	"MC_cmd_minecraft_mark_position_ver2": "",
 	"MC_cmd_minecraft_reset_position_ver1": "",
 	"MC_cmd_minecraft_reset_position_ver2": "",
+	"MC_cmd_minecraft_option_reset_start_position_ver1": "",
+	"MC_cmd_minecraft_option_reset_lastmarked_position_ver1": "",
 	"MC_cmd_minecraft_option_start_position_ver1": "",
 	"MC_cmd_minecraft_option_start_position_ver2": "",
 	"MC_cmd_minecraft_option_lastmarked_position_ver1": "",

@@ -3122,7 +3122,7 @@ Blockly.Blocks['minecraft_gotomark'] = {
 			this.jsonInit( 	
 					{
 						  "type": "minecraft_gotomark",
-						  "message0": eval('Blockly.Msg.MC_cmd_minecraft_reset_position'+'_'+GLOBAL_MESSAGE_VERSION),
+						  "message0": Blockly.Msg.MC_cmd_minecraft_reset_position_ver1,
 						  "args0": [
 						    {
 						      "type": "input_dummy"
@@ -3132,11 +3132,11 @@ Blockly.Blocks['minecraft_gotomark'] = {
 						      "name": "origin",
 						      "options": [
 						        [
-						        	eval('Blockly.Msg.MC_cmd_minecraft_option_start_position'+'_'+GLOBAL_MESSAGE_VERSION),
+						        	Blockly.Msg.MC_cmd_minecraft_option_reset_start_position_ver1,
 						          "START_POS"
 						        ],
 						        [
-						        	eval('Blockly.Msg.MC_cmd_minecraft_option_lastmarked_position'+'_'+GLOBAL_MESSAGE_VERSION),
+						        	Blockly.Msg.MC_cmd_minecraft_option_reset_lastmarked_position_ver1,
 						          "MARKED_POS"
 						        ]
 						      ]
