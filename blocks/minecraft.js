@@ -2558,27 +2558,27 @@ Blockly.Blocks['minecraft_direction'] = {
 					"name" : "NAME",
 					 "options": [
 					        [
-					        	Blockly.Msg.MC_cmd_left,
+					        	Blockly.Msg.MC_cmd_facing_left,
 					          "LEFT"
 					        ],
 					        [
-					        	Blockly.Msg.MC_cmd_right,
+					        	Blockly.Msg.MC_cmd_facing_right,
 					          "RIGHT"
 					        ],
 					        [
-					        	Blockly.Msg.MC_cmd_forward,
+					        	Blockly.Msg.MC_cmd_facing_forward,
 					          "FW"
 					        ],
 					        [
-					        	Blockly.Msg.MC_cmd_backwards,
+					        	Blockly.Msg.MC_cmd_facing_backwards,
 					          "BW"
 					        ],
 					        [
-					        	Blockly.Msg.MC_cmd_up,
+					        	Blockly.Msg.MC_cmd_facing_up,
 					          "UP"
 					        ],
 					        [
-					        	Blockly.Msg.MC_cmd_down,
+					        	Blockly.Msg.MC_cmd_facing_down,
 					          "DOWN"
 					        ]
 					   ]
@@ -2604,11 +2604,11 @@ Blockly.Blocks['minecraft_upper_lower_part'] = {
 					"name" : "NAME",
 					 "options": [
 					        [
-					        	Blockly.Msg.MC_cmd_up,
+					        	Blockly.Msg.MC_cmd_side_up,
 					          "UP"
 					        ],
 					        [
-					        	Blockly.Msg.MC_cmd_down,
+					        	Blockly.Msg.MC_cmd_side_down,
 					          "DOWN"
 					        ]
 					   ]
@@ -2726,27 +2726,27 @@ Blockly.Blocks['minecraft_move'] = {
 					      "name": "direction",
 					      "options": [
 					        [
-					        	Blockly.Msg.MC_cmd_up,
+					        	Blockly.Msg.MC_cmd_move_up,
 					          "UP"
 					        ],
 					        [
-					        	Blockly.Msg.MC_cmd_down,
+					        	Blockly.Msg.MC_cmd_move_down,
 					          "DOWN"
 					        ],
 					        [
-					        	Blockly.Msg.MC_cmd_left,
+					        	Blockly.Msg.MC_cmd_move_left,
 					          "LEFT"
 					        ],
 					        [
-					        	Blockly.Msg.MC_cmd_right,
+					        	Blockly.Msg.MC_cmd_move_right,
 					          "RIGHT"
 					        ],
 					        [
-					        	Blockly.Msg.MC_cmd_forward,
+					        	Blockly.Msg.MC_cmd_move_forward,
 					          "FW"
 					        ],
 					        [
-					        	Blockly.Msg.MC_cmd_backwards,
+					        	Blockly.Msg.MC_cmd_move_backwards,
 					          "BW"
 					        ]
 					      ]
