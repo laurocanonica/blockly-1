@@ -2512,7 +2512,7 @@ Blockly.Blocks['minecraft_team_ver2'] = {
 		init : function() {
 			this.jsonInit({
 				"type" : "minecraft_leash",
-				"message0" : Blockly.Msg.MC_cmd_leashed_to,
+				"message0" : '%1 %2',
 				"args0" : [ {
 					"type" : "field_dropdown",
 					"name" : "NAME",
@@ -2552,7 +2552,7 @@ Blockly.Blocks['minecraft_direction'] = {
 		init : function() {
 			this.jsonInit({
 				"type" : "minecraft_direction",
-				"message0" : Blockly.Msg.MC_cmd_facing,
+				"message0" : '%1%2',
 				"args0" : [ {
 					"type" : "field_dropdown",
 					"name" : "NAME",
@@ -2598,7 +2598,7 @@ Blockly.Blocks['minecraft_upper_lower_part'] = {
 		init : function() {
 			this.jsonInit({
 				"type" : "minecraft_upper_lower_part",
-				"message0" : Blockly.Msg.MC_cmd_upper_lower,
+				"message0" : '%1 %2',
 				"args0" : [ {
 					"type" : "field_dropdown",
 					"name" : "NAME",
@@ -2666,7 +2666,7 @@ Blockly.Blocks['minecraft_move_to_view_target'] = {
 			this.jsonInit( 	
 						{
 						  "type": "minecraft_move_to_view_target",
-						  "message0": eval('Blockly.Msg.MC_cmd_minecraft_move_to_view'+'_'+GLOBAL_MESSAGE_VERSION),						  
+						  "message0": '%1',						  
 						  "args0": [
 							    {
 							      "type": "field_dropdown",
@@ -2790,7 +2790,7 @@ Blockly.Blocks['minecraft_setrotation'] = {
 			this.jsonInit( 	
 					{
 						  "type": "minecraft_setrotation",
-						  "message0": eval('Blockly.Msg.MC_cmd_minecraft_setrotation'+'_'+GLOBAL_MESSAGE_VERSION),
+						  "message0": '%1',
 						  "args0": [
 						    {
 						      "type": "field_dropdown",
@@ -2878,7 +2878,7 @@ Blockly.Blocks['minecraft_addevent'] = {
   init: function() {
     this.jsonInit({
       "type": "minecraft_addevent",
-      "message0": Blockly.Msg.MC_cmd_minecraft_addevent,
+      "message0": '%1%2',
       "args0": [
         {
           "type": "field_dropdown",
@@ -2986,7 +2986,7 @@ Blockly.Blocks['minecraft_putinhand'] = {
 			this.jsonInit( 	
 					{
 						  "type": "minecraft_putinhand",
-						  "message0": Blockly.Msg.MC_cmd_minecraft_putinhand,
+						  "message0": '%1%2',
 						  "args0": [
 						    {
 						      "type": "field_dropdown",
@@ -3122,7 +3122,7 @@ Blockly.Blocks['minecraft_gotomark'] = {
 			this.jsonInit( 	
 					{
 						  "type": "minecraft_gotomark",
-						  "message0": Blockly.Msg.MC_cmd_minecraft_reset_position_ver1,
+						  "message0": '%1 %2',
 						  "args0": [
 						    {
 						      "type": "input_dummy"
@@ -3759,9 +3759,9 @@ Blockly.Blocks['shape_block'] = {
     if (this.getInput('OUTER_RADIUS')) {
       this.removeInput('OUTER_RADIUS');
     }
-    if (this.getInput('POLYGON_RADIUS')) {
-      this.removeInput('POLYGON_RADIUS');
-    }
+	if (this.getInput('POLYGON_RADIUS')) {
+	  this.removeInput('POLYGON_RADIUS');
+	}
 
     // Add inputs based on the selected shape
       this.getInput("FILL_TYPE").setVisible(true);   
