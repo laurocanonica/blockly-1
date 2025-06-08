@@ -3681,7 +3681,7 @@ Blockly.Blocks['shape_block'] = {
         .appendField(this.splitBlockLabel[0]);
 
     this.appendDummyInput('FILL_TYPE')
-        .appendField(new Blockly.FieldDropdown([[Blockly.Msg.MC_cmd_empty, "EMPTY"], [Blockly.Msg.MC_cmd_full, "FULL"]]), "FILL");
+        .appendField(new Blockly.FieldDropdown([[Blockly.Msg.MC_cmd_empty_shape, "EMPTY"], [Blockly.Msg.MC_cmd_full_shape, "FULL"]]), "FILL");
 
     // Define the dropdown field for shape selection
     this.appendDummyInput('SHAPE_INPUT')
@@ -3878,12 +3878,14 @@ Blockly.Blocks['shape_block'] = {
             .appendField(this.splitBlockLabel[2].slice(1))
             .setAlign(Blockly.ALIGN_RIGHT);
         this.createShadowBlock('OUTER_RADIUS', 11);
+
         break;
     }
 
     // Ensure inputs are inline
     this.setInputsInline(true);
     this.moveInputBefore('MATERIAL', null);
+	this.moveInputBefore('FILL_TYPE', 'MATERIAL');
   },
 
   createShadowBlock: function(inputName, defaultValue) {
@@ -4143,12 +4145,12 @@ Blockly.Blocks['python_code_snippet'] = {
   init: function () {
     this.jsonInit({
       "type": "python_code_snippet",
-      "message0": "Python %1 %2",
+      "message0": Blockly.Msg.MC_cmd_minecraft_python_code+"%1 %2",
       "args0": [
         {
           "type": "field_multilinetext",
           "name": "CODE",
-          "text": Blockly.Msg.MC_cmd_minecraft_python_code
+          "text": "# "+Blockly.Msg.MC_cmd_minecraft_python_code
         },
         {
           "type": "input_dummy"

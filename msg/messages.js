@@ -3364,7 +3364,7 @@ Blockly.Msg.MC_cmd_minecraft_draw_from_center = 'Center';
 Blockly.Msg.MC_cmd_minecraft_draw_from_bottomleft = 'Left';
 Blockly.Msg.MC_cmd_minecraft_splash_potion_function = 'with function';
 Blockly.Msg.MC_cmd_minecraft_sign_with_text = 'with text';
-Blockly.Msg.MC_cmd_minecraft_execute_command = 'call function %1 of player %2 with parameter %3';
+Blockly.Msg.MC_cmd_minecraft_execute_command = 'call the function %1 of player %2 with parameter %3';
 Blockly.Msg.MC_cmd_minecraft_nothing = 'nothing %1';
 Blockly.Msg.MC_cmd_player = 'leashed to the player';
 Blockly.Msg.MC_cmd_mob = 'leashed to the last created mob';
@@ -3374,18 +3374,18 @@ Blockly.Msg.MC_cmd_baby = 'baby %1';
 Blockly.Msg.MC_cmd_minecraft_talking = 'talking %1 %2';
 
 
-Blockly.Msg.MC_cmd_minecraft_shape_square = 'square □';
-Blockly.Msg.MC_cmd_minecraft_shape_circle = 'circle ○';
-Blockly.Msg.MC_cmd_minecraft_shape_block = 'block ▫';
-Blockly.Msg.MC_cmd_minecraft_shape_line = 'row --';
-Blockly.Msg.MC_cmd_minecraft_shape_connection = 'connection o--o';
-Blockly.Msg.MC_cmd_minecraft_shape_rectangle = 'rectangle ▭';
-Blockly.Msg.MC_cmd_minecraft_shape_polygon = 'polygon ⬠';
-Blockly.Msg.MC_cmd_minecraft_shape_ellipse = 'ellipse ⬭';
-Blockly.Msg.MC_cmd_minecraft_shape_arc = 'arc ◠';
-Blockly.Msg.MC_cmd_minecraft_shape_star = 'star ☆';
+Blockly.Msg.MC_cmd_minecraft_shape_square = 'create a square □';
+Blockly.Msg.MC_cmd_minecraft_shape_circle = 'create a circle ○';
+Blockly.Msg.MC_cmd_minecraft_shape_block = 'create a block ▫';
+Blockly.Msg.MC_cmd_minecraft_shape_line = 'create a row --';
+Blockly.Msg.MC_cmd_minecraft_shape_connection = 'create a connection o--o';
+Blockly.Msg.MC_cmd_minecraft_shape_rectangle = 'create a rectangle ▭';
+Blockly.Msg.MC_cmd_minecraft_shape_polygon = 'create a polygon ⬠';
+Blockly.Msg.MC_cmd_minecraft_shape_ellipse = 'create a ellipse ⬭';
+Blockly.Msg.MC_cmd_minecraft_shape_arc = 'create a arc ◠';
+Blockly.Msg.MC_cmd_minecraft_shape_star = 'create a star ☆';
 
-Blockly.Msg.MC_cmd_minecraft_shape_start = 'create a%1%2%9made of';
+Blockly.Msg.MC_cmd_minecraft_shape_start = '%1%2%9made of';
 Blockly.Msg.MC_cmd_minecraft_shape_square_param = 'of width';
 Blockly.Msg.MC_cmd_minecraft_shape_circle_param = 'of radius';
 Blockly.Msg.MC_cmd_minecraft_shape_block_param = 'block';
@@ -3395,7 +3395,9 @@ Blockly.Msg.MC_cmd_minecraft_shape_polygon_param = 'with%4sides and radius';
 Blockly.Msg.MC_cmd_minecraft_shape_ellipse_param = 'with radius X%4and radius Y';
 Blockly.Msg.MC_cmd_minecraft_shape_arc_param = 'with radius X%4radius Y%5 and angle';
 Blockly.Msg.MC_cmd_minecraft_shape_star_param = 'with%4sides and inner radius%5and outer radius';
-Blockly.Msg.MC_cmd_minecraft_python_code = '# Python';
+Blockly.Msg.MC_cmd_empty_shape = 'with a border';
+Blockly.Msg.MC_cmd_full_shape = 'with a filling';
+Blockly.Msg.MC_cmd_minecraft_python_code = 'Python';
 
 
 

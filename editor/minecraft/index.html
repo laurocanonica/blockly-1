@@ -49,6 +49,10 @@
 					<tr>
 						<td>
 							<input  type="text" id="playernamefield">
+							<select id="versionSelect">
+							  <option value="V1">v1</option>
+							  <option value="V2">v2</option>
+							</select>
 							<select class="topright" id="languageMenu"></select>
 						</td>
 					</tr>
@@ -166,7 +170,7 @@
     </style>
 
 
-	<xml id="toolbox" style="display: none">
+	<xml id="toolboxV1" style="display: none">
 		<category name="{catFunctions}" colour="290" custom="PROCEDURE"> </category>
 
 		<category name="{c_Actions}" colour="210">
@@ -1020,6 +1024,1013 @@
 			<block type="minecraft_materialbockOnlyOne_op"></block>
 			<block type="minecraft_item_op"></block>
 			<block type="minecraft_entity_op"></block>
+		</category>
+
+	</xml>
+	
+	
+	<xml id="toolboxV2" style="display: none">
+		<category name="{catFunctions}" colour="290" custom="PROCEDURE"> </category>
+
+
+
+		<category name="{c_Actions}" colour="120" class="toolbox-logic">
+
+			<block type="shape_block">
+				<value name="MATERIAL">
+					<block type="minecraft_materialbockOnlyOne">
+						<field name="NAME">b.grass_block</field>
+					</block>					
+					<shadow type="minecraft_materialbockOnlyOne">
+						<field name="NAME">b.grass_block</field>
+					</shadow>
+				</value>
+			</block>
+
+			<block type="minecraft_createchest">
+				<value name="NAME">
+					<block type="minecraft_item">
+						<field name="NAME">i.apple</field>
+					</block>
+					<shadow type="minecraft_item">
+						<field name="NAME">i.apple</field>
+					</shadow>
+				</value>
+			</block>
+
+
+			<block type="minecraft_text">
+				<field name="fontName">monospace</field>
+				<field name="fontStyle">0</field>
+				<value name="inputText">
+					<block type="text">
+						<field name="TEXT">abc</field>
+					</block>
+					<shadow type="text">
+						<field name="TEXT">abc</field>
+					</shadow>
+				</value>
+				<value name="fontPoints">
+					<shadow type="math_number">
+						<field name="NUM">18</field>
+					</shadow>
+				</value>
+				<value name="NAME">
+					<block type="minecraft_materialbockOnlyOne">
+						<field name="NAME">b.grass_block</field>
+					</block>					
+					<shadow type="minecraft_materialbockOnlyOne">
+						<field name="NAME">b.clay</field>
+					</shadow>
+				</value>
+			</block>
+			
+			<block type="minecraft_addevent">
+				<field name="eventType">HITTING_ENTITY_EVENT</field>
+				<value name="functionName">
+					<shadow type="text">
+						<field name="TEXT"></field>
+					</shadow>
+				</value>
+			</block>
+			
+			
+			
+			<block type="minecraft_cancelEvents"></block>
+
+			<block type="minecraft_executecommand">
+				<value name="fn">
+					<shadow type="text">
+						<field name="TEXT"></field>
+					</shadow>
+				</value>
+				<value name="player">
+					<shadow type="text">
+						<field name="TEXT"></field>
+					</shadow>
+				</value>
+				<value name="param1">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="minecraft_comment"></block>
+
+		</category>
+
+		<category name="{c_Blocks}" colour="330">
+			<block type="minecraft_materialbockOnlyOne"></block>
+			<block type="minecraft_sign_textfield"></block>
+			<block type="minecraft_particleOnlyOne"></block>
+			<block type="minecraft_multiciplity"></block>
+			<block type="minecraft_multiciplity_var"></block>
+			<block type="minecraft_direction"></block>
+			<block type="minecraft_upper_lower_part"></block>
+			<block type="minecraft_on_the_ground"></block>
+			<block type="image_select"></block>
+			
+			<block type="minecraft_materialNothing"></block>
+		</category>
+
+		<category name="{c_Mobs}" colour="180">
+			<block type="minecraft_entity"></block>
+			<block type="minecraft_team_ver2"></block>
+			<block type="minecraft_baby"></block>
+			<block type="minecraft_talking"></block>
+			<block type="minecraft_leash"></block>
+			<block type="minecraft_velocity"></block>
+		</category>
+
+		<category name="{c_Items}" colour="30">
+			<block type="minecraft_item"></block>
+			<block type="minecraft_splashpotion"></block>
+			<block type="minecraft_givetoplayer">
+				<value name="NAME">
+					<block type="minecraft_item">
+						<field name="NAME">i.apple</field>
+					</block>
+					<shadow type="minecraft_item">
+						<field name="NAME">i.apple</field>
+					</shadow>
+				</value>
+			</block>
+
+			<block type="minecraft_equipplayer">
+				<value name="NAME">
+					<block type="minecraft_item">
+						<field name="NAME">i.diamond_chestplate</field>
+					</block>
+					<shadow type="minecraft_item">
+						<field name="NAME">i.diamond_chestplate</field>
+					</shadow>
+				</value>
+			</block>
+
+			<block type="minecraft_putinhand">
+				<field name="hand">RIGHT_HAND</field>
+				<value name="NAME">
+					<block type="minecraft_item">
+						<field name="NAME">i.diamond_pickaxe</field>
+					</block>
+					<shadow type="minecraft_item">
+						<field name="NAME">i.diamond_pickaxe</field>
+					</shadow>
+				</value>
+			</block>
+
+		</category>
+		<category name="{c_Drawing}" colour="210">
+		  <block type="minecraft_drawing_version2" >
+		  <mutation xmlns="http://www.w3.org/1999/xhtml" extra_choice_count="2"></mutation>
+		  <field name="origin">C</field>
+		  <value name="matlist">
+		    <block type="lists_create_with"  >
+		    <mutation items="3"></mutation>
+		    <value name="ADD0">
+		      <block type="m_draw_0" movable="false">
+		      <value name="child">
+		        <block type="m_draw_0" movable="false">
+		        <value name="child">
+		          <block type="m_draw_0" movable="false"></block>
+		        </value>
+		        </block>
+		      </value>
+		      </block>
+		    </value>
+		    <value name="ADD1">
+		      <block type="m_draw_0" movable="false">
+		      <value name="child">
+		        <block type="m_draw_0" movable="false">
+		        <value name="child">
+		          <block type="m_draw_0" movable="false"></block>
+		        </value>
+		        </block>
+		      </value>
+		      </block>
+		    </value>
+		    <value name="ADD2">
+		      <block type="m_draw_0" movable="false">
+		      <value name="child">
+		        <block type="m_draw_0" movable="false">
+		        <value name="child">
+		          <block type="m_draw_0" movable="false"></block>
+		        </value>
+		        </block>
+		      </value>
+		      </block>
+		    </value>
+		    </block>
+		  </value>
+		  <value name="index_material">
+		    <shadow type="math_number"  >
+		    <field name="NUM">1</field>
+		    </shadow>
+		  </value>
+		  </block>
+
+  <block type="minecraft_drawing_version2" >
+  <mutation xmlns="http://www.w3.org/1999/xhtml" extra_choice_count="5"></mutation>
+  <field name="origin">C</field>
+  <value name="matlist">
+    <block type="lists_create_with">
+    <mutation items="10"></mutation>
+    <value name="ADD0">
+      <block type="m_draw_0" movable="false">
+      <value name="child">
+        <block type="m_draw_0" movable="false">
+        <value name="child">
+          <block type="m_draw_0" movable="false">
+          <value name="child">
+            <block type="m_draw_0" movable="false">
+            <value name="child">
+              <block type="m_draw_0" movable="false">
+              <value name="child">
+                <block type="m_draw_0" movable="false">
+                <value name="child">
+                  <block type="m_draw_0" movable="false">
+                  <value name="child">
+                    <block type="m_draw_0" movable="false">
+                    <value name="child">
+                      <block type="m_draw_0" movable="false">
+                      <value name="child">
+                        <block type="m_draw_0" movable="false"></block>
+                      </value>
+                      </block>
+                    </value>
+                    </block>
+                  </value>
+                  </block>
+                </value>
+                </block>
+              </value>
+              </block>
+            </value>
+            </block>
+          </value>
+          </block>
+        </value>
+        </block>
+      </value>
+      </block>
+    </value>
+    <value name="ADD1">
+      <block type="m_draw_0" movable="false">
+      <value name="child">
+        <block type="m_draw_0" movable="false">
+        <value name="child">
+          <block type="m_draw_0" movable="false">
+          <value name="child">
+            <block type="m_draw_0" movable="false">
+            <value name="child">
+              <block type="m_draw_0" movable="false">
+              <value name="child">
+                <block type="m_draw_0" movable="false">
+                <value name="child">
+                  <block type="m_draw_0" movable="false">
+                  <value name="child">
+                    <block type="m_draw_0" movable="false">
+                    <value name="child">
+                      <block type="m_draw_0" movable="false">
+                      <value name="child">
+                        <block type="m_draw_0" movable="false"></block>
+                      </value>
+                      </block>
+                    </value>
+                    </block>
+                  </value>
+                  </block>
+                </value>
+                </block>
+              </value>
+              </block>
+            </value>
+            </block>
+          </value>
+          </block>
+        </value>
+        </block>
+      </value>
+      </block>
+    </value>
+    <value name="ADD2">
+      <block type="m_draw_0" movable="false">
+      <value name="child">
+        <block type="m_draw_0" movable="false">
+        <value name="child">
+          <block type="m_draw_0" movable="false">
+          <value name="child">
+            <block type="m_draw_0" movable="false">
+            <value name="child">
+              <block type="m_draw_0" movable="false">
+              <value name="child">
+                <block type="m_draw_0" movable="false">
+                <value name="child">
+                  <block type="m_draw_0" movable="false">
+                  <value name="child">
+                    <block type="m_draw_0" movable="false">
+                    <value name="child">
+                      <block type="m_draw_0" movable="false">
+                      <value name="child">
+                        <block type="m_draw_0" movable="false"></block>
+                      </value>
+                      </block>
+                    </value>
+                    </block>
+                  </value>
+                  </block>
+                </value>
+                </block>
+              </value>
+              </block>
+            </value>
+            </block>
+          </value>
+          </block>
+        </value>
+        </block>
+      </value>
+      </block>
+    </value>
+    <value name="ADD3">
+      <block type="m_draw_0" movable="false">
+      <value name="child">
+        <block type="m_draw_0" movable="false">
+        <value name="child">
+          <block type="m_draw_0" movable="false">
+          <value name="child">
+            <block type="m_draw_0" movable="false">
+            <value name="child">
+              <block type="m_draw_0" movable="false">
+              <value name="child">
+                <block type="m_draw_0" movable="false">
+                <value name="child">
+                  <block type="m_draw_0" movable="false">
+                  <value name="child">
+                    <block type="m_draw_0" movable="false">
+                    <value name="child">
+                      <block type="m_draw_0" movable="false">
+                      <value name="child">
+                        <block type="m_draw_0" movable="false"></block>
+                      </value>
+                      </block>
+                    </value>
+                    </block>
+                  </value>
+                  </block>
+                </value>
+                </block>
+              </value>
+              </block>
+            </value>
+            </block>
+          </value>
+          </block>
+        </value>
+        </block>
+      </value>
+      </block>
+    </value>
+    <value name="ADD4">
+      <block type="m_draw_0" movable="false">
+      <value name="child">
+        <block type="m_draw_0" movable="false">
+        <value name="child">
+          <block type="m_draw_0" movable="false">
+          <value name="child">
+            <block type="m_draw_0" movable="false">
+            <value name="child">
+              <block type="m_draw_0" movable="false">
+              <value name="child">
+                <block type="m_draw_0" movable="false">
+                <value name="child">
+                  <block type="m_draw_0" movable="false">
+                  <value name="child">
+                    <block type="m_draw_0" movable="false">
+                    <value name="child">
+                      <block type="m_draw_0" movable="false">
+                      <value name="child">
+                        <block type="m_draw_0" movable="false"></block>
+                      </value>
+                      </block>
+                    </value>
+                    </block>
+                  </value>
+                  </block>
+                </value>
+                </block>
+              </value>
+              </block>
+            </value>
+            </block>
+          </value>
+          </block>
+        </value>
+        </block>
+      </value>
+      </block>
+    </value>
+    <value name="ADD5">
+      <block type="m_draw_0" movable="false">
+      <value name="child">
+        <block type="m_draw_0" movable="false">
+        <value name="child">
+          <block type="m_draw_0" movable="false">
+          <value name="child">
+            <block type="m_draw_0" movable="false">
+            <value name="child">
+              <block type="m_draw_0" movable="false">
+              <value name="child">
+                <block type="m_draw_0" movable="false">
+                <value name="child">
+                  <block type="m_draw_0" movable="false">
+                  <value name="child">
+                    <block type="m_draw_0" movable="false">
+                    <value name="child">
+                      <block type="m_draw_0" movable="false">
+                      <value name="child">
+                        <block type="m_draw_0" movable="false"></block>
+                      </value>
+                      </block>
+                    </value>
+                    </block>
+                  </value>
+                  </block>
+                </value>
+                </block>
+              </value>
+              </block>
+            </value>
+            </block>
+          </value>
+          </block>
+        </value>
+        </block>
+      </value>
+      </block>
+    </value>
+    <value name="ADD6">
+      <block type="m_draw_0" movable="false">
+      <value name="child">
+        <block type="m_draw_0" movable="false">
+        <value name="child">
+          <block type="m_draw_0" movable="false">
+          <value name="child">
+            <block type="m_draw_0" movable="false">
+            <value name="child">
+              <block type="m_draw_0" movable="false">
+              <value name="child">
+                <block type="m_draw_0" movable="false">
+                <value name="child">
+                  <block type="m_draw_0" movable="false">
+                  <value name="child">
+                    <block type="m_draw_0" movable="false">
+                    <value name="child">
+                      <block type="m_draw_0" movable="false">
+                      <value name="child">
+                        <block type="m_draw_0" movable="false"></block>
+                      </value>
+                      </block>
+                    </value>
+                    </block>
+                  </value>
+                  </block>
+                </value>
+                </block>
+              </value>
+              </block>
+            </value>
+            </block>
+          </value>
+          </block>
+        </value>
+        </block>
+      </value>
+      </block>
+    </value>
+    <value name="ADD7">
+      <block type="m_draw_0" movable="false">
+      <value name="child">
+        <block type="m_draw_0" movable="false">
+        <value name="child">
+          <block type="m_draw_0" movable="false">
+          <value name="child">
+            <block type="m_draw_0" movable="false">
+            <value name="child">
+              <block type="m_draw_0" movable="false">
+              <value name="child">
+                <block type="m_draw_0" movable="false">
+                <value name="child">
+                  <block type="m_draw_0" movable="false">
+                  <value name="child">
+                    <block type="m_draw_0" movable="false">
+                    <value name="child">
+                      <block type="m_draw_0" movable="false">
+                      <value name="child">
+                        <block type="m_draw_0" movable="false"></block>
+                      </value>
+                      </block>
+                    </value>
+                    </block>
+                  </value>
+                  </block>
+                </value>
+                </block>
+              </value>
+              </block>
+            </value>
+            </block>
+          </value>
+          </block>
+        </value>
+        </block>
+      </value>
+      </block>
+    </value>
+    <value name="ADD8">
+      <block type="m_draw_0" movable="false">
+      <value name="child">
+        <block type="m_draw_0" movable="false">
+        <value name="child">
+          <block type="m_draw_0" movable="false">
+          <value name="child">
+            <block type="m_draw_0" movable="false">
+            <value name="child">
+              <block type="m_draw_0" movable="false">
+              <value name="child">
+                <block type="m_draw_0" movable="false">
+                <value name="child">
+                  <block type="m_draw_0" movable="false">
+                  <value name="child">
+                    <block type="m_draw_0" movable="false">
+                    <value name="child">
+                      <block type="m_draw_0" movable="false">
+                      <value name="child">
+                        <block type="m_draw_0" movable="false"></block>
+                      </value>
+                      </block>
+                    </value>
+                    </block>
+                  </value>
+                  </block>
+                </value>
+                </block>
+              </value>
+              </block>
+            </value>
+            </block>
+          </value>
+          </block>
+        </value>
+        </block>
+      </value>
+      </block>
+    </value>
+    <value name="ADD9">
+      <block type="m_draw_0" movable="false">
+      <value name="child">
+        <block type="m_draw_0" movable="false">
+        <value name="child">
+          <block type="m_draw_0" movable="false">
+          <value name="child">
+            <block type="m_draw_0" movable="false">
+            <value name="child">
+              <block type="m_draw_0" movable="false">
+              <value name="child">
+                <block type="m_draw_0" movable="false">
+                <value name="child">
+                  <block type="m_draw_0" movable="false">
+                  <value name="child">
+                    <block type="m_draw_0" movable="false">
+                    <value name="child">
+                      <block type="m_draw_0" movable="false">
+                      <value name="child">
+                        <block type="m_draw_0" movable="false"></block>
+                      </value>
+                      </block>
+                    </value>
+                    </block>
+                  </value>
+                  </block>
+                </value>
+                </block>
+              </value>
+              </block>
+            </value>
+            </block>
+          </value>
+          </block>
+        </value>
+        </block>
+      </value>
+      </block>
+    </value>
+    </block>
+  </value>
+  <value name="index_material">
+    <shadow type="math_number">
+    <field name="NUM">1</field>
+    </shadow>
+  </value>
+  </block>
+		</category>
+		
+		<category name="{c_Movement}" colour="210">
+		
+		
+
+			<block type="minecraft_move">
+				<field name="direction">UP</field>
+				<value name="times">
+					<shadow type="math_number">
+						<field name="NUM">1</field>
+					</shadow>
+				</value>
+			</block>
+
+
+
+
+			<block type="minecraft_gotopos">
+				<value name="x">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+				<value name="y">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+				<value name="z">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+			</block>
+
+
+			<block type="minecraft_setrotation"></block>
+
+			<block type="minecraft_rotate">
+				<value name="angle">
+					<shadow type="math_number">
+						<field name="NUM">90</field>
+					</shadow>
+				</value>
+			</block>
+
+			
+			<block type="minecraft_set_elevation">
+				<value name="angle">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+			</block>
+
+			<block type="minecraft_set_elevation_relative">
+				<value name="angle">
+					<shadow type="math_number">
+						<field name="NUM">45</field>
+					</shadow>
+				</value>
+			</block>
+
+			<block type="minecraft_move_to_view_target"></block>
+
+
+
+			<block type="minecraft_mark"></block>
+		</category>
+
+
+
+
+		<category name="{c_Time}" colour="90">
+			<block type="minecraft_delay"></block>
+			<block type="minecraft_delay_var"></block>
+			<block type="minecraft_delay_random"></block>
+			<block type="minecraft_delay_random_var"></block>
+		</category>
+
+
+
+
+
+		<category name="{c_Status}" colour="210" expanded="true">
+			<block type="minecraft_holding">
+				<value name="NAME">
+					<block type="minecraft_item">
+						<field name="NAME">i.apple</field>
+					</block>
+					<shadow type="minecraft_item">
+						<field name="NAME">i.apple</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="minecraft_playerHas">
+				<value name="NAME">
+					<block type="minecraft_item">
+						<field name="NAME">i.apple</field>
+					</block>
+					<shadow type="minecraft_item">
+						<field name="NAME">i.apple</field>
+					</shadow>
+				</value>
+			</block>
+
+			<block type="minecraft_hitting">
+				<value name="NAME">
+					<block type="minecraft_entity">
+						<field name="NAME">e.player</field>
+					</block>
+					<shadow type="minecraft_entity">
+						<field name="NAME">e.player</field>
+					</shadow>
+				</value>
+			</block>
+
+			<block type="minecraft_sensing">
+				<value name="NAME">
+					<block type="minecraft_materialbockOnlyOne">
+						<field name="NAME">b.grass_block</field>
+					</block>					
+					<shadow type="minecraft_materialbockOnlyOne">
+						<field name="NAME">b.grass_block</field>
+					</shadow>
+				</value>
+			</block>
+
+		</category>
+
+
+
+		<category name="{catVariables}" colour="330" custom="VARIABLE"></category>
+		<category name="{catLogic}" colour="210">
+			<block type="controls_if"></block>
+			<block type="logic_compare"></block>
+			<block type="logic_operation"></block>
+			<block type="logic_negate"></block>
+			<block type="logic_boolean"></block>
+			<block type="logic_null"></block>
+			<block type="logic_ternary"></block>
+		</category>
+		<category name="{catLoops}" colour="120">
+			<block type="controls_repeat_ext">
+				<value name="TIMES">
+					<shadow type="math_number">
+						<field name="NUM">10</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="controls_whileUntil"></block>
+			<block type="controls_for">
+				<value name="FROM">
+					<shadow type="math_number">
+						<field name="NUM">1</field>
+					</shadow>
+				</value>
+				<value name="TO">
+					<shadow type="math_number">
+						<field name="NUM">10</field>
+					</shadow>
+				</value>
+				<value name="BY">
+					<shadow type="math_number">
+						<field name="NUM">1</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="controls_forEach"></block>
+			<block type="controls_flow_statements"></block>
+
+		</category>
+		<category name="{catMath}" colour="230">
+			<block type="math_number"></block>
+			<block type="math_arithmetic">
+				<value name="A">
+					<shadow type="math_number">
+						<field name="NUM">1</field>
+					</shadow>
+				</value>
+				<value name="B">
+					<shadow type="math_number">
+						<field name="NUM">1</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="math_single">
+				<value name="NUM">
+					<shadow type="math_number">
+						<field name="NUM">9</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="math_trig">
+				<value name="NUM">
+					<shadow type="math_number">
+						<field name="NUM">45</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="math_constant"></block>
+			<block type="math_number_property">
+				<value name="NUMBER_TO_CHECK">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="math_round">
+				<value name="NUM">
+					<shadow type="math_number">
+						<field name="NUM">3.1</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="math_on_list"></block>
+			<block type="math_modulo">
+				<value name="DIVIDEND">
+					<shadow type="math_number">
+						<field name="NUM">64</field>
+					</shadow>
+				</value>
+				<value name="DIVISOR">
+					<shadow type="math_number">
+						<field name="NUM">10</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="math_constrain">
+				<value name="VALUE">
+					<shadow type="math_number">
+						<field name="NUM">50</field>
+					</shadow>
+				</value>
+				<value name="LOW">
+					<shadow type="math_number">
+						<field name="NUM">1</field>
+					</shadow>
+				</value>
+				<value name="HIGH">
+					<shadow type="math_number">
+						<field name="NUM">100</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="math_random_int">
+				<value name="FROM">
+					<shadow type="math_number">
+						<field name="NUM">1</field>
+					</shadow>
+				</value>
+				<value name="TO">
+					<shadow type="math_number">
+						<field name="NUM">100</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="math_random_float"></block>
+			<block type="math_atan2"></block>
+			
+		</category>
+		<category name="{catText}" colour="160">
+			<block type="text"></block>
+			<block type="text_multiline"></block>
+			<block type="minecraft_unicode_grid_selector"></block>
+			<block type="text_join"></block>
+			<block type="text_append">
+				<value name="TEXT">
+					<shadow type="text"></shadow>
+				</value>
+			</block>
+			<block type="text_length">
+				<value name="VALUE">
+					<shadow type="text">
+						<field name="TEXT">abc</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="text_isEmpty">
+				<value name="VALUE">
+					<shadow type="text">
+						<field name="TEXT"></field>
+					</shadow>
+				</value>
+			</block>
+			<block type="text_indexOf">
+				<value name="VALUE">
+					<block type="variables_get">
+						<field name="VAR">{textVariable}</field>
+					</block>
+				</value>
+				<value name="FIND">
+					<shadow type="text">
+						<field name="TEXT">abc</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="text_charAt">
+				<value name="VALUE">
+					<block type="variables_get">
+						<field name="VAR">{textVariable}</field>
+					</block>
+				</value>
+			</block>
+			<block type="text_getSubstring">
+				<value name="STRING">
+					<block type="variables_get">
+						<field name="VAR">{textVariable}</field>
+					</block>
+				</value>
+			</block>
+			<block type="text_changeCase">
+				<value name="TEXT">
+					<shadow type="text">
+						<field name="TEXT">abc</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="text_trim">
+				<value name="TEXT">
+					<shadow type="text">
+						<field name="TEXT">abc</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="text_print">
+				<value name="TEXT">
+					<shadow type="text">
+						<field name="TEXT">abc</field>
+					</shadow>
+				</value>
+			</block>
+		</category>
+		<category name="{catLists}" colour="260">
+			<block type="lists_create_with">
+				<mutation items="0"></mutation>
+			</block>
+			<block type="lists_create_with"></block>
+			<block type="lists_repeat">
+				<value name="NUM">
+					<shadow type="math_number">
+						<field name="NUM">5</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="lists_length"></block>
+			<block type="lists_isEmpty"></block>
+			<block type="lists_indexOf">
+				<value name="VALUE">
+					<block type="variables_get">
+						<field name="VAR">{listVariable}</field>
+					</block>
+				</value>
+			</block>
+			<block type="lists_getIndex">
+				<value name="VALUE">
+					<block type="variables_get">
+						<field name="VAR">{listVariable}</field>
+					</block>
+				</value>
+			</block>
+			<block type="lists_setIndex">
+				<value name="LIST">
+					<block type="variables_get">
+						<field name="VAR">{listVariable}</field>
+					</block>
+				</value>
+			</block>
+			<block type="lists_getSublist">
+				<value name="LIST">
+					<block type="variables_get">
+						<field name="VAR">{listVariable}</field>
+					</block>
+				</value>
+			</block>
+			<block type="lists_split">
+				<value name="DELIM">
+					<shadow type="text">
+						<field name="TEXT">,</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="lists_sort"></block>
+		</category>
+
+
+		
+		<category name="{c_Python}" colour="210">
+		  <block type="python_code_snippet" id="=KLvvaVkdU_Gn(xVnS8g" x="114" y="266">
+		    <field name="CODE"># Python</field>
+		  </block>
+		  <block type="python_code_snippet" id="rpPa`4Q#.$*^uD_#8DNs" x="115" y="335">
+		    <field name="CODE"># Helloworld example&amp;#10;print('Hello world !')</field>
+		  </block>
+		  <block type="python_code_snippet" id="#HT(N*rA_n#epg_fjdQQ" x="112" y="428">
+		    <field name="CODE"># Tower example&amp;#10;for count in range(10):&amp;#10;  vm.createRectangle(4, None, False, ["b.blue_wool"]);&amp;#10;  vm.movePositionRelative(1, 'UP')</field>
+		  </block>
 		</category>
 
 	</xml>

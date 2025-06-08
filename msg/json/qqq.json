@@ -2146,6 +2146,8 @@
 	"MC_cmd_minecraft_shape_ellipse_param": "",
 	"MC_cmd_minecraft_shape_arc_param": "",
 	"MC_cmd_minecraft_shape_star_param": "",
+	"MC_cmd_empty_shape": "",
+	"MC_cmd_full_shape": "",
 	"MC_cmd_minecraft_python_code": "",
 	"PROCEDURES_DEFNORETURN_TITLE": "",
 	"PROCEDURES_DEFNORETURN_PROCEDURE": "",

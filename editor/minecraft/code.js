@@ -417,6 +417,19 @@ Code.checkAllGeneratorFunctionsDefined = function(generator) {
  * Initialize Blockly.  Called on page load.
  */
 Code.init = function() {
+	
+	// switch toolboxes according to version toolboxV1 or toolboxV2
+	var toolboxVersion=Code.getStringParamFromUrl('version', 'V1');
+	const selectedToolbox = document.getElementById('toolbox'+toolboxVersion);
+	selectedToolbox.id = 'toolbox'; // Rename
+	versionSelect.value = toolboxVersion;
+	
+	// On change, reload with selected version
+	  versionSelect.addEventListener('change', function () {
+	    window.location.search = '?version=' + this.value;
+	  });
+	
+	
   Code.initLanguage();
 
   var rtl = Code.isRtl();
