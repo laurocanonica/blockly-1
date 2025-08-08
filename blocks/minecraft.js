@@ -47,7 +47,6 @@ function getEntities() {
     [ Blockly.Msg.e_egg, 'e.egg' ],
     [ Blockly.Msg.e_elder_guardian, 'e.elder_guardian' ],
     [ Blockly.Msg.e_end_crystal, 'e.end_crystal' ],
-    [ Blockly.Msg.e_ender_pearl, 'e.ender_pearl' ],
     [ Blockly.Msg.e_enderman, 'e.enderman' ],
     [ Blockly.Msg.e_endermite, 'e.endermite' ],
     [ Blockly.Msg.e_evoker, 'e.evoker' ],
