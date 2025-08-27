@@ -419,8 +419,8 @@ Code.checkAllGeneratorFunctionsDefined = function(generator) {
 Code.init = function() {
 	
 	// switch toolboxes according to version toolboxV1 or toolboxV2
-	var toolboxVersion=Code.getStringParamFromUrl('version', 'V1');
-	const selectedToolbox = document.getElementById('toolbox'+toolboxVersion);
+	var toolboxVersion=Code.getStringParamFromUrl('version', 'ver1');
+	const selectedToolbox = document.getElementById('toolbox_'+toolboxVersion);
 	selectedToolbox.id = 'toolbox'; // Rename
 	versionSelect.value = toolboxVersion;
 	
