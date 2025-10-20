@@ -33,6 +33,7 @@ var MSG = {
   c_Events: "אירועים",
   c_Status: "סטטוס",
   c_Operators: "רק לאופרטורים",
+  c_Python : "פייתון",
   c_ExamplesMenu: "דוגמאות ...",
   c_Examples: "דוגמאות",
   c_Algorithms: "אלגוריתמים",

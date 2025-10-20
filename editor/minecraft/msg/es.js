@@ -33,6 +33,7 @@ var MSG = {
   c_Events: "Eventos",
   c_Status: "Estado",
   c_Operators: "Solo para OPs",
+  c_Python : "Python",
   c_ExamplesMenu: "Ejemplos...",
   c_Examples: "Ejemplos",
   c_Algorithms: "Algoritmos",
