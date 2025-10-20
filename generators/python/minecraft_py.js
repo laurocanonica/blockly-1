@@ -31,17 +31,8 @@ function closeDictionaryEntry(inText){ // after a TYPE definitions we begin a ne
 
 var TAB_SPACES ='  ';
 function optimizeMaterialList(value_name) {
-	var materialList='';
-	if(value_name.includes(', "TYPE"')){ //else when we have simple {"TYPE":"b.acacia_fence_gate"} we transform it in a string
-		materialList= '\n'+TAB_SPACES+value_name;		
-	} else { // transform all occurences of {"TYPE":"b.acacia_fence_gate"} into "b.acacia_fence_gate"
-		materialList=value_name.replaceAll(TAB_SPACES, '').replaceAll('{"TYPE":', '').replaceAll('}', '').replaceAll('\n', ' ');
-	}
-	if(!materialList.includes('},')){ // if there is only one dictionary block, write it on one line
-		materialList=materialList.replaceAll("\n", "").replaceAll(TAB_SPACES, '');
-	} 
-	
-	return materialList;
+	// disabled strings like [{"TYPE":"e.axolotl"},  {"TEAM":"FRIENDLY", "BABY":"b", "TYPE":"e.bee"},  {"TEAM":"FRIENDLY", "TYPE":"e.allay"},  {"TEAM":"FRIENDLY"}] are too complex to beautify
+	return value_name;
 }
 
 
