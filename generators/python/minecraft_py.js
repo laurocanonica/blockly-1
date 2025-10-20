@@ -592,7 +592,7 @@ Blockly.Python['minecraft_direction'] = function(block) {
 Blockly.Python['minecraft_leash'] = function(block) {
 	var dropdown_name = block.getFieldValue('NAME');
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '[{"LE":"'+dropdown_name+'"'+addDictionaryEntry(value_singleblock);
+	var code = '[{"LEASH":"'+dropdown_name+'"'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
