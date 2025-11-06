@@ -20,7 +20,19 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
-
+	
+	<!-- CodeMirror autocomplete (hint) addons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/anyword-hint.min.js"></script>
+	<style>
+	/* Make the autocomplete dropdown appear above everything */
+	.CodeMirror-hints {
+	  z-index: 20000 !important;  /* higher than Blockly overlay (10000) */
+	  position: absolute !important;
+  	  pointer-events: auto !important; /* ensure it can receive clicks */
+	}
+	</style>
 
 </head>
 

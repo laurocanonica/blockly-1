@@ -1755,3 +1755,4 @@ class FieldDropdownWithSearch extends Blockly.FieldDropdown {
 
     }
 }
+
