@@ -4403,45 +4403,7 @@ Blockly.Blocks['python_code_snippet'] = {
 	      "🧩 Syntax:\nvm.callFunction(functionName, playerName, param1)\nExample: vm.callFunction('greet', 'Steve', 'hello')\n\nCalls a function in the scripting engine with parameters."
 	  };
 
-	  var grammarHelp_old = {
 
-	    // --- Position / Camera Control ---
-	    "movePositionRelative": "Moves the current position in the specified direction by a number of steps. Directions: FORWARD, BACKWARD, LEFT, RIGHT, UP, DOWN.",
-	    "movePositionAbsolute": "Moves the current position using polar, spherical, or Cartesian coordinates. Coordinate systems: SPHERICAL, CYLINDRICAL, CARTESIAN.",
-	    "moveToViewTarget": "Moves the position to where the player is looking (raycast target).",
-	    "moveToPlayer": "Moves the position to the player's current location.",
-	    "resetPosition": "Resets the position to the initial starting point.",
-	    "moveToLastMark": "Moves to the last marked position.",
-	    "moveToNextSolidBlock": "Moves forward until a solid block is found.",
-	    "rotateYawRelative": "Rotates the current view horizontally (yaw) by a relative angle in degrees.",
-	    "rotateYawAbsolute": "Sets the absolute yaw direction (PLAYER_YAW, N, S, E, W).",
-	    "setPitchAbsolute": "Sets the vertical pitch to an absolute angle.",
-	    "setPitchRelative": "Rotates the pitch (vertical) by a relative amount.",
-
-	    // --- Geometry / Primitives ---
-	    "createBlock": "Places a block or block pattern at the current location.",
-	    "createRectangle": "Creates a rectangle in the X/Y plane. Parameters: width, height, filled, blocks.",
-	    "createPolygon": "Creates a regular polygon or circular arc. Parameters: sides, radiusX, radiusY, arcAngle, filled, blocks.",
-	    "createStar": "Creates a star pattern centered at the current position. Parameters: points, innerRadius, outerRadius, filled, blocks.",
-	    "createLine": "Creates a line extending forward by a specified length.",
-	    "connectPositions": "Connects previously marked positions with lines.",
-	    "markPosition": "Marks the current location for later reference.",
-	    "createText": "Renders a string as block-based text. Parameters: text, fontSize, filled, blocks.",
-	    "createDrawing": "Creates a 2D pixel-art drawing using block characters and materials.",
-	    "createChest": "Creates a chest containing the specified blocks.",
-
-	    // --- Player / Entity Interaction ---
-	    "giveToPlayer": "Gives a block or item to the player in a chosen equipment slot.",
-	    "isCurrentBlockOfType": "Checks if the current block matches the specified block types.",
-	    "isPlayerHolding": "Checks if the player is holding a block of the given type.",
-	    "hasPlayerItem": "Checks if the player has a block or item of the given type in inventory.",
-	    "isPlayerInteractingWith": "Checks if the player is hitting or interacting with a specified block type.",
-
-	    // --- Events / Logic ---
-	    "onEvent": "Registers a function callback for a given game event. Parameters: eventType, functionToCall.",
-	    "clearEvents": "Cancels all registered event callbacks.",
-	    "callFunction": "Calls a function in the scripting engine with parameters. Parameters: functionName, playerName, param1."
-	  };
 
 	  // Create tooltip element
 	  var tooltip = document.createElement('div');
@@ -4531,6 +4493,8 @@ Blockly.Blocks['python_code_snippet'] = {
 			  "vm.setPitchRelative",
 			  "vm.createBlock",
 			  "vm.createRectangle",
+			  "vm.createRectangle(4, 4, False, [\"b.grass_block\"]);",
+			  "vm.createRectangle(10, 10, True, [\"b.gold_block\"]);",
 			  "vm.createPolygon",
 			  "vm.createStar",
 			  "vm.createLine",
@@ -4559,10 +4523,29 @@ Blockly.Blocks['python_code_snippet'] = {
 	      }
 	    }
 
-	    return {
-	      list: filtered,
-	      from: CodeMirror.Pos(cur.line, start),
-	      to: CodeMirror.Pos(cur.line, end)
+		var hints = filtered.map(function (hint) {
+		    return {
+		      text: hint,            // what gets inserted
+		      displayText: hint,     // what gets shown in dropdown
+		      render: function (el, self, data) {
+		        el.textContent = data.displayText;
+
+		        // Style depending on function signature
+		        if (data.displayText.indexOf('(') !== -1) {
+		          el.style.color = '#2b7bff'; // function = blue
+				  el.style.paddingLeft = '20px'
+		        } else {
+		          el.style.fontWeight = 'bold';
+		          el.style.color = '#000000'; // variable/field = black
+		        }
+		      }
+		    };
+		  });
+
+		  return {
+		    list: hints,
+			from: CodeMirror.Pos(cur.line, start),
+	        to: CodeMirror.Pos(cur.line, end)
 	    };
 	  }
 

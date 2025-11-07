@@ -31,6 +31,14 @@
 	  z-index: 20000 !important;  /* higher than Blockly overlay (10000) */
 	  position: absolute !important;
   	  pointer-events: auto !important; /* ensure it can receive clicks */
+  	  font-family: monospace;
+	  padding: 3px 6px;
+  	  cursor: pointer;
+	}
+	/* Active (selected) hint item — when hovered or arrow-selected */
+	.CodeMirror-hint-active {
+	  background: #ffee8c !important;  /* or any color you prefer */
+	  color: black !important;
 	}
 	</style>
 
