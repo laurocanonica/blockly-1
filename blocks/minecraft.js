@@ -4278,7 +4278,9 @@ Blockly.Blocks['python_code_snippet'] = {
       "tooltip": "",
       "helpUrl": ""
     });
+	
 
+	
     var self = this;
     this.setOnChange(function () {
       if (!self.editorAttached && self.workspace && self.rendered) {
