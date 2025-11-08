@@ -33,7 +33,9 @@ Blockly.Blocks['procedures_defnoreturn'] = {
         Blockly.Procedures.rename);
     nameField.setSpellcheck(false);
     this.appendDummyInput()
-        .appendField(Blockly.Msg['PROCEDURES_DEFNORETURN_TITLE'])
+         //.appendField(Blockly.Msg['PROCEDURES_DEFNORETURN_TITLE'])
+    
+        .appendField(Blockly.Msg['PROCEDURES_DEFNORETURN_PYTHON_TITLE']) // hardcode for Python
         .appendField(nameField, 'NAME')
         .appendField('', 'PARAMS');
     this.setMutator(new Blockly.Mutator(['procedures_mutatorarg']));
@@ -79,11 +81,13 @@ Blockly.Blocks['procedures_defnoreturn'] = {
   updateParams_: function() {
 
     // Merge the arguments into a human-readable list.
-    var paramString = '';
+    var paramString = '('; // add parenthesis for Python
     if (this.arguments_.length) {
-      paramString = Blockly.Msg['PROCEDURES_BEFORE_PARAMS'] +
-          ' ' + this.arguments_.join(', ');
+	  // paramString = Blockly.Msg['PROCEDURES_BEFORE_PARAMS'] +
+
+      paramString = paramString+this.arguments_.join(', ');
     }
+    paramString = paramString+'):';
     // The params field is deterministic based on the mutation,
     // no need to fire a change event.
     Blockly.Events.disable();
@@ -469,7 +473,7 @@ Blockly.Blocks['procedures_defreturn'] = {
         Blockly.Procedures.rename);
     nameField.setSpellcheck(false);
     this.appendDummyInput()
-        .appendField(Blockly.Msg['PROCEDURES_DEFRETURN_TITLE'])
+        .appendField(Blockly.Msg['PROCEDURES_DEFRETURN_PYTHON_TITLE'])
         .appendField(nameField, 'NAME')
         .appendField('', 'PARAMS');
     this.appendValueInput('RETURN')
