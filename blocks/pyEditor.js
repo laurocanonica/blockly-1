@@ -48,8 +48,8 @@ Blockly.Blocks['python_code_snippet'] = {
       overlay.style.position = 'absolute';
       overlay.style.left = fieldRect.left + window.scrollX + 'px';
       overlay.style.top = fieldRect.top + window.scrollY + 'px';
-      overlay.style.width = measureTextCanvas(field) + 20 + 'px';
-      overlay.style.height = fieldRect.height + 'px';
+      overlay.style.width = (measureTextCanvas(field) + 50) + 'px';
+      overlay.style.height = (fieldRect.height + 50) + 'px';
       overlay.style.zIndex = 10000;
       overlay.style.backgroundColor = '#fff';
       overlay.style.border = '1px solid #ccc';
@@ -66,10 +66,21 @@ Blockly.Blocks['python_code_snippet'] = {
         value: field.getValue(),
         mode: 'python',
         lineNumbers: false,
-        indentUnit: 4,
+        indentUnit: 2,
         autofocus: true,
         theme: 'default',
-        extraKeys: { "Ctrl-Space": "autocomplete" }
+		extraKeys: {
+		    "Ctrl-Space": "autocomplete",
+		    "Ctrl-F": "findPersistent",
+		    "Ctrl-H": "replace"
+		  },
+		  autoMatchParens: true,
+		  styleActiveLine: true,      
+		  matchBrackets: true,        
+		  autoCloseBrackets: true,
+		  smartIndent: true,
+		  indentWithTabs: true
+
       });
 	  
 	  
@@ -319,12 +330,8 @@ Blockly.Blocks['python_code_snippet'] = {
         context.font = '16px Arial';
         var workspace = Blockly.getMainWorkspace();
         var scale = workspace.scale;
-        var newWidth = context.measureText(longest).width * scale;
-        var workspace_width = workspace.getMetrics().viewWidth * 0.9;
-        if (newWidth > workspace_width) {
-          newWidth = workspace_width;
-        }
-        return newWidth;
+        var newWidth = context.measureText(longest).width * scale * 1.5;
+       return newWidth;
       }
 
       // Handle resizing and cleanup
@@ -374,3 +381,4 @@ Blockly.Blocks['python_code_snippet'] = {
     };
   }
 };
+
