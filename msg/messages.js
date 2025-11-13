@@ -1506,6 +1506,15 @@ Blockly.Msg.VARIABLES_SET_TOOLTIP = 'Sets this variable to be equal to the input
 Blockly.Msg.VARIABLES_SET_CREATE_GET = 'Create "get %1"';
 
 // Procedures Blocks.
+
+/** @type {string} */
+/// block text - This precedes the name of the function when defining it.  See
+Blockly.Msg.PROCEDURES_DEFNORETURN_PYTHON_TITLE = 'def';
+/** @type {string} */
+/// block text - This precedes the name of the function when defining it.  See
+Blockly.Msg.PROCEDURES_DEFRETURN_PYTHON_TITLE = 'def';
+
+
 /** @type {string} */
 /// {{Optional}} url - Information about defining [https://en.wikipedia.org/wiki/Subroutine functions] that do not have return values.
 Blockly.Msg.PROCEDURES_DEFNORETURN_HELPURL = 'https://en.wikipedia.org/wiki/Subroutine';
@@ -3569,7 +3578,7 @@ Blockly.Msg.MC_cmd_minecraft_shape_arc_param = 'with radius X%4radius Y%5 and an
 Blockly.Msg.MC_cmd_minecraft_shape_star_param = 'with%4sides and inner radius%5and outer radius';
 Blockly.Msg.MC_cmd_empty_shape = 'with a border';
 Blockly.Msg.MC_cmd_full_shape = 'with a filling';
-Blockly.Msg.MC_cmd_minecraft_python_code = 'Python';
+Blockly.Msg.MC_cmd_minecraft_python_code = 'Py';
 
 
 

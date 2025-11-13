@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2025-11-07 15:00:59.712534",
+		"lastupdated": "2025-11-13 15:18:05.344763",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -376,6 +376,8 @@
 	"VARIABLES_SET": "set %1 to %2",
 	"VARIABLES_SET_TOOLTIP": "Sets this variable to be equal to the input.",
 	"VARIABLES_SET_CREATE_GET": "Create 'get %1'",
+	"PROCEDURES_DEFNORETURN_PYTHON_TITLE": "def",
+	"PROCEDURES_DEFRETURN_PYTHON_TITLE": "def",
 	"PROCEDURES_DEFNORETURN_HELPURL": "https://en.wikipedia.org/wiki/Subroutine",
 	"PROCEDURES_DEFNORETURN_TITLE": "to",
 	"PROCEDURES_DEFNORETURN_PROCEDURE": "do something",
@@ -2327,7 +2329,7 @@
 	"MC_cmd_minecraft_shape_star_param": "with%4sides and inner radius%5and outer radius",
 	"MC_cmd_empty_shape": "with a border",
 	"MC_cmd_full_shape": "with a filling",
-	"MC_cmd_minecraft_python_code": "Python",
+	"MC_cmd_minecraft_python_code": "Py",
 	"PROCEDURES_DEFNORETURN_TITLE": "/vm",
 	"PROCEDURES_DEFNORETURN_PROCEDURE": "mycommand",
 	"PROCEDURES_DOWNLOAD_SCREENSHOT": "Download image",
