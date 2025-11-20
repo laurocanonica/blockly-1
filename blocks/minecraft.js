@@ -3878,6 +3878,9 @@ Blockly.Blocks['shape_block'] = {
 	if (this.getInput('POLYGON_RADIUS')) {
 	  this.removeInput('POLYGON_RADIUS');
 	}
+	if (this.getInput('ANGLE')) {
+	  this.removeInput('ANGLE');
+	}
 
     // Add inputs based on the selected shape
       this.getInput("FILL_TYPE").setVisible(true);   
@@ -3973,7 +3976,7 @@ Blockly.Blocks['shape_block'] = {
             .setCheck('Number')
             .appendField(this.splitBlockLabel[2].slice(1))
             .setAlign(Blockly.ALIGN_RIGHT);
-        this.createShadowBlock('ANGLE', 4);
+        this.createShadowBlock('ANGLE', 180);
            break;
 
       case "STAR":
