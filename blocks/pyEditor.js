@@ -93,75 +93,105 @@ Blockly.Blocks['python_code_snippet'] = {
 	  
 	  // 🧠 Define grammar / syntax help text
 	  var grammarHelp = {
-	    // --- System / Logging ---
-	    "logLine":
-	      "🧩 Syntax:\nvm.logLine(lineNum)\nExample: vm.logLine(42)\n\nLogs a line number to the session context (used internally by the Python manager).",
 
-	    // --- Position / Camera Control ---
-	    "movePositionRelative":
-	      "🧩 Syntax:\nvm.movePositionRelative(steps, direction)\nExample: vm.movePositionRelative(1, 'UP')\n\nMoves the current position in the specified direction by a number of steps. Directions: FORWARD, BACKWARD, LEFT, RIGHT, UP, DOWN.",
-	    "movePositionAbsolute":
-	      "🧩 Syntax:\nvm.movePositionAbsolute(coordSystem, x_radius, y_theta, z_phi)\nExample: vm.movePositionAbsolute('SPHERICAL', 5, 45, 90)\n\nMoves the current position using polar, spherical, or Cartesian coordinates.",
-	    "moveToViewTarget":
-	      "🧩 Syntax:\nvm.moveToViewTarget()\nExample: vm.moveToViewTarget()\n\nMoves the position to where the player is looking (raycast target).",
-	    "moveToPlayer":
-	      "🧩 Syntax:\nvm.moveToPlayer()\nExample: vm.moveToPlayer()\n\nMoves the position to the player's current location.",
-	    "resetPosition":
-	      "🧩 Syntax:\nvm.resetPosition()\nExample: vm.resetPosition()\n\nResets the position to the initial starting point.",
-	    "moveToLastMark":
-	      "🧩 Syntax:\nvm.moveToLastMark()\nExample: vm.moveToLastMark()\n\nMoves to the last marked position.",
-	    "moveToNextSolidBlock":
-	      "🧩 Syntax:\nvm.moveToNextSolidBlock()\nExample: vm.moveToNextSolidBlock()\n\nMoves forward until a solid block is found.",
-	    "rotateYawRelative":
-	      "🧩 Syntax:\nvm.rotateYawRelative(angle)\nExample: vm.rotateYawRelative(90)\n\nRotates the current view horizontally (yaw) by a relative angle in degrees.",
-	    "rotateYawAbsolute":
-	      "🧩 Syntax:\nvm.rotateYawAbsolute(direction)\nExample: vm.rotateYawAbsolute('E')\n\nSets the absolute yaw direction (PLAYER_YAW, N, S, E, W).",
-	    "setPitchAbsolute":
-	      "🧩 Syntax:\nvm.setPitchAbsolute(angle)\nExample: vm.setPitchAbsolute(30)\n\nSets the vertical pitch to an absolute angle.",
-	    "setPitchRelative":
-	      "🧩 Syntax:\nvm.setPitchRelative(angle)\nExample: vm.setPitchRelative(-15)\n\nRotates the pitch (vertical) by a relative amount.",
+	  "movePositionRelative":
+	  "🧩 Syntax:\nvm.movePositionRelative(steps, direction)\n\nMoves the current position relative to the player's orientation.\nsteps: number of blocks to move.\ndirection: one of FORWARD, BACKWARD, LEFT, RIGHT, UP, DOWN.",
 
-	    // --- Geometry / Primitives ---
-	    "createBlock":
-	      "🧩 Syntax:\nvm.createBlock(blocks)\nExample: vm.createBlock('minecraft:stone')\n\nPlaces a block or block pattern at the current location.",
-	    "createRectangle":
-	      "🧩 Syntax:\nvm.createRectangle(width, height, filled, blocks)\nExample: vm.createRectangle(5, 3, true, 'minecraft:oak_planks')\n\nCreates a rectangle in the X/Y plane.",
-	    "createPolygon":
-	      "🧩 Syntax:\nvm.createPolygon(sides, radiusX, radiusY, arcAngle, filled, blocks)\nExample: vm.createPolygon(6, 5, 5, 360, true, 'minecraft:glass')\n\nCreates a regular polygon or circular arc.",
-	    "createStar":
-	      "🧩 Syntax:\nvm.createStar(points, innerRadius, outerRadius, filled, blocks)\nExample: vm.createStar(5, 3, 6, false, 'minecraft:gold_block')\n\nCreates a star pattern centered at the current position.",
-	    "createLine":
-	      "🧩 Syntax:\nvm.createLine(length, blocks)\nExample: vm.createLine(10, 'minecraft:cobblestone')\n\nCreates a line extending forward by a specified length.",
-	    "connectPositions":
-	      "🧩 Syntax:\nvm.connectPositions(blocks)\nExample: vm.connectPositions('minecraft:stone_bricks')\n\nConnects previously marked positions with lines.",
-	    "markPosition":
-	      "🧩 Syntax:\nvm.markPosition()\nExample: vm.markPosition()\n\nMarks the current location for later reference.",
-	    "createText":
-	      "🧩 Syntax:\nvm.createText(text, fontSize, filled, blocks)\nExample: vm.createText('Hi', 3, true, 'minecraft:wool')\n\nRenders a string as block-based text.",
-	    "createDrawing":
-	      "🧩 Syntax:\nvm.createDrawing(blockList, blockMaterials, matIndex, origin)\nExample: vm.createDrawing([...], [...], 0, 'CENTER')\n\nCreates a 2D pixel-art drawing using block characters and materials.",
-	    "createChest":
-	      "🧩 Syntax:\nvm.createChest(blocks)\nExample: vm.createChest('minecraft:diamond_block')\n\nCreates a chest containing the specified blocks.",
+	  "movePositionAbsolute":
+	  "🧩 Syntax:\nvm.movePositionAbsolute(coordSystem, x, y, z)\n\nMoves the current position using absolute coordinates.\ncoordSystem: CARTESIAN, CYLINDRICAL, or SPHERICAL.\nx: x-value or radius.\ny: y-value or theta.\nz: z-value or phi.",
 
-	    // --- Player / Entity Interaction ---
-	    "giveToPlayer":
-	      "🧩 Syntax:\nvm.giveToPlayer(equipMode, blocks)\nExample: vm.giveToPlayer('MAIN_HAND', 'minecraft:iron_sword')\n\nGives a block or item to the player in a chosen equipment slot.",
-	    "isCurrentBlockOfType":
-	      "🧩 Syntax:\nvm.isCurrentBlockOfType(blocks)\nExample: vm.isCurrentBlockOfType('minecraft:gold_block')\n\nChecks if the current block matches the specified block types.",
-	    "isPlayerHolding":
-	      "🧩 Syntax:\nvm.isPlayerHolding(blocks)\nExample: vm.isPlayerHolding('minecraft:torch')\n\nChecks if the player is holding a block of the given type.",
-	    "hasPlayerItem":
-	      "🧩 Syntax:\nvm.hasPlayerItem(blocks)\nExample: vm.hasPlayerItem('minecraft:stick')\n\nChecks if the player has a block or item of the given type in inventory.",
-	    "isPlayerInteractingWith":
-	      "🧩 Syntax:\nvm.isPlayerInteractingWith(blocks)\nExample: vm.isPlayerInteractingWith('minecraft:door')\n\nChecks if the player is hitting or interacting with a specified block type.",
+	  "moveToViewTarget":
+	  "🧩 Syntax:\nvm.moveToViewTarget()\n\nMoves the position to the block the player is currently looking at.",
 
-	    // --- Events / Logic ---
-	    "onEvent":
-	      "🧩 Syntax:\nvm.onEvent(eventType, functionToCall)\nExample: vm.onEvent('blockBreak', 'onBreak')\n\nRegisters a function callback for a given game event.",
-	    "clearEvents":
-	      "🧩 Syntax:\nvm.clearEvents()\nExample: vm.clearEvents()\n\nCancels all registered event callbacks.",
-	    "callFunction":
-	      "🧩 Syntax:\nvm.callFunction(functionName, playerName, param1)\nExample: vm.callFunction('greet', 'Steve', 'hello')\n\nCalls a function in the scripting engine with parameters."
+	  "moveToPlayer":
+	  "🧩 Syntax:\nvm.moveToPlayer()\n\nMoves the current position to the player's own location.",
+
+	  "resetPosition":
+	  "🧩 Syntax:\nvm.resetPosition()\n\nResets the current position to the session's initial starting point.",
+
+	  "moveToLastMark":
+	  "🧩 Syntax:\nvm.moveToLastMark()\n\nMoves the cursor to the last saved marker position.",
+
+	  "moveToNextSolidBlock":
+	  "🧩 Syntax:\nvm.moveToNextSolidBlock()\n\nMoves forward until a solid (non-air) block is found.",
+
+	  "rotateYawRelative":
+	  "🧩 Syntax:\nvm.rotateYawRelative(angle)\n\nRotates the horizontal facing direction by a relative angle.\nangle: degrees to rotate (positive or negative).",
+
+	  "rotateYawAbsolute":
+	  "🧩 Syntax:\nvm.rotateYawAbsolute(direction)\n\nSets the yaw to an absolute direction.\ndirection: N, S, E, W, or PLAYER_YAW.",
+
+	  "setPitchAbsolute":
+	  "🧩 Syntax:\nvm.setPitchAbsolute(angle)\n\nSets the vertical pitch angle absolutely.\nangle: pitch value in degrees.",
+
+	  "setPitchRelative":
+	  "🧩 Syntax:\nvm.setPitchRelative(angle)\n\nChanges the pitch by a relative angle.\nangle: degrees to adjust pitch.",
+
+	  "createBlock":
+	  "🧩 Syntax:\nvm.createBlock(blocks)\n\nPlaces a block or patterned block at the current position.\nblocks: a block/material descriptor Value.",
+
+	  "createSquare":
+	  "🧩 Syntax:\nvm.createSquare(width, filled, blocks)\n\nCreates a square in the X/Y plane.\nwidth: side length.\nfilled: true for solid, false for outline.\nblocks: material(s) to use.",
+
+	  "createRectangle":
+	  "🧩 Syntax:\nvm.createRectangle(width, height, filled, blocks)\n\nCreates a rectangle in the X/Y plane.\nwidth: rectangle width.\nheight: rectangle height.\nfilled: true for solid, false for outline.\nblocks: material(s) to use.",
+
+	  "createPolygon":
+	  "🧩 Syntax:\nvm.createPolygon(sides, radiusX, radiusY, arcAngle, filled, blocks)\n\nCreates a regular polygon or arc.\nsides: number of sides for polygon.\nradiusX: horizontal radius.\nradiusY: vertical radius (null for circle).\narcAngle: visible arc angle (0–360).\nfilled: true for solid, false for outline.\nblocks: material(s) to use.",
+
+	  "createArc":
+	  "🧩 Syntax:\nvm.createArc(radiusX, radiusY, arcAngle, filled, blocks)\n\nCreates a circular or elliptical arc.\nradiusX: horizontal radius.\nradiusY: vertical radius.\narcAngle: arc angle (0–360).\nfilled: true for solid, false for outline.\nblocks: material(s) to use.",
+
+	  "createEllipse":
+	  "🧩 Syntax:\nvm.createEllipse(radiusX, radiusY, filled, blocks)\n\nCreates a complete ellipse.\nradiusX: x-radius.\nradiusY: y-radius.\nfilled: true for solid, false for outline.\nblocks: material(s) to use.",
+
+	  "createCircle":
+	  "🧩 Syntax:\nvm.createCircle(radius, filled, blocks)\n\nCreates a perfect circle.\nradius: circle radius.\nfilled: true for solid, false for outline.\nblocks: material(s) to use.",
+
+	  "createStar":
+	  "🧩 Syntax:\nvm.createStar(points, innerRadius, outerRadius, filled, blocks)\n\nCreates a star shape.\npoints: number of star points.\ninnerRadius: inner radius.\nouterRadius: outer radius.\nfilled: true for solid, false for outline.\nblocks: material(s) to use.",
+
+	  "createLine":
+	  "🧩 Syntax:\nvm.createLine(length, blocks)\n\nCreates a straight line extending forward.\nlength: number of blocks.\nblocks: material(s) to use.",
+
+	  "connectPositions":
+	  "🧩 Syntax:\nvm.connectPositions(blocks)\n\nConnects all marked positions with straight lines.\nblocks: material(s) to use.",
+
+	  "markPosition":
+	  "🧩 Syntax:\nvm.markPosition()\n\nMarks the current position for later reference.",
+
+	  "createText":
+	  "🧩 Syntax:\nvm.createText(text, fontSize, filled, blocks)\n\nRenders text as block-based characters.\ntext: string to draw.\nfontSize: size of rendered characters.\nfilled: true for filled letters, false for outline.\nblocks: material(s) to use.",
+
+	  "createDrawing":
+	  "🧩 Syntax:\nvm.createDrawing(blockList, blockMaterials, matIndex, origin)\n\nCreates 2D pixel-art using encoded block lists.\nblockList: encoded pixel rows.\nblockMaterials: material palette.\nmatIndex: material selection.\norigin: origin mode ('CENTER', etc).",
+
+	  "createChest":
+	  "🧩 Syntax:\nvm.createChest(blocks)\n\nCreates a chest containing the specified items.\nblocks: item/block list.",
+
+	  "giveToPlayer":
+	  "🧩 Syntax:\nvm.giveToPlayer(equipMode, blocks)\n\nGives an item/block to the player.\nequipMode: target equipment slot (MAIN_HAND, OFF_HAND, ARMOR, etc).\nblocks: item/block descriptor.",
+
+	  "isCurrentBlockOfType":
+	  "🧩 Syntax:\nvm.isCurrentBlockOfType(blocks)\n\nChecks if the block at the current position matches one of the given types.\nblocks: block(s) to test.\nReturns: true or false.",
+
+	  "isPlayerHolding":
+	  "🧩 Syntax:\nvm.isPlayerHolding(blocks)\n\nChecks if the player is currently holding the specified block or item.\nblocks: block(s) to test.\nReturns: true or false.",
+
+	  "hasPlayerItem":
+	  "🧩 Syntax:\nvm.hasPlayerItem(blocks)\n\nChecks if the player has the specified material in their inventory.\nblocks: item/block descriptor.\nReturns: true or false.",
+
+	  "isPlayerInteractingWith":
+	  "🧩 Syntax:\nvm.isPlayerInteractingWith(blocks)\n\nChecks if the player is interacting with or hitting a given block type.\nblocks: item/block descriptor.\nReturns: true or false.",
+
+	  "onEvent":
+	  "🧩 Syntax:\nvm.onEvent(eventType, functionName)\n\nRegisters a callback for a specific event.\neventType: name of event (e.g., 'block_break', 'player_move').\nfunctionName: script function to run on event.",
+
+	  "clearEvents":
+	  "🧩 Syntax:\nvm.clearEvents()\n\nRemoves all event callbacks registered for this session.",
+
+	  "callFunction":
+	  "🧩 Syntax:\nvm.callFunction(functionName, playerName, param1)\n\nCalls a scripting engine function with parameters.\nfunctionName: name of function.\nplayerName: player executing the call.\nparam1: argument passed to the function."
 	  };
 
 
