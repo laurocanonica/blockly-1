@@ -261,17 +261,29 @@ Blockly.Blocks['python_code_snippet'] = {
 	      "from", "True", "False", "None"		  
 	    ];
 		var materials = getMaterials().map(function(item) {
-		  return item[1];
+		  return item[1].replace("b.", "block."); // same as in the bindings of the pythonManager class
 		});
 		var entities = getEntities().map(function(item) {
-		  return item[1];
+		  return item[1].replace("e.", "entity.");// same as in the bindings of the pythonManager class
 		});
 		var items = getItems().map(function(item) {
-		  return item[1];
+		  return item[1].replace("b.", "item.");// same as in the bindings of the pythonManager class
+		});
+
+		var items = getParticles().map(function(item) {
+		  return item[1].replace("p.", "particle.");// same as in the bindings of the pythonManager class
 		});
 		
+		var nothingBlock ="block.nothing"; // the nothing block is handled as an exception
+
 		var visualmodderFunctions= [
-			  "vm.movePositionRelative",
+			"dict(TYPE=\"b.acacia_button\")",
+			"dict(TYPE=\"b.air\")",
+			"DIRECTION=\"LEFT\"",
+			"DIRECTION=\"RIGHT\"",
+			"DIRECTION=\"UP\"",
+			"DIRECTION=\"DOWN\"",
+			  "GROUND=\"g\"",
 			  "vm.movePositionAbsolute",
 			  "vm.moveToViewTarget",
 			  "vm.moveToPlayer",
@@ -304,12 +316,13 @@ Blockly.Blocks['python_code_snippet'] = {
 			  "vm.callFunction"
 		];
 		
-		var list=list_python.concat(materials.concat(entities.concat(items.concat(visualmodderFunctions))));
+		var list=list_python.concat(materials.concat(entities.concat(items.concat(visualmodderFunctions.concat(nothingBlock)))));
 
 	    // Filter by prefix
 	    var filtered = [];
 	    for (var j = 0; j < list.length; j++) {
-	      if (list[j].indexOf(word) === 0) {
+			if (list[j].indexOf(word) >= 0) {
+				//if (list[j].indexOf(word) === 0) {
 	        filtered.push(list[j]);
 	      }
 	    }
@@ -345,7 +358,8 @@ Blockly.Blocks['python_code_snippet'] = {
 
       // Automatically trigger autocomplete
       cm.on("inputRead", function (cm, change) {
-        if (change.text[0] && /[a-zA-Z_\.]/.test(change.text[0])) {
+		console.log("xx"+change.text[0])
+        if (change.text[0] && /[a-zA-Z_\.\']/.test(change.text[0])) {
           cm.showHint({ hint: myPythonHints, completeSingle: false, container: document.body   });
         }
       });

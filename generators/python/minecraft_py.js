@@ -522,7 +522,7 @@ Blockly.Python['minecraft_rotate'] = function(block) {
 			  var variable_varname = Blockly.Python.variableDB_.getName(block.getFieldValue('varName'), Blockly.Variables.NAME_TYPE);
 			  variable_varname=variable_varname.replaceAll('"',"'"); // prevent quotes breaking code
 			  var value_singleblock = Blockly.Python.valueToCode(block, 'name', Blockly.Python.ORDER_NONE);
-				var code = '[{"SIGN":"'+variable_varname+'", "TYPE":"b.acacia_sign"'+closeDictionaryEntry(value_singleblock);
+				var code = '[{"SIGN":'+variable_varname+', "TYPE":"b.acacia_sign"'+closeDictionaryEntry(value_singleblock);
 				return [ code, Blockly.Python.ORDER_NONE ];
 			};
 
@@ -582,7 +582,7 @@ Blockly.Python['minecraft_team_ver2'] = function(block) {
 Blockly.Python['minecraft_direction'] = function(block) {
 	var dropdown_name = block.getFieldValue('NAME');
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '[{"DIRECTION":"'+dropdown_name+'"'+addDictionaryEntry(value_singleblock);
+	var code = '[{"DIRECTION":"'+convertDirectionToJavaEnum(dropdown_name)+'"'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
@@ -714,7 +714,7 @@ function validateBlockchoice(block, blockChoice) {
 	var choice = Blockly.Python.valueToCode(block, blockChoice, Blockly.Python.ORDER_NONE);
 	choice=optimizeMaterialList(choice);
 	if (choice==""){
-		var emptyMaterial=optimizeMaterialList('[{"TYPE":"X.EMPTY"}]')
+		var emptyMaterial=optimizeMaterialList('[{"TYPE":"b.nothing"}]')
 		return('  '+emptyMaterial+',\n');
 	} else {
 		return('  '+choice+',\n');
@@ -857,7 +857,7 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 		
 		Blockly.Python['minecraft_materialNothing'] = function(block) {
 			var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-			var code = '[{"TYPE":"X.EMPTY"'+closeDictionaryEntry(value_singleblock);
+			var code = '[{"TYPE":"b.nothing"'+closeDictionaryEntry(value_singleblock);
 			return [ code, Blockly.Python.ORDER_NONE ];
 		}
 
