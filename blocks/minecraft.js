@@ -1329,7 +1329,6 @@ function getMaterials_opOnly() {
 function getParticles() {
 	return [		
 		
-		[ Blockly.Msg.MC_particles+ ' ' + Blockly.Msg.i_dragon_breath, 'p.dragon_breath' ],
 		[ Blockly.Msg.MC_particles+ ' ' + Blockly.Msg.b_tnt, 'p.explosion' ],
 		[ Blockly.Msg.MC_particles+ ' ' + Blockly.Msg.i_music_disc_blocks, 'p.note' ],
 		[ Blockly.Msg.MC_particles+ ' ' + Blockly.Msg.b_snow, 'p.item_snowball' ],
@@ -1456,7 +1455,6 @@ function getItems() {
 		[ Blockly.Msg.i_diamond_pickaxe, 'i.diamond_pickaxe' ],
 		[ Blockly.Msg.i_diamond_shovel, 'i.diamond_shovel' ],
 		[ Blockly.Msg.i_diamond_sword, 'i.diamond_sword' ],
-		[ Blockly.Msg.i_dragon_breath, 'i.dragon_breath' ],
 		[ Blockly.Msg.i_dried_kelp, 'i.dried_kelp' ],
 		[ Blockly.Msg.i_dune_armor_trim_smithing_template, 'i.dune_armor_trim_smithing_template' ],
 		[ Blockly.Msg.i_echo_shard, 'i.echo_shard' ],
@@ -1671,6 +1669,7 @@ function getItems() {
 		[ Blockly.Msg.i_salmon, 'i.salmon' ],
 		[ Blockly.Msg.i_salmon_bucket, 'i.salmon_bucket' ],
 		[ Blockly.Msg.i_scrape_pottery_sherd, 'i.scrape_pottery_sherd' ],
+		[ Blockly.Msg.i_scute, 'i.scute' ],
 		[ Blockly.Msg.i_sentry_armor_trim_smithing_template, 'i.sentry_armor_trim_smithing_template' ],
 		[ Blockly.Msg.i_shaper_armor_trim_smithing_template, 'i.shaper_armor_trim_smithing_template' ],
 		[ Blockly.Msg.i_sheaf_pottery_sherd, 'i.sheaf_pottery_sherd' ],
@@ -1678,10 +1677,12 @@ function getItems() {
 		[ Blockly.Msg.i_shelter_pottery_sherd, 'i.shelter_pottery_sherd' ],
 		[ Blockly.Msg.i_shield, 'i.shield' ],
 		[ Blockly.Msg.i_shulker_shell, 'i.shulker_shell' ],
+		[ Blockly.Msg.i_sign, 'i.sign' ],
 		[ Blockly.Msg.i_silence_armor_trim_smithing_template, 'i.silence_armor_trim_smithing_template' ],
 		[ Blockly.Msg.i_skull_banner_pattern, 'i.skull_banner_pattern' ],
 		[ Blockly.Msg.i_skull_pottery_sherd, 'i.skull_pottery_sherd' ],
 		[ Blockly.Msg.i_slime_ball, 'i.slime_ball' ],
+		[ Blockly.Msg.i_smithing_template, 'i.smithing_template' ],
 		[ Blockly.Msg.i_snort_pottery_sherd, 'i.snort_pottery_sherd' ],
 		[ Blockly.Msg.i_snout_armor_trim_smithing_template, 'i.snout_armor_trim_smithing_template' ],
 		[ Blockly.Msg.i_snowball, 'i.snowball' ],
