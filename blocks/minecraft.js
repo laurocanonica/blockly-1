@@ -2625,19 +2625,19 @@ Blockly.Blocks['minecraft_team_ver2'] = {
 					 "options": [
 					        [
 					        	Blockly.Msg.MC_cmd_player,
-					          "P"
+					          "MYSELF"
 					        ],
 					        [
 					        	Blockly.Msg.MC_cmd_mob,
-					          "M"
+					          "CREATED_MOB"
 					        ],
 					        [
 					        	Blockly.Msg.MC_cmd_mob_owner,
-					          "O"
+					          "OWNER_CREATED_MOB"
 					        ],
 					        [
 					        	Blockly.Msg.MC_cmd_nobody,
-					          "N"
+					          "NOBODY"
 					        ]
 					   ]
 				}, {

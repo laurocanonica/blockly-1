@@ -6,6 +6,8 @@
 
 var DIRECTION_DICTIONARY_LABEL="DIRECTION";
 var DIRECTION_PYTHON_CLASSNAME="Direction";
+var LEASH_DICTIONARY_LABEL="LEASH";
+var LEASH_PYTHON_CLASSNAME="Leash";
 
 
 function addDictionaryEntry(inText){
@@ -365,6 +367,8 @@ function convertFillToBoolean(fill) {
   return (fill === 'FULL' || fill === 'true') ? 'True' : 'False';
 }
 
+
+
 // Helper to convert directions to the java enumeration
 function convertDirectionToJavaEnum(direction) {
 	
@@ -602,9 +606,17 @@ Blockly.Python['minecraft_direction'] = function(block) {
 Blockly.Python['minecraft_leash'] = function(block) {
 	var dropdown_name = block.getFieldValue('NAME');
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '[{"LEASH":"'+dropdown_name+'"'+addDictionaryEntry(value_singleblock);
+	var code = '[{"'+LEASH_DICTIONARY_LABEL+'":'+convertLeashToJavaEnum(dropdown_name)+addDictionaryEntry(value_singleblock);
+
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
+
+// Helper to convert directions to the java enumeration
+function convertLeashToJavaEnum(leashmode) {
+	return LEASH_PYTHON_CLASSNAME+"."+leashmode
+}
+
+
 
 Blockly.Python['minecraft_upper_lower_part'] = function(block) {
 	var dropdown_name = block.getFieldValue('NAME');
