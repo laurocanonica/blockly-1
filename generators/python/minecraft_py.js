@@ -8,6 +8,9 @@ var DIRECTION_DICTIONARY_LABEL="DIRECTION";
 var DIRECTION_PYTHON_CLASSNAME="Direction";
 var LEASH_DICTIONARY_LABEL="LEASH";
 var LEASH_PYTHON_CLASSNAME="Leash";
+var TEAM_DICTIONARY_LABEL="TEAM";
+var GROUND_DICTIONARY_LABEL="GROUND";
+var BABY_DICTIONARY_LABEL="BABY";
 
 
 function addDictionaryEntry(inText){
@@ -37,7 +40,6 @@ function closeDictionaryEntry(inText){ // after a TYPE definitions we begin a ne
 
 var TAB_SPACES ='  ';
 function optimizeMaterialList(value_name) {
-	// disabled strings like [{"TYPE":"e.axolotl"},  {"TEAM":"FRIENDLY", "BABY":"b", "TYPE":"e.bee"},  {"TEAM":"FRIENDLY", "TYPE":"e.allay"},  {"TEAM":"FRIENDLY"}] are too complex to beautify
 	return value_name;
 }
 
@@ -585,14 +587,14 @@ Blockly.Python['minecraft_entity_op'] = function(block) {
 
 Blockly.Python['minecraft_team'] = function(block) {
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '[{"TEAM":"FRIENDLY"'+addDictionaryEntry(value_singleblock);
+	var code = '[{"'+TEAM_DICTIONARY_LABEL+'":True'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 
 Blockly.Python['minecraft_team_ver2'] = function(block) {
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '[{"TEAM":"FRIENDLY"'+addDictionaryEntry(value_singleblock);
+	var code = '[{"'+TEAM_DICTIONARY_LABEL+'":True'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
@@ -628,13 +630,13 @@ Blockly.Python['minecraft_upper_lower_part'] = function(block) {
 
 Blockly.Python['minecraft_on_the_ground'] = function(block) {
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '[{"GROUND":"g"'+addDictionaryEntry(value_singleblock);
+	var code = '[{"'+GROUND_DICTIONARY_LABEL+'":True'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 Blockly.Python['minecraft_baby'] = function(block) {
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '[{"BABY":"b"'+addDictionaryEntry(value_singleblock);
+	var code = '[{"'+BABY_DICTIONARY_LABEL+'":True'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
