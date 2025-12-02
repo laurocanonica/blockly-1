@@ -261,17 +261,17 @@ Blockly.Blocks['python_code_snippet'] = {
 	      "from", "True", "False", "None"		  
 	    ];
 		var materials = getMaterials().map(function(item) {
-		  return item[1].replace("b.", "block."); // same as in the bindings of the pythonManager class
+		  return item[1].replace("b.", "BLOCK."); // same as in the bindings of the pythonManager class
 		});
 		var entities = getEntities().map(function(item) {
-		  return item[1].replace("e.", "entity.");// same as in the bindings of the pythonManager class
+		  return item[1].replace("e.", "ENTITY.");// same as in the bindings of the pythonManager class
 		});
 		var items = getItems().map(function(item) {
-		  return item[1].replace("b.", "item.");// same as in the bindings of the pythonManager class
+		  return item[1].replace("b.", "ITEM.");// same as in the bindings of the pythonManager class
 		});
 
 		var items = getParticles().map(function(item) {
-		  return item[1].replace("p.", "particle.");// same as in the bindings of the pythonManager class
+		  return item[1].replace("p.", "PARTICLE.");// same as in the bindings of the pythonManager class
 		});
 		
 		var nothingBlock ="block.nothing"; // the nothing block is handled as an exception

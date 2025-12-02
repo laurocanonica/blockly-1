@@ -4,6 +4,10 @@
  */
 'use strict';
 
+var DIRECTION_DICTIONARY_LABEL="DIRECTION";
+var DIRECTION_PYTHON_CLASSNAME="Direction";
+
+
 function addDictionaryEntry(inText){
 	var outText="";
 	if(inText!=""){
@@ -363,12 +367,22 @@ function convertFillToBoolean(fill) {
 
 // Helper to convert directions to the java enumeration
 function convertDirectionToJavaEnum(direction) {
-	if(direction==='FW'){
-		return 'FORWARD'
-	} else if(direction==='BW'){
-		return 'BACKWARD'
-	} else {
-		return direction
+	
+	switch(direction) { // map to the values defined in the Direction class in java
+		case 'UP':
+		  return DIRECTION_PYTHON_CLASSNAME+'.UP';
+		case 'DOWN':
+		  return  DIRECTION_PYTHON_CLASSNAME+'.DOWN';
+		  case 'LEFT':
+		    return  DIRECTION_PYTHON_CLASSNAME+'.LEFT';
+		  case 'RIGHT':
+		    return  DIRECTION_PYTHON_CLASSNAME+'.RIGHT';
+			case 'FW':
+			  return  DIRECTION_PYTHON_CLASSNAME+'.FORWARD';
+			case 'BW':
+			  return  DIRECTION_PYTHON_CLASSNAME+'.BACKWARD';
+	  default:
+	    return 'ERROR_DIRECTION_INVALID'
 	}
 }
 
@@ -452,7 +466,7 @@ Blockly.Python['minecraft_gotopos'] = function(block) {
 Blockly.Python['minecraft_move'] = function(block) {
 	var value_times = Blockly.Python.valueToCode(block, 'times', Blockly.Python.ORDER_NONE);
 	var dropdown_direction = block.getFieldValue('direction');
-	var code = "vm.movePositionRelative(" + value_times + ", \'" + convertDirectionToJavaEnum(dropdown_direction) + "\')\n";
+	var code = "vm.movePositionRelative(" + value_times + ", " + convertDirectionToJavaEnum(dropdown_direction) + ")\n";
 	return code;
 };
 
@@ -578,11 +592,10 @@ Blockly.Python['minecraft_team_ver2'] = function(block) {
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
-
 Blockly.Python['minecraft_direction'] = function(block) {
 	var dropdown_name = block.getFieldValue('NAME');
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '[{"DIRECTION":"'+convertDirectionToJavaEnum(dropdown_name)+'"'+addDictionaryEntry(value_singleblock);
+	var code = '[{"'+DIRECTION_DICTIONARY_LABEL+'":'+convertDirectionToJavaEnum(dropdown_name)+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
