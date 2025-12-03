@@ -2026,15 +2026,15 @@ Blockly.Blocks['minecraft_gotopos'] = {
 				      "options": [
 				        [
 				          "x, y, z",
-				          "cartesian"
+				          "CARTESIAN"
 				        ],
 				        [
 					          "r, theta, z",
-					          "cylindrical"
+					          "CYLINDRICAL"
 					        ],
 				        [
 					          "r, theta, phi",
-					          "spherical"
+					          "SPHERICAL"
 					        ]
 				      ]
 				    },
@@ -2904,23 +2904,23 @@ Blockly.Blocks['minecraft_setrotation'] = {
 						      "options": [
 						        [
 									eval('Blockly.Msg.MC_cmd_south'+'_'+GLOBAL_MESSAGE_VERSION),
-						          "S"
+						          "SOUTH"
 						        ],
 						        [
 									eval('Blockly.Msg.MC_cmd_north'+'_'+GLOBAL_MESSAGE_VERSION),
-						          "N"
+						          "NORTH"
 						        ],
 						        [
 									eval('Blockly.Msg.MC_cmd_east'+'_'+GLOBAL_MESSAGE_VERSION),
-						          "E"
+						          "EAST"
 						        ],
 						        [
 									eval('Blockly.Msg.MC_cmd_west'+'_'+GLOBAL_MESSAGE_VERSION),
-						          "W"
+						          "WEST"
 						        ],
 						        [
 						        	eval('Blockly.Msg.MC_cmd_whereLook'+'_'+GLOBAL_MESSAGE_VERSION),
-						          "PLAYER_YAW"
+						          "SAME_AS_PLAYER"
 						        ]
 						      ]
 						    }

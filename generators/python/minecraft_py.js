@@ -6,8 +6,18 @@
 
 var DIRECTION_DICTIONARY_LABEL="DIRECTION";
 var DIRECTION_PYTHON_CLASSNAME="Direction";
+
 var LEASH_DICTIONARY_LABEL="LEASH";
 var LEASH_PYTHON_CLASSNAME="Leash";
+
+
+var EQUIPMENT_PYTHON_CLASSNAME="Equip";
+
+var COORDINATE_SYSTEM_PYTHON_CLASSNAME="Coordinate";
+
+var COMPASS_PYTHON_CLASSNAME="Compass";
+
+
 var TEAM_DICTIONARY_LABEL="TEAM";
 var GROUND_DICTIONARY_LABEL="GROUND";
 var BABY_DICTIONARY_LABEL="BABY";
@@ -461,7 +471,7 @@ Blockly.Python['minecraft_gotopos'] = function(block) {
 	var value_y = Blockly.Python.valueToCode(block, 'y', Blockly.Python.ORDER_NONE);
 	var value_z = Blockly.Python.valueToCode(block, 'z', Blockly.Python.ORDER_NONE);
 	var code = "vm.movePositionAbsolute(";
-	code += '"'+dropdown_coordsystem.toUpperCase() + '", ';
+	code += COORDINATE_SYSTEM_PYTHON_CLASSNAME+"."+dropdown_coordsystem + ', ';
 	code += value_x + ", ";
 	code += value_y + ", ";
 	code += value_z + ")\n";
@@ -504,7 +514,7 @@ Blockly.Python['minecraft_move_to_view_target'] = function(block) {
 
 Blockly.Python['minecraft_setrotation'] = function(block) {
 	  var dropdown_angle = block.getFieldValue('angle');
-		var code = "vm.rotateYawAbsolute(\'" + dropdown_angle + "\')\n";
+		var code = "vm.rotateYawAbsolute(" + COMPASS_PYTHON_CLASSNAME+"."+dropdown_angle + ")\n";
 	  return code;
 	};
 	
@@ -680,7 +690,7 @@ Blockly.Python['minecraft_comment'] = function(block) {
 		
 Blockly.Python['minecraft_givetoplayer'] = function(block) {
 	  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	  var code = "vm.giveToPlayer('INVENTORY', " + optimizeMaterialList(value_name) + ")\n";
+	  var code = "vm.giveToPlayer("+EQUIPMENT_PYTHON_CLASSNAME+".INVENTORY, " + optimizeMaterialList(value_name) + ")\n";
 	  return code;
 	};
 	
@@ -688,14 +698,14 @@ Blockly.Python['minecraft_givetoplayer'] = function(block) {
 	
 Blockly.Python['minecraft_equipplayer'] = function(block) {
 	  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	  var code = "vm.giveToPlayer('EQUIP', " + optimizeMaterialList(value_name) + ")\n";
+	  var code = "vm.giveToPlayer("+EQUIPMENT_PYTHON_CLASSNAME+".GARMENT, " + optimizeMaterialList(value_name) + ")\n";
 	  return code;
 	};
 	
 Blockly.Python['minecraft_putinhand'] = function(block) {
 	  var dropdown_hand = block.getFieldValue('hand');
 	  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	  var code = "vm.giveToPlayer('"+dropdown_hand+"', " + optimizeMaterialList(value_name) + ")\n";
+	  var code = "vm.giveToPlayer("+EQUIPMENT_PYTHON_CLASSNAME+"."+dropdown_hand+", " + optimizeMaterialList(value_name) + ")\n";
 	  return code;
 	};
 	
