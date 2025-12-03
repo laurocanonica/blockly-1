@@ -142,20 +142,6 @@ function getEntities() {
 		return entList;
 }
 
-function getEntities_opOnly() {
-	return [ 
-[ Blockly.Msg.e_giant, 'e.giant' ],
-[ Blockly.Msg.e_tnt, 'e.tnt' ],
-[ Blockly.Msg.e_ender_dragon, 'e.ender_dragon' ],
-[ Blockly.Msg.e_warden, 'e.warden' ],
-[ Blockly.Msg.e_wither, 'e.wither' ],
-[ Blockly.Msg.e_wither_skeleton, 'e.wither_skeleton' ],
-[ Blockly.Msg.e_wither_skull, 'e.wither_skull' ]
-
-		].sort(compareMCobjects)
-}
-
-
 
 function getMaterials() {
 	var obList= [  
@@ -1296,35 +1282,12 @@ function getMaterials() {
 		   [ Blockly.Msg.b_zombie_head, 'b.zombie_head' ],
 		   [ Blockly.Msg.b_zombie_wall_head, 'b.zombie_wall_head' ]
 
-    
+   
     
     		].sort(compareMCobjects);
 	return obList
 }
 
-function getMaterials_opOnly() {
-	return [		
-    [ Blockly.Msg.b_end_gateway, 'b.end_gateway' ],
-    [ Blockly.Msg.b_hopper, 'b.hopper' ],
-    [ Blockly.Msg.b_end_portal, 'b.end_portal' ],
-    [ Blockly.Msg.b_end_portal_frame, 'b.end_portal_frame' ],
-    [ Blockly.Msg.b_nether_portal, 'b.nether_portal' ],
- 	[ Blockly.Msg.b_tnt, 'b.tnt' ],
-	[ Blockly.Msg.b_lava, 'b.lava' ],
-	[ Blockly.Msg.b_lava_cauldron, 'b.lava_cauldron' ],
-    [ Blockly.Msg.b_spawner, 'b.spawner' ],
-    [ Blockly.Msg.b_wither_skeleton_skull, 'b.wither_skeleton_skull' ],
-    [ Blockly.Msg.b_wither_skeleton_wall_skull, 'b.wither_skeleton_wall_skull' ],
-    [ Blockly.Msg.b_campfire, 'b.campfire' ],
-    [ Blockly.Msg.b_command_block, 'b.command_block' ],
-    [ Blockly.Msg.b_chain_command_block, 'b.chain_command_block' ],
-    [ Blockly.Msg.b_repeating_command_block, 'b.repeating_command_block' ]
-    
-
-
-		
-].sort(compareMCobjects)
-}
 
 function getParticles() {
 	return [		
@@ -1749,98 +1712,12 @@ function getItems_opOnly() {
 	return [		
 [ Blockly.Msg.i_tnt_minecart, 'i.tnt_minecart' ],
 
-    [ Blockly.Msg.i_lava_bucket, 'i.lava_bucket' ],
 
-   [ Blockly.Msg.i_allay_spawn_egg, 'i.allay_spawn_egg' ],
-    [ Blockly.Msg.i_axolotl_spawn_egg, 'i.axolotl_spawn_egg' ],
-    [ Blockly.Msg.i_bat_spawn_egg, 'i.bat_spawn_egg' ],
-    [ Blockly.Msg.i_bee_spawn_egg, 'i.bee_spawn_egg' ],
-    [ Blockly.Msg.i_blaze_spawn_egg, 'i.blaze_spawn_egg' ],
-    [ Blockly.Msg.i_camel_spawn_egg, 'i.camel_spawn_egg' ],
-    [ Blockly.Msg.i_cat_spawn_egg, 'i.cat_spawn_egg' ],
-    [ Blockly.Msg.i_cave_spider_spawn_egg, 'i.cave_spider_spawn_egg' ],
-    [ Blockly.Msg.i_chicken_spawn_egg, 'i.chicken_spawn_egg' ],
-    [ Blockly.Msg.i_cod_spawn_egg, 'i.cod_spawn_egg' ],
-    [ Blockly.Msg.i_cow_spawn_egg, 'i.cow_spawn_egg' ],
-    [ Blockly.Msg.i_creeper_spawn_egg, 'i.creeper_spawn_egg' ],
-    [ Blockly.Msg.i_dolphin_spawn_egg, 'i.dolphin_spawn_egg' ],
-    [ Blockly.Msg.i_donkey_spawn_egg, 'i.donkey_spawn_egg' ],
-    [ Blockly.Msg.i_drowned_spawn_egg, 'i.drowned_spawn_egg' ],
-    [ Blockly.Msg.i_elder_guardian_spawn_egg, 'i.elder_guardian_spawn_egg' ],
-    [ Blockly.Msg.i_ender_dragon_spawn_egg, 'i.ender_dragon_spawn_egg' ],
-    [ Blockly.Msg.i_enderman_spawn_egg, 'i.enderman_spawn_egg' ],
-    [ Blockly.Msg.i_endermite_spawn_egg, 'i.endermite_spawn_egg' ],
-    [ Blockly.Msg.i_evoker_spawn_egg, 'i.evoker_spawn_egg' ],
-    [ Blockly.Msg.i_fox_spawn_egg, 'i.fox_spawn_egg' ],
-    [ Blockly.Msg.i_frog_spawn_egg, 'i.frog_spawn_egg' ],
-    [ Blockly.Msg.i_ghast_spawn_egg, 'i.ghast_spawn_egg' ],
-    [ Blockly.Msg.i_glow_squid_spawn_egg, 'i.glow_squid_spawn_egg' ],
-    [ Blockly.Msg.i_goat_spawn_egg, 'i.goat_spawn_egg' ],
-    [ Blockly.Msg.i_guardian_spawn_egg, 'i.guardian_spawn_egg' ],
-    [ Blockly.Msg.i_hoglin_spawn_egg, 'i.hoglin_spawn_egg' ],
-    [ Blockly.Msg.i_horse_spawn_egg, 'i.horse_spawn_egg' ],
-    [ Blockly.Msg.i_husk_spawn_egg, 'i.husk_spawn_egg' ],
-    [ Blockly.Msg.i_iron_golem_spawn_egg, 'i.iron_golem_spawn_egg' ],
-    [ Blockly.Msg.i_llama_spawn_egg, 'i.llama_spawn_egg' ],
-    [ Blockly.Msg.i_magma_cube_spawn_egg, 'i.magma_cube_spawn_egg' ],
-    [ Blockly.Msg.i_mooshroom_spawn_egg, 'i.mooshroom_spawn_egg' ],
-    [ Blockly.Msg.i_mule_spawn_egg, 'i.mule_spawn_egg' ],
-    [ Blockly.Msg.i_ocelot_spawn_egg, 'i.ocelot_spawn_egg' ],
-    [ Blockly.Msg.i_panda_spawn_egg, 'i.panda_spawn_egg' ],
-    [ Blockly.Msg.i_parrot_spawn_egg, 'i.parrot_spawn_egg' ],
-    [ Blockly.Msg.i_phantom_spawn_egg, 'i.phantom_spawn_egg' ],
-    [ Blockly.Msg.i_pig_spawn_egg, 'i.pig_spawn_egg' ],
-    [ Blockly.Msg.i_piglin_brute_spawn_egg, 'i.piglin_brute_spawn_egg' ],
-    [ Blockly.Msg.i_piglin_spawn_egg, 'i.piglin_spawn_egg' ],
-    [ Blockly.Msg.i_pillager_spawn_egg, 'i.pillager_spawn_egg' ],
-    [ Blockly.Msg.i_polar_bear_spawn_egg, 'i.polar_bear_spawn_egg' ],
-    [ Blockly.Msg.i_pufferfish_spawn_egg, 'i.pufferfish_spawn_egg' ],
-    [ Blockly.Msg.i_rabbit_spawn_egg, 'i.rabbit_spawn_egg' ],
-    [ Blockly.Msg.i_ravager_spawn_egg, 'i.ravager_spawn_egg' ],
-    [ Blockly.Msg.i_salmon_spawn_egg, 'i.salmon_spawn_egg' ],
-    [ Blockly.Msg.i_sheep_spawn_egg, 'i.sheep_spawn_egg' ],
-    [ Blockly.Msg.i_shulker_spawn_egg, 'i.shulker_spawn_egg' ],
-    [ Blockly.Msg.i_silverfish_spawn_egg, 'i.silverfish_spawn_egg' ],
-    [ Blockly.Msg.i_skeleton_horse_spawn_egg, 'i.skeleton_horse_spawn_egg' ],
-    [ Blockly.Msg.i_skeleton_spawn_egg, 'i.skeleton_spawn_egg' ],
-    [ Blockly.Msg.i_slime_spawn_egg, 'i.slime_spawn_egg' ],
-    [ Blockly.Msg.i_sniffer_spawn_egg, 'i.sniffer_spawn_egg' ],
-    [ Blockly.Msg.i_snow_golem_spawn_egg, 'i.snow_golem_spawn_egg' ],
-    [ Blockly.Msg.i_spider_spawn_egg, 'i.spider_spawn_egg' ],
-    [ Blockly.Msg.i_squid_spawn_egg, 'i.squid_spawn_egg' ],
-    [ Blockly.Msg.i_stray_spawn_egg, 'i.stray_spawn_egg' ],
-    [ Blockly.Msg.i_strider_spawn_egg, 'i.strider_spawn_egg' ],
-    [ Blockly.Msg.i_tadpole_spawn_egg, 'i.tadpole_spawn_egg' ],
-    [ Blockly.Msg.i_trader_llama_spawn_egg, 'i.trader_llama_spawn_egg' ],
-    [ Blockly.Msg.i_tropical_fish_spawn_egg, 'i.tropical_fish_spawn_egg' ],
-    [ Blockly.Msg.i_turtle_spawn_egg, 'i.turtle_spawn_egg' ],
-    [ Blockly.Msg.i_vex_spawn_egg, 'i.vex_spawn_egg' ],
-    [ Blockly.Msg.i_villager_spawn_egg, 'i.villager_spawn_egg' ],
-    [ Blockly.Msg.i_vindicator_spawn_egg, 'i.vindicator_spawn_egg' ],
-    [ Blockly.Msg.i_wandering_trader_spawn_egg, 'i.wandering_trader_spawn_egg' ],
-    [ Blockly.Msg.i_warden_spawn_egg, 'i.warden_spawn_egg' ],
-    [ Blockly.Msg.i_witch_spawn_egg, 'i.witch_spawn_egg' ],
-    [ Blockly.Msg.i_wolf_spawn_egg, 'i.wolf_spawn_egg' ],
-    [ Blockly.Msg.i_zoglin_spawn_egg, 'i.zoglin_spawn_egg' ],
-    [ Blockly.Msg.i_zombie_horse_spawn_egg, 'i.zombie_horse_spawn_egg' ],
-    [ Blockly.Msg.i_zombie_spawn_egg, 'i.zombie_spawn_egg' ],
-    [ Blockly.Msg.i_zombie_villager_spawn_egg, 'i.zombie_villager_spawn_egg' ],
-    [ Blockly.Msg.i_zombified_piglin_spawn_egg, 'i.zombified_piglin_spawn_egg' ],
-	[ Blockly.Msg.i_wither_skeleton_spawn_egg, 'i.wither_skeleton_spawn_egg' ],
-	[ Blockly.Msg.i_wither_spawn_egg, 'i.wither_spawn_egg' ],
-    [ Blockly.Msg.i_command_block_minecart, 'i.command_block_minecart' ],
  
 		
 ].sort(compareMCobjects)
 }
-function getItems_hide() {
-	return [		
-	    [ Blockly.Msg.i_sign, 'i.sign' ],
-		[ Blockly.Msg.i_lingering_potion, 'i.lingering_potion' ],
-		[ Blockly.Msg.i_smithing_template, 'i.smithing_template' ]
-		
-].sort(compareMCobjects)
-}
+
 
 
 
@@ -4020,18 +3897,6 @@ Blockly.Blocks['minecraft_materialbockOnlyOne'] = {
     }
 };
 
-Blockly.Blocks['minecraft_materialbockOnlyOne_op'] = {
-    init: function() {
-         this.appendValueInput('singleblock')
-            .setCheck("Material")
-            .appendField(new FieldDropdownWithSearch(getMaterials_opOnly()), 'NAME');
-        this.setColour(285);
-        this.setTooltip('');
-        this.setHelpUrl('');
-        this.setOutput(true, "Material");
-    }
-};
-
 
 Blockly.Blocks['minecraft_particleOnlyOne'] = {
     init: function() {
@@ -4060,38 +3925,12 @@ Blockly.Blocks['minecraft_item'] = {
     }
 };
 
-Blockly.Blocks['minecraft_item_op'] = {
-    init: function() {
-         this.appendValueInput('singleblock')
-            .setCheck("Item") //
-            .appendField(new FieldDropdownWithSearch(getItems_opOnly()), 'NAME'); //
-        this.setColour(20); //
-        this.setTooltip('');
-        this.setHelpUrl('');
-        this.setOutput(true, "Item");//
-    }
-};
-
-
 
 Blockly.Blocks['minecraft_entity'] = {
     init: function() {
          this.appendValueInput('singleblock')
             .setCheck("Material") //
             .appendField(new FieldDropdownWithSearch(getEntities()), 'NAME'); //
-        this.setColour(210); //
-        this.setTooltip('');
-        this.setHelpUrl('');
-        this.setOutput(true, "Material");//
-    }
-};
-
-
-Blockly.Blocks['minecraft_entity_op'] = {
-    init: function() {
-         this.appendValueInput('singleblock')
-            .setCheck("Material") //
-            .appendField(new FieldDropdownWithSearch(getEntities_opOnly()), 'NAME'); //
         this.setColour(210); //
         this.setTooltip('');
         this.setHelpUrl('');

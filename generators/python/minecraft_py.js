@@ -22,6 +22,13 @@ var TEAM_DICTIONARY_LABEL="TEAM";
 var GROUND_DICTIONARY_LABEL="GROUND";
 var BABY_DICTIONARY_LABEL="BABY";
 
+var ENTITY_PYTHON_CLASSNAME="Entity."; 
+var ITEM_PYTHON_CLASSNAME="Item."; 
+var BLOCK_PYTHON_CLASSNAME="Block."; 
+var PARTICLE_PYTHON_CLASSNAME="Particle."; 
+var BLOCK_NOTHING=BLOCK_PYTHON_CLASSNAME+"NOTHING"
+
+
 
 function addDictionaryEntry(inText){
 	var outText="";
@@ -543,7 +550,7 @@ Blockly.Python['minecraft_rotate'] = function(block) {
 			  var text_functionname = block.getFieldValue('functionName');
 			  text_functionname=sanitizePythonFunctionName(text_functionname);
 			  var value_singleblock = Blockly.Python.valueToCode(block, 'name', Blockly.Python.ORDER_NONE);
-				var code = '[{"POTION":"'+text_functionname+'", "TYPE":"i.splash_potion"'+closeDictionaryEntry(value_singleblock);
+				var code = '[{"POTION":"'+text_functionname+'", "TYPE":'+ITEM_PYTHON_CLASSNAME+'SPLASH_POTION'+closeDictionaryEntry(value_singleblock);
 				return [ code, Blockly.Python.ORDER_NONE ];
 			};
 
@@ -552,7 +559,7 @@ Blockly.Python['minecraft_rotate'] = function(block) {
 			  var variable_varname = Blockly.Python.variableDB_.getName(block.getFieldValue('varName'), Blockly.Variables.NAME_TYPE);
 			  variable_varname=variable_varname.replaceAll('"',"'"); // prevent quotes breaking code
 			  var value_singleblock = Blockly.Python.valueToCode(block, 'name', Blockly.Python.ORDER_NONE);
-				var code = '[{"SIGN":'+variable_varname+', "TYPE":"b.acacia_sign"'+closeDictionaryEntry(value_singleblock);
+				var code = '[{"SIGN":'+variable_varname+', "TYPE":'+BLOCK_PYTHON_CLASSNAME+'ACACIA_SIGN'+closeDictionaryEntry(value_singleblock);
 				return [ code, Blockly.Python.ORDER_NONE ];
 			};
 
@@ -560,15 +567,43 @@ Blockly.Python['minecraft_rotate'] = function(block) {
 			  var displayText = block.getFieldValue('displayText');
 			displayText=displayText.replaceAll('"',"'"); // prevent quotes breaking code
 			  var value_singleblock = Blockly.Python.valueToCode(block, 'name', Blockly.Python.ORDER_NONE);
-				var code = '[{"SIGN":"'+displayText+'", "TYPE":"b.acacia_sign"'+closeDictionaryEntry(value_singleblock);
+				var code = '[{"SIGN":"'+displayText+'", "TYPE":'+BLOCK_PYTHON_CLASSNAME+'ACACIA_SIGN'+closeDictionaryEntry(value_singleblock);
 				return [ code, Blockly.Python.ORDER_NONE ];
 			};
+			var ENTITY_PYTHON_CLASSNAME="Entity."; // redefined in minecraft.js
+			var ITEM_PYTHON_CLASSNAME="Item."; // redefined in minecraft.js
+			var BLOCK_PYTHON_CLASSNAME="Block."; // redefined in minecraft.js
+			var PARTICLE_PYTHON_CLASSNAME="Particle."; // redefined in minecraft.js
+			var BLOCK_NOTHING=BLOCK_PYTHON_CLASSNAME+"NOTHING"
 
-		
+function convertToPythonName(originalName){ // originalname is something like b.air
+	var classString=originalName.substring(0, 2); //take the first letters b.
+	var typeString=originalName.substring(2).toUpperCase();
+	switch (classString) {
+		case "b.":
+		  return BLOCK_PYTHON_CLASSNAME+typeString;
+		  break;
+		case "i.":
+		  return ITEM_PYTHON_CLASSNAME+typeString;
+		  break;
+		case "e.":
+		  return ENTITY_PYTHON_CLASSNAME+typeString;
+		  break;
+		case "p.":
+		  return PARTICLE_PYTHON_CLASSNAME+typeString;
+		  break;
+	  default:
+	    throw new Error('Unknown class: ' + originalName);
+	}
+}	
+	
 function minecraft_materialbockOnlyOne_fn(block){
 	var dropdown_name = block.getFieldValue('NAME');
+	var pythonName=convertToPythonName(dropdown_name);
+	
+	
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = '[{"TYPE":"'+dropdown_name+'"'+closeDictionaryEntry(value_singleblock);
+	var code = '[{"TYPE":'+pythonName+closeDictionaryEntry(value_singleblock);
 
 	return [ code, Blockly.Python.ORDER_NONE ];
 }
@@ -751,12 +786,13 @@ function validateBlockchoice(block, blockChoice) {
 	var choice = Blockly.Python.valueToCode(block, blockChoice, Blockly.Python.ORDER_NONE);
 	choice=optimizeMaterialList(choice);
 	if (choice==""){
-		var emptyMaterial=optimizeMaterialList('[{"TYPE":"b.nothing"}]')
+		var emptyMaterial=optimizeMaterialList('[{"TYPE":'+BLOCK_NOTHING+'}]')
 		return('  '+emptyMaterial+',\n');
 	} else {
 		return('  '+choice+',\n');
 	}
 }
+
 
 
 Blockly.Python['minecraft_drawing_version2'] = function(block) {
@@ -894,7 +930,7 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 		
 		Blockly.Python['minecraft_materialNothing'] = function(block) {
 			var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-			var code = '[{"TYPE":"b.nothing"'+closeDictionaryEntry(value_singleblock);
+			var code = '[{"TYPE":'+BLOCK_NOTHING+closeDictionaryEntry(value_singleblock);
 			return [ code, Blockly.Python.ORDER_NONE ];
 		}
 
@@ -910,7 +946,7 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 		  //var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
 		  // Check if there is a block connected to the right input
 		  var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-		  var code = '[{"IMAGE":"'+secondMenuValue+'", "TYPE":"e.item_frame"'+closeDictionaryEntry(value_singleblock);
+		  var code = '[{"IMAGE":"'+secondMenuValue+'", "TYPE":'+ENTITY_PYTHON_CLASSNAME+'ITEM_FRAME'+closeDictionaryEntry(value_singleblock);
 	
 		   return [ code, Blockly.Python.ORDER_NONE ];
 		};	
