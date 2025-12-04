@@ -3645,7 +3645,7 @@ Blockly.Blocks['minecraft_materialNothing'] = {
 				    }
 				  ],
 				  "output": null,
-				  "colour": 330,
+				  "colour": 285,
 				  "tooltip": "",
 				  "helpUrl": ""
 				});
@@ -3954,7 +3954,7 @@ Blockly.Blocks['image_select'] = {
 				    }
 				  ],
 				  "output": null,
-				  "colour": 330,
+				  "colour": 285,
 				  "tooltip": "",
 				  "helpUrl": ""
 				});
