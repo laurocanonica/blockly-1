@@ -24,7 +24,12 @@ var BABY_DICTIONARY_LABEL="BABY";
 
 var ENTITY_PYTHON_CLASSNAME="Entity."; 
 var ITEM_PYTHON_CLASSNAME="Item."; 
-var BLOCK_PYTHON_CLASSNAME="Block."; 
+var BLOCK_PYTHON_CLASSNAME="Block.";
+ 
+var SIDE_DICTIONARY_LABEL="SIDE";
+var SIDE_PYTHON_CLASSNAME="Side."; 
+
+var DRAWINGSTARTPOSITION_PYTHON_CLASSNAME="Start."; 
 var PARTICLE_PYTHON_CLASSNAME="Particle."; 
 var BLOCK_NOTHING=BLOCK_PYTHON_CLASSNAME+"NOTHING"
 
@@ -669,7 +674,7 @@ function convertLeashToJavaEnum(leashmode) {
 Blockly.Python['minecraft_upper_lower_part'] = function(block) {
 	var dropdown_name = block.getFieldValue('NAME');
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = 'dict(PART="'+dropdown_name+'"'+addDictionaryEntry(value_singleblock);
+	var code = 'dict('+SIDE_DICTIONARY_LABEL+'='+SIDE_PYTHON_CLASSNAME+dropdown_name+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
@@ -840,9 +845,9 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 		  code=code.substring(code, code.length-2); // remove last comma
 		  code +="\n], ";
 		  code +=index_material;
-		  code +=", '";
+		  code +=", "+DRAWINGSTARTPOSITION_PYTHON_CLASSNAME;
 		  code +=drawOrigin;
-		  code += "');\n";
+		  code += ");\n";
 		  return code; 
 		
 	}
@@ -958,7 +963,7 @@ Blockly.Python['minecraft_velocity'] = function(block) {
 	var yaw = block.getFieldValue('yaw');
 	var pitch = block.getFieldValue('pitch');
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = 'dict(VELOCITY='+velocity+', "VELOCITY_YAW='+yaw+', "VELOCITY_PITCH='+pitch+addDictionaryEntry(value_singleblock);
+	var code = 'dict(VELOCITY=['+velocity+', '+yaw+', '+pitch+']'+addDictionaryEntry(value_singleblock);
 
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
