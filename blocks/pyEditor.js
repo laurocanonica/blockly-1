@@ -468,3 +468,116 @@ Blockly.Blocks['python_code_snippet'] = {
   }
 };
 
+function createLightPythonGenerator() {
+  // Clone the main Python generator
+  var MiniPython = Object.create(Blockly.Python);
+
+  // Remove unwanted workspace scaffolding
+  MiniPython.init = function(workspace) {
+    // Call original init so blockToCode works
+    Blockly.Python.init.call(this, workspace);
+
+    // Then override everything that adds imports/globals
+    this.definitions_ = Object.create(null);
+    this.functions_ = Object.create(null);
+    this.variableDB_ = null; // No variable declarations
+    this.prefix_ = '';
+    this.suffix_ = '';
+  };
+
+  MiniPython.finish = function(code) {
+    // Do NOT add definitions, imports, or suffix
+    return code;
+  };
+
+  return MiniPython;
+}
+
+
+function fixIndent(pythonCode) {
+
+	// -----------------------------
+	// FIX indentation dynamically
+	// -----------------------------
+	var lines = pythonCode.split("\n");
+
+	// Find minimum indent > 0
+	var minIndent = Infinity;
+	for (var i = 0; i < lines.length; i++) {
+	  var m = lines[i].match(/^(\s+)/);
+	  if (m) {
+	    var indent = m[1].length;
+	    if (indent < minIndent) {
+	      minIndent = indent;
+	    }
+	  }
+	}
+
+	// Remove the common indent
+	if (minIndent !== Infinity && minIndent > 0) {
+	  var re = new RegExp("^\\s{" + minIndent + "}");
+	  for (var i = 0; i < lines.length; i++) {
+	    lines[i] = lines[i].replace(re, "");
+
+	  }
+	}
+
+	pythonCode = lines.join("\n");
+	return pythonCode;
+
+}
+
+function convertToPython(funcBlock) {
+  var workspace = funcBlock.workspace;
+
+  var MiniPython = createLightPythonGenerator();
+
+  // 1. Get blocks inside function
+  var bodyInput = funcBlock.getInput("STACK");
+  if (!bodyInput) {
+    console.warn("Function has no STACK input.");
+    return;
+  }
+
+  var firstChild = bodyInput.connection.targetBlock();
+  if (!firstChild) {
+    console.warn("Function body is empty.");
+    return;
+  }
+
+  // 2. Initialize temporary python generator
+  MiniPython.init(workspace);
+
+  // 3. Generate python for the function’s body
+  var pythonCode = MiniPython.statementToCode(funcBlock, "STACK");
+  if (!pythonCode) pythonCode = "# (empty python)";
+  pythonCode = MiniPython.finish(pythonCode);
+  
+  pythonCode = fixIndent(pythonCode);  // remove one indent level
+
+  // --------------------------------------
+  // 4. DELETE BLOCKS SAFELY (UNDOABLE!!)
+  // --------------------------------------
+  Blockly.Events.setGroup("convert_to_python");  // START UNDO GROUP
+  var child = firstChild;
+  while (child) {
+    var next = child.getNextBlock();
+    child.dispose(false);  // <-- add to trash/undo
+    child = next;
+  }
+
+  // 5. Add python snippet block
+  var pyBlock = workspace.newBlock("python_code_snippet");
+  pyBlock.setFieldValue(pythonCode, "CODE");
+  pyBlock.initSvg();
+  pyBlock.render();
+
+  // 6. Connect snippet block inside function
+  bodyInput.connection.connect(pyBlock.previousConnection);
+  
+  // END UNDO GROUP
+  Blockly.Events.setGroup(false);
+
+  console.log("Python generated:\n" + pythonCode);
+}
+

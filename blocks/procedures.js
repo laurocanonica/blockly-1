@@ -453,6 +453,15 @@ var saveOption = {
     }
 };
 
+options.push({
+  text: "Convert function to Python",
+  enabled: true,
+  callback: function() {
+    convertToPython(block);
+  }
+});
+
+
 
 
     // Add the option to the context menu
