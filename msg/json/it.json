@@ -2295,7 +2295,9 @@
 
 "PROCEDURES_DEFNORETURN_TITLE": "/vm",
 "PROCEDURES_DEFNORETURN_PROCEDURE": "comando",
+"CONVERT_TO_PYTHON_OPTION" : "Converti in codice Python",
 "PROCEDURES_DOWNLOAD_SCREENSHOT": "Scarica immagine",
 "PROCEDURES_DOWNLOAD_SCREENSHOT_CONFIRM": "Salvataggio della definizione XML negli appunti e download di uno screenshot nel file: "
+
 	
 }

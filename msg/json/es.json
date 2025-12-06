@@ -2293,6 +2293,10 @@
 "MC_cmd_minecraft_python_code": "Py",
 
 "PROCEDURES_DEFNORETURN_TITLE": "/vm",
-"PROCEDURES_DEFNORETURN_POCEDURE": "micomando"
+"PROCEDURES_DEFNORETURN_POCEDURE": "micomando",
+"CONVERT_TO_PYTHON_OPTION" : "Convertir a código Python",
+"PROCEDURES_DOWNLOAD_SCREENSHOT": "Descargar imagen",
+"PROCEDURES_DOWNLOAD_SCREENSHOT_CONFIRM": "Guardando la definición XML en el portapapeles y descargando una captura de pantalla en el archivo:"
+
 	
 }

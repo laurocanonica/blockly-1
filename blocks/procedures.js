@@ -454,7 +454,7 @@ var saveOption = {
 };
 
 options.push({
-  text: "Convert function to Python",
+  text: Blockly.Msg['CONVERT_TO_PYTHON_OPTION'],
   enabled: true,
   callback: function() {
     convertToPython(block);

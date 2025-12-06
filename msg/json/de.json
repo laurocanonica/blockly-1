@@ -2316,6 +2316,10 @@
 
 
 "PROCEDURES_DEFNORETURN_TITLE": "/vm",
-"PROCEDURES_DEFNORETURN_POCEDURE": "meinBefehl"
+"PROCEDURES_DEFNORETURN_POCEDURE": "meinBefehl",
+"CONVERT_TO_PYTHON_OPTION" : "In Python-Code umwandeln",
+"PROCEDURES_DOWNLOAD_SCREENSHOT": "Bild herunterladen",
+"PROCEDURES_DOWNLOAD_SCREENSHOT_CONFIRM": "Speichern der XML-Definition in der Zwischenablage und Herunterladen eines Screenshots in die Datei: "
+
 
 }
