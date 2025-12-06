@@ -33,6 +33,8 @@ var DRAWINGSTARTPOSITION_PYTHON_CLASSNAME="Start.";
 var PARTICLE_PYTHON_CLASSNAME="Particle."; 
 var BLOCK_NOTHING=BLOCK_PYTHON_CLASSNAME+"NOTHING"
 
+var PLAYER_POSITION_PYTHON_CLASSNAME="Position."; 
+
 
 
 function addDictionaryEntry(inText){
@@ -504,19 +506,19 @@ Blockly.Python['minecraft_move_to_view_target'] = function(block) {
 	  var code = "";
 	  switch(dropdown_viewer){
 	  case 'PLAYER_EYES':
-		  code+="vm.moveToViewTarget()\n";
+		  code+="vm.moveTo("+PLAYER_POSITION_PYTHON_CLASSNAME+"AIM)\n";
 		  break;
 	  case 'PLAYER_POS':
-		  code+="vm.moveToPlayer()\n";
+		code+="vm.moveTo("+PLAYER_POSITION_PYTHON_CLASSNAME+"PLAYER)\n";
 		  break;
  	  case 'ROBOT_EYES':
- 		  code+="vm.moveToNextSolidBlock()\n";
+ 		code+="vm.moveTo("+PLAYER_POSITION_PYTHON_CLASSNAME+"NEXT_BLOCK)\n";
  		  break;
 	  case 'START_POS':
- 	  	code = 'vm.resetPosition()\n';
- 		  break;
+		code+="vm.moveTo("+PLAYER_POSITION_PYTHON_CLASSNAME+"START)\n";
+		  break;
 	  case 'MARKED_POS':
- 		  code = 'vm.moveToLastMark()\n';		   
+		code+="vm.moveTo("+PLAYER_POSITION_PYTHON_CLASSNAME+"MARK)\n";
  		  break;
  	  default:
  	      console.log("Invalid option for minecraft_move_to_view_target:"+dropdown_viewer);
