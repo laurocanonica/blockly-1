@@ -4,37 +4,6 @@
  */
 'use strict';
 
-var DIRECTION_DICTIONARY_LABEL="DIRECTION";
-var DIRECTION_PYTHON_CLASSNAME="Direction";
-
-var LEASH_DICTIONARY_LABEL="LEASH";
-var LEASH_PYTHON_CLASSNAME="Leash";
-
-
-var EQUIPMENT_PYTHON_CLASSNAME="Equip";
-
-var COORDINATE_SYSTEM_PYTHON_CLASSNAME="Coordinate";
-
-var COMPASS_PYTHON_CLASSNAME="Compass";
-
-
-var TEAM_DICTIONARY_LABEL="TEAM";
-var GROUND_DICTIONARY_LABEL="GROUND";
-var BABY_DICTIONARY_LABEL="BABY";
-
-var ENTITY_PYTHON_CLASSNAME="Entity."; 
-var ITEM_PYTHON_CLASSNAME="Item."; 
-var BLOCK_PYTHON_CLASSNAME="Block.";
- 
-var SIDE_DICTIONARY_LABEL="SIDE";
-var SIDE_PYTHON_CLASSNAME="Side."; 
-
-var DRAWINGSTARTPOSITION_PYTHON_CLASSNAME="Start."; 
-var PARTICLE_PYTHON_CLASSNAME="Particle."; 
-var BLOCK_NOTHING=BLOCK_PYTHON_CLASSNAME+"NOTHING"
-
-var PLAYER_POSITION_PYTHON_CLASSNAME="Position."; 
-
 
 
 function addDictionaryEntry(inText){
@@ -401,17 +370,17 @@ function convertDirectionToJavaEnum(direction) {
 	
 	switch(direction) { // map to the values defined in the Direction class in java
 		case 'UP':
-		  return DIRECTION_PYTHON_CLASSNAME+'.UP';
+		  return Globals.DIRECTION_PYTHON_CLASSNAME+'.UP';
 		case 'DOWN':
-		  return  DIRECTION_PYTHON_CLASSNAME+'.DOWN';
+		  return  Globals.DIRECTION_PYTHON_CLASSNAME+'.DOWN';
 		  case 'LEFT':
-		    return  DIRECTION_PYTHON_CLASSNAME+'.LEFT';
+		    return  Globals.DIRECTION_PYTHON_CLASSNAME+'.LEFT';
 		  case 'RIGHT':
-		    return  DIRECTION_PYTHON_CLASSNAME+'.RIGHT';
+		    return  Globals.DIRECTION_PYTHON_CLASSNAME+'.RIGHT';
 			case 'FW':
-			  return  DIRECTION_PYTHON_CLASSNAME+'.FORWARD';
+			  return  Globals.DIRECTION_PYTHON_CLASSNAME+'.FORWARD';
 			case 'BW':
-			  return  DIRECTION_PYTHON_CLASSNAME+'.BACKWARD';
+			  return  Globals.DIRECTION_PYTHON_CLASSNAME+'.BACKWARD';
 	  default:
 	    return 'ERROR_DIRECTION_INVALID'
 	}
@@ -486,7 +455,7 @@ Blockly.Python['minecraft_gotopos'] = function(block) {
 	var value_y = Blockly.Python.valueToCode(block, 'y', Blockly.Python.ORDER_NONE);
 	var value_z = Blockly.Python.valueToCode(block, 'z', Blockly.Python.ORDER_NONE);
 	var code = "vm.movePositionAbsolute(";
-	code += COORDINATE_SYSTEM_PYTHON_CLASSNAME+"."+dropdown_coordsystem + ', ';
+	code += Globals.COORDINATE_SYSTEM_PYTHON_CLASSNAME+"."+dropdown_coordsystem + ', ';
 	code += value_x + ", ";
 	code += value_y + ", ";
 	code += value_z + ")\n";
@@ -506,19 +475,19 @@ Blockly.Python['minecraft_move_to_view_target'] = function(block) {
 	  var code = "";
 	  switch(dropdown_viewer){
 	  case 'PLAYER_EYES':
-		  code+="vm.moveTo("+PLAYER_POSITION_PYTHON_CLASSNAME+"AIM)\n";
+		  code+="vm.moveTo("+Globals.PLAYER_POSITION_PYTHON_CLASSNAME+"AIM)\n";
 		  break;
 	  case 'PLAYER_POS':
-		code+="vm.moveTo("+PLAYER_POSITION_PYTHON_CLASSNAME+"PLAYER)\n";
+		code+="vm.moveTo("+Globals.PLAYER_POSITION_PYTHON_CLASSNAME+"PLAYER)\n";
 		  break;
  	  case 'ROBOT_EYES':
- 		code+="vm.moveTo("+PLAYER_POSITION_PYTHON_CLASSNAME+"NEXT_BLOCK)\n";
+ 		code+="vm.moveTo("+Globals.PLAYER_POSITION_PYTHON_CLASSNAME+"NEXT_BLOCK)\n";
  		  break;
 	  case 'START_POS':
-		code+="vm.moveTo("+PLAYER_POSITION_PYTHON_CLASSNAME+"START)\n";
+		code+="vm.moveTo("+Globals.PLAYER_POSITION_PYTHON_CLASSNAME+"START)\n";
 		  break;
 	  case 'MARKED_POS':
-		code+="vm.moveTo("+PLAYER_POSITION_PYTHON_CLASSNAME+"MARK)\n";
+		code+="vm.moveTo("+Globals.PLAYER_POSITION_PYTHON_CLASSNAME+"MARK)\n";
  		  break;
  	  default:
  	      console.log("Invalid option for minecraft_move_to_view_target:"+dropdown_viewer);
@@ -529,7 +498,7 @@ Blockly.Python['minecraft_move_to_view_target'] = function(block) {
 
 Blockly.Python['minecraft_setrotation'] = function(block) {
 	  var dropdown_angle = block.getFieldValue('angle');
-		var code = "vm.rotateYawAbsolute(" + COMPASS_PYTHON_CLASSNAME+"."+dropdown_angle + ")\n";
+		var code = "vm.rotateYawAbsolute(" + Globals.COMPASS_PYTHON_CLASSNAME+"."+dropdown_angle + ")\n";
 	  return code;
 	};
 	
@@ -558,7 +527,7 @@ Blockly.Python['minecraft_rotate'] = function(block) {
 			  var text_functionname = block.getFieldValue('functionName');
 			  text_functionname=sanitizePythonFunctionName(text_functionname);
 			  var value_singleblock = Blockly.Python.valueToCode(block, 'name', Blockly.Python.ORDER_NONE);
-				var code = 'dict(POTION="'+text_functionname+'", TYPE='+ITEM_PYTHON_CLASSNAME+'SPLASH_POTION'+closeDictionaryEntry(value_singleblock);
+				var code = 'dict(POTION="'+text_functionname+'", TYPE='+Globals.Globals.ITEM_PYTHON_CLASSNAME+'SPLASH_POTION'+closeDictionaryEntry(value_singleblock);
 				return [ code, Blockly.Python.ORDER_NONE ];
 			};
 
@@ -567,7 +536,7 @@ Blockly.Python['minecraft_rotate'] = function(block) {
 			  var variable_varname = Blockly.Python.variableDB_.getName(block.getFieldValue('varName'), Blockly.Variables.NAME_TYPE);
 			  variable_varname=variable_varname.replaceAll('"',"'"); // prevent quotes breaking code
 			  var value_singleblock = Blockly.Python.valueToCode(block, 'name', Blockly.Python.ORDER_NONE);
-				var code = 'dict(SIGN='+variable_varname+', TYPE='+BLOCK_PYTHON_CLASSNAME+'ACACIA_SIGN'+closeDictionaryEntry(value_singleblock);
+				var code = 'dict(SIGN='+variable_varname+', TYPE='+Globals.BLOCK_PYTHON_CLASSNAME+'ACACIA_SIGN'+closeDictionaryEntry(value_singleblock);
 				return [ code, Blockly.Python.ORDER_NONE ];
 			};
 
@@ -575,30 +544,25 @@ Blockly.Python['minecraft_rotate'] = function(block) {
 			  var displayText = block.getFieldValue('displayText');
 			displayText=displayText.replaceAll('"',"'"); // prevent quotes breaking code
 			  var value_singleblock = Blockly.Python.valueToCode(block, 'name', Blockly.Python.ORDER_NONE);
-				var code = 'dict(SIGN="'+displayText+'", TYPE='+BLOCK_PYTHON_CLASSNAME+'ACACIA_SIGN'+closeDictionaryEntry(value_singleblock);
+				var code = 'dict(SIGN="'+displayText+'", TYPE='+Globals.BLOCK_PYTHON_CLASSNAME+'ACACIA_SIGN'+closeDictionaryEntry(value_singleblock);
 				return [ code, Blockly.Python.ORDER_NONE ];
 			};
-			var ENTITY_PYTHON_CLASSNAME="Entity."; // redefined in minecraft.js
-			var ITEM_PYTHON_CLASSNAME="Item."; // redefined in minecraft.js
-			var BLOCK_PYTHON_CLASSNAME="Block."; // redefined in minecraft.js
-			var PARTICLE_PYTHON_CLASSNAME="Particle."; // redefined in minecraft.js
-			var BLOCK_NOTHING=BLOCK_PYTHON_CLASSNAME+"NOTHING"
 
 function convertToPythonName(originalName){ // originalname is something like b.air
 	var classString=originalName.substring(0, 2); //take the first letters b.
 	var typeString=originalName.substring(2).toUpperCase();
 	switch (classString) {
 		case "b.":
-		  return BLOCK_PYTHON_CLASSNAME+typeString;
+		  return Globals.BLOCK_PYTHON_CLASSNAME+typeString;
 		  break;
 		case "i.":
-		  return ITEM_PYTHON_CLASSNAME+typeString;
+		  return Globals.Globals.ITEM_PYTHON_CLASSNAME+typeString;
 		  break;
 		case "e.":
-		  return ENTITY_PYTHON_CLASSNAME+typeString;
+		  return Globals.ENTITY_PYTHON_CLASSNAME+typeString;
 		  break;
 		case "p.":
-		  return PARTICLE_PYTHON_CLASSNAME+typeString;
+		  return Globals.PARTICLE_PYTHON_CLASSNAME+typeString;
 		  break;
 	  default:
 	    throw new Error('Unknown class: ' + originalName);
@@ -640,35 +604,35 @@ Blockly.Python['minecraft_entity_op'] = function(block) {
 
 Blockly.Python['minecraft_team'] = function(block) {
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = 'dict('+TEAM_DICTIONARY_LABEL+'=True'+addDictionaryEntry(value_singleblock);
+	var code = 'dict('+Globals.TEAM_DICTIONARY_LABEL+'=True'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 
 Blockly.Python['minecraft_team_ver2'] = function(block) {
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = 'dict('+TEAM_DICTIONARY_LABEL+'=True'+addDictionaryEntry(value_singleblock);
+	var code = 'dict('+Globals.TEAM_DICTIONARY_LABEL+'=True'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 Blockly.Python['minecraft_direction'] = function(block) {
 	var dropdown_name = block.getFieldValue('NAME');
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = 'dict('+DIRECTION_DICTIONARY_LABEL+'='+convertDirectionToJavaEnum(dropdown_name)+addDictionaryEntry(value_singleblock);
+	var code = 'dict('+Globals.DIRECTION_DICTIONARY_LABEL+'='+convertDirectionToJavaEnum(dropdown_name)+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 Blockly.Python['minecraft_leash'] = function(block) {
 	var dropdown_name = block.getFieldValue('NAME');
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = 'dict('+LEASH_DICTIONARY_LABEL+'='+convertLeashToJavaEnum(dropdown_name)+addDictionaryEntry(value_singleblock);
+	var code = 'dict('+Globals.LEASH_DICTIONARY_LABEL+'='+convertLeashToJavaEnum(dropdown_name)+addDictionaryEntry(value_singleblock);
 
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 // Helper to convert directions to the java enumeration
 function convertLeashToJavaEnum(leashmode) {
-	return LEASH_PYTHON_CLASSNAME+"."+leashmode
+	return Globals.LEASH_PYTHON_CLASSNAME+"."+leashmode
 }
 
 
@@ -676,20 +640,20 @@ function convertLeashToJavaEnum(leashmode) {
 Blockly.Python['minecraft_upper_lower_part'] = function(block) {
 	var dropdown_name = block.getFieldValue('NAME');
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = 'dict('+SIDE_DICTIONARY_LABEL+'='+SIDE_PYTHON_CLASSNAME+dropdown_name+addDictionaryEntry(value_singleblock);
+	var code = 'dict('+Globals.SIDE_DICTIONARY_LABEL+'='+Globals.SIDE_PYTHON_CLASSNAME+dropdown_name+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 
 Blockly.Python['minecraft_on_the_ground'] = function(block) {
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = 'dict('+GROUND_DICTIONARY_LABEL+'=True'+addDictionaryEntry(value_singleblock);
+	var code = 'dict('+Globals.GROUND_DICTIONARY_LABEL+'=True'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
 Blockly.Python['minecraft_baby'] = function(block) {
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code = 'dict('+BABY_DICTIONARY_LABEL+'=True'+addDictionaryEntry(value_singleblock);
+	var code = 'dict('+Globals.BABY_DICTIONARY_LABEL+'=True'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
@@ -733,7 +697,7 @@ Blockly.Python['minecraft_comment'] = function(block) {
 		
 Blockly.Python['minecraft_givetoplayer'] = function(block) {
 	  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	  var code = "vm.giveToPlayer("+EQUIPMENT_PYTHON_CLASSNAME+".INVENTORY, " + optimizeMaterialList(value_name) + ")\n";
+	  var code = "vm.giveToPlayer("+Globals.EQUIPMENT_PYTHON_CLASSNAME+".INVENTORY, " + optimizeMaterialList(value_name) + ")\n";
 	  return code;
 	};
 	
@@ -741,14 +705,14 @@ Blockly.Python['minecraft_givetoplayer'] = function(block) {
 	
 Blockly.Python['minecraft_equipplayer'] = function(block) {
 	  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	  var code = "vm.giveToPlayer("+EQUIPMENT_PYTHON_CLASSNAME+".GARMENT, " + optimizeMaterialList(value_name) + ")\n";
+	  var code = "vm.giveToPlayer("+Globals.EQUIPMENT_PYTHON_CLASSNAME+".GARMENT, " + optimizeMaterialList(value_name) + ")\n";
 	  return code;
 	};
 	
 Blockly.Python['minecraft_putinhand'] = function(block) {
 	  var dropdown_hand = block.getFieldValue('hand');
 	  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	  var code = "vm.giveToPlayer("+EQUIPMENT_PYTHON_CLASSNAME+"."+dropdown_hand+", " + optimizeMaterialList(value_name) + ")\n";
+	  var code = "vm.giveToPlayer("+Globals.EQUIPMENT_PYTHON_CLASSNAME+"."+dropdown_hand+", " + optimizeMaterialList(value_name) + ")\n";
 	  return code;
 	};
 	
@@ -794,7 +758,7 @@ function validateBlockchoice(block, blockChoice) {
 	var choice = Blockly.Python.valueToCode(block, blockChoice, Blockly.Python.ORDER_NONE);
 	choice=optimizeMaterialList(choice);
 	if (choice==""){
-		var emptyMaterial=optimizeMaterialList('[dict(TYPE='+BLOCK_NOTHING+')]')
+		var emptyMaterial=optimizeMaterialList('[dict(TYPE='+Globals.BLOCK_NOTHING+')]')
 		return('  '+emptyMaterial+',\n');
 	} else {
 		return('  ['+choice+'],\n');
@@ -847,7 +811,7 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 		  code=code.substring(code, code.length-2); // remove last comma
 		  code +="\n], ";
 		  code +=index_material;
-		  code +=", "+DRAWINGSTARTPOSITION_PYTHON_CLASSNAME;
+		  code +=", "+Globals.DRAWINGSTARTPOSITION_PYTHON_CLASSNAME;
 		  code +=drawOrigin;
 		  code += ");\n";
 		  return code; 
@@ -938,7 +902,7 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 		
 		Blockly.Python['minecraft_materialNothing'] = function(block) {
 			var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-			var code = 'dict(TYPE='+BLOCK_NOTHING+closeDictionaryEntry(value_singleblock);
+			var code = 'dict(TYPE='+Globals.BLOCK_NOTHING+closeDictionaryEntry(value_singleblock);
 			return [ code, Blockly.Python.ORDER_NONE ];
 		}
 
@@ -954,7 +918,7 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 		  //var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
 		  // Check if there is a block connected to the right input
 		  var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-		  var code = 'dict(IMAGE="'+secondMenuValue+'", TYPE='+ENTITY_PYTHON_CLASSNAME+'ITEM_FRAME'+closeDictionaryEntry(value_singleblock);
+		  var code = 'dict(IMAGE="'+secondMenuValue+'", TYPE='+Globals.ENTITY_PYTHON_CLASSNAME+'ITEM_FRAME'+closeDictionaryEntry(value_singleblock);
 	
 		   return [ code, Blockly.Python.ORDER_NONE ];
 		};	
