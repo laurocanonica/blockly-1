@@ -2502,19 +2502,19 @@ Blockly.Blocks['minecraft_team_ver2'] = {
 					 "options": [
 					        [
 					        	Blockly.Msg.MC_cmd_player,
-					          "MYSELF"
+					          Globals.LEASH_MYSELF
 					        ],
 					        [
 					        	Blockly.Msg.MC_cmd_mob,
-					          "CREATED_MOB"
+					          Globals.LEASH_CREATED_MOB
 					        ],
 					        [
 					        	Blockly.Msg.MC_cmd_mob_owner,
-					          "OWNER_CREATED_MOB"
+					          Globals.LEASH_OWNER_CREATED_MOB
 					        ],
 					        [
 					        	Blockly.Msg.MC_cmd_nobody,
-					          "NOBODY"
+					          Globals.LEASH_NOBODY
 					        ]
 					   ]
 				}, {
@@ -3149,8 +3149,8 @@ Blockly.Blocks['minecraft_drawing_version2'] = {
 
     this.appendDummyInput("origin")
         .appendField(new Blockly.FieldDropdown([
-          [Blockly.Msg.MC_cmd_minecraft_draw_from_center, "CENTER"],
-          [Blockly.Msg.MC_cmd_minecraft_draw_from_bottomleft, "LEFT"]
+          [Blockly.Msg.MC_cmd_minecraft_draw_from_center, Globals.DRAWINGSTARTPOSITION_CENTER],
+          [Blockly.Msg.MC_cmd_minecraft_draw_from_bottomleft, Globals.DRAWINGSTARTPOSITION_LEFT]
         ]), "origin");
 
     // Initialize block with the first two draw choices.
@@ -3389,11 +3389,11 @@ Blockly.Blocks['minecraft_drawing'] = {
 						      "options": [
 						        [
 						        	Blockly.Msg.MC_cmd_minecraft_draw_from_center,
-						          "CENTER"
+						          Globals.DRAWINGSTARTPOSITION_CENTER
 						        ],
 						        [
 						        	Blockly.Msg.MC_cmd_minecraft_draw_from_bottomleft,
-						          "LEFT"
+						          Globals.DRAWINGSTARTPOSITION_LEFT
 						        ]
 						      ]
 						    }

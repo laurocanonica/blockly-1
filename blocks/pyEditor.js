@@ -264,22 +264,28 @@ Blockly.Blocks['python_code_snippet'] = {
 
 		
 		var materials = getMaterials().map(function(item) { 
-		  return item[1].replace("b.", Globals.BLOCK_PYTHON_CLASSNAME); // same as in the bindings of the pythonManager class
+		  return item[1].toUpperCase().replace("B.", Globals.BLOCK_PYTHON_CLASSNAME); // same as in the bindings of the pythonManager class
 		});
 		var entities = getEntities().map(function(item) {
-		  return item[1].replace("e.", Globals.ENTITY_PYTHON_CLASSNAME);// same as in the bindings of the pythonManager class
+		  return item[1].toUpperCase().replace("E.", Globals.ENTITY_PYTHON_CLASSNAME);// same as in the bindings of the pythonManager class
 		});
 		var items = getItems().map(function(item) {
-		  return item[1].replace("b.", Globals.ITEM_PYTHON_CLASSNAME);// same as in the bindings of the pythonManager class
+		  return item[1].toUpperCase().replace("B.", Globals.ITEM_PYTHON_CLASSNAME);// same as in the bindings of the pythonManager class
 		});
 
 		var items = getParticles().map(function(item) {
-		  return item[1].replace("p.", Globals.PARTICLE_PYTHON_CLASSNAME);// same as in the bindings of the pythonManager class
+		  return item[1].toUpperCase().replace("P.", Globals.PARTICLE_PYTHON_CLASSNAME);// same as in the bindings of the pythonManager class
 		});
 		
 		var nothingBlock ="block.nothing"; // the nothing block is handled as an exception
 
 		var visualmodderFunctions= [
+			Globals.DRAWINGSTARTPOSITION_PYTHON_CLASSNAME+Globals.DRAWINGSTARTPOSITION_CENTER,
+			Globals.DRAWINGSTARTPOSITION_PYTHON_CLASSNAME+Globals.DRAWINGSTARTPOSITION_LEFT,
+			Globals.LEASH_DICTIONARY_LABEL+"="+Globals.LEASH_PYTHON_CLASSNAME+Globals.LEASH_MYSELF,
+			Globals.LEASH_DICTIONARY_LABEL+"="+Globals.LEASH_PYTHON_CLASSNAME+Globals.LEASH_CREATED_MOB,
+			Globals.LEASH_DICTIONARY_LABEL+"="+Globals.LEASH_PYTHON_CLASSNAME+Globals.LEASH_OWNER_CREATED_MOB,
+			Globals.LEASH_DICTIONARY_LABEL+"="+Globals.LEASH_PYTHON_CLASSNAME+Globals.LEASH_NOBODY,
 			"dict(TYPE=\"b.acacia_button\")",
 			"dict(TYPE=\"b.air\")",
 			"DIRECTION=\"LEFT\"",
