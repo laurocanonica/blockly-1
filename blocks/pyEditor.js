@@ -367,12 +367,17 @@ Blockly.Blocks['python_code_snippet'] = {
       });
 
       // Match Blockly scaling for font size
-      var computedStyle = window.getComputedStyle(field.getSvgRoot());
+	  var fieldTextElement = field.textElement_ || field.getSvgRoot().querySelector("text");
+	  var computedStyle = window.getComputedStyle(fieldTextElement);
       var fontFamily = computedStyle.fontFamily;
+	  var fontSize = computedStyle.fontSize;
       var wrapper = cm.getWrapperElement();
-      wrapper.style.fontSize = (15 * Blockly.getMainWorkspace().scale) + 'px';
+      wrapper.style.fontSize = fontSize;
       wrapper.style.fontFamily = fontFamily;
-
+	  wrapper.style.lineHeight = computedStyle.lineHeight;
+	  cm.getScrollerElement().style.fontFamily = fontFamily;
+	  cm.getScrollerElement().style.fontSize = fontSize;
+	  cm.getScrollerElement().style.lineHeight = computedStyle.lineHeight;
       function measureTextCanvas(field) {
         var lines = field.getValue().split('\n');
         var longest = lines.reduce(function (a, b) {
