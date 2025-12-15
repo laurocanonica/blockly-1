@@ -286,7 +286,7 @@ Blockly.blockRendering.ConstantProvider = function() {
    * A field's border rect X padding.
    * @type {number}
    */
-  this.FIELD_BORDER_RECT_X_PADDING = 5;
+  this.FIELD_BORDER_RECT_X_PADDING = 2;
 
   /**
    * A field's border rect Y padding.

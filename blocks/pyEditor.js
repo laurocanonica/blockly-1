@@ -43,20 +43,20 @@ Blockly.Blocks['python_code_snippet'] = {
       if (originalTextarea) {
         originalTextarea.style.display = 'none';
       }
-
+	  var marge=20; // avoid displayng scrollbars in codemirror
       var overlay = document.createElement('div');
       overlay.style.position = 'absolute';
       overlay.style.left = fieldRect.left + window.scrollX + 'px';
       overlay.style.top = fieldRect.top + window.scrollY + 'px';
-      overlay.style.width = (measureTextCanvas(field) + 50) + 'px';
-      overlay.style.height = (fieldRect.height + 50) + 'px';
-      overlay.style.zIndex = 10000;
+	  overlay.style.width = fieldRect.width +marge+ 'px';
+	  overlay.style.height = fieldRect.height +marge+ 'px';
+	  overlay.style.zIndex = 10000;
       overlay.style.backgroundColor = '#fff';
       overlay.style.border = '1px solid #ccc';
       overlay.style.resize = 'both';
       overlay.style.overflow = 'auto';
-      overlay.style.minWidth = '150px';
-      overlay.style.minHeight = '100px';
+      overlay.style.minWidth = fieldRect.width +marge+ 'px';
+      overlay.style.minHeight = fieldRect.height +marge+ 'px';
       overlay.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
       overlay.style.padding = '0';
       overlay.style.boxSizing = 'border-box';
@@ -82,7 +82,7 @@ Blockly.Blocks['python_code_snippet'] = {
 		  matchBrackets: true,        
 		  autoCloseBrackets: true,
 		  smartIndent: true,
-		  indentWithTabs: true
+		  indentWithTabs: false
 
       });
 
@@ -371,26 +371,15 @@ Blockly.Blocks['python_code_snippet'] = {
 	  var computedStyle = window.getComputedStyle(fieldTextElement);
       var fontFamily = computedStyle.fontFamily;
 	  var fontSize = computedStyle.fontSize;
+	  var cmLineHeight = Blockly.FieldMultilineInput.LINE_HEIGHT * fontSize + "px";
       var wrapper = cm.getWrapperElement();
       wrapper.style.fontSize = fontSize;
       wrapper.style.fontFamily = fontFamily;
-	  wrapper.style.lineHeight = computedStyle.lineHeight;
+	  wrapper.style.lineHeight = cmLineHeight;
 	  cm.getScrollerElement().style.fontFamily = fontFamily;
 	  cm.getScrollerElement().style.fontSize = fontSize;
-	  cm.getScrollerElement().style.lineHeight = computedStyle.lineHeight;
-      function measureTextCanvas(field) {
-        var lines = field.getValue().split('\n');
-        var longest = lines.reduce(function (a, b) {
-          return a.length > b.length ? a : b;
-        }, '');
-        var canvas = document.createElement('canvas');
-        var context = canvas.getContext('2d');
-        context.font = '16px Arial';
-        var workspace = Blockly.getMainWorkspace();
-        var scale = workspace.scale;
-        var newWidth = context.measureText(longest).width * scale * 1.5;
-       return newWidth;
-      }
+	  cm.getScrollerElement().style.lineHeight = cmLineHeight;
+	  cm.display.lineDiv.style.lineHeight = cmLineHeight;  // ensures internal lines match
 
       // Handle resizing and cleanup
       function resizeCM() {
