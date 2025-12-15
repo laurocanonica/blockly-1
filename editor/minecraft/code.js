@@ -1029,18 +1029,17 @@ document.write('<script src="../../msg/js/' + Code.LANG + '.js"></script>\n');
 
 
 window.addEventListener('load', Code.init);
-window.onblur = function() {
-	if(Code.serverNeedsUpdate){
-		Code.runJS()
-	}
-	
-document.getElementById('playernamefield').onblur = function() {
-		Code.serverNeedsUpdate=true;
-	}
-	
+window.onblur = function () {
+  setTimeout(function () {
+    if (Code.serverNeedsUpdate) {
+      Code.runJS();
+	  document.getElementById('playernamefield').onblur = function() {
+	  	Code.serverNeedsUpdate=true;
+	  }
+	 }
 
-
-}
+  }, 1000); // 1 second
+};
 
 
 

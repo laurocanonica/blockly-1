@@ -428,34 +428,43 @@ Blockly.Blocks['python_code_snippet'] = {
 	    updateOverlayPosition();
 	  });
 	  
-	  overlay.addEventListener('focusout', function (event) {
-	    // 🧠 Skip closing if focus is moving to a CodeMirror hint menu
-	    var related = event.relatedTarget || document.activeElement;
-	    var insideHints = related && related.closest && related.closest('.CodeMirror-hints');
+	  function closeEditorSafely() {
+	    field.setValue(cm.getValue());
+	    saveEditorState();
 
-	    if (insideHints) {
-	      // Don't close overlay yet — wait until after hint click completes
-	      setTimeout(function () {
-	        cm.focus(); // return focus to CodeMirror after hint click
-	      }, 150);
-	      return; // Skip closing
+	    observer.disconnect();
+
+	    if (overlay.parentNode) {
+	      overlay.parentNode.removeChild(overlay);
 	    }
 
-	    // Otherwise, close normally after short delay
+	    if (originalTextarea) {
+	      originalTextarea.style.display = '';
+	    }
+	  }
+	  
+	  overlay.addEventListener('focusout', function (event) {
+	    var related = event.relatedTarget || document.activeElement;
+	    var insideHints =
+	      related && related.closest && related.closest('.CodeMirror-hints');
+
+	    if (insideHints) {
+	      setTimeout(function () {
+	        cm.focus();
+	      }, 150);
+	      return;
+	    }
+
 	    setTimeout(function () {
 	      if (!overlay.contains(document.activeElement)) {
-	        field.setValue(cm.getValue());
-			saveEditorState();
-
-	        observer.disconnect();
-	        if (overlay.parentNode) {
-	          overlay.parentNode.removeChild(overlay);
-	        }
-	        if (originalTextarea) {
-	          originalTextarea.style.display = '';
-	        }
+	        closeEditorSafely();
 	      }
 	    }, 50);
+	  });
+
+	  window.addEventListener('blur', function () {
+	    // Delay so CodeMirror hint clicks still work
+	    setTimeout(closeEditorSafely, 0);
 	  });
 
 	  
