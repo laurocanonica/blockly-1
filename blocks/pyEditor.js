@@ -94,104 +94,86 @@ Blockly.Blocks['python_code_snippet'] = {
 	  // 🧠 Define grammar / syntax help text
 	  var grammarHelp = {
 
-	  "movePositionRelative":
-	  "🧩 Syntax:\nvm.movePositionRelative(steps, direction)\n\nMoves the current position relative to the player's orientation.\nsteps: number of blocks to move.\ndirection: one of FORWARD, BACKWARD, LEFT, RIGHT, UP, DOWN.",
+	    "moveTo":
+	    "🧩 Syntax:\nvm.moveTo(steps, direction)\nvm.moveTo(coordSystem, x, y, z)\nvm.moveTo(position)\n\nMoves the cursor position.\n\nRelative movement:\nsteps: number of blocks to move.\ndirection: FORWARD, BACKWARD, LEFT, RIGHT, UP, DOWN.\n\nAbsolute coordinates:\ncoordSystem: CARTESIAN, CYLINDRICAL, SPHERICAL.\nx/y/z: system-specific values.\n\nPredefined positions:\nposition: START, NEXT_BLOCK, PLAYER, AIM, MARK.",
 
-	  "movePositionAbsolute":
-	  "🧩 Syntax:\nvm.movePositionAbsolute(coordSystem, x, y, z)\n\nMoves the current position using absolute coordinates.\ncoordSystem: CARTESIAN, CYLINDRICAL, or SPHERICAL.\nx: x-value or radius.\ny: y-value or theta.\nz: z-value or phi.",
+	    "changeDirection":
+	    "🧩 Syntax:\nvm.changeDirection(angle)\n\nRotates the cursor yaw (horizontal direction) relative to the current orientation.\nangle: rotation in degrees.",
 
-	  "moveToViewTarget":
-	  "🧩 Syntax:\nvm.moveToViewTarget()\n\nMoves the position to the block the player is currently looking at.",
+	    "setDirection":
+	    "🧩 Syntax:\nvm.setDirection(direction)\n\nSets the cursor yaw to an absolute direction.\ndirection: PLAYER_YAW, N, S, E, W.",
 
-	  "moveToPlayer":
-	  "🧩 Syntax:\nvm.moveToPlayer()\n\nMoves the current position to the player's own location.",
+	    "setInclination":
+	    "🧩 Syntax:\nvm.setInclination(angle)\n\nSets the vertical pitch (up/down angle) absolutely.\nangle: pitch in degrees.",
 
-	  "resetPosition":
-	  "🧩 Syntax:\nvm.resetPosition()\n\nResets the current position to the session's initial starting point.",
+	    "changeInclination":
+	    "🧩 Syntax:\nvm.changeInclination(angle)\n\nAdjusts the vertical pitch relative to the current inclination.\nangle: pitch delta in degrees.",
 
-	  "moveToLastMark":
-	  "🧩 Syntax:\nvm.moveToLastMark()\n\nMoves the cursor to the last saved marker position.",
+	    "createBlock":
+	    "🧩 Syntax:\nvm.createBlock(blocks...)\n\nPlaces one or more blocks at the cursor position.\nblocks: block names or block definitions.",
 
-	  "moveToNextSolidBlock":
-	  "🧩 Syntax:\nvm.moveToNextSolidBlock()\n\nMoves forward until a solid (non-air) block is found.",
+	    "createSquare":
+	    "🧩 Syntax:\nvm.createSquare(width, filled, blocks...)\n\nCreates a square centered at the cursor.\nwidth: side length.\nfilled: true to fill the interior.\nblocks: block definitions.",
 
-	  "rotateYawRelative":
-	  "🧩 Syntax:\nvm.rotateYawRelative(angle)\n\nRotates the horizontal facing direction by a relative angle.\nangle: degrees to rotate (positive or negative).",
+	    "createRectangle":
+	    "🧩 Syntax:\nvm.createRectangle(width, height, filled, blocks...)\n\nCreates a rectangle centered at the cursor.\nwidth: rectangle width.\nheight: rectangle height.\nfilled: whether the interior is filled.\nblocks: block definitions.",
 
-	  "rotateYawAbsolute":
-	  "🧩 Syntax:\nvm.rotateYawAbsolute(direction)\n\nSets the yaw to an absolute direction.\ndirection: N, S, E, W, or PLAYER_YAW.",
+	    "createPolygon":
+	    "🧩 Syntax:\nvm.createPolygon(sides, radiusX, radiusY, arcAngle, filled, blocks...)\n\nCreates a regular polygon or polygonal arc.\nsides: number of polygon sides.\nradiusX: horizontal radius.\nradiusY: vertical radius (null for circle).\narcAngle: 0–360 degrees.\nfilled: whether the interior is filled.\nblocks: block definitions.",
 
-	  "setPitchAbsolute":
-	  "🧩 Syntax:\nvm.setPitchAbsolute(angle)\n\nSets the vertical pitch angle absolutely.\nangle: pitch value in degrees.",
+	    "createArc":
+	    "🧩 Syntax:\nvm.createArc(radiusX, radiusY, arcAngle, filled, blocks...)\n\nCreates a circular or elliptical arc.\nradiusX: horizontal radius.\nradiusY: vertical radius.\narcAngle: visible arc in degrees.\nfilled: whether the interior is filled.\nblocks: block definitions.",
 
-	  "setPitchRelative":
-	  "🧩 Syntax:\nvm.setPitchRelative(angle)\n\nChanges the pitch by a relative angle.\nangle: degrees to adjust pitch.",
+	    "createEllipse":
+	    "🧩 Syntax:\nvm.createEllipse(radiusX, radiusY, filled, blocks...)\n\nCreates an ellipse centered at the cursor.\nradiusX: width radius.\nradiusY: height radius.\nfilled: whether the interior is filled.\nblocks: block definitions.",
 
-	  "createBlock":
-	  "🧩 Syntax:\nvm.createBlock(blocks)\n\nPlaces a block or patterned block at the current position.\nblocks: a block/material descriptor Value.",
+	    "createCircle":
+	    "🧩 Syntax:\nvm.createCircle(radius, filled, blocks...)\n\nCreates a circle centered at the cursor.\nradius: circle radius.\nfilled: whether the interior is filled.\nblocks: block definitions.",
 
-	  "createSquare":
-	  "🧩 Syntax:\nvm.createSquare(width, filled, blocks)\n\nCreates a square in the X/Y plane.\nwidth: side length.\nfilled: true for solid, false for outline.\nblocks: material(s) to use.",
+	    "createStar":
+	    "🧩 Syntax:\nvm.createStar(points, innerRadius, outerRadius, filled, blocks...)\n\nCreates a star shape.\npoints: number of star points.\ninnerRadius: inner radius.\nouterRadius: outer radius.\nfilled: whether the interior is filled.\nblocks: block definitions.",
 
-	  "createRectangle":
-	  "🧩 Syntax:\nvm.createRectangle(width, height, filled, blocks)\n\nCreates a rectangle in the X/Y plane.\nwidth: rectangle width.\nheight: rectangle height.\nfilled: true for solid, false for outline.\nblocks: material(s) to use.",
+	    "createLine":
+	    "🧩 Syntax:\nvm.createLine(length, blocks...)\n\nCreates a straight line extending forward from the cursor.\nlength: number of blocks.\nblocks: block definitions.",
 
-	  "createPolygon":
-	  "🧩 Syntax:\nvm.createPolygon(sides, radiusX, radiusY, arcAngle, filled, blocks)\n\nCreates a regular polygon or arc.\nsides: number of sides for polygon.\nradiusX: horizontal radius.\nradiusY: vertical radius (null for circle).\narcAngle: visible arc angle (0–360).\nfilled: true for solid, false for outline.\nblocks: material(s) to use.",
+	    "connectPositions":
+	    "🧩 Syntax:\nvm.connectPositions(blocks...)\n\nConnects all marked positions with straight lines.\nblocks: block definitions.",
 
-	  "createArc":
-	  "🧩 Syntax:\nvm.createArc(radiusX, radiusY, arcAngle, filled, blocks)\n\nCreates a circular or elliptical arc.\nradiusX: horizontal radius.\nradiusY: vertical radius.\narcAngle: arc angle (0–360).\nfilled: true for solid, false for outline.\nblocks: material(s) to use.",
+	    "markPosition":
+	    "🧩 Syntax:\nvm.markPosition()\n\nMarks the current cursor position for later reference.",
 
-	  "createEllipse":
-	  "🧩 Syntax:\nvm.createEllipse(radiusX, radiusY, filled, blocks)\n\nCreates a complete ellipse.\nradiusX: x-radius.\nradiusY: y-radius.\nfilled: true for solid, false for outline.\nblocks: material(s) to use.",
+	    "createText":
+	    "🧩 Syntax:\nvm.createText(text, fontSize, filled, blocks...)\n\nRenders text as block-based graphics.\ntext: text string to render.\nfontSize: scale of the font.\nfilled: whether letters are filled.\nblocks: block definitions.",
 
-	  "createCircle":
-	  "🧩 Syntax:\nvm.createCircle(radius, filled, blocks)\n\nCreates a perfect circle.\nradius: circle radius.\nfilled: true for solid, false for outline.\nblocks: material(s) to use.",
+	    "createDrawing":
+	    "🧩 Syntax:\nvm.createDrawing(blockList, blockMaterials, matIndex, origin)\n\nCreates a pixel-art drawing.\nblockList: array of strings representing rows.\nblockMaterials: mapping of characters to blocks.\nmatIndex: material set index.\norigin: CENTER, TOP_LEFT.",
 
-	  "createStar":
-	  "🧩 Syntax:\nvm.createStar(points, innerRadius, outerRadius, filled, blocks)\n\nCreates a star shape.\npoints: number of star points.\ninnerRadius: inner radius.\nouterRadius: outer radius.\nfilled: true for solid, false for outline.\nblocks: material(s) to use.",
+	    "createChest":
+	    "🧩 Syntax:\nvm.createChest(blocks...)\n\nCreates a chest and fills it with items or blocks.\nblocks: block or item definitions.",
 
-	  "createLine":
-	  "🧩 Syntax:\nvm.createLine(length, blocks)\n\nCreates a straight line extending forward.\nlength: number of blocks.\nblocks: material(s) to use.",
+	    "giveToPlayer":
+	    "🧩 Syntax:\nvm.giveToPlayer(equipMode, blocks...)\n\nGives items or blocks to the player.\nequipMode: HAND, OFFHAND.\nblocks: block or item definitions.",
 
-	  "connectPositions":
-	  "🧩 Syntax:\nvm.connectPositions(blocks)\n\nConnects all marked positions with straight lines.\nblocks: material(s) to use.",
+	    "isCurrentBlock":
+	    "🧩 Syntax:\nvm.isCurrentBlock(blocks...)\n\nChecks if the block at the cursor matches any given type.\nblocks: expected block types.",
 
-	  "markPosition":
-	  "🧩 Syntax:\nvm.markPosition()\n\nMarks the current position for later reference.",
+	    "isPlayerHolding":
+	    "🧩 Syntax:\nvm.isPlayerHolding(blocks...)\n\nChecks if the player is holding a specific item or block.\nblocks: block or item types.",
 
-	  "createText":
-	  "🧩 Syntax:\nvm.createText(text, fontSize, filled, blocks)\n\nRenders text as block-based characters.\ntext: string to draw.\nfontSize: size of rendered characters.\nfilled: true for filled letters, false for outline.\nblocks: material(s) to use.",
+	    "hasPlayerItem":
+	    "🧩 Syntax:\nvm.hasPlayerItem(blocks...)\n\nChecks if the player has an item or block in their inventory.\nblocks: block or item types.",
 
-	  "createDrawing":
-	  "🧩 Syntax:\nvm.createDrawing(blockList, blockMaterials, matIndex, origin)\n\nCreates 2D pixel-art using encoded block lists.\nblockList: encoded pixel rows.\nblockMaterials: material palette.\nmatIndex: material selection.\norigin: origin mode ('CENTER', etc).",
+	    "isPlayerInteractingWith":
+	    "🧩 Syntax:\nvm.isPlayerInteractingWith(blocks...)\n\nChecks if the player is interacting with a specific block.\nblocks: block types.",
 
-	  "createChest":
-	  "🧩 Syntax:\nvm.createChest(blocks)\n\nCreates a chest containing the specified items.\nblocks: item/block list.",
+	    "onEvent":
+	    "🧩 Syntax:\nvm.onEvent(eventType, functionName)\n\nRegisters a script function to run when an event occurs.\neventType: Minecraft event name.\nfunctionName: script function to call.",
 
-	  "giveToPlayer":
-	  "🧩 Syntax:\nvm.giveToPlayer(equipMode, blocks)\n\nGives an item/block to the player.\nequipMode: target equipment slot (MAIN_HAND, OFF_HAND, ARMOR, etc).\nblocks: item/block descriptor.",
+	    "clearEvents":
+	    "🧩 Syntax:\nvm.clearEvents()\n\nRemoves all registered event handlers for the current session.",
 
-	  "isCurrentBlockOfType":
-	  "🧩 Syntax:\nvm.isCurrentBlockOfType(blocks)\n\nChecks if the block at the current position matches one of the given types.\nblocks: block(s) to test.\nReturns: true or false.",
-
-	  "isPlayerHolding":
-	  "🧩 Syntax:\nvm.isPlayerHolding(blocks)\n\nChecks if the player is currently holding the specified block or item.\nblocks: block(s) to test.\nReturns: true or false.",
-
-	  "hasPlayerItem":
-	  "🧩 Syntax:\nvm.hasPlayerItem(blocks)\n\nChecks if the player has the specified material in their inventory.\nblocks: item/block descriptor.\nReturns: true or false.",
-
-	  "isPlayerInteractingWith":
-	  "🧩 Syntax:\nvm.isPlayerInteractingWith(blocks)\n\nChecks if the player is interacting with or hitting a given block type.\nblocks: item/block descriptor.\nReturns: true or false.",
-
-	  "onEvent":
-	  "🧩 Syntax:\nvm.onEvent(eventType, functionName)\n\nRegisters a callback for a specific event.\neventType: name of event (e.g., 'block_break', 'player_move').\nfunctionName: script function to run on event.",
-
-	  "clearEvents":
-	  "🧩 Syntax:\nvm.clearEvents()\n\nRemoves all event callbacks registered for this session.",
-
-	  "callFunction":
-	  "🧩 Syntax:\nvm.callFunction(functionName, playerName, param1)\n\nCalls a scripting engine function with parameters.\nfunctionName: name of function.\nplayerName: player executing the call.\nparam1: argument passed to the function."
+	    "callFunction":
+	    "🧩 Syntax:\nvm.callFunction(functionName, playerName, param)\n\nCalls a script function manually.\nfunctionName: function to invoke.\nplayerName: player context.\nparam: optional parameter."
 	  };
 
 
@@ -285,9 +267,6 @@ Blockly.Blocks['python_code_snippet'] = {
 			Globals.LEASH_DICTIONARY_LABEL+"="+Globals.LEASH_PYTHON_CLASSNAME+Globals.LEASH_CREATED_MOB,
 			Globals.LEASH_DICTIONARY_LABEL+"="+Globals.LEASH_PYTHON_CLASSNAME+Globals.LEASH_OWNER_CREATED_MOB,
 			Globals.LEASH_DICTIONARY_LABEL+"="+Globals.LEASH_PYTHON_CLASSNAME+Globals.LEASH_NOBODY,
-			"SIGN='my_text'",
-			"SIGN=text",
-			"IMAGE='null'",
 			"AMOUNT=1",
 			"AMOUNT=num",
 			"DIRECTION=Direction.LEFT",
@@ -377,6 +356,10 @@ Blockly.Blocks['python_code_snippet'] = {
 			"vm.changeInclination",
 			"vm.markPosition",
 			"dict(TYPE=Block.STONE)",
+			"dict(POTION='my_function', TYPE=Item.SPLASH_POTION)",
+			"dict(SIGN='my_text', TYPE=Block.ACACIA_SIGN)",
+			"dict(SIGN=text, TYPE=Block.ACACIA_SIGN)",
+			"dict(IMAGE='null', TYPE=Entity.ITEM_FRAME)",
 			"vm.createSquare(4, False, dict(TYPE=Block.STONE))",
 			"vm.createCircle(4, False, dict(TYPE=Block.STONE))",
 			"vm.createBlock(dict(TYPE=Block.STONE))",
@@ -390,6 +373,7 @@ Blockly.Blocks['python_code_snippet'] = {
 			"vm.createChest(dict(TYPE=Item.APPLE))",
 			"vm.createText(str('abc'), 18, False, dict(TYPE=Block.STONE))",
 			"vm.giveToPlayer(Equip.INVENTORY, dict(TYPE=Item.APPLE))",
+			Globals.BLOCK_NOTHING
 				].sort();
 		
 		var list=list_python.concat(
@@ -397,8 +381,7 @@ Blockly.Blocks['python_code_snippet'] = {
 				entities.concat(
 					items.concat(
 						particles.concat(
-							visualmodderFunctions.concat(
-								Globals.BLOCK_NOTHING))))));
+							visualmodderFunctions)))));
 
 	    // Filter by prefix
 	    var filtered = [];
