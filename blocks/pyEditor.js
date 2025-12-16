@@ -248,7 +248,7 @@ Blockly.Blocks['python_code_snippet'] = {
 	    // Get the word before cursor including dots
 	    var word = '';
 	    var i = end - 1;
-	    while (i >= 0 && /[a-zA-Z0-9_.]/.test(line.charAt(i))) {
+	    while (i >= 0 && /[a-zA-Z0-9_\.=]/.test(line.charAt(i))) {
 	      word = line.charAt(i) + word;
 	      i--;
 	    }
@@ -270,14 +270,13 @@ Blockly.Blocks['python_code_snippet'] = {
 		  return item[1].toUpperCase().replace("E.", Globals.ENTITY_PYTHON_CLASSNAME);// same as in the bindings of the pythonManager class
 		});
 		var items = getItems().map(function(item) {
-		  return item[1].toUpperCase().replace("B.", Globals.ITEM_PYTHON_CLASSNAME);// same as in the bindings of the pythonManager class
+		  return item[1].toUpperCase().replace("I.", Globals.ITEM_PYTHON_CLASSNAME);// same as in the bindings of the pythonManager class
 		});
 
-		var items = getParticles().map(function(item) {
+		var particles = getParticles().map(function(item) {
 		  return item[1].toUpperCase().replace("P.", Globals.PARTICLE_PYTHON_CLASSNAME);// same as in the bindings of the pythonManager class
 		});
 		
-		var nothingBlock ="block.nothing"; // the nothing block is handled as an exception
 
 		var visualmodderFunctions= [
 			Globals.DRAWINGSTARTPOSITION_PYTHON_CLASSNAME+Globals.DRAWINGSTARTPOSITION_CENTER,
@@ -286,39 +285,120 @@ Blockly.Blocks['python_code_snippet'] = {
 			Globals.LEASH_DICTIONARY_LABEL+"="+Globals.LEASH_PYTHON_CLASSNAME+Globals.LEASH_CREATED_MOB,
 			Globals.LEASH_DICTIONARY_LABEL+"="+Globals.LEASH_PYTHON_CLASSNAME+Globals.LEASH_OWNER_CREATED_MOB,
 			Globals.LEASH_DICTIONARY_LABEL+"="+Globals.LEASH_PYTHON_CLASSNAME+Globals.LEASH_NOBODY,
-			  "vm.movePositionAbsolute",
-			  "vm.moveToViewTarget",
-			  "vm.moveToPlayer",
-			  "vm.resetPosition",
-			  "vm.moveToLastMark",
-			  "vm.moveToNextSolidBlock",
-			  "vm.rotateYawRelative",
-			  "vm.rotateYawAbsolute",
-			  "vm.setPitchAbsolute",
-			  "vm.setPitchRelative",
-			  "vm.createBlock",
-			  "vm.createRectangle",
-			  "vm.createRectangle(4, 4, False, [\"b.grass_block\"]);",
-			  "vm.createRectangle(10, 10, True, [\"b.gold_block\"]);",
-			  "vm.createPolygon",
-			  "vm.createStar",
-			  "vm.createLine",
-			  "vm.connectPositions",
-			  "vm.markPosition",
-			  "vm.createText",
-			  "vm.createDrawing",
-			  "vm.createChest",
-			  "vm.giveToPlayer",
-			  "vm.isCurrentBlockOfType",
-			  "vm.isPlayerHolding",
-			  "vm.hasPlayerItem",
-			  "vm.isPlayerInteractingWith",
-			  "vm.onEvent",
-			  "vm.clearEvents",
-			  "vm.callFunction"
-		];
+			"SIGN='my_text'",
+			"SIGN=text",
+			"IMAGE='null'",
+			"AMOUNT=1",
+			"AMOUNT=num",
+			"DIRECTION=Direction.LEFT",
+			"DIRECTION=Direction.RIGHT",
+			"DIRECTION=Direction.UP",
+			"DIRECTION=Direction.DOWN",
+			"DIRECTION=Direction.FORWARD",
+			"DIRECTION=Direction.BACKWARD",
+			"SIDE=Side.UP",
+			"GROUND=True",
+			"TEAM=True",
+			"BABY=True",
+			"TALK=text",
+			"VELOCITY=[1, 0, 0]",
+			"DELAY=1",
+			"DELAY=num",
+			"DELAY=[1, 1]",
+			"DELAY=[min2, max2]",
+			"vm.createSquare(4, False, Block.STONE)",
+			"vm.createCircle(4, False, Block.STONE)",
+			"vm.createBlock(Block.STONE)",
+			"vm.createLine(1, Block.STONE)",
+			"vm.connectPositions(Block.STONE)",
+			"vm.createRectangle(4, 4, False, Block.STONE)",
+			"vm.createPolygon(4, 4, 4, 360, False, Block.STONE)",
+			"vm.createEllipse(4, 4, False, Block.STONE)",
+			"vm.createArc(4, 4, 180, False, Block.STONE)",
+			"vm.createStar(5, 4, 11, False, Block.STONE)",
+			"vm.createChest(Item.APPLE)",
+			"vm.createText(str('abc'), 18, False, Block.STONE)",
+			"vm.onEvent(Event.HITTING_ENTITY, 'my_function')",
+			"vm.onEvent(Event.HIT_BY_ENTITY, 'my_function')",
+			"vm.onEvent(Event.DIED, 'my_function')",
+			"vm.onEvent(Event.DAMAGING_BLOCK, 'my_function')",
+			"vm.onEvent(Event.LEFT_CLICK, 'my_function')",
+			"vm.onEvent(Event.RIGHT_CLICK, 'my_function')",
+			"vm.onEvent(Event.MOVED, 'my_function')",
+			"vm.clearEvents()",
+			"vm.callFunction('my_function', 'pName', '0')",
+			"vm.giveToPlayer(Equip.INVENTORY, Item.APPLE)",
+			"vm.giveToPlayer(Equip.GARMENT, Item.DIAMOND_CHESTPLATE)",
+			"vm.giveToPlayer(Equip.RIGHT_HAND, Item.DIAMOND_PICKAXE)",
+			"vm.giveToPlayer(Equip.LEFT_HAND, Item.DIAMOND_PICKAXE)",
+			"vm.moveTo(1, Direction.UP)",
+			"vm.moveTo(1, Direction.DOWN)",
+			"vm.moveTo(1, Direction.LEFT)",
+			"vm.moveTo(1, Direction.RIGHT)",
+			"vm.moveTo(1, Direction.FORWARD)",
+			"vm.moveTo(1, Direction.BACKWARD)",
+			"vm.moveTo(Coordinate.CARTESIAN, 0, 0, 0)",
+			"vm.moveTo(Coordinate.CYLINDRICAL, 0, 0, 0)",
+			"vm.moveTo(Coordinate.SPHERICAL, 0, 0, 0)",
+			"vm.setDirection(Compass.SOUTH)",
+			"vm.setDirection(Compass.NORTH)",
+			"vm.setDirection(Compass.EAST)",
+			"vm.setDirection(Compass.WEST)",
+			"vm.setDirection(Compass.SAME_AS_PLAYER)",
+			"vm.changeDirection(90)",
+			"vm.setInclination(0)",
+			"vm.changeInclination(45)",
+			"vm.moveTo(Position.START)",
+			"vm.moveTo(Position.NEXT_BLOCK)",
+			"vm.moveTo(Position.PLAYER)",
+			"vm.moveTo(Position.AIM)",
+			"vm.moveTo(Position.MARK)",
+			"vm.markPosition()",
+			"vm.createSquare",
+			"vm.createCircle",
+			"vm.createBlock",
+			"vm.createLine",
+			"vm.connectPositions",
+			"vm.createRectangle",
+			"vm.createPolygon",
+			"vm.createEllipse",
+			"vm.createArc",
+			"vm.createStar",
+			"vm.createChest",
+			"vm.createText",
+			"vm.onEvent",
+			"vm.clearEvents",
+			"vm.callFunction",
+			"vm.giveToPlayer",
+			"vm.moveTo",
+			"vm.setDirection",
+			"vm.changeDirection",
+			"vm.setInclination",
+			"vm.changeInclination",
+			"vm.markPosition",
+			"dict(TYPE=Block.STONE)",
+			"vm.createSquare(4, False, dict(TYPE=Block.STONE))",
+			"vm.createCircle(4, False, dict(TYPE=Block.STONE))",
+			"vm.createBlock(dict(TYPE=Block.STONE))",
+			"vm.createLine(1, dict(TYPE=Block.STONE))",
+			"vm.connectPositions(dict(TYPE=Block.STONE))",
+			"vm.createRectangle(4, 4, False, dict(TYPE=Block.STONE))",
+			"vm.createPolygon(4, 4, 4, 360, False, dict(TYPE=Block.STONE))",
+			"vm.createEllipse(4, 4, False, dict(TYPE=Block.STONE))",
+			"vm.createArc(4, 4, 180, False, dict(TYPE=Block.STONE))",
+			"vm.createStar(5, 4, 11, False, dict(TYPE=Block.STONE))",
+			"vm.createChest(dict(TYPE=Item.APPLE))",
+			"vm.createText(str('abc'), 18, False, dict(TYPE=Block.STONE))",
+			"vm.giveToPlayer(Equip.INVENTORY, dict(TYPE=Item.APPLE))",
+				].sort();
 		
-		var list=list_python.concat(materials.concat(entities.concat(items.concat(visualmodderFunctions.concat(nothingBlock)))));
+		var list=list_python.concat(
+			materials.concat(
+				entities.concat(
+					items.concat(
+						particles.concat(
+							visualmodderFunctions.concat(
+								Globals.BLOCK_NOTHING))))));
 
 	    // Filter by prefix
 	    var filtered = [];
@@ -361,7 +441,7 @@ Blockly.Blocks['python_code_snippet'] = {
       // Automatically trigger autocomplete
       cm.on("inputRead", function (cm, change) {
 		console.log("xx"+change.text[0])
-        if (change.text[0] && /[a-zA-Z_\.\']/.test(change.text[0])) {
+        if (change.text[0] && /[a-zA-Z_=\.]/.test(change.text[0])) {
           cm.showHint({ hint: myPythonHints, completeSingle: false, container: document.body   });
         }
       });

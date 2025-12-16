@@ -2867,13 +2867,13 @@ Blockly.Blocks['minecraft_addevent'] = {
           "type": "field_dropdown",
           "name": "eventType",
           "options": [
-            [Blockly.Msg.MC_cmd_HITTING_ENTITY_EVENT, "HITTING_ENTITY_EVENT"],
-            [Blockly.Msg.MC_cmd_HIT_BY_ENTITY_EVENT, "HIT_BY_ENTITY_EVENT"],
-            [Blockly.Msg.MC_cmd_DIED_EVENT, "DIED_EVENT"],
-            [Blockly.Msg.MC_cmd_DAMAGING_BLOCK_EVENT, "DAMAGING_BLOCK_EVENT"],
-            [Blockly.Msg.MC_cmd_LEFT_CLICK_AIR_EVENT, "LEFT_CLICK_AIR"],
-            [Blockly.Msg.MC_cmd_RIGHT_CLICK_AIR_EVENT, "RIGHT_CLICK_AIR"],
-            [Blockly.Msg.MC_cmd_MOVED_EVENT, "MOVED_EVENT"]
+            [Blockly.Msg.MC_cmd_HITTING_ENTITY_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.HITTING_ENTITY_DICTIONARY_LABEL],
+            [Blockly.Msg.MC_cmd_HIT_BY_ENTITY_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.HIT_BY_ENTITY_DICTIONARY_LABEL],
+            [Blockly.Msg.MC_cmd_DIED_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.DIED_DICTIONARY_LABEL],
+            [Blockly.Msg.MC_cmd_DAMAGING_BLOCK_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.DAMAGING_BLOCK_DICTIONARY_LABEL],
+            [Blockly.Msg.MC_cmd_LEFT_CLICK_AIR_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.LEFT_CLICK_DICTIONARY_LABEL],
+            [Blockly.Msg.MC_cmd_RIGHT_CLICK_AIR_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.RIGHT_CLICK_DICTIONARY_LABEL],
+            [Blockly.Msg.MC_cmd_MOVED_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.MOVED_DICTIONARY_LABEL]
           ]
         },
         {

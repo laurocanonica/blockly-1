@@ -12,7 +12,7 @@ function addDictionaryEntry(inText){
 		outText+=", ";
 		outText+=inText.substring(5); // remove leading 'dict('
 	} else {
-		outText="}";
+		outText=")";
 	}
 	return outText;
 }
@@ -404,7 +404,7 @@ function convertDirectionToJavaEnum(direction) {
 
 Blockly.Python['minecraft_sensing'] = function(block) {
 	var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
-	var code = 'vm.isCurrentBlockOfType(';
+	var code = 'vm.isCurrentBlock(';
 	code += optimizeMaterialList(value_name);
 	code += ")";
 	return [ code, Blockly.Python.ORDER_NONE ];
@@ -454,7 +454,7 @@ Blockly.Python['minecraft_gotopos'] = function(block) {
 	var value_x = Blockly.Python.valueToCode(block, 'x', Blockly.Python.ORDER_NONE);
 	var value_y = Blockly.Python.valueToCode(block, 'y', Blockly.Python.ORDER_NONE);
 	var value_z = Blockly.Python.valueToCode(block, 'z', Blockly.Python.ORDER_NONE);
-	var code = "vm.movePositionAbsolute(";
+	var code = "vm.moveTo(";
 	code += Globals.COORDINATE_SYSTEM_PYTHON_CLASSNAME+"."+dropdown_coordsystem + ', ';
 	code += value_x + ", ";
 	code += value_y + ", ";
@@ -466,7 +466,7 @@ Blockly.Python['minecraft_gotopos'] = function(block) {
 Blockly.Python['minecraft_move'] = function(block) {
 	var value_times = Blockly.Python.valueToCode(block, 'times', Blockly.Python.ORDER_NONE);
 	var dropdown_direction = block.getFieldValue('direction');
-	var code = "vm.movePositionRelative(" + value_times + ", " + convertDirectionToJavaEnum(dropdown_direction) + ")\n";
+	var code = "vm.moveTo(" + value_times + ", " + convertDirectionToJavaEnum(dropdown_direction) + ")\n";
 	return code;
 };
 
@@ -498,26 +498,26 @@ Blockly.Python['minecraft_move_to_view_target'] = function(block) {
 
 Blockly.Python['minecraft_setrotation'] = function(block) {
 	  var dropdown_angle = block.getFieldValue('angle');
-		var code = "vm.rotateYawAbsolute(" + Globals.COMPASS_PYTHON_CLASSNAME+"."+dropdown_angle + ")\n";
+		var code = "vm.setDirection(" + Globals.COMPASS_PYTHON_CLASSNAME+"."+dropdown_angle + ")\n";
 	  return code;
 	};
 	
 Blockly.Python['minecraft_rotate'] = function(block) {
 	  var value_angle = Blockly.Python.valueToCode(block, 'angle', Blockly.Python.ORDER_NONE);
-		var code = "vm.rotateYawRelative(" + value_angle + ")\n";
+		var code = "vm.changeDirection(" + value_angle + ")\n";
 		return code;
 	};
 	
 	
 	Blockly.Python['minecraft_set_elevation'] = function(block) {
 		  var value_angle = Blockly.Python.valueToCode(block, 'angle', Blockly.Python.ORDER_NONE);
-		  var code = "vm.setPitchAbsolute(" + value_angle + ")\n";
+		  var code = "vm.setInclination(" + value_angle + ")\n";
 		  return code;
 		};
 
 	Blockly.Python['minecraft_set_elevation_relative'] = function(block) {
 		  var value_angle = Blockly.Python.valueToCode(block, 'angle', Blockly.Python.ORDER_NONE);
-		  var code = "vm.setPitchRelative(" + value_angle + ")\n";
+		  var code = "vm.changeInclination(" + value_angle + ")\n";
 		  return code;
 		};
 		
@@ -527,7 +527,7 @@ Blockly.Python['minecraft_rotate'] = function(block) {
 			  var text_functionname = block.getFieldValue('functionName');
 			  text_functionname=sanitizePythonFunctionName(text_functionname);
 			  var value_singleblock = Blockly.Python.valueToCode(block, 'name', Blockly.Python.ORDER_NONE);
-				var code = 'dict(POTION="'+text_functionname+'", TYPE='+Globals.Globals.ITEM_PYTHON_CLASSNAME+'SPLASH_POTION'+closeDictionaryEntry(value_singleblock);
+				var code = 'dict(POTION="'+text_functionname+'", TYPE='+Globals.ITEM_PYTHON_CLASSNAME+'SPLASH_POTION'+closeDictionaryEntry(value_singleblock);
 				return [ code, Blockly.Python.ORDER_NONE ];
 			};
 
@@ -556,7 +556,7 @@ function convertToPythonName(originalName){ // originalname is something like b.
 		  return Globals.BLOCK_PYTHON_CLASSNAME+typeString;
 		  break;
 		case "i.":
-		  return Globals.Globals.ITEM_PYTHON_CLASSNAME+typeString;
+		  return Globals.ITEM_PYTHON_CLASSNAME+typeString;
 		  break;
 		case "e.":
 		  return Globals.ENTITY_PYTHON_CLASSNAME+typeString;
@@ -632,7 +632,7 @@ Blockly.Python['minecraft_leash'] = function(block) {
 
 // Helper to convert directions to the java enumeration
 function convertLeashToJavaEnum(leashmode) {
-	return Globals.LEASH_PYTHON_CLASSNAME+"."+leashmode
+	return Globals.LEASH_PYTHON_CLASSNAME+leashmode
 }
 
 
@@ -682,7 +682,7 @@ Blockly.Python['minecraft_addevent'] = function(block) {
   var dropdown_eventtype = block.getFieldValue('eventType');
   var functionName = Blockly.Python.valueToCode(block, 'functionName', Blockly.Python.ORDER_ATOMIC);
 
-  var code = "vm.onEvent('" + dropdown_eventtype + "', " + functionName + ");\n";
+  var code = "vm.onEvent(" + dropdown_eventtype + ", " + functionName + ");\n";
   return code;
 };	
 
