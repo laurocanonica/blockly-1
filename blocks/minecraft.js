@@ -3558,22 +3558,38 @@ Blockly.Blocks['m_draw_9'] = {
 	};
 
 
-Blockly.Blocks['minecraft_cancelEvents'] = {
-		init : function() {
-			this.jsonInit( 	
-					{
-						  "type": "minecraft_cancelEvents",
-						  "message0": Blockly.Msg.MC_cmd_minecraft_cancel_events,
-						  "inputsInline": true,
-						  "previousStatement": null,
-						  "nextStatement": null,
-						  "colour": 180,
-						  "tooltip": "",
-						  "helpUrl": ""
-						});
-		}
-	};
-	
+	Blockly.Blocks['minecraft_cancelEvents'] = {
+			init : function() {
+				this.jsonInit( 	
+						{
+							  "type": "minecraft_cancelEvents",
+							  "message0": Blockly.Msg.MC_cmd_minecraft_cancel_events,
+							  "inputsInline": true,
+							  "previousStatement": null,
+							  "nextStatement": null,
+							  "colour": 180,
+							  "tooltip": "",
+							  "helpUrl": ""
+							});
+			}
+		};
+		
+		Blockly.Blocks['minecraft_waitForBlockCreation'] = {
+				init : function() {
+					this.jsonInit( 	
+							{
+								  "type": "MC_cmd_minecraft_waitForBlockCreation",
+								  "message0": Blockly.Msg.MC_cmd_minecraft_waitForBlockCreation,
+								  "inputsInline": true,
+								  "previousStatement": null,
+								  "nextStatement": null,
+								  "colour": 180,
+								  "tooltip": "",
+								  "helpUrl": ""
+								});
+				}
+			};
+			
 
 Blockly.Blocks['minecraft_executecommand'] = {
 		init : function() {

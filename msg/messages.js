@@ -3537,6 +3537,7 @@ Blockly.Msg.MC_cmd_side_up = 'side up ↥';
 Blockly.Msg.MC_cmd_side_down = 'side down ↧';
 Blockly.Msg.MC_cmd_ground = 'on the ground %1';
 Blockly.Msg.MC_cmd_minecraft_cancel_events = 'cancel all events';
+Blockly.Msg.MC_cmd_minecraft_waitForBlockCreation = 'wait until all blocks are created';
 Blockly.Msg.MC_cmd_minecraft_draw_version2 = 'draw';
 Blockly.Msg.MC_cmd_minecraft_draw_index = 'index';
 Blockly.Msg.MC_cmd_minecraft_draw = 'Draw %1 %2 0 %3 %4 1 %5 %6 2 %7 %8 3 %9 %10 4 %11 %12 5 %13 %14 6 %15 %16 7 %17 %18 8 %19 %20 9 %21 nr: %22 %23';

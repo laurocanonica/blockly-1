@@ -2254,6 +2254,7 @@
 	"MC_cmd_side_down": "צד מטה ↧",
 	"MC_cmd_ground": "על הקרקע %1",
 	"MC_cmd_minecraft_cancel_events": "בטל את כל האירועים",
+	"MC_cmd_minecraft_waitForBlockCreation": "המתן עד שכל הבלוקים ייווצרו",
 	"MC_cmd_minecraft_draw_version2": "צייר",
 	"MC_cmd_minecraft_draw_index": "אינדקס",
 	"MC_cmd_minecraft_draw": "צייר %1 %2 0 %3 %4 1 %5 %6 2 %7 %8 3 %9 %10 4 %11 %12 5 %13 %14 6 %15 %16 7 %17 %18 8 %19 %20 9 %21 מס': %22 %23",

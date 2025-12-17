@@ -2285,6 +2285,7 @@
 	"MC_cmd_side_down": "",
 	"MC_cmd_ground": "",
 	"MC_cmd_minecraft_cancel_events": "",
+	"MC_cmd_minecraft_waitForBlockCreation": "",
 	"MC_cmd_minecraft_draw_version2": "",
 	"MC_cmd_minecraft_draw_index": "",
 	"MC_cmd_minecraft_draw": "",

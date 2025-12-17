@@ -877,7 +877,12 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 		  var code = 'vm.clearEvents();\n';
 		  return code;
 	};
-	
+
+	Blockly.Python['minecraft_waitForBlockCreation'] = function(block) {
+		  var code = 'vm.waitForBlockCreation();\n';
+		  return code;
+	};
+
 
 	Blockly.Python['minecraft_executecommand'] = function(block) {
 		  var value_fn = Blockly.Python.valueToCode(block, 'fn', Blockly.Python.ORDER_ATOMIC);

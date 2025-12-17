@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2025-12-16 21:25:58.687348",
+		"lastupdated": "2025-12-17 19:53:57.662587",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2291,6 +2291,7 @@
 	"MC_cmd_side_down": "side down ↧",
 	"MC_cmd_ground": "on the ground %1",
 	"MC_cmd_minecraft_cancel_events": "cancel all events",
+	"MC_cmd_minecraft_waitForBlockCreation": "wait until all blocks are created",
 	"MC_cmd_minecraft_draw_version2": "draw",
 	"MC_cmd_minecraft_draw_index": "index",
 	"MC_cmd_minecraft_draw": "Draw %1 %2 0 %3 %4 1 %5 %6 2 %7 %8 3 %9 %10 4 %11 %12 5 %13 %14 6 %15 %16 7 %17 %18 8 %19 %20 9 %21 nr: %22 %23",
