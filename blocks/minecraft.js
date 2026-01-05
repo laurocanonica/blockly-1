@@ -4004,17 +4004,6 @@ imageSelectBlock.ensureDataLoaded(function() {
     }
   };
 
-  // Wait for the toolbox to load, then refresh it
-  if (Blockly.mainWorkspace && Blockly.mainWorkspace.toolbox_) {
-    Blockly.mainWorkspace.updateToolbox();
-  } else {
-    // Fallback if toolbox is not ready yet
-    setTimeout(function() {
-      if (Blockly.mainWorkspace) {
-        Blockly.mainWorkspace.updateToolbox();
-      }
-    }, 1000);
-  }
 
 });
 
