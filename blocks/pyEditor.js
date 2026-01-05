@@ -43,7 +43,7 @@ Blockly.Blocks['python_code_snippet'] = {
       if (originalTextarea) {
         originalTextarea.style.display = 'none';
       }
-	  var marge=20; // avoid displayng scrollbars in codemirror
+	  var marge=30; // avoid displayng scrollbars in codemirror
       var overlay = document.createElement('div');
       overlay.style.position = 'absolute';
       overlay.style.left = fieldRect.left + window.scrollX + 'px';
@@ -65,26 +65,35 @@ Blockly.Blocks['python_code_snippet'] = {
 	  // Load previous scroll/cursor state
 	  var lastState = field._lastEditorState || {};
 
-      var cm = CodeMirror(overlay, {
-        value: field.getValue(),
-        mode: 'python',
-        lineNumbers: false,
-        indentUnit: 2,
-        autofocus: true,
-        theme: 'default',
-		extraKeys: {
-		    "Ctrl-Space": "autocomplete",
-		    "Ctrl-F": "findPersistent",
-		    "Ctrl-H": "replace"
-		  },
-		  autoMatchParens: true,
-		  styleActiveLine: true,      
-		  matchBrackets: true,        
-		  autoCloseBrackets: true,
-		  smartIndent: true,
-		  indentWithTabs: false
+	  var cm = CodeMirror(overlay, {
+	    value: field.getValue(),
+	    mode: 'python',
+	    lineNumbers: false,
+	    indentUnit: 2,
+	    autofocus: true,
+	    theme: 'default',
 
-      });
+	    gutters: ["CodeMirror-lint-markers"],
+	    lint: {
+	      getAnnotations: pythonSkulptValidator,
+	      async: true
+	    },
+
+	    extraKeys: {
+	      "Ctrl-Space": "autocomplete",
+	      "Ctrl-F": "findPersistent",
+	      "Ctrl-H": "replace"
+	    },
+
+	    autoMatchParens: true,
+	    styleActiveLine: true,
+	    matchBrackets: true,
+	    autoCloseBrackets: true,
+	    smartIndent: true,
+	    indentWithTabs: false
+
+		});
+
 
 	  // Restore scroll + cursor
 	   if (lastState.cursor) cm.setCursor(lastState.cursor);
@@ -427,10 +436,11 @@ Blockly.Blocks['python_code_snippet'] = {
 
       // Automatically trigger autocomplete
       cm.on("inputRead", function (cm, change) {
-		console.log("xx"+change.text[0])
+		//console.log("xx"+change.text[0])
         if (change.text[0] && /[a-zA-Z_=\.]/.test(change.text[0])) {
           cm.showHint({ hint: myPythonHints, completeSingle: false, container: document.body   });
         }
+		//CodeMirror.signal(cm, "change", cm);// syntax check
       });
 
       // Match Blockly scaling for font size
@@ -652,4 +662,127 @@ function convertToPython(funcBlock) {
 
   console.log("Python generated:\n" + pythonCode);
 }
+
+
+function pythonSkulptValidator(text, callback) {
+  var annotations = [];
+  var lines = text.split(/\r?\n/);
+
+  try {
+    Sk.parse("<input>", text);
+  } catch (e) {
+    var line = getErrorLine(e);
+    var lineText = lines[line] || "";
+    var prevLineText = lines[line - 1] || "";
+
+    annotations.push({
+      from: CodeMirror.Pos(line, 0),
+      to: CodeMirror.Pos(line, Math.max(1, lineText.length)),
+      message: improveMessage(e, lineText, prevLineText),
+      severity: "error"
+    });
+  }
+
+  callback(annotations);
+}
+
+function skulptErrorToLint(e) {
+  var line = 0;
+  var chStart = 0;
+  var chEnd = 1;
+
+  // Preferred: location object
+  if (e.loc && typeof e.loc.first_line === "number") {
+    line = e.loc.first_line - 1;
+    chStart = e.loc.first_column || 0;
+    chEnd = Math.max(
+      e.loc.last_column || chStart + 1,
+      chStart + 1
+    );
+  }
+  // Fallback: lineno / colno
+  else if (typeof e.lineno === "number") {
+    line = e.lineno - 1;
+    chStart = e.colno || 0;
+    chEnd = chStart + 1;
+  }
+  // Last resort: try parsing message
+  else {
+    var m = /line (\d+)/i.exec(e.toString());
+    if (m) {
+      line = parseInt(m[1], 10) - 1;
+    }
+  }
+
+  return {
+    from: CodeMirror.Pos(line, chStart),
+    to: CodeMirror.Pos(line, chEnd),
+    message: e.toString(),
+    severity: "error"
+  };
+}
+
+function getErrorLine(e) {
+	  var msg = e.toString();
+
+	  // Match: "on line 7" or "line 7"
+	  var m = msg.match(/line\s+(\d+)/i);
+	  if (m) {
+	    return Math.max(0, parseInt(m[1], 10) - 1);
+	  }
+
+	  return 0;
+	}
+
+function improveMessage(e, lineText, prevLineText) {
+  var msg = e.toString();
+
+  if (/bad input/i.test(msg)) {
+
+    if (/^\s*(if|elif|while|for)\b/.test(lineText) &&
+        !/:\s*$/.test(lineText)) {
+      return "Missing ':' at end of statement";
+    }
+
+    if (/^\s*def\b/.test(lineText) &&
+        !/:\s*$/.test(lineText)) {
+      return "Missing ':' after function definition";
+    }
+
+    if (/^\s*class\b/.test(lineText) &&
+        !/:\s*$/.test(lineText)) {
+      return "Missing ':' after class definition";
+    }
+
+    if (/^\s*(else|finally|except)\b/.test(lineText)) {
+      return "Missing ':' after '" + RegExp.$1 + "'";
+    }
+
+    if (prevLineText &&
+        /:\s*$/.test(prevLineText) &&
+        !/^\s+/.test(lineText)) {
+      return "Expected indented block";
+    }
+
+    if (/\(/.test(lineText) && !/\)/.test(lineText)) {
+      return "Unclosed '('";
+    }
+
+    if (/\[/.test(lineText) && !/\]/.test(lineText)) {
+      return "Unclosed '['";
+    }
+
+    if (/\{/.test(lineText) && !/\}/.test(lineText)) {
+      return "Unclosed '{'";
+    }
+
+    if (/["']/.test(lineText) &&
+        (lineText.match(/["']/g) || []).length % 2 !== 0) {
+      return "Unclosed string literal";
+    }
+  }
+
+  return msg;
+}
+
 

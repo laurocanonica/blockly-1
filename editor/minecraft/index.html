@@ -38,8 +38,27 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/matchbrackets.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/selection/active-line.min.js"></script>
+
+	<!-- CodeMirror lint addon -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/lint/lint.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/lint/lint.min.js"></script>
 	
-	
+	<!-- Skulpt (Python parser) -->
+	<script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+	<script>
+	window.Sk = Sk;
+	Sk.configure({
+		  read: function (path) {
+		    if (!Sk.builtinFiles ||
+		        !Sk.builtinFiles.files ||
+		        !Sk.builtinFiles.files[path]) {
+		      throw new Error("Skulpt file not found: " + path);
+		    }
+		    return Sk.builtinFiles.files[path];
+		  }
+		});
+</script>
 	
 	
 	<style>
@@ -66,7 +85,9 @@
 	.CodeMirror {
 	  line-height: 1.3;      /* or px value like 22px */
 	}
-	
+	.CodeMirror-lint-tooltip {
+	  z-index: 20001 !important;
+	}
 	</style>
 
 </head>
