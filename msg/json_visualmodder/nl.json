@@ -1,0 +1,8 @@
+{
+	"MC_particles": "deeltjes",
+	"MC_cmd_minecraft_customimage_ver2": "afbeelding",
+	"MC_cmd_minecraft_delay": "na %1 sec. %2",
+	"MC_cmd_minecraft_delay_random": "na een tijd tussen %1 en %2 sec. %3",
+	"MC_cmd_minecraft_multiciplity": "%1 van %2",
+	"CONVERT_TO_PYTHON_OPTION": "Converteer naar Python-code"
+}

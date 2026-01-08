@@ -1,0 +1,8 @@
+{
+	"MC_particles": "חלקיקים",
+	"MC_cmd_minecraft_customimage_ver2": "תמונה ",
+	"MC_cmd_minecraft_delay": "לאחר %1 שניות. %2",
+	"MC_cmd_minecraft_delay_random": "לאחר זמן בין %1 ל %2 שניות. %3",
+	"MC_cmd_minecraft_multiciplity": "%1 מתוך %2",
+	"CONVERT_TO_PYTHON_OPTION": "המר לקוד פייתון"
+}

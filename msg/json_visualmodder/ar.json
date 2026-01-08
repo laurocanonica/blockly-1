@@ -1,0 +1,136 @@
+{
+  "MC_particles": "الجسيمات",
+  "MC_cmd_minecraft_customimage_ver2": "صورة ",
+  "MC_cmd_minecraft_delay": "بعد %1 ثانية. %2",
+  "MC_cmd_minecraft_delay_random": "بعد فترة بين %1 و %2 ثانية. %3",
+  "MC_cmd_minecraft_multiciplity": "%1 من %2",
+  "MC_cmd_minecraft_velocity": "بسرعة %1 موجهة إلى الاتجاه %2 الميل %3 %4",
+  "MC_cmd_minecraft_gotopos_ver1": "تعيين الموضع عند %1 %2 %3 %4 %5 %6 من الموضع الابتدائي",
+  "MC_cmd_minecraft_gotopos_ver2": "اذهب إلى %1 %2 %3 %4 %5 %6 من البداية",
+  "MC_cmd_minecraft_polygon": "إنشاء مضلع %1 %2 %3 مع %4 %5 أضلاع ونصف القطر %6 %7 مصنوع من %8 %9",
+  "MC_cmd_minecraft_star": "إنشاء نجم %1 %2 %3 مع %4 %5 أضلاع ونصف قطر داخلي %6 %7 ونصف قطر خارجي %8 %9 مصنوع من %10 %11",
+  "MC_cmd_minecraft_rectangle": "إنشاء مستطيل %1 %2 %3 بعرض %4 %5 وطول %6 %7 مصنوع من %8 %9",
+  "MC_cmd_minecraft_ellipse": "إنشاء إهليلج %1 %2 %3 بنصف القطر X %4 %5 ونصف القطر Y %6 %7 مصنوع من %8 %9",
+  "MC_cmd_minecraft_block": "إنشاء كتلة مصنوعة من %1",
+  "MC_cmd_minecraft_line": "إنشاء صف بطول %1 %2 مصنوعة من %3 %4",
+  "MC_cmd_minecraft_connectPositions1": "إنشاء صف مكون من %1",
+  "MC_cmd_minecraft_connectPositions2": "من آخر موقع محدد إلى هذا الموقع",
+  "MC_cmd_minecraft_holding": "أحمل %1",
+  "MC_cmd_minecraft_playerHas": "لدي %1",
+  "MC_cmd_minecraft_hitting": "أصطدم بـ %1",
+  "MC_cmd_minecraft_sensing_ver1": "هذا الكتلة مصنوعة من %1",
+  "MC_cmd_minecraft_sensing_ver2": "أنت في بلوك مصنوع من %1",
+  "MC_cmd_minecraft_giveme": "أعطني %1",
+  "MC_cmd_minecraft_equipme": "ألبسني %1",
+  "MC_cmd_left_hand": "ضع في يدي اليسرى %1",
+  "MC_cmd_right_hand": "ضع في يدي اليمنى %1",
+  "MC_cmd_minecraft_createchest": "إنشاء صندوق يحتوي على %1",
+  "MC_cmd_minecraft_move_ver1": "تغيير الموضع %1 %2",
+  "MC_cmd_minecraft_move_ver2": "اذهب %1 %2",
+  "MC_cmd_move_up": "بلوكات لأعلى",
+  "MC_cmd_move_down": "بلوكات لأسفل",
+  "MC_cmd_move_left": "بلوكات لليسار",
+  "MC_cmd_move_right": "بلوكات لليمين",
+  "MC_cmd_move_forward": "بلوكات للأمام",
+  "MC_cmd_move_backwards": "بلوكات للخلف",
+  "MC_cmd_minecraft_rotate_ver1": "تغيير الاتجاه بمقدار %1 درجة (0-360) إلى اليمين",
+  "MC_cmd_minecraft_rotate_ver2": "التفاف إلى اليمين بمقدار %1 درجة",
+  "MC_cmd_minecraft_set_elevation_absolute": "إمالة %1",
+  "MC_cmd_minecraft_set_elevation_ver1": "ضبط المحاور الرأسية على %1 درجات (0=عمودي، 90=أفقي)",
+  "MC_cmd_minecraft_set_elevation_ver2": "ضبط الإمالة إلى %1 درجات (0↑ 45↗ 90→)",
+  "MC_cmd_minecraft_set_elevation_relative_ver1": "تغيير المحاور الرأسية بمقدار %1 درجات",
+  "MC_cmd_minecraft_set_elevation_relative_ver2": "تغيير الإمالة بمقدار %1 درجات",
+  "MC_cmd_minecraft_writetext": "اكتب %1 %2 باستخدام خط حجمه %3 %4 نقاط، %5 %6، مصنوع من %7 %8",
+  "MC_cmd_friendly_ver1": "ودود",
+  "MC_cmd_friendly_ver2": "ودود %1",
+  "MC_cmd_enemy": "عدو",
+  "MC_cmd_facing_up": "يتجه للأعلى ↥",
+  "MC_cmd_facing_down": "يتجه للأسفل ↧",
+  "MC_cmd_facing_left": "يتجه لليسار ←",
+  "MC_cmd_facing_right": "يتجه إلى اليمين →",
+  "MC_cmd_facing_forward": "يتجه للأمام ↑",
+  "MC_cmd_facing_backwards": "يتجه للخلف ↓",
+  "MC_cmd_whereLook_ver1": "عيّن الاتجاه إلى حيث أنظر",
+  "MC_cmd_whereLook_ver2": "التوجه إلى حيث أنظر 👁",
+  "MC_cmd_south_ver1": "عيّن الاتجاه إلى الجنوب (↑ 0)",
+  "MC_cmd_north_ver1": "عيّن الاتجاه إلى الشمال (↓ 180)",
+  "MC_cmd_east_ver1": "عيّن الاتجاه إلى الشرق (← 270)",
+  "MC_cmd_west_ver1": "عيّن الاتجاه إلى الغرب (→ 90)",
+  "MC_cmd_south_ver2": "اتجه نحو الجنوب (↑ 0)",
+  "MC_cmd_north_ver2": "اتجه نحو الشمال (↓ 180)",
+  "MC_cmd_east_ver2": "اتجه نحو الشرق (← 270)",
+  "MC_cmd_west_ver2": "اتجه نحو الغرب (→ 90)",
+  "MC_cmd_HITTING_ENTITY_EVENT": "عندما أُصيب بشخص ما استدعِ الدالة",
+  "MC_cmd_HIT_BY_ENTITY_EVENT": "عندما أتعرض للضرب من قِبل شخص ما استدعِ الدالة",
+  "MC_cmd_DIED_EVENT": "عند موْتي استدعِ الدالة",
+  "MC_cmd_DAMAGING_BLOCK_EVENT": "عندما أضرب كتلة استدعِ الدالة",
+  "MC_cmd_LEFT_CLICK_AIR_EVENT": "عندما أضغط بزر الفأرة الأيسر في الهواء استدعِ الدالة",
+  "MC_cmd_RIGHT_CLICK_AIR_EVENT": "عندما أضغط بزر الفأرة الأيمن في الهواء استدعِ الدالة",
+  "MC_cmd_MOVED_EVENT": "عندما أتحرك استدعِ الدالة",
+  "MC_cmd_empty": "فارغ",
+  "MC_cmd_full": "كامل",
+  "MC_cmd_minecraft_move_to_view_player_ver1": "ضبط الموضع إلى حيث أنظر",
+  "MC_cmd_minecraft_move_to_view_player_ver2": "اذهب إلى حيث أنظر",
+  "MC_cmd_minecraft_move_to_view_target_ver1": "ضبط الموضع إلى الكتلة الصلبة التالية",
+  "MC_cmd_minecraft_move_to_view_target_ver2": "اذهب إلى الكتلة الصلبة التالية",
+  "MC_cmd_minecraft_move_to_position_player_ver1": "ضبط الموضع إلى مكاني",
+  "MC_cmd_minecraft_move_to_position_player_ver2": "اذهب إلى مكاني",
+  "MC_cmd_minecraft_mark_position_ver1": "علم هذا الموضع",
+  "MC_cmd_minecraft_mark_position_ver2": "علم هذه الكتلة",
+  "MC_cmd_minecraft_reset_position_ver2": "العودة إلى %1 %2",
+  "MC_cmd_minecraft_option_reset_start_position_ver1": "إعادة ضبط الموضع الحالي إلى البداية",
+  "MC_cmd_minecraft_option_reset_lastmarked_position_ver1": "إعادة ضبط الموضع الحالي إلى آخر موضع مُؤشَّر عليه",
+  "MC_cmd_minecraft_option_start_position_ver1": "ضبط الموضع إلى البداية",
+  "MC_cmd_minecraft_option_start_position_ver2": "اذهب إلى البداية",
+  "MC_cmd_minecraft_option_lastmarked_position_ver1": "ضبط الموضع إلى آخر موضع مُؤشَّر عليه",
+  "MC_cmd_minecraft_option_lastmarked_position_ver2": "اذهب إلى الكتلة المؤشَّر عليها",
+  "MC_cmd_side_up": "جانب الأعلى ↥",
+  "MC_cmd_side_down": "جانب الأسفل ↧",
+  "MC_cmd_ground": "على الأرض %1",
+  "MC_cmd_minecraft_cancel_events": "إلغاء جميع الأحداث",
+  "MC_cmd_minecraft_waitForBlockCreation": "انتظر حتى يتم إنشاء جميع الكتل",
+  "MC_cmd_minecraft_draw_version2": "ارسم",
+  "MC_cmd_minecraft_draw_index": "الفهرس",
+  "MC_cmd_minecraft_draw": "ارسم %1 %2 0 %3 %4 1 %5 %6 2 %7 %8 3 %9 %10 4 %11 %12 5 %13 %14 6 %15 %16 7 %17 %18 8 %19 %20 9 %21 nr: %22 %23",
+  "MC_cmd_minecraft_draw_extended": "ارسم %1 %2 0 %3 %4 1 %5 %6 2 %7 %8 3 %9 %10 4 %11 %12 5 %13 %14 6 %15 %16 7 %17 %18 8 %19 %20 9 %21 %22 z %23 %24 y %25 %26 x %27 %28 w %29 %30 v %31 %32 u %33 %34 t %35 %36 s %37 %38 r %39 %40 q %41 nr: %42 %43",
+  "MC_cmd_minecraft_draw_from_center": "المركز",
+  "MC_cmd_minecraft_draw_from_bottomleft": "يسار",
+  "MC_cmd_minecraft_splash_potion_function": "مع دالة",
+  "MC_cmd_minecraft_sign_with_text": "مع نص",
+  "MC_cmd_minecraft_execute_command": "استدعِ الدالة %1 من اللاعب %2 بالمعامل %3",
+  "MC_cmd_minecraft_nothing": "لا شيء %1",
+  "MC_cmd_player": "مرابط باللاعب",
+  "MC_cmd_mob": "مرابط إلى آخر مخلوق تم إنشاؤه",
+  "MC_cmd_mob_owner": "مرابط إلى الحائز",
+  "MC_cmd_nobody": "مرابط إلى لا أحد",
+  "MC_cmd_baby": "طفل %1",
+  "MC_cmd_minecraft_talking": "يتحدث %1 %2",
+  "MC_cmd_minecraft_shape_square": "إنشاء مربع □",
+  "MC_cmd_minecraft_shape_circle": "إنشاء دائرة ○",
+  "MC_cmd_minecraft_shape_block": "إنشاء كتلة ▫",
+  "MC_cmd_minecraft_shape_line": "إنشاء صف --",
+  "MC_cmd_minecraft_shape_connection": "إنشاء اتصال o--o",
+  "MC_cmd_minecraft_shape_rectangle": "إنشاء مستطيل ▭",
+  "MC_cmd_minecraft_shape_polygon": "إنشاء مضلع ⬠",
+  "MC_cmd_minecraft_shape_ellipse": "إنشاء إهليلج ⬭",
+  "MC_cmd_minecraft_shape_arc": "إنشاء قوس ◠",
+  "MC_cmd_minecraft_shape_star": "إنشاء نجم ☆",
+  "MC_cmd_minecraft_shape_start": "%1%2%9مصنوع من",
+  "MC_cmd_minecraft_shape_square_param": "بالعرض",
+  "MC_cmd_minecraft_shape_circle_param": "بنصف القطر",
+  "MC_cmd_minecraft_shape_block_param": "كتلة",
+  "MC_cmd_minecraft_shape_line_param": "بالطول",
+  "MC_cmd_minecraft_shape_rectangle_param": "بالعرض %4 و الطول",
+  "MC_cmd_minecraft_shape_polygon_param": "مع %4 أضلاع ونصف القطر",
+  "MC_cmd_minecraft_shape_ellipse_param": "بنصف القطر X%4 ونصف القطر Y",
+  "MC_cmd_minecraft_shape_arc_param": "بنصف القطر X%4 ونصف القطر Y%5 و الزاوية",
+  "MC_cmd_minecraft_shape_star_param": "مع %4 أضلاع ونصف القطر الداخلي %5 ونصف القطر الخارجي",
+  "MC_cmd_empty_shape": "مع حدود",
+  "MC_cmd_full_shape": "مع تعبئة",
+  "MC_cmd_minecraft_python_code": "بايثون",
+  "PROCEDURES_DEFNORETURN_TITLE": "/vm",
+  "PROCEDURES_DEFNORETURN_PROCEDURE": "أمر خاص بي",
+  "PROCEDURES_DOWNLOAD_SCREENSHOT": "تحميل الصورة",
+  "PROCEDURES_DOWNLOAD_SCREENSHOT_CONFIRM": "حفظ تعريف XML في الحافظة وتنزيل لقطة شاشة في الملف: ",
+  "CONVERT_TO_PYTHON_OPTION": "تحويل إلى كود بايثون"
+}
