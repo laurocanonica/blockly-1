@@ -746,10 +746,10 @@ Blockly.Python['minecraft_gotomark'] = function(block) {
   var dropdown_origin = block.getFieldValue('origin');
   var code;
   if(dropdown_origin=='START_POS') {
-	code = 'vm.resetPosition()\n';
+	code="vm.moveTo("+Globals.PLAYER_POSITION_PYTHON_CLASSNAME+"START)\n";
 
   } else {
-	code = 'vm.moveToLastMark()\n';	   
+	code="vm.moveTo("+Globals.PLAYER_POSITION_PYTHON_CLASSNAME+"MARK)\n";
   }
   return code;
 };
