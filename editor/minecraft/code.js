@@ -702,67 +702,87 @@ Code.initLanguage = function() {
  * Execute the user's code.
  */
 Code.runJS = function() {
-	var nameField=document.getElementById('playernamefield');
-	var playerName=nameField.value.trim();
-	nameField.style.backgroundColor = "#FFFFFF"
-   if(playerName=='Minecraft_player_name' || 
-		   playerName=='' || 
-		   playerName.length > 32 || 
-		   playerName.indexOf(" ")>=0) {
-	   nameField.style.backgroundColor = "red";
-	   displayResultMessage(MSG['warn_entername'], "red");
-   } else {
-		   // protect from infinite loops
-		   var MAX_LOOP_CYCLES=100000;	
-		   var infiniteLoopMessage=MSG['infiniteLoopMessage'];
-		   Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if(infiniteLoopCounter>'+MAX_LOOP_CYCLES+') {return("'+infiniteLoopMessage+'")}else{(infiniteLoopCounter++)}\n';
+    var nameField = document.getElementById('playernamefield');
+    var playerName = nameField.value.trim();
+    nameField.style.backgroundColor = "#FFFFFF";
 
-		   var code = Blockly.Python.workspaceToCode(Code.workspace);
-		   var xmlCodeDom = Blockly.Xml.workspaceToDom(Code.workspace);
-		   var xmlCode = Blockly.Xml.domToText(xmlCodeDom);
-		   var host='http://'+ Code.remoteHost; 	   
-		   var hpath=host+'/EXE';
-		   
-		   //postToServer('/EXE', {'EXECODE': code});
-		   //postToServer(playerName, host+':'+port+'/EXE', {'EXECODE': code , 'Playername':playerName});
-		   Code.formData = new FormData();
-		   Code.formData.append('EXECODE', code);
-		   Code.formData.append('XMLCODE', xmlCode);
-		   Code.formData.append('Playername', playerName);
-		   Code.formData.append('langsel', Code.getLanguage());
+    if (playerName === 'Minecraft_player_name' ||
+        playerName === '' ||
+        playerName.length > 32 ||
+        playerName.indexOf(" ") >= 0) {
 
+        nameField.style.backgroundColor = "red";
+        displayResultMessage(MSG['warn_entername'], "red");
+        return;
+    }
 
-		   
-		   var xhr = new XMLHttpRequest();
-		   xhr.open("POST", hpath, true); 
-		   xhr.timeout = 2000; 
-		   xhr.onload=function(event){
-			   if(event.target.response.substr(0, 2)=='OK'){
-				   Code.serverNeedsUpdate=false;
-				   displayResultMessage(MSG['info_deploySuccess'].replace('%2', playerName), "green"); 
-			   } else if(event.target.response.substr(0, 2)=='WA'){ //Warning
-				   Code.serverNeedsUpdate=false;
-				   displayResultMessage(MSG['info_deploySuccessWithWarning'].replace('%2', playerName), "yellow"); 
-			   } else if(event.target.response.substr(0, 7)=='UNKNOWN'){ //Warning
-				   Code.serverNeedsUpdate=false;
-				   displayResultMessage(MSG['info_deployUnknownPlayer'].replace('%2', playerName), "red"); 
-			   } else {
-				   displayResultMessage(xhr.responseText, "red"); 			   
-			   }
-				 //ga('send', 'pageview');
-		   }; 
-		   xhr.onerror=function(event){ 
-			   displayResultMessage(xhr.responseText, "red"); 
-		   }; 
-		   xhr.ontimeout = function (e) {
-			   displayResultMessage("Connection failed  "+xhr.responseText, "red"); 
-			 };
-		   xhr.send(Code.formData);	   
-		   
-		   //window.alert(MSG['info_deploySuccess'].replace('%1', host).replace('%2', playerName)+" ("+port+")");
-		   //location.reload(); // force reload of page
-	    
-   }
+    // protect from infinite loops
+    var MAX_LOOP_CYCLES = 100000;
+    var infiniteLoopMessage = MSG['infiniteLoopMessage'];
+    Blockly.JavaScript.INFINITE_LOOP_TRAP =
+        'if(infiniteLoopCounter>' + MAX_LOOP_CYCLES + ') {' +
+        'return("' + infiniteLoopMessage + '")}' +
+        'else{(infiniteLoopCounter++)}\n';
+
+    var code = Blockly.Python.workspaceToCode(Code.workspace);
+    var xmlCodeDom = Blockly.Xml.workspaceToDom(Code.workspace);
+    var xmlCode = Blockly.Xml.domToText(xmlCodeDom);
+
+    var host = 'http://' + Code.remoteHost;
+    var hpath = host + '/EXE';
+
+    // UTF-8 safe Base64
+    function b64Encode(str) {
+        return btoa(unescape(encodeURIComponent(str)));
+    }
+
+    var payload = {
+        playerName: playerName,
+        langsel: Code.getLanguage(),
+        execode_b64: b64Encode(code),
+        xmlcode_b64: b64Encode(xmlCode)
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", hpath, true);
+    xhr.timeout = 2000;
+    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+
+    xhr.onload = function(event) {
+        var resp = event.target.responseText || "";
+
+        if (resp.substr(0, 2) === 'OK') {
+            Code.serverNeedsUpdate = false;
+            displayResultMessage(
+                MSG['info_deploySuccess'].replace('%2', playerName),
+                "green"
+            );
+        } else if (resp.substr(0, 2) === 'WA') {
+            Code.serverNeedsUpdate = false;
+            displayResultMessage(
+                MSG['info_deploySuccessWithWarning'].replace('%2', playerName),
+                "yellow"
+            );
+        } else if (resp.substr(0, 7) === 'UNKNOWN') {
+            Code.serverNeedsUpdate = false;
+            displayResultMessage(
+                MSG['info_deployUnknownPlayer'].replace('%2', playerName),
+                "red"
+            );
+        } else {
+            displayResultMessage(resp, "red");
+        }
+    };
+
+    xhr.onerror = function() {
+        displayResultMessage("Connection error "+xhr.responseText, "red");
+    };
+
+    xhr.ontimeout = function() {
+        displayResultMessage("Connection timed out "+xhr.responseText, "red");
+    };
+
+    xhr.send(JSON.stringify(payload));
 };
 
 
