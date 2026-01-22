@@ -403,10 +403,11 @@ Code.renderContent = function() {
     xmlTextarea.value = xmlText;
     xmlTextarea.focus();
   } else if (content.id == 'content_log') {
+	
 	Code.runJS(); //upload the code so we get the clean version back
 	setTimeout(() => {
 	  Code.loadLog(); // wait to give time to the server to parse the code
-	}, 1000);
+	}, 2000);
 
   } else if (content.id == 'content_text') {
 	var textTabTextarea = document.getElementById('content_text');
@@ -848,7 +849,7 @@ Code.loadLog = function() {
 	      console.log("error uploading " + this.status);
 	    }
 	  };
-	logTextarea.value ='Loading log file'; 
+	logTextarea.value ='Loading log file ..'; 
 	xhr.send(Code.formData);  
 };
 
