@@ -4117,4 +4117,27 @@ Blockly.Blocks['minecraft_customAction'] = {
 				  	}
 				  };
 
-	
+  Blockly.Blocks['minecraft_get_player_name'] = {
+    init: function () {
+  	this.jsonInit({
+  		"type": "minecraft_get_player_name",
+  		"message0": Blockly.Msg.MC_cmd_minecraft_get_player_name,
+  		"output": "String",
+  		"colour": 230,
+  		"tooltip": "",
+  		"helpUrl": ""
+  });
+   }
+  };
+  Blockly.Blocks['minecraft_time_of_day'] = {
+    init: function () {
+  	this.jsonInit({
+		"type": "minecraft_time_of_day",
+  		"message0": Blockly.Msg.MC_cmd_minecraft_time_of_day,
+  		"output": "Number",
+  		"colour": 230,
+  		"tooltip": "",
+  		"helpUrl": ""
+  });
+   }
+  };

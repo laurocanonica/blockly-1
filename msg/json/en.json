@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2026-01-28 19:51:43.526038",
+		"lastupdated": "2026-01-28 20:28:51.129480",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2333,6 +2333,8 @@
 	"MC_cmd_full_shape": "with a filling",
 	"MC_cmd_minecraft_python_code": "Py",
 	"MC_cmd_minecraft_custom_action": "responsive with function",
+	"MC_cmd_minecraft_get_player_name": "my name",
+	"MC_cmd_minecraft_time_of_day": "time of day",
 	"PROCEDURES_DEFNORETURN_TITLE": "/vm",
 	"PROCEDURES_DEFNORETURN_PROCEDURE": "mycommand",
 	"PROCEDURES_DOWNLOAD_SCREENSHOT": "Download image",

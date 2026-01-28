@@ -955,6 +955,15 @@ Blockly.Python['minecraft_customAction'] = function(block) {
 	  var value_singleblock = Blockly.Python.valueToCode(block, 'name', Blockly.Python.ORDER_NONE);
 		var code = 'dict('+Globals.ACTION_DICTIONARY_LABEL+'="'+variable_varname+'"'+addDictionaryEntry(value_singleblock);
 		return [ code, Blockly.Python.ORDER_NONE ];
-	};
+};
 
+Blockly.Python['minecraft_get_player_name'] = function (block) {
+  var code = 'vm.getPlayerName()';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.Python['minecraft_time_of_day'] = function (block) {
+  var code = 'vm.getTimeOfDay()';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
 

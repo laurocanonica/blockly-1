@@ -3582,6 +3582,8 @@ Blockly.Msg.MC_cmd_empty_shape = 'with a border';
 Blockly.Msg.MC_cmd_full_shape = 'with a filling';
 Blockly.Msg.MC_cmd_minecraft_python_code = 'Py';
 Blockly.Msg.MC_cmd_minecraft_custom_action = 'responsive with function';
+Blockly.Msg.MC_cmd_minecraft_get_player_name = 'my name';
+Blockly.Msg.MC_cmd_minecraft_time_of_day = 'time of day';
 
 
 
