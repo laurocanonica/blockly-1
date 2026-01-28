@@ -310,6 +310,7 @@ Blockly.Blocks['python_code_snippet'] = {
 			"vm.createChest(Item.APPLE)",
 			"vm.createText(str('abc'), 18, False, Block.STONE)",
 			"vm.onEvent(Event.HITTING_ENTITY, 'my_function')",
+			"vm.onEvent(Event.KILLED_ENTITY, 'my_function')",
 			"vm.onEvent(Event.HIT_BY_ENTITY, 'my_function')",
 			"vm.onEvent(Event.DIED, 'my_function')",
 			"vm.onEvent(Event.DAMAGING_BLOCK, 'my_function')",

@@ -3510,6 +3510,7 @@ Blockly.Msg.MC_cmd_north_ver2 = 'turn north (↓ 180)';
 Blockly.Msg.MC_cmd_east_ver2 = 'turn east (← 270)';
 Blockly.Msg.MC_cmd_west_ver2 = 'turn west (→ 90)';
 Blockly.Msg.MC_cmd_HITTING_ENTITY_EVENT = 'when I hit someone call the function';
+Blockly.Msg.MC_cmd_KILLED_ENTITY_EVENT = 'when I kill a mob call the function';
 Blockly.Msg.MC_cmd_HIT_BY_ENTITY_EVENT = 'when I"m hit by someone call the function';
 Blockly.Msg.MC_cmd_DIED_EVENT = 'when I die call the function';
 Blockly.Msg.MC_cmd_DAMAGING_BLOCK_EVENT = 'when I hit a block call the function';
@@ -3580,6 +3581,7 @@ Blockly.Msg.MC_cmd_minecraft_shape_star_param = 'with%4sides and inner radius%5a
 Blockly.Msg.MC_cmd_empty_shape = 'with a border';
 Blockly.Msg.MC_cmd_full_shape = 'with a filling';
 Blockly.Msg.MC_cmd_minecraft_python_code = 'Py';
+Blockly.Msg.MC_cmd_minecraft_custom_action = 'responsive with function';
 
 
 

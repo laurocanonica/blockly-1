@@ -287,6 +287,7 @@ Blockly.Msg["MC_cmd_DAMAGING_BLOCK_EVENT"] = "عندما أضرب كتلة اس�
 Blockly.Msg["MC_cmd_DIED_EVENT"] = "عند موْتي استدعِ الدالة";
 Blockly.Msg["MC_cmd_HITTING_ENTITY_EVENT"] = "عندما أُصيب بشخص ما استدعِ الدالة";
 Blockly.Msg["MC_cmd_HIT_BY_ENTITY_EVENT"] = "عندما أتعرض للضرب من قِبل شخص ما استدعِ الدالة";
+Blockly.Msg["MC_cmd_KILLED_ENTITY_EVENT"] = "when I kill a mob call the function";  // untranslated
 Blockly.Msg["MC_cmd_LEFT_CLICK_AIR_EVENT"] = "عندما أضغط بزر الفأرة الأيسر في الهواء استدعِ الدالة";
 Blockly.Msg["MC_cmd_MOVED_EVENT"] = "عندما أتحرك استدعِ الدالة";
 Blockly.Msg["MC_cmd_RIGHT_CLICK_AIR_EVENT"] = "عندما أضغط بزر الفأرة الأيمن في الهواء استدعِ الدالة";
@@ -313,6 +314,7 @@ Blockly.Msg["MC_cmd_minecraft_cancel_events"] = "إلغاء جميع الأحد�
 Blockly.Msg["MC_cmd_minecraft_connectPositions1"] = "إنشاء صف مكون من %1";
 Blockly.Msg["MC_cmd_minecraft_connectPositions2"] = "من آخر موقع محدد إلى هذا الموقع";
 Blockly.Msg["MC_cmd_minecraft_createchest"] = "إنشاء صندوق يحتوي على %1";
+Blockly.Msg["MC_cmd_minecraft_custom_action"] = "responsive with function";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_customimage_ver2"] = "صورة ";
 Blockly.Msg["MC_cmd_minecraft_delay"] = "بعد %1 ثانية. %2";
 Blockly.Msg["MC_cmd_minecraft_delay_random"] = "بعد فترة بين %1 و %2 ثانية. %3";

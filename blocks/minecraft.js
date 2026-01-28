@@ -2868,9 +2868,10 @@ Blockly.Blocks['minecraft_addevent'] = {
           "name": "eventType",
           "options": [
             [Blockly.Msg.MC_cmd_HITTING_ENTITY_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.HITTING_ENTITY_DICTIONARY_LABEL],
+			[Blockly.Msg.MC_cmd_KILLED_ENTITY_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.KILLED_ENTITY_DICTIONARY_LABEL],
             [Blockly.Msg.MC_cmd_HIT_BY_ENTITY_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.HIT_BY_ENTITY_DICTIONARY_LABEL],
             [Blockly.Msg.MC_cmd_DIED_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.DIED_DICTIONARY_LABEL],
-            [Blockly.Msg.MC_cmd_DAMAGING_BLOCK_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.DAMAGING_BLOCK_DICTIONARY_LABEL],
+			[Blockly.Msg.MC_cmd_DAMAGING_BLOCK_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.DAMAGING_BLOCK_DICTIONARY_LABEL],
             [Blockly.Msg.MC_cmd_LEFT_CLICK_AIR_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.LEFT_CLICK_DICTIONARY_LABEL],
             [Blockly.Msg.MC_cmd_RIGHT_CLICK_AIR_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.RIGHT_CLICK_DICTIONARY_LABEL],
             [Blockly.Msg.MC_cmd_MOVED_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.MOVED_DICTIONARY_LABEL]
@@ -4091,6 +4092,29 @@ var symbols = [
 };
 
 
-
+Blockly.Blocks['minecraft_customAction'] = {
+		init : function() {
+			this.jsonInit({
+				  "type": "minecraft_customAction",
+				  "message0": Blockly.Msg.MC_cmd_minecraft_custom_action+" %1 %2",
+				  			  "args0": [
+				  			    {
+				  			      "type": "field_input",
+				  			      "name": "displayText",
+				  			      "text": ""
+				  			    },
+				  			    {
+				  			      "type": "input_value",
+				  			      "name": "name",
+				  					"check" : [ "Material" ]
+				  			    }
+				  			  ],
+				  			  "output": "Material",
+				  			  "colour": 285,
+				  			  "tooltip": "",
+				  			  "helpUrl": ""
+				  			});
+				  	}
+				  };
 
 	

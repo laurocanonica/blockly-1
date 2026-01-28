@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2026-01-22 10:20:42.284863",
+		"lastupdated": "2026-01-28 19:51:43.526038",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2264,6 +2264,7 @@
 	"MC_cmd_east_ver2": "turn east (← 270)",
 	"MC_cmd_west_ver2": "turn west (→ 90)",
 	"MC_cmd_HITTING_ENTITY_EVENT": "when I hit someone call the function",
+	"MC_cmd_KILLED_ENTITY_EVENT": "when I kill a mob call the function",
 	"MC_cmd_HIT_BY_ENTITY_EVENT": "when I'm hit by someone call the function",
 	"MC_cmd_DIED_EVENT": "when I die call the function",
 	"MC_cmd_DAMAGING_BLOCK_EVENT": "when I hit a block call the function",
@@ -2331,6 +2332,7 @@
 	"MC_cmd_empty_shape": "with a border",
 	"MC_cmd_full_shape": "with a filling",
 	"MC_cmd_minecraft_python_code": "Py",
+	"MC_cmd_minecraft_custom_action": "responsive with function",
 	"PROCEDURES_DEFNORETURN_TITLE": "/vm",
 	"PROCEDURES_DEFNORETURN_PROCEDURE": "mycommand",
 	"PROCEDURES_DOWNLOAD_SCREENSHOT": "Download image",
