@@ -974,30 +974,16 @@ Blockly.Python['minecraft_print_title'] = function (block) {
   return code;
 };
 
-Blockly.Python['minecraft_save_text'] = function (block) {
+Blockly.Python['minecraft_save_with_key'] = function (block) {
 	  var text = Blockly.Python.valueToCode(block, 'TEXT', Blockly.Python.ORDER_NONE) || '""';
 	  var key = Blockly.Python.valueToCode(block, 'KEY', Blockly.Python.ORDER_NONE) || '""';
-	  var code = 'vm.saveText(' + text + ', ' + key + ')\n';
+	  var code = 'vm.save(' + text + ', ' + key + ')\n';
 	  return code;
 	};
 
-Blockly.Python['minecraft_save_number'] = function (block) {
-	  var value = Blockly.Python.valueToCode(block, 'VALUE', Blockly.Python.ORDER_NONE) || '""';
-	  var key = Blockly.Python.valueToCode(block, 'KEY', Blockly.Python.ORDER_NONE) || '""';
-	  var code = 'vm.saveNumber(' + value + ', ' + key + ')\n';
-	  return code;
-	};
-
-Blockly.Python['minecraft_change_number'] = function (block) {
-	  var value = Blockly.Python.valueToCode(block, 'VALUE', Blockly.Python.ORDER_NONE) || '""';
-	  var key = Blockly.Python.valueToCode(block, 'KEY', Blockly.Python.ORDER_NONE) || '""';
-	  var code = 'vm.changeNumber(' + value + ', ' + key + ')\n';
-	  return code;
-	};
-
-Blockly.Python['minecraft_read_text'] = function (block) {
+Blockly.Python['minecraft_read_with_key'] = function (block) {
   var key = Blockly.Python.valueToCode(block, 'KEY', Blockly.Python.ORDER_NONE) || '""';
-  var code = 'readText(' + key + ')';
+  var code = 'vm.read(' + key + ')';
   return [code, Blockly.Python.ORDER_FUNCTION_CALL];
 };
 
