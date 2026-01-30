@@ -3585,7 +3585,10 @@ Blockly.Msg.MC_cmd_minecraft_custom_action = 'responsive with function';
 Blockly.Msg.MC_cmd_minecraft_get_player_name = 'my name';
 Blockly.Msg.MC_cmd_minecraft_time_of_day = 'time of day';
 Blockly.Msg.MC_cmd_minecraft_print_title = 'print title %1 subtitle %2';
-
+Blockly.Msg.MC_cmd_minecraft_save_text = 'save text %1 with key %2';
+Blockly.Msg.MC_cmd_minecraft_save_number = 'save number %1 with key %2';
+Blockly.Msg.MC_cmd_minecraft_change_number = 'change number %1 with key %2';
+Blockly.Msg.MC_cmd_minecraft_read_text = 'read text with key %1';
 
 
 Blockly.Msg.PROCEDURES_DEFNORETURN_TITLE = '/vm';

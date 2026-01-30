@@ -4169,3 +4169,100 @@ Blockly.Blocks['minecraft_customAction'] = {
     }
   };
 
+  Blockly.Blocks['minecraft_save_text'] = {
+    init: function () {
+      this.jsonInit({
+        "type": "minecraft_save_text",
+        "message0": Blockly.Msg.MC_cmd_minecraft_save_text,
+        "args0": [
+          {
+            "type": "input_value",
+            "name": "TEXT",
+            "check": "String"
+          },
+          {
+            "type": "input_value",
+            "name": "KEY",
+            "check": "String"
+          }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+      });
+    }
+  };
+
+  Blockly.Blocks['minecraft_save_number'] = {
+    init: function () {
+      this.jsonInit({
+        "type": "minecraft_save_number",
+        "message0": Blockly.Msg.MC_cmd_minecraft_save_number,
+        "args0": [
+          {
+            "type": "input_value",
+            "name": "VALUE",
+            "check": "Number"
+          },
+          {
+            "type": "input_value",
+            "name": "KEY",
+            "check": "String"
+          }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+      });
+    }
+  };
+
+  Blockly.Blocks['minecraft_change_number'] = {
+    init: function () {
+      this.jsonInit({
+        "type": "minecraft_change_number",
+        "message0": Blockly.Msg.MC_cmd_minecraft_change_number,
+        "args0": [
+          {
+            "type": "input_value",
+            "name": "VALUE",
+            "check": "Number"
+          },
+          {
+            "type": "input_value",
+            "name": "KEY",
+            "check": "String"
+          }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+      });
+    }
+  };
+  
+  Blockly.Blocks['minecraft_read_text'] = {
+    init: function () {
+      this.jsonInit({
+        "type": "minecraft_read_text",
+        "message0": Blockly.Msg.MC_cmd_minecraft_read_text,
+        "args0": [
+          {
+            "type": "input_value",
+            "name": "KEY",
+            "check": "String"
+          }
+        ],
+        "output": "String",
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+      });
+    }
+  };
