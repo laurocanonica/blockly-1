@@ -4141,3 +4141,31 @@ Blockly.Blocks['minecraft_customAction'] = {
   });
    }
   };
+  
+  
+  Blockly.Blocks['minecraft_print_title'] = {
+    init: function () {
+      this.jsonInit({
+        "type": "minecraft_print_title",
+        "message0": "print title %1 subtitle %2",
+        "args0": [
+          {
+            "type": "input_value",
+            "name": "TITLE",
+            "check": "String"
+          },
+          {
+            "type": "input_value",
+            "name": "SUBTITLE",
+            "check": "String"
+          }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+      });
+    }
+  };
+

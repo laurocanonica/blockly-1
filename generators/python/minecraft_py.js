@@ -967,3 +967,21 @@ Blockly.Python['minecraft_time_of_day'] = function (block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+Blockly.Python['minecraft_print_title'] = function (block) {
+  var title = Blockly.Python.valueToCode(
+    block,
+    'TITLE',
+    Blockly.Python.ORDER_NONE
+  ) || '""';
+
+  var subtitle = Blockly.Python.valueToCode(
+    block,
+    'SUBTITLE',
+    Blockly.Python.ORDER_NONE
+  ) || '""';
+
+  var code = 'vm.printTitle(' + title + ', ' + subtitle + ')\n';
+  return code;
+};
+
+
