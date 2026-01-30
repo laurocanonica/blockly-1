@@ -4147,7 +4147,7 @@ Blockly.Blocks['minecraft_customAction'] = {
     init: function () {
       this.jsonInit({
         "type": "minecraft_print_title",
-        "message0": "print title %1 subtitle %2",
+        "message0": Blockly.Msg.MC_cmd_minecraft_print_title,
         "args0": [
           {
             "type": "input_value",
