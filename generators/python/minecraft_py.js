@@ -950,10 +950,13 @@ Blockly.Python['python_code_snippet'] = function(block) {
   return code+"\n";
 };
 
+
+
 Blockly.Python['minecraft_customAction'] = function(block) {
-	  var variable_varname = Blockly.Python.variableDB_.getName(block.getFieldValue('displayText'), Blockly.Variables.NAME_TYPE);
-	  var value_singleblock = Blockly.Python.valueToCode(block, 'name', Blockly.Python.ORDER_NONE);
-		var code = 'dict('+Globals.ACTION_DICTIONARY_LABEL+'="'+variable_varname+'"'+addDictionaryEntry(value_singleblock);
+		var displayText = block.getFieldValue('displayText');
+	    var value_singleblock = Blockly.Python.valueToCode(block, 'name', Blockly.Python.ORDER_NONE);
+		var code = 'dict('+Globals.ACTION_DICTIONARY_LABEL+'="'+displayText+'"'+addDictionaryEntry(value_singleblock);
+		//var code = "dict("+Globals.ACTION_DICTIONARY_LABEL+"='"+variable_varname+"'"+addDictionaryEntry(value_singleblock);
 		return [ code, Blockly.Python.ORDER_NONE ];
 };
 

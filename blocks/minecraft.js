@@ -4123,7 +4123,7 @@ Blockly.Blocks['minecraft_customAction'] = {
   		"type": "minecraft_get_player_name",
   		"message0": Blockly.Msg.MC_cmd_minecraft_get_player_name,
   		"output": "String",
-  		"colour": 230,
+  		"colour": 20,
   		"tooltip": "",
   		"helpUrl": ""
   });
@@ -4135,7 +4135,7 @@ Blockly.Blocks['minecraft_customAction'] = {
 		"type": "minecraft_time_of_day",
   		"message0": Blockly.Msg.MC_cmd_minecraft_time_of_day,
   		"output": "Number",
-  		"colour": 230,
+  		"colour": 20,
   		"tooltip": "",
   		"helpUrl": ""
   });
