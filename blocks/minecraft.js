@@ -3899,7 +3899,7 @@ Blockly.Blocks['shape_block'] = {
     shadowBlock.render();
     this.getInput(inputName).connection.connect(shadowBlock.outputConnection);
   }
-};
+}; 
 	
 
 Blockly.Blocks['minecraft_materialbockOnlyOne'] = {
