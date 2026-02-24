@@ -2444,6 +2444,7 @@ Blockly.Blocks['minecraft_hitting'] = {
 };
 
 
+
 Blockly.Blocks['minecraft_team'] = {
 		init : function() {
 			this.jsonInit({
@@ -2874,7 +2875,8 @@ Blockly.Blocks['minecraft_addevent'] = {
 			[Blockly.Msg.MC_cmd_DAMAGING_BLOCK_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.DAMAGING_BLOCK_DICTIONARY_LABEL],
             [Blockly.Msg.MC_cmd_LEFT_CLICK_AIR_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.LEFT_CLICK_DICTIONARY_LABEL],
             [Blockly.Msg.MC_cmd_RIGHT_CLICK_AIR_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.RIGHT_CLICK_DICTIONARY_LABEL],
-            [Blockly.Msg.MC_cmd_MOVED_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.MOVED_DICTIONARY_LABEL]
+			[Blockly.Msg.MC_cmd_MOVED_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.MOVED_DICTIONARY_LABEL],
+			[Blockly.Msg.MC_cmd_STARTED_FLYING_EVENT, Globals.EVENT_PYTHON_CLASSNAME+Globals.STARTED_FLYING_DICTIONARY_LABEL]
           ]
         },
         {
@@ -4214,4 +4216,16 @@ Blockly.Blocks['minecraft_customAction'] = {
         "helpUrl": ""
       });
     }
+  };
+  
+  Blockly.Blocks['minecraft_isFlying'] = {
+  	init: function() {
+  		this.jsonInit({
+  			"type": "minecraft_isFlying",
+  			"message0": Blockly.Msg.MC_cmd_minecraft_isFlying,
+  			"args0": [],
+  			"output": "Boolean",
+  			"colour": 65
+		});
+  	}
   };

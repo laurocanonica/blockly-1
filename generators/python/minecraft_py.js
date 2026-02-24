@@ -86,9 +86,9 @@ Blockly.Python['minecraft_delay_var'] = function(block) {
 Blockly.Python['minecraft_delay_random'] = function(block) {
 	var min = block.getFieldValue('min');
 	var max = block.getFieldValue('max');
-	var number_delay = min+', '+max;
+	var string_delay = '"'+min+', '+max+'"';
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code=insertDictionaryEntry("DELAY", number_delay, value_singleblock)
+	var code=insertDictionaryEntry("DELAY", string_delay, value_singleblock)
 	//var code = '[dict(DELAY=['+number_delay+']'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
@@ -96,9 +96,9 @@ Blockly.Python['minecraft_delay_random'] = function(block) {
 Blockly.Python['minecraft_delay_random_var'] = function(block) {
 	var min = Blockly.Python.variableDB_.getName(block.getFieldValue('min'), Blockly.Variables.NAME_TYPE);
 	var max = Blockly.Python.variableDB_.getName(block.getFieldValue('max'), Blockly.Variables.NAME_TYPE);
-	var number_delay =min+", "+max;
+	var string_delay = 'str('+min+')+", "+ str('+max+')';
 	var value_singleblock = Blockly.Python.valueToCode(block, 'singleblock', Blockly.Python.ORDER_NONE);
-	var code=insertDictionaryEntry("DELAY", number_delay, value_singleblock)
+	var code=insertDictionaryEntry("DELAY", string_delay, value_singleblock)
 	//var code = '[dict(DELAY=['+number_delay+']'+addDictionaryEntry(value_singleblock);
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
@@ -683,6 +683,8 @@ Blockly.Python['minecraft_hitting'] = function(block) {
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
+
+
 Blockly.Python['minecraft_holding'] = function(block) {
 	var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
 	var code = "vm.isPlayerHolding(" + optimizeMaterialList(value_name) + ")";
@@ -704,6 +706,11 @@ Blockly.Python['minecraft_addevent'] = function(block) {
   var code = "vm.onEvent(" + dropdown_eventtype + ", " + functionName + ");\n";
   return code;
 };	
+
+Blockly.Python['minecraft_isFlying'] = function(block) {
+	var code = "vm.isPlayerFlying()";
+	return [ code, Blockly.Python.ORDER_NONE ];
+};
 
 	
 Blockly.Python['minecraft_comment'] = function(block) {
