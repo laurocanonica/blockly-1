@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_minecraft_option_reset_start_position_ver1"] = "தற்ப
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver1"] = "நிலையை தொடக்கத்திற்கு அமை";
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver2"] = "தொடக்கத்திற்கு செல்";
 Blockly.Msg["MC_cmd_minecraft_playerHas"] = "என்னிடம் %1 உள்ளது";
+Blockly.Msg["MC_cmd_minecraft_player_standing_on"] = "I'm standing on a %1";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_polygon"] = "%8 %9 கொண்டு செய்யப்பட்ட, %4 %5 பக்கங்களும் %6 %7 ஆரமும் கொண்ட %1 %2 %3 பலகோணத்தை உருவாக்கு";
 Blockly.Msg["MC_cmd_minecraft_print_title"] = "print title %1 subtitle %2";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_python_code"] = "Py";

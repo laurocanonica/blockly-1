@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_minecraft_option_reset_start_position_ver1"] = "állítsd vi
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver1"] = "állítsd a pozíciót a startpontra";
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver2"] = "menj a startpontra";
 Blockly.Msg["MC_cmd_minecraft_playerHas"] = "Van egy %1";
+Blockly.Msg["MC_cmd_minecraft_player_standing_on"] = "I'm standing on a %1";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_polygon"] = "létrehoz egy %1 %2 %3 sokszöget, amely %4 %5 oldalú és %6 %7 sugarú, %8 %9 anyagból készült";
 Blockly.Msg["MC_cmd_minecraft_print_title"] = "print title %1 subtitle %2";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_python_code"] = "Py";

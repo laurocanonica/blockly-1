@@ -3467,7 +3467,7 @@ Blockly.Msg.MC_cmd_minecraft_holding = 'I"m holding a %1';
 Blockly.Msg.MC_cmd_minecraft_playerHas = 'I have a %1';
 Blockly.Msg.MC_cmd_minecraft_hitting = 'I"m hitting a %1';
 Blockly.Msg.MC_cmd_minecraft_sensing_ver1 = 'this block is made of %1';
-Blockly.Msg.MC_cmd_minecraft_sensing_ver2 = 'you are in a block made of %1';
+Blockly.Msg.MC_cmd_minecraft_sensing_ver2 = 'the current block is made of %1';
 Blockly.Msg.MC_cmd_minecraft_giveme = 'give me %1';
 Blockly.Msg.MC_cmd_minecraft_equipme = 'dress me with a %1';
 Blockly.Msg.MC_cmd_left_hand = 'put in my left ← hand a';
@@ -3589,6 +3589,7 @@ Blockly.Msg.MC_cmd_minecraft_save_with_key = 'save value %1 with key %2';
 Blockly.Msg.MC_cmd_minecraft_read_with_key = 'read value with key %1';
 Blockly.Msg.MC_cmd_minecraft_isFlying = 'I"m flying';
 Blockly.Msg.MC_cmd_STARTED_FLYING_EVENT = 'when I start flying call the function';
+Blockly.Msg.MC_cmd_minecraft_player_standing_on = 'I"m standing on a %1';
 
 
 

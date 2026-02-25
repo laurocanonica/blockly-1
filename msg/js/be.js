@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_minecraft_option_reset_start_position_ver1"] = "сбросі
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver1"] = "устанавіць пазіцыю да пачатку";
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver2"] = "перайсці да пачатку";
 Blockly.Msg["MC_cmd_minecraft_playerHas"] = "У мяне ёсць %1";
+Blockly.Msg["MC_cmd_minecraft_player_standing_on"] = "I'm standing on a %1";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_polygon"] = "стварыць %1 %2 %3 палігон з %4 %5 бакамі і радыусам %6 %7, зроблены з %8 %9";
 Blockly.Msg["MC_cmd_minecraft_print_title"] = "print title %1 subtitle %2";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_python_code"] = "Python";

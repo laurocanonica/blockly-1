@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_minecraft_option_reset_start_position_ver1"] = "Mevcut konum
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver1"] = "Konumu başlangıca ayarla";
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver2"] = "Başlangıca git";
 Blockly.Msg["MC_cmd_minecraft_playerHas"] = "Bir %1 var";
+Blockly.Msg["MC_cmd_minecraft_player_standing_on"] = "I'm standing on a %1";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_polygon"] = "bir %1 %2 %3 çokgen oluştur, %4 %5 kenarlı ve yarıçapı %6 %7 olan, %8 %9 ile yapılmış";
 Blockly.Msg["MC_cmd_minecraft_print_title"] = "print title %1 subtitle %2";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_python_code"] = "Python";

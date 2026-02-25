@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_minecraft_option_reset_start_position_ver1"] = "iestatīt pa
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver1"] = "iestatīt pozīciju uz sākumu";
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver2"] = "iet uz sākumu";
 Blockly.Msg["MC_cmd_minecraft_playerHas"] = "Man ir %1";
+Blockly.Msg["MC_cmd_minecraft_player_standing_on"] = "I'm standing on a %1";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_polygon"] = "izveido %1 %2 %3 daudzstūri ar %4 %5 malām un rādiusu %6 %7, no %8 %9";
 Blockly.Msg["MC_cmd_minecraft_print_title"] = "print title %1 subtitle %2";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_python_code"] = "Python";

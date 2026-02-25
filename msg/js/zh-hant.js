@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_minecraft_option_reset_start_position_ver1"] = "將當前位
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver1"] = "將位置設為起始位置";
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver2"] = "前往起始位置";
 Blockly.Msg["MC_cmd_minecraft_playerHas"] = "我有 %1";
+Blockly.Msg["MC_cmd_minecraft_player_standing_on"] = "I'm standing on a %1";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_polygon"] = "創建一個 %1 %2 %3 多邊形，邊數為 %4 %5，半徑 %6 %7，由 %8 %9 組成";
 Blockly.Msg["MC_cmd_minecraft_print_title"] = "print title %1 subtitle %2";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_python_code"] = "Python";

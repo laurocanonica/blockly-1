@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_minecraft_option_reset_start_position_ver1"] = "รีเซ
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver1"] = "กำหนดตำแหน่งไปยังจุดเริ่มต้น";
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver2"] = "ไปยังจุดเริ่มต้น";
 Blockly.Msg["MC_cmd_minecraft_playerHas"] = "ฉันมี %1";
+Blockly.Msg["MC_cmd_minecraft_player_standing_on"] = "I'm standing on a %1";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_polygon"] = "สร้างรูปหลายเหลี่ยม %1 %2 %3 ที่มีด้าน %4 %5 และรัศมี %6 %7 ทำจาก %8 %9";
 Blockly.Msg["MC_cmd_minecraft_print_title"] = "print title %1 subtitle %2";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_python_code"] = "Py";

@@ -412,6 +412,14 @@ Blockly.Python['minecraft_sensing'] = function(block) {
 	return [ code, Blockly.Python.ORDER_NONE ];
 };
 
+Blockly.Python['minecraft_player_standing_on'] = function(block) {
+	var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
+	var code = 'vm.isPlayerStandingOn(';
+	code += optimizeMaterialList(value_name);
+	code += ")";
+	return [ code, Blockly.Python.ORDER_NONE ];
+};
+
 
 
 

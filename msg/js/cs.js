@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_minecraft_option_reset_start_position_ver1"] = "resetuj aktu
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver1"] = "nastav pozici na začátek";
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver2"] = "přejdi na začátek";
 Blockly.Msg["MC_cmd_minecraft_playerHas"] = "Mám %1";
+Blockly.Msg["MC_cmd_minecraft_player_standing_on"] = "I'm standing on a %1";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_polygon"] = "vytvoř %1 %2 %3 polygon se %4 %5 stranami a poloměrem %6 %7 vyrobený z %8 %9";
 Blockly.Msg["MC_cmd_minecraft_print_title"] = "print title %1 subtitle %2";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_python_code"] = "Python";

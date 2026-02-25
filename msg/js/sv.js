@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_minecraft_option_reset_start_position_ver1"] = "återställ 
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver1"] = "sätt positionen till start";
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver2"] = "gå till start";
 Blockly.Msg["MC_cmd_minecraft_playerHas"] = "Jag har en %1";
+Blockly.Msg["MC_cmd_minecraft_player_standing_on"] = "I'm standing on a %1";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_polygon"] = "skapa en %1 %2 %3 polygon med %4 %5 sidor och radie %6 %7 gjord av %8 %9";
 Blockly.Msg["MC_cmd_minecraft_print_title"] = "print title %1 subtitle %2";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_python_code"] = "Python";

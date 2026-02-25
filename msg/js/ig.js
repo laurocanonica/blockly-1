@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_minecraft_option_reset_start_position_ver1"] = "tọgharịa
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver1"] = "tọlite ọnọdụ gaa na mmalite";
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver2"] = "gaa na mmalite";
 Blockly.Msg["MC_cmd_minecraft_playerHas"] = "Enwere m %1";
+Blockly.Msg["MC_cmd_minecraft_player_standing_on"] = "I'm standing on a %1";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_polygon"] = "mepụta %1 %2 %3 polygon nwere akụkụ %4 %5 na redios %6 %7 nke e ji %8 %9 mee";
 Blockly.Msg["MC_cmd_minecraft_print_title"] = "print title %1 subtitle %2";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_python_code"] = "Py";

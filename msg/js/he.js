@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_minecraft_option_reset_start_position_ver1"] = "אפס את 
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver1"] = "הגדר את המיקום להתחלה";
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver2"] = "לך להתחלה";
 Blockly.Msg["MC_cmd_minecraft_playerHas"] = "יש לי %1";
+Blockly.Msg["MC_cmd_minecraft_player_standing_on"] = "I'm standing on a %1";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_polygon"] = "צור מצולע %1 %2 %3 עם %4 %5 צלעות ורדיוס %6 %7 עשוי מ-%8 %9";
 Blockly.Msg["MC_cmd_minecraft_print_title"] = "print title %1 subtitle %2";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_python_code"] = "פייתון";

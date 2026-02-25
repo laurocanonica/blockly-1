@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_minecraft_option_reset_start_position_ver1"] = "ririsin pozi
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver1"] = "vendos pozicionin në fillim";
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver2"] = "shko te fillimi";
 Blockly.Msg["MC_cmd_minecraft_playerHas"] = "Kam një %1";
+Blockly.Msg["MC_cmd_minecraft_player_standing_on"] = "I'm standing on a %1";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_polygon"] = "krijo një poligon %1 %2 %3 me %4 %5 anë dhe rreze %6 %7 i bërë nga %8 %9";
 Blockly.Msg["MC_cmd_minecraft_print_title"] = "print title %1 subtitle %2";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_python_code"] = "Python";

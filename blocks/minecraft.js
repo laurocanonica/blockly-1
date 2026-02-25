@@ -2203,26 +2203,47 @@ Blockly.Blocks['minecraft_ellipse'] = {
 
 
 
-Blockly.Blocks['minecraft_sensing'] = {
-		init : function() {
-			this.jsonInit({
-				  "type": "minecraft_sensing",
-				  "message0": eval('Blockly.Msg.MC_cmd_minecraft_sensing'+'_'+GLOBAL_MESSAGE_VERSION),
-				  "args0": [
-				    {
-				      "type": "input_value",
-				      "name": "NAME",
-						"check" : [ "Material" ]
-				    }
-				  ],
-					"output" : "Boolean",
-					"inputsInline": false,
-					"colour" : 65,
-					"tooltip" : "",
-					"helpUrl" : ""
-				});
-		}
-	};
+	Blockly.Blocks['minecraft_sensing'] = {
+			init : function() {
+				this.jsonInit({
+					  "type": "minecraft_sensing",
+					  "message0": eval('Blockly.Msg.MC_cmd_minecraft_sensing'+'_'+GLOBAL_MESSAGE_VERSION),
+					  "args0": [
+					    {
+					      "type": "input_value",
+					      "name": "NAME",
+							"check" : [ "Material" ]
+					    }
+					  ],
+						"output" : "Boolean",
+						"inputsInline": false,
+						"colour" : 65,
+						"tooltip" : "",
+						"helpUrl" : ""
+					});
+			}
+		};
+
+		Blockly.Blocks['minecraft_player_standing_on'] = {
+				init : function() {
+					this.jsonInit({
+						  "type": "minecraft_player_standing_on",
+						  "message0": eval('Blockly.Msg.MC_cmd_minecraft_player_standing_on'),
+						  "args0": [
+						    {
+						      "type": "input_value",
+						      "name": "NAME",
+								"check" : [ "Material" ]
+						    }
+						  ],
+							"output" : "Boolean",
+							"inputsInline": false,
+							"colour" : 65,
+							"tooltip" : "",
+							"helpUrl" : ""
+						});
+				}
+			};
 
 
 

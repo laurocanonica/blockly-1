@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_minecraft_option_reset_start_position_ver1"] = "ຣີເຊ
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver1"] = "ກຳນົດຕຳແໜ່ງເປັນຈຸດເລີ່ມຕົ້ນ";
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver2"] = "ໄປຫາຈຸດເລີ່ມຕົ້ນ";
 Blockly.Msg["MC_cmd_minecraft_playerHas"] = "ຂ້ອຍມີ %1";
+Blockly.Msg["MC_cmd_minecraft_player_standing_on"] = "I'm standing on a %1";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_polygon"] = "ສ້າງຮູບຫຼາຍຫຼ່ຽມ %1 %2 %3 ມີ %4 %5 ດ້ານ ແລະ ລັດສະໝີ %6 %7 ສ້າງດ້ວຍ %8 %9";
 Blockly.Msg["MC_cmd_minecraft_print_title"] = "print title %1 subtitle %2";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_python_code"] = "Py";

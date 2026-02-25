@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_minecraft_option_reset_start_position_ver1"] = "現在の位
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver1"] = "位置を開始位置に設定";
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver2"] = "開始位置へ移動";
 Blockly.Msg["MC_cmd_minecraft_playerHas"] = "私は %1 を持っています";
+Blockly.Msg["MC_cmd_minecraft_player_standing_on"] = "I'm standing on a %1";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_polygon"] = "半径 %6 %7 の %1 %2 %3 の多角形を、%4 %5 本の辺と %8 %9 で作成";
 Blockly.Msg["MC_cmd_minecraft_print_title"] = "print title %1 subtitle %2";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_python_code"] = "Python";

@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_minecraft_option_reset_start_position_ver1"] = "resetiraj tr
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver1"] = "postavi poziciju na početak";
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver2"] = "idi na početak";
 Blockly.Msg["MC_cmd_minecraft_playerHas"] = "Imam %1";
+Blockly.Msg["MC_cmd_minecraft_player_standing_on"] = "I'm standing on a %1";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_polygon"] = "stvori %1 %2 %3 poligon sa %4 %5 stranica i polumjerom %6 %7 izrađen od %8 %9";
 Blockly.Msg["MC_cmd_minecraft_print_title"] = "print title %1 subtitle %2";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_python_code"] = "Py";

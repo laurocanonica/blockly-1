@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_minecraft_option_reset_start_position_ver1"] = "nustatyti da
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver1"] = "nustatyti padėtį į pradžią";
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver2"] = "eiti į pradžią";
 Blockly.Msg["MC_cmd_minecraft_playerHas"] = "Aš turiu %1";
+Blockly.Msg["MC_cmd_minecraft_player_standing_on"] = "I'm standing on a %1";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_polygon"] = "sukurti %1 %2 %3 poligoną su %4 %5 šonais ir spinduliu %6 %7, pagamintą iš %8 %9";
 Blockly.Msg["MC_cmd_minecraft_print_title"] = "print title %1 subtitle %2";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_python_code"] = "Python";

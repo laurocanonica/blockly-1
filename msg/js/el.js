@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_minecraft_option_reset_start_position_ver1"] = "επαναφ
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver1"] = "ορίστε τη θέση στην αρχή";
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver2"] = "πηγαίνε στην αρχή";
 Blockly.Msg["MC_cmd_minecraft_playerHas"] = "Έχω %1";
+Blockly.Msg["MC_cmd_minecraft_player_standing_on"] = "I'm standing on a %1";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_polygon"] = "δημιουργήστε ένα %1 %2 %3 πολύγωνο με %4 %5 πλευρές και ακτίνα %6 %7 κατασκευασμένο από %8 %9";
 Blockly.Msg["MC_cmd_minecraft_print_title"] = "print title %1 subtitle %2";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_python_code"] = "Py";

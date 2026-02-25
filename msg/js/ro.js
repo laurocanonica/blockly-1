@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_minecraft_option_reset_start_position_ver1"] = "resetează p
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver1"] = "setează poziția la început";
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver2"] = "du-te la început";
 Blockly.Msg["MC_cmd_minecraft_playerHas"] = "am un %1";
+Blockly.Msg["MC_cmd_minecraft_player_standing_on"] = "I'm standing on a %1";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_polygon"] = "creează un poligon %1 %2 %3 cu %4 %5 laturi și raza %6 %7 format din %8 %9";
 Blockly.Msg["MC_cmd_minecraft_print_title"] = "print title %1 subtitle %2";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_python_code"] = "Py";

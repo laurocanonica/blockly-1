@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_minecraft_option_reset_start_position_ver1"] = "redefina a p
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver1"] = "defina a posição para o início";
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver2"] = "vá para o início";
 Blockly.Msg["MC_cmd_minecraft_playerHas"] = "Eu tenho um %1";
+Blockly.Msg["MC_cmd_minecraft_player_standing_on"] = "I'm standing on a %1";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_polygon"] = "crie um %1 %2 %3 polígono com %4 %5 lados e raio %6 %7 feito de %8 %9";
 Blockly.Msg["MC_cmd_minecraft_print_title"] = "print title %1 subtitle %2";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_python_code"] = "Python";

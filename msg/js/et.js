@@ -355,6 +355,7 @@ Blockly.Msg["MC_cmd_minecraft_option_reset_start_position_ver1"] = "taasta käes
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver1"] = "määra positsioon algpositsioonile";
 Blockly.Msg["MC_cmd_minecraft_option_start_position_ver2"] = "mine algpositsiooni";
 Blockly.Msg["MC_cmd_minecraft_playerHas"] = "Mul on %1";
+Blockly.Msg["MC_cmd_minecraft_player_standing_on"] = "I'm standing on a %1";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_polygon"] = "Loo %1 %2 %3 polügoon koos %4 %5 külgede arvuga ja raadiusega %6 %7, mille koostis on %8 %9";
 Blockly.Msg["MC_cmd_minecraft_print_title"] = "print title %1 subtitle %2";  // untranslated
 Blockly.Msg["MC_cmd_minecraft_python_code"] = "Python";

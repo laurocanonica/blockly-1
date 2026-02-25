@@ -1776,6 +1776,18 @@
 
 
 			<block type="minecraft_mark"></block>
+
+			<block type="minecraft_sensing">
+				<value name="NAME">
+					<block type="minecraft_materialbockOnlyOne">
+						<field name="NAME">b.grass_block</field>
+					</block>					
+					<shadow type="minecraft_materialbockOnlyOne">
+						<field name="NAME">b.grass_block</field>
+					</shadow>
+				</value>
+			</block>
+
 		</category>
 
 
@@ -1825,8 +1837,8 @@
 				</value>
 			</block>
 			<block type="minecraft_isFlying"></block>
-
-			<block type="minecraft_sensing">
+			
+			<block type="minecraft_player_standing_on">
 				<value name="NAME">
 					<block type="minecraft_materialbockOnlyOne">
 						<field name="NAME">b.grass_block</field>
@@ -1836,6 +1848,7 @@
 					</shadow>
 				</value>
 			</block>
+
 			
 			<block type="minecraft_get_player_name"></block>
 			<block type="minecraft_time_of_day"></block>
