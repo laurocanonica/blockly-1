@@ -3590,6 +3590,7 @@ Blockly.Msg.MC_cmd_minecraft_read_with_key = 'read value with key %1';
 Blockly.Msg.MC_cmd_minecraft_isFlying = 'I"m flying';
 Blockly.Msg.MC_cmd_STARTED_FLYING_EVENT = 'when I start flying call the function';
 Blockly.Msg.MC_cmd_minecraft_player_standing_on = 'I"m standing on a %1';
+Blockly.Msg.MC_cmd_minecraft_teleport_player = 'teleport player to %1 %2';
 
 
 

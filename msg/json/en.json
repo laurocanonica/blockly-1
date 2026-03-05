@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2026-02-25 17:54:23.800833",
+		"lastupdated": "2026-03-05 12:46:07.381986",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -2341,6 +2341,7 @@
 	"MC_cmd_minecraft_isFlying": "I'm flying",
 	"MC_cmd_STARTED_FLYING_EVENT": "when I start flying call the function",
 	"MC_cmd_minecraft_player_standing_on": "I'm standing on a %1",
+	"MC_cmd_minecraft_teleport_player": "teleport player to %1 %2",
 	"PROCEDURES_DEFNORETURN_TITLE": "/vm",
 	"PROCEDURES_DEFNORETURN_PROCEDURE": "mycommand",
 	"PROCEDURES_DOWNLOAD_SCREENSHOT": "Download image",

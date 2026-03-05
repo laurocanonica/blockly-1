@@ -1031,4 +1031,10 @@ Blockly.Python['minecraft_read_with_key'] = function (block) {
   return [code, Blockly.Python.ORDER_FUNCTION_CALL];
 };
 
-
+Blockly.Python['minecraft_teleport_player'] = function(block) {
+  var value_x = Blockly.Python.valueToCode(block, 'x', Blockly.Python.ORDER_NONE);
+  var value_y = Blockly.Python.valueToCode(block, 'y', Blockly.Python.ORDER_NONE);
+  
+  var code = "vm.teleportPlayer(" + value_x + ", " + value_y + ")\n";
+  return code;
+};

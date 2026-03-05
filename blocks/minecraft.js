@@ -4250,3 +4250,28 @@ Blockly.Blocks['minecraft_customAction'] = {
 		});
   	}
   };
+  
+  Blockly.Blocks['minecraft_teleport_player'] = {
+    init: function() {
+      this.jsonInit({
+        "type": "minecraft_teleport_player",
+        "message0": Blockly.Msg.MC_cmd_minecraft_teleport_player,
+        "args0": [
+          {
+            "type": "input_value",
+            "name": "x",
+            "check": "Number"
+          },
+          {
+            "type": "input_value",
+            "name": "y",
+            "check": "Number"
+          }
+        ],
+		"inputsInline": true,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 90
+      });
+    }
+  };

@@ -396,6 +396,7 @@ Blockly.Msg["MC_cmd_minecraft_sign_with_text"] = "with text";
 Blockly.Msg["MC_cmd_minecraft_splash_potion_function"] = "with function";
 Blockly.Msg["MC_cmd_minecraft_star"] = "create a %1 %2 %3 star with %4 %5 sides and inner radius %6 %7 and outer radius %8 %9 made of %10 %11";
 Blockly.Msg["MC_cmd_minecraft_talking"] = "talking %1 %2";
+Blockly.Msg["MC_cmd_minecraft_teleport_player"] = "teleport player to %1 %2";
 Blockly.Msg["MC_cmd_minecraft_time_of_day"] = "time of day";
 Blockly.Msg["MC_cmd_minecraft_velocity"] = "with speed %1 pointing to dir. %2 tilt %3 %4";
 Blockly.Msg["MC_cmd_minecraft_waitForBlockCreation"] = "wait until all blocks are created";

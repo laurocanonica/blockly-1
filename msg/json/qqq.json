@@ -2335,6 +2335,7 @@
 	"MC_cmd_minecraft_isFlying": "",
 	"MC_cmd_STARTED_FLYING_EVENT": "",
 	"MC_cmd_minecraft_player_standing_on": "",
+	"MC_cmd_minecraft_teleport_player": "",
 	"PROCEDURES_DEFNORETURN_TITLE": "",
 	"PROCEDURES_DEFNORETURN_PROCEDURE": "",
 	"PROCEDURES_DOWNLOAD_SCREENSHOT": "",
