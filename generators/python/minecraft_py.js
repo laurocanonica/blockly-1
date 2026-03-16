@@ -126,7 +126,7 @@ Blockly.Python['minecraft_polygon'] = function(block) {
 	code += "360, ";
 	code += convertFillToBoolean(dropdown_fill) + ", ";
 	code += optimizeMaterialList(value_name);
-	code += ");\n";
+	code += ")\n";
 	return code;
 };
 
@@ -142,7 +142,7 @@ Blockly.Python['minecraft_star'] = function(block) {
 	code += value_outerRadius + ", ";
 	code += convertFillToBoolean(dropdown_fill) + ", ";
 	code += optimizeMaterialList(value_name);
-	code += ");\n";
+	code += ")\n";
 	return code;
 };
 
@@ -156,7 +156,7 @@ Blockly.Python['minecraft_star'] = function(block) {
 			code += value_height + ", ";
 			code += convertFillToBoolean(dropdown_fill) + ", ";
 			code += optimizeMaterialList(value_name);
-			code += ");\n";
+			code += ")\n";
 			return code;
 		};
 		
@@ -170,7 +170,7 @@ Blockly.Python['minecraft_star'] = function(block) {
 			code += radiusY + ", ";
 			code += convertFillToBoolean(dropdown_fill) + ", ";
 			code += optimizeMaterialList(value_name);
-			code += ");\n";
+			code += ")\n";
 			return code;
 		}; 
 
@@ -186,7 +186,7 @@ Blockly.Python['minecraft_circle_shape'] = function(block) {
   code += value_radius + ", ";
   code += convertFillToBoolean(dropdown_fill) + ", ";
   code += optimizeMaterialList(value_name);
-  code += ");\n";
+  code += ")\n";
   return code;
 };
 
@@ -199,7 +199,7 @@ Blockly.Python['minecraft_square_shape'] = function(block) {
   code += value_sideLength + ", ";
   code += convertFillToBoolean(dropdown_fill) + ", ";
   code += optimizeMaterialList(value_name);
-  code += ");\n";
+  code += ")\n";
   return code;
 };
 
@@ -210,7 +210,7 @@ Blockly.Python['minecraft_line_shape'] = function(block) {
   var code = 'vm.createLine(';
   code += value_length + ", ";
   code += optimizeMaterialList(value_name);
-  code += ");\n";
+  code += ")\n";
   return code;
 };
 
@@ -218,7 +218,7 @@ Blockly.Python['minecraft_connection_shape'] = function(block) {
 	var value_name = Blockly.Python.valueToCode(block, 'MATERIAL', Blockly.Python.ORDER_NONE);
 	var code = 'vm.connectPositions(';
 	code += optimizeMaterialList(value_name);
-	code += ");\n";
+	code += ")\n";
 	return code;
 };
 
@@ -233,7 +233,7 @@ Blockly.Python['minecraft_rectangle_shape'] = function(block) {
   code += value_height + ", ";
   code += convertFillToBoolean(dropdown_fill) + ", ";
   code += optimizeMaterialList(value_name);
-  code += ");\n";
+  code += ")\n";
   return code;
 };
 
@@ -250,7 +250,7 @@ Blockly.Python['minecraft_polygon_shape'] = function(block) {
   code += "360, ";
   code += convertFillToBoolean(dropdown_fill) + ", ";
   code += optimizeMaterialList(value_name);
-  code += ");\n";
+  code += ")\n";
   return code;
 };
 
@@ -265,7 +265,7 @@ Blockly.Python['minecraft_ellipse_shape'] = function(block) {
   code += radiusY + ", ";
   code += convertFillToBoolean(dropdown_fill) + ", ";
   code += optimizeMaterialList(value_name);
-  code += ");\n";
+  code += ")\n";
   return code;
 };
 
@@ -282,7 +282,7 @@ Blockly.Python['minecraft_arc_shape'] = function(block) {
   code += angle + ", ";
   code += convertFillToBoolean(dropdown_fill) + ", ";
   code += optimizeMaterialList(value_name);
-  code += ");\n";
+  code += ")\n";
   return code;
 };
 
@@ -299,7 +299,7 @@ Blockly.Python['minecraft_star_shape'] = function(block) {
   code += value_outerRadius + ", ";
   code += convertFillToBoolean(dropdown_fill) + ", ";
   code += optimizeMaterialList(value_name);
-  code += ");\n";
+  code += ")\n";
   return code;
 };
 
@@ -711,7 +711,7 @@ Blockly.Python['minecraft_addevent'] = function(block) {
   var dropdown_eventtype = block.getFieldValue('eventType');
   var functionName = Blockly.Python.valueToCode(block, 'functionName', Blockly.Python.ORDER_ATOMIC);
 
-  var code = "vm.onEvent(" + dropdown_eventtype + ", " + functionName + ");\n";
+  var code = "vm.onEvent(" + dropdown_eventtype + ", " + functionName + ")\n";
   return code;
 };	
 
@@ -767,7 +767,7 @@ Blockly.Python['minecraft_text'] = function(block) {
 	  code+= value_fontpoints+", ";
 	  code+= convertFillToBoolean(dropdown_fill)+", ";
 	  code+= optimizeMaterialList(value_name);
-	  code+= ");\n";
+	  code+= ")\n";
 	  return code;
 	};
 	
@@ -846,7 +846,7 @@ Blockly.Python['minecraft_drawing_extended'] = function(block) {
 		  code +=index_material;
 		  code +=", "+Globals.DRAWINGSTARTPOSITION_PYTHON_CLASSNAME;
 		  code +=drawOrigin;
-		  code += ");\n";
+		  code += ")\n";
 		  return code; 
 		
 	}
