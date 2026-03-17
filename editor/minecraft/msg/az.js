@@ -30,6 +30,8 @@ var MSG = {
   "c_ExamplesMenu": "Nümunələr ...",
   "c_Examples": "Nümunələr",
   "c_Algorithms": "Alqoritmlər",
+t_basic : "Əsas",
+t_advanced : "Qabaqcıl",
   "t_saveTooltip": "Proqramı kompüterə yadda saxlayın",
   "t_readTooltip": "Kompüterdən proqramı yükləyin",
   "warn_entername": "MINECRAFT oyunçu adı sağ üst sahədə yoxdur",

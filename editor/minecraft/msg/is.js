@@ -30,6 +30,8 @@ var MSG = {
   "c_ExamplesMenu": "Dæmi ...",
   "c_Examples": "Dæmi",
   "c_Algorithms": "Algoritmar",
+t_basic : "Grunn",
+t_advanced : "Ítarlegt",
   "t_saveTooltip": "Vista forritið á tölvunni",
   "t_readTooltip": "Hlaða forriti frá tölvunni",
   "warn_entername": "Minecraft leikmannanafnið vantar í hægra efri reitinn",

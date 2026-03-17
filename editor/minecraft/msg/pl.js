@@ -29,6 +29,8 @@ var MSG = {
   "c_ExamplesMenu": "Przykłady ...",
   "c_Examples": "Przykłady",
   "c_Algorithms": "Algorytmy",
+t_basic : "Podstawowy",
+t_advanced : "Zaawansowany",
   "t_saveTooltip": "Zapisz program na komputerze",
   "t_readTooltip": "Wczytaj program z komputera",
   "warn_entername": "Brak nazwy gracza Minecraft w prawym górnym polu",

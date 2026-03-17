@@ -37,6 +37,8 @@ var MSG = {
   c_ExamplesMenu: "דוגמאות ...",
   c_Examples: "דוגמאות",
   c_Algorithms: "אלגוריתמים",
+t_basic : "בסיסי",
+t_advanced : "מתקדם",
   t_saveTooltip: "שמור את התוכנית במחשב",
   t_readTooltip: "טען תוכנית מהמחשב",
   warn_entername: "שם השחקן ב-MINECRAFT חסר בשדה העליון הימני",

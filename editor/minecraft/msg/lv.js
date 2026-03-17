@@ -30,6 +30,8 @@ var MSG = {
   "c_ExamplesMenu" : "Piemēri ...",
   "c_Examples" : "Piemēri",
   "c_Algorithms" : "Algoritmi",
+t_basic : "Pamata",
+t_advanced : "Padziļināts",
   "t_saveTooltip" : "Saglabāt programmu datorā",
   "t_readTooltip" : "Ielādēt programmu no datora",
   "warn_entername" :  "Minecraft spēlētāja vārds trūkst augšējajā labajā laukā",

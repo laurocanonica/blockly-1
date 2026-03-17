@@ -30,6 +30,8 @@ var MSG = {
   "c_ExamplesMenu": "Példák ...",
   "c_Examples": "Példák",
   "c_Algorithms": "Algoritmusok",
+t_basic : "Alap",
+t_advanced : "Haladó",
   "t_saveTooltip": "A program mentése a számítógépre",
   "t_readTooltip": "Program betöltése a számítógépről",
   "warn_entername": "A MINECRAFT JÁTÉKOS NEVE hiányzik a jobb felső mezőben",

@@ -30,6 +30,8 @@ var MSG = {
   c_ExamplesMenu : "예제 ...",
   c_Examples : "예제",
   c_Algorithms : "알고리즘",
+t_basic : "기본",
+t_advanced : "고급",
   t_saveTooltip : "컴퓨터에 프로그램 저장",
   t_readTooltip : "컴퓨터에서 프로그램 불러오기",
   warn_entername :  "오른쪽 상단 필드에 마인크래프트 플레이어 이름이 누락되어 있습니다",

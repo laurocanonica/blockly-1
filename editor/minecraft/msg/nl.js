@@ -29,6 +29,8 @@ var MSG = {
   "c_ExamplesMenu": "Voorbeelden ...",
   "c_Examples": "Voorbeelden",
   "c_Algorithms": "Algoritmes",
+t_basic : "Basis",
+t_advanced : "Geavanceerd",
   "t_saveTooltip": "Sla het programma op op de computer.",
   "t_readTooltip": "Laad een programma vanaf de computer.",
   "warn_entername": "De MINECRAFT-spelernaam ontbreekt in het veld rechtsboven.",

@@ -29,6 +29,8 @@ var MSG = {
   "c_ExamplesMenu": "Primeri ...",
   "c_Examples": "Primeri",
   "c_Algorithms": "Algoritmi",
+t_basic : "Основно",
+t_advanced : "Напредно",
   "t_saveTooltip": "Sačuvaj program na računaru",
   "t_readTooltip": "Učitaj program sa računara",
   "warn_entername": "Minecraft korisničko ime nedostaje u polju na desnoj gornjoj strani",

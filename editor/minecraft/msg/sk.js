@@ -30,6 +30,8 @@ var MSG = {
   c_ExamplesMenu : "Príklady ...",
   c_Examples : "Príklady",
   c_Algorithms : "Algoritmy",
+t_basic : "Základný",
+t_advanced : "Pokročilý",
   t_saveTooltip : "Uložiť program do počítača",
   t_readTooltip : "Načítať program zo počítača",
   warn_entername :  "MENO HRÁČA MINECRAFTU chýba v pravom hornom poli",

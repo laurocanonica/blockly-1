@@ -30,6 +30,8 @@ var MSG = {
   c_ExamplesMenu : "Ví dụ ...",
   c_Examples : "Ví dụ",
   c_Algorithms : "Thuật toán",
+t_basic : "Cơ bản",
+t_advanced : "Nâng cao",
   t_saveTooltip : "Lưu chương trình vào máy tính",
   t_readTooltip : "Tải một chương trình từ máy tính",
   warn_entername :  "Tên người chơi Minecraft bị thiếu ở trường ở góc trên bên phải",

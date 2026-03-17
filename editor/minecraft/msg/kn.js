@@ -29,6 +29,8 @@ var MSG = {
   "c_ExamplesMenu": "ಉದಾಹರಣೆಗಳು ...",
   "c_Examples": "ಉದಾಹರಣೆಗಳು",
   "c_Algorithms": "ಅಲ್ಗೋರಿದಮ್‌ಗಳು",
+t_basic : "ಮೂಲ",
+t_advanced : "ಮುನ್ನಡೆದ",
   "t_saveTooltip": "ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ ಪ್ರೋಗ್ರಾಂ ಉಳಿಸಿ",
   "t_readTooltip": "ಕಂಪ್ಯೂಟರ್‌ನಿಂದ ಪ್ರೋಗ್ರಾಂ ಲೋಡ್ ಮಾಡಿ",
   "warn_entername": "Minecraft ಆಟಗಾರನ ಹೆಸರನ್ನು ಮೇಲ್ಭಾಗದ ಬಲದ ಫೀಲ್ಡಿನಲ್ಲಿ ಕಾಣಿಸಲಾಗಿಲ್ಲ",

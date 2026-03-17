@@ -30,6 +30,8 @@ var MSG = {
   "c_ExamplesMenu": "Exempel ...",
   "c_Examples": "Exempel",
   "c_Algorithms": "Algoritmer",
+t_basic : "Grund",
+t_advanced : "Avancerad",
   "t_saveTooltip": "Spara programmet på datorn",
   "t_readTooltip": "Läs in ett program från datorn",
   "warn_entername": "MINECRAFT-spelarnamnet saknas i fältet högst upp till höger",

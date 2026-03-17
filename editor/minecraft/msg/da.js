@@ -30,6 +30,8 @@ var MSG = {
   c_ExamplesMenu : "Eksempler ...",
   c_Examples : "Eksempler",
   c_Algorithms : "Algoritmer",
+t_basic : "Grundlæggende",
+t_advanced : "Avanceret",
   t_saveTooltip : "Gem programmet på computeren",
   t_readTooltip : "Indlæs et program fra computeren",
   warn_entername :  "MINECRAFT SPILLERNAVN mangler i feltet øverst til højre",

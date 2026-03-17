@@ -30,6 +30,8 @@ var MSG = {
   "c_ExamplesMenu": "Mga Halimbawa ...",
   "c_Examples": "Mga Halimbawa",
   "c_Algorithms": "Mga Algorithm",
+t_basic : "Pangunahing",
+t_advanced : "Advanced",
   "t_saveTooltip": "I-save ang program sa computer",
   "t_readTooltip": "I-load ang isang programa mula sa computer",
   "warn_entername": "Nawawala ang MINECRAFT PLAYER NAME sa kanang itaas na patlang",

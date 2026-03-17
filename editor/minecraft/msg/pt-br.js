@@ -30,6 +30,8 @@ var MSG = {
   c_ExamplesMenu : "Exemplos ...",
   c_Examples : "Exemplos",
   c_Algorithms : "Algoritmos",
+t_basic : "Básico",
+t_advanced : "Avançado",
   t_saveTooltip : "Salvar o programa no computador",
   t_readTooltip : "Carregar um programa do computador",
   warn_entername :  "O NOME DO JOGADOR DO MINECRAFT está ausente no campo do canto superior direito",

@@ -29,6 +29,8 @@ var MSG = {
   "c_ExamplesMenu": "Прыклады ...",
   "c_Examples": "Прыклады",
   "c_Algorithms": "Алгарытмы",
+t_basic : "Базавы",
+t_advanced : "Прасунуты",
   "t_saveTooltip": "Захаваць праграму на кампутары",
   "t_readTooltip": "Загрузіць праграму з кампутара",
   "warn_entername": "У полі зверху справа адсутня імя гульца Minecraft",

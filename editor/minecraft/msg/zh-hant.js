@@ -30,6 +30,8 @@ var MSG = {
   "c_ExamplesMenu" : "範例 ...",
   "c_Examples" : "範例",
   "c_Algorithms" : "演算法",
+t_basic : "基礎",
+t_advanced : "進階",
   "t_saveTooltip" : "將程式儲存到電腦上",
   "t_readTooltip" : "從電腦載入程式",
   "warn_entername" :  "右上方欄位中缺少 Minecraft 玩家名稱",

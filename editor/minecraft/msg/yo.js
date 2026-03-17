@@ -30,6 +30,8 @@ var MSG = {
   "c_ExamplesMenu": "Àpẹẹrẹ ...",
   "c_Examples": "Àpẹẹrẹ",
   "c_Algorithms": "Algoritimu",
+t_basic : "Ipilẹ",
+t_advanced : "To ti ni ilọsiwaju",
   "t_saveTooltip": "Fipamọ eto naa sori kọmputa",
   "t_readTooltip": "Gba eto kan lati kọmputa",
   "warn_entername": "Orúkọ òṣere Minecraft ti o wa ní apá òtún loke kò sí",

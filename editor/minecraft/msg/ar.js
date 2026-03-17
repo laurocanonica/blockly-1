@@ -30,6 +30,8 @@ var MSG = {
   c_ExamplesMenu : "أمثلة ...",
   c_Examples : "أمثلة",
   c_Algorithms : "الخوارزميات",
+t_basic : "أساسي",
+t_advanced : "متقدم",
   t_saveTooltip : "احفظ البرنامج على الكمبيوتر",
   t_readTooltip : "تحميل برنامج من الكمبيوتر",
   warn_entername :  "اسم لاعب ماين كرافت مفقود في الحقل العلوي الأيمن",

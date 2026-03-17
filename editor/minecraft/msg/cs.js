@@ -30,6 +30,8 @@ var MSG = {
   "c_ExamplesMenu" : "Příklady ...",
   "c_Examples" : "Příklady",
   "c_Algorithms" : "Algoritmy",
+t_basic : "Základní",
+t_advanced : "Pokročilý",
   "t_saveTooltip" : "Uložte program do počítače",
   "t_readTooltip" : "Načíst program z počítače",
   "warn_entername" :  "JMÉNO HRÁČE MINECRAFT chybí v pravém horním poli",

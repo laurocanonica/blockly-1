@@ -30,6 +30,8 @@ var MSG = {
   "c_ExamplesMenu" : "مثال‌ها ...",
   "c_Examples" : "مثال‌ها",
   "c_Algorithms" : "الگوریتم‌ها",
+t_basic : "پایه",
+t_advanced : "پیشرفته",
   "t_saveTooltip" : "ذخیرهٔ برنامه روی کامپیوتر.",
   "t_readTooltip" : "بارگیری برنامه از کامپیوتر",
   "warn_entername" :  "نام بازیکن Minecraft در فیلد بالای سمت راست وجود ندارد.",

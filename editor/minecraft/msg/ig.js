@@ -30,6 +30,8 @@ var MSG = {
   "c_ExamplesMenu" : "Ihe nlere ...",
   "c_Examples" : "Nlere",
   "c_Algorithms" : "Algọritm",
+t_basic : "Isi",
+t_advanced : "Elu",
   "t_saveTooltip" : "Chekwaa mmemme na kọmputa",
   "t_readTooltip" : "Bulite mmemme site na kọmputa",
   "warn_entername" :  "Aha onye egwuregwu MINECRAFT adịghị na ubi dị n'elu aka nri",

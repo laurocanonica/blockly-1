@@ -30,6 +30,8 @@ var MSG = {
   c_ExamplesMenu : "Contoh ...",
   c_Examples : "Contoh",
   c_Algorithms : "Algoritma",
+t_basic : "Asas",
+t_advanced : "Lanjutan",
   t_saveTooltip : "Simpan program di komputer",
   t_readTooltip : "Buka program dari komputer",
   warn_entername :  "NAMA PEMAIN MINECRAFT hilang dalam medan di kanan atas",

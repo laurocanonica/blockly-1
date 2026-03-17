@@ -30,6 +30,8 @@ var MSG = {
   c_ExamplesMenu : "Exemples ...",
   c_Examples : "Exemples",
   c_Algorithms : "Algorithmes",
+t_basic : "Basique",
+t_advanced : "Avancé",
   t_saveTooltip : "Enregistrer le programme sur l'ordinateur",
   t_readTooltip : "Charger un programme depuis l'ordinateur",
   warn_entername :  "Le NOM DU JOUEUR MINECRAFT est manquant dans le champ en haut à droite",

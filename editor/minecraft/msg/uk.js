@@ -30,6 +30,8 @@ var MSG = {
   "c_ExamplesMenu": "Приклади ...",
   "c_Examples": "Приклади",
   "c_Algorithms": "Алгоритми",
+t_basic : "Базовий",
+t_advanced : "Просунутий",
   "t_saveTooltip": "Зберегти програму на комп’ютері",
   "t_readTooltip": "Завантажити програму з комп’ютера",
   "warn_entername": "Ім'я гравця Minecraft відсутнє у верхньому правому полі",

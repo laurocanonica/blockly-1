@@ -29,6 +29,8 @@ var MSG = {
   "c_ExamplesMenu": "Examples ...",
   "c_Examples": "ຕົວຢ່າງ",
   "c_Algorithms": "ອິລະທິມ",
+t_basic : "ພື້ນຖານ",
+t_advanced : "ຂັ້ນສູງ",
   "t_saveTooltip": "ບັນທຶກໂປຣກຣຳໃນຄອມພິວເຕີ",
   "t_readTooltip": "ເຄື່ອນໄຫວໂປຣກຣຳຈາກຄອມພິວເຕີ",
   "warn_entername": "The MINECRAFT PLAYER NAME is missing in the top right field",

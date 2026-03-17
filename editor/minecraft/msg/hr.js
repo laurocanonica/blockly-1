@@ -29,6 +29,8 @@ var MSG = {
   "c_ExamplesMenu": "Primjeri ...",
   "c_Examples": "Primjeri",
   "c_Algorithms": "Algoritmi",
+t_basic : "Osnovno",
+t_advanced : "Napredno",
   "t_saveTooltip": "Spremi program na računalo",
   "t_readTooltip": "Učitaj program s računala",
   "warn_entername": "IME IGRAČA MINECRAFTA nedostaje u gornjem desnom polju",

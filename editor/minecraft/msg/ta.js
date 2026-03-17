@@ -30,6 +30,8 @@ var MSG = {
   "c_ExamplesMenu": "உதாரணங்கள் ...",
   "c_Examples": "உதுள்ளதாக",
   "c_Algorithms": "அல்கொரிதங்கள்",
+t_basic : "அடிப்படை",
+t_advanced : "மேம்பட்ட",
   "t_saveTooltip": "கணினியில் நிரலை சேமிக்க",
   "t_readTooltip": "கணினியில் இருந்து நிரலை ஏற்றுக",
   "warn_entername": "மேல்தலைப்பின் வலது புலத்தில் Minecraft பயனர் பெயர் காணப்படவில்லை",

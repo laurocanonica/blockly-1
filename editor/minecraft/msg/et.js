@@ -30,6 +30,8 @@ var MSG = {
   c_ExamplesMenu : "Näited ...",
   c_Examples : "Näited",
   c_Algorithms : "Algoritmid",
+t_basic : "Põhi",
+t_advanced : "Edasijõudnud",
   t_saveTooltip : "Salvesta programm arvutisse",
   t_readTooltip : "Laadi programm arvutist",
   warn_entername :  "MINECRAFTI MÄNGIJA NIMI puudub paremas ülaosas asuvas väljas",

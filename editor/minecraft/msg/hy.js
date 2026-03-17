@@ -29,6 +29,8 @@ var MSG = {
   "c_ExamplesMenu": "Օրինակներ ...",
   "c_Examples": "Օրինակներ",
   "c_Algorithms": "Ալգորիթմներ",
+t_basic : "Հիմնական",
+t_advanced : "Առաջադեմ",
   "t_saveTooltip": "Ծրագիրը պահպանել համակարգչի վրա",
   "t_readTooltip": "Ծրագիր բեռնել համակարգչից",
   "warn_entername": "Minecraft խաղացողի անունը բացակայում է վերին աջ դաշտում",

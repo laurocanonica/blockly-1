@@ -460,6 +460,33 @@ Code.checkAllGeneratorFunctionsDefined = function(generator) {
   return valid;
 };
 
+Code.updateVersionParameter = function (newVersion) { 
+    var search = window.location.search.substring(1); // Get query string without '?'
+    var params = {};
+    var pairs = search.split('&');
+
+    // Parse existing parameters
+    for (var i = 0; i < pairs.length; i++) {
+        var pair = pairs[i].split('=');
+        params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+    }
+
+    // Update or add the version parameter
+    params.version = newVersion;
+
+    // Rebuild the query string
+    var newPairs = [];
+    for (var key in params) {
+        if (params.hasOwnProperty(key)) {
+            newPairs.push(encodeURIComponent(key) + '=' + encodeURIComponent(params[key]));
+        }
+    }
+
+    // Update the URL
+    window.location.search = '?' + newPairs.join('&');
+}
+
+
 /**
  * Initialize Blockly.  Called on page load.
  */
@@ -473,7 +500,7 @@ Code.init = function() {
 	
 	// On change, reload with selected version
 	  versionSelect.addEventListener('change', function () {
-	    window.location.search = '?version=' + this.value;
+		Code.updateVersionParameter(this.value);
 	  });
 	
 	
@@ -697,7 +724,25 @@ Code.initLanguage = function() {
   document.getElementById('saveButton').title = MSG['t_saveTooltip'];
   document.getElementById('runButton').title = MSG['runTooltip'];
   document.getElementById('trashButton').title = MSG['trashTooltip'];
+  
+  // inject version option
+  Code.addVersionSelect();
 };
+
+Code.addVersionSelect= function()
+{
+	var options = [
+	    { value: 'ver1', text: MSG['t_basic'] },
+	    { value: 'ver2', text: MSG['t_advanced'] }
+	];
+
+	var select = document.getElementById('versionSelect');
+
+	options.forEach(function(option) {
+	    select.add(new Option(option.text, option.value));
+	});
+	select.value = Code.getStringParamFromUrl('version', 'ver1');
+}
 
 /**
  * Execute the user's code.

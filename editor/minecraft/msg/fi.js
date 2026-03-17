@@ -30,6 +30,8 @@ var MSG = {
   "c_ExamplesMenu" : "Esimerkit ...",
   "c_Examples" : "Esimerkit",
   "c_Algorithms" : "Algoritmit",
+t_basic : "Perus",
+t_advanced : "Edistynyt",
   "t_saveTooltip" : "Tallenna ohjelma tietokoneelle",
   "t_readTooltip" : "Lataa ohjelma tietokoneelta",
   "warn_entername" :  "Minecraft-pelaajan nimi puuttuu yläoikeassa kentässä",

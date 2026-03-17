@@ -30,6 +30,8 @@ var MSG = {
   "c_ExamplesMenu": "Примери ...",
   "c_Examples": "Примери",
   "c_Algorithms": "Алгоритми",
+t_basic : "Основно",
+t_advanced : "Напредно",
   "t_saveTooltip": "Зачувај ја програмата на компјутерот",
   "t_readTooltip": "Вчитај програма од компјутерот",
   "warn_entername": "Името на играчот во Minecraft недостасува во полето во горниот десен агол",

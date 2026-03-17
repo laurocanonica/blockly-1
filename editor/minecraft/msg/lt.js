@@ -30,6 +30,8 @@ var MSG = {
   "c_ExamplesMenu": "Pavyzdžiai ...",
   "c_Examples": "Pavyzdžiai",
   "c_Algorithms": "Algoritmai",
+t_basic : "Pagrindinis",
+t_advanced : "Pažengęs",
   "t_saveTooltip": "Išsaugoti programą kompiuteryje",
   "t_readTooltip": "Įkelti programą iš kompiuterio",
   "warn_entername": "MINECRAFT žaidėjo vardas trūksta dešiniajame viršutiniame lauke",

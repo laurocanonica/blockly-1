@@ -29,6 +29,8 @@ var MSG = {
   "c_ExamplesMenu": "उदाहरण ...",
   "c_Examples": "उदाहरण",
   "c_Algorithms": "एल्गोरिदम",
+t_basic : "मूल",
+t_advanced : "उन्नत",
   "t_saveTooltip": "कंप्यूटर पर कार्यक्रम सहेजें",
   "t_readTooltip": "कंप्यूटर से कार्यक्रम लोड करें",
   "warn_entername": "ऊपर दाईं ओर फ़ील्ड में माइनक्राफ्ट प्लेयर नाम गायब है",

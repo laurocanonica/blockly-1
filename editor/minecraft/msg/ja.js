@@ -29,6 +29,8 @@ var MSG = {
   "c_ExamplesMenu": "例 ...",
   "c_Examples": "例",
   "c_Algorithms": "アルゴリズム",
+t_basic : "基本",
+t_advanced : "上級",
   "t_saveTooltip": "プログラムをコンピュータに保存します",
   "t_readTooltip": "コンピュータからプログラムを読み込みます",
   "warn_entername": "右上のフィールドに Minecraft のプレイヤー名が入力されていません",

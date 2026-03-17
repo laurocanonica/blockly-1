@@ -29,6 +29,8 @@ var MSG = {
   "c_ExamplesMenu": "ตัวอย่าง ...",
   "c_Examples": "ตัวอย่าง",
   "c_Algorithms": "อัลกอริทึม",
+t_basic : "พื้นฐาน",
+t_advanced : "ขั้นสูง",
   "t_saveTooltip": "บันทึกโปรแกรมลงในคอมพิวเตอร์",
   "t_readTooltip": "โหลดโปรแกรมจากคอมพิวเตอร์",
   "warn_entername": "ชื่อผู้เล่น Minecraft หายไปในช่องด้านบนขวา",

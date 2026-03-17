@@ -30,6 +30,8 @@ var MSG = {
   "c_ExamplesMenu": "Exemple ...",
   "c_Examples": "Exemple",
   "c_Algorithms": "Algoritmi",
+t_basic : "De bază",
+t_advanced : "Avansat",
   "t_saveTooltip": "Salvează programul pe calculator",
   "t_readTooltip": "Încarcă un program de pe calculator",
   "warn_entername": "Numele jucătorului Minecraft lipsește în câmpul din dreapta sus",

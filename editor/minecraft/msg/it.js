@@ -31,6 +31,8 @@ var MSG = {
 	  c_ExamplesMenu : "Esempi ...",
 	  c_Examples : "Esempi",
 	  c_Algorithms : "Algoritmi",
+t_basic : "Base",
+t_advanced : "Avanzato",
 
 
 	  c_Operators : "Solo per OP",

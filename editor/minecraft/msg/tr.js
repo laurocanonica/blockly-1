@@ -30,6 +30,8 @@ var MSG = {
   "c_ExamplesMenu" : "Örnekler ...",
   "c_Examples" : "Örnekler",
   "c_Algorithms" : "Algoritmalar",
+t_basic : "Temel",
+t_advanced : "İleri",
   "t_saveTooltip" : "Programı bilgisayara kaydet.",
   "t_readTooltip" : "Bilgisayardan bir program yükle.",
   "warn_entername" :  "MINECRAFT OYUNCU ADI sağ üst alanda eksik",

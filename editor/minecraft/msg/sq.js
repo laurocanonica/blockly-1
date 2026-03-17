@@ -30,6 +30,8 @@ var MSG = {
   "c_ExamplesMenu" : "Shembujt ...",
   "c_Examples" : "Shembujt",
   "c_Algorithms" : "Algoritmet",
+t_basic : "Bazë",
+t_advanced : "Avancuar",
   "t_saveTooltip" : "Ruaj programin në kompjuterin",
   "t_readTooltip" : "Lexo një program nga kompjuteri",
   "warn_entername" :  "Emri i lojtarit të Minecraft-it mungon në fushën e sipërme të djathtë.",
