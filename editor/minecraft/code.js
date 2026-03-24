@@ -1508,6 +1508,7 @@ function handleShapeDrawing(pressedKey, selected) {
         } else if (pressedKey == 'f') {
             fillBlock(coordStart, coordEnd, mainList, id);
         }
+		currentlySelectedDrawColBlock=getDrawingBlockByCoordinate(mainList, coordEnd.x, coordEnd.y); // the block has been regenerated. reassign it
     }
 }
 
@@ -1558,8 +1559,8 @@ function setDrawingBlock(selected, key) {
 	selected.type='m_draw_'+key;
 	//alert(selected.type);
 		currentlySelectedDrawColBlock=insertDrawingBlock(selected)
-lastSelectedDrawColBlock=null; // global to keep track of the last selection
-lastSelectedDrawColBlockColour=null;
+//lastSelectedDrawColBlock=null; // global to keep track of the last selection
+//lastSelectedDrawColBlockColour=null;
 		//lastSelectedDrawColBlockColour=lastSelectedDrawColBlock.getColour()
 	    selected.type=oldType;
 		deleteDrawingBlock(selected)
@@ -1793,7 +1794,7 @@ function blockClickedEventHandler(event){
 	  if (event.type == 'selected') {
 		  var selected=Blockly.selected;
 		  if(selected!=null && selected.type.startsWith('m_draw_')) {
-			  if(lastSelectedDrawColBlock!=null){
+		      if(lastSelectedDrawColBlock!=null && lastSelectedDrawColBlock.workspace !=null){
 				  lastSelectedDrawColBlock.setColour(lastSelectedDrawColBlockColour);				  
 			  }
 			  lastSelectedDrawColBlock=currentlySelectedDrawColBlock;
